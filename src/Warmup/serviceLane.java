@@ -17,7 +17,7 @@ public class serviceLane {
 			int i=Integer.parseInt(str[0]);
 			int j=Integer.parseInt(str[1]);
 			int min=3;
-			for (int j2 = i; j2 < j; j2++) {
+			for (int j2 = i; j2 <=j; j2++) {
 				if(min>Integer.parseInt(widthArray[j2]))
 						min=Integer.parseInt(widthArray[j2]);
 			}
