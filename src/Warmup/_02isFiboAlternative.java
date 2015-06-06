@@ -4,7 +4,7 @@ package Warmup;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class _2isFiboAlternative {
+public class _02isFiboAlternative {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		Long noOfTestCases=Long.parseLong(br.readLine());

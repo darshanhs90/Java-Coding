@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class serviceLane {
+public class _07serviceLane {
 	public static void main(String[] args) throws IOException {
 		BufferedReader scanner=new BufferedReader(new InputStreamReader(System.in));
 		String firstLine=scanner.readLine();

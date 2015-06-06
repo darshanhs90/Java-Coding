@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class _1findDigits {
+public class _01findDigits {
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
 		int noOfTests=Integer.parseInt(bufferedReader.readLine());
