@@ -3,11 +3,8 @@ package Warmup;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.BitSet;
-
-import javax.print.attribute.standard.MediaSize.Other;
 
 public class _12acmICPCTeam {
 	public static void main(String[] args) throws  IOException {
@@ -17,9 +14,6 @@ public class _12acmICPCTeam {
 		int N=Integer.parseInt(flArray[0]);
 		int M=Integer.parseInt(flArray[1]);
 		ArrayList<BitSet> peopleArray=new ArrayList<BitSet>();
-		/*BigInteger bigInteger=new BigInteger("10101010101010101010101010101010111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111");
-		System.out.println(bigInteger);
-		*/
 		for (int noOfTestCases = 0; noOfTestCases < N; noOfTestCases++) {
 			String str=scanner.readLine();
 			BitSet bitSet=new BitSet(M+1);
@@ -44,11 +38,22 @@ public class _12acmICPCTeam {
 				outputArray.add(op);
 			}
 		}
-		for (int i = 0; i < outputArray.size(); i++) {
-			
-		}
-		ArrayList<BitSet> arrayList=new ArrayList<BitSet>();
+		int max=0,counter=0;
 		
+		for (int i = 0; i < outputArray.size(); i++) {
+			BitSet opBitset=outputArray.get(i);
+			if(opBitset.cardinality()>max)
+			{
+				max=opBitset.cardinality();
+				counter=1;
+			}
+			else if(opBitset.cardinality()==max)
+			{
+				counter++;
+			}
+		}
+		System.out.println(max);
+		System.out.println(counter);
 		
 	}
 }
