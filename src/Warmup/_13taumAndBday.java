@@ -7,25 +7,34 @@ import java.io.InputStreamReader;
 public class _13taumAndBday {
 	public static void main(String[] args) throws IOException {
 		BufferedReader scanner=new BufferedReader(new InputStreamReader(System.in));
-		int T=Integer.parseInt(scanner.readLine());
-		for (int noOfTestCases = 0; noOfTestCases < T; noOfTestCases++) {
+		long T=Long.parseLong(scanner.readLine());
+		for (long noOfTestCases = 0; noOfTestCases < T; noOfTestCases++) {
 			String flArray[]=scanner.readLine().split(" ");
-			int noOfBlackGifts=Integer.parseInt(flArray[0]);
-			int noOfWhiteGifts=Integer.parseInt(flArray[1]);
+			long noOfBlackGifts=Integer.parseInt(flArray[0]);
+			long noOfWhiteGifts=Integer.parseInt(flArray[1]);
 			String slArray[]=scanner.readLine().split(" ");
-			int costOfBlackGift=Integer.parseInt(slArray[0]);
-			int costOfWhiteGift=Integer.parseInt(slArray[1]);
-			int costOfConversion=Integer.parseInt(slArray[2]);
+			long costOfBlackGift=Integer.parseInt(slArray[0]);
+			long costOfWhiteGift=Integer.parseInt(slArray[1]);
+			long costOfConversion=Integer.parseInt(slArray[2]);
 			if(costOfBlackGift>(costOfWhiteGift+costOfConversion))
 			{
-				//convert white to black and buy black directly
+				//convert white to black and buy white directly
+				long finalCostOfWhiteGifts=costOfWhiteGift*noOfWhiteGifts;
+				long finalCostOfBlackGifts=(costOfWhiteGift+costOfConversion)*noOfBlackGifts;
+				System.out.println(finalCostOfBlackGifts+finalCostOfWhiteGifts);
 			}
 			else if(costOfWhiteGift>(costOfBlackGift+costOfConversion))
 			{
-				//convert black to white and buy white directly
+				//convert black to white and buy black directly
+				long finalCostOfWhiteGifts=(costOfBlackGift+costOfConversion)*noOfWhiteGifts;
+				long finalCostOfBlackGifts=(costOfBlackGift)*noOfBlackGifts;
+				System.out.println(finalCostOfBlackGifts+finalCostOfWhiteGifts);
 			}
 			else{
-				//but directly
+				//buy directly
+				long finalCostOfWhiteGifts=(costOfWhiteGift)*noOfWhiteGifts;
+				long finalCostOfBlackGifts=(costOfBlackGift)*noOfBlackGifts;
+				System.out.println(finalCostOfBlackGifts+finalCostOfWhiteGifts);
 			}
 			
 		}
