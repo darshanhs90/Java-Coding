@@ -12,7 +12,12 @@ public class _14sherlockAndSquares {
 			String sline[]=scanner.readLine().split(" ");
 			long A=Long.parseLong(sline[0]);
 			long B=Long.parseLong(sline[1]);
-			
+			long count=0;
+			for (long i = A; i <=B ; i++) {
+				if(Math.ceil(Math.sqrt(i))==Math.floor(Math.sqrt(i)))
+						count++;
+			}
+			System.out.println(count);
 			
 		}
 	}
