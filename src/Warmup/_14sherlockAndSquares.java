@@ -13,12 +13,21 @@ public class _14sherlockAndSquares {
 			long A=Long.parseLong(sline[0]);
 			long B=Long.parseLong(sline[1]);
 			long count=0;
-			for (long i = A; i <=B ; i++) {
-				if(Math.ceil(Math.sqrt(i))==Math.floor(Math.sqrt(i)))
-						count++;
+			long startSquare=(long) Math.floor(Math.sqrt(A));
+			if(Math.ceil(Math.sqrt(A))==startSquare)
+				count++;
+			long num=startSquare+1;
+			while(true){
+				long check=num*num;
+				if(check>B)
+					break;
+				else{
+					num++;
+					count++;
+				}
 			}
 			System.out.println(count);
-			
+
 		}
 	}
 }
