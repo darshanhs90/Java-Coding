@@ -10,13 +10,23 @@ public class _13taumAndBday {
 		int T=Integer.parseInt(scanner.readLine());
 		for (int noOfTestCases = 0; noOfTestCases < T; noOfTestCases++) {
 			String flArray[]=scanner.readLine().split(" ");
-			int B=Integer.parseInt(flArray[0]);
-			int W=Integer.parseInt(flArray[1]);
+			int noOfBlackGifts=Integer.parseInt(flArray[0]);
+			int noOfWhiteGifts=Integer.parseInt(flArray[1]);
 			String slArray[]=scanner.readLine().split(" ");
-			int X=Integer.parseInt(flArray[0]);
-			int Y=Integer.parseInt(flArray[1]);
-			int Z=Integer.parseInt(flArray[2]);
-			
+			int costOfBlackGift=Integer.parseInt(slArray[0]);
+			int costOfWhiteGift=Integer.parseInt(slArray[1]);
+			int costOfConversion=Integer.parseInt(slArray[2]);
+			if(costOfBlackGift>(costOfWhiteGift+costOfConversion))
+			{
+				//convert white to black and buy black directly
+			}
+			else if(costOfWhiteGift>(costOfBlackGift+costOfConversion))
+			{
+				//convert black to white and buy white directly
+			}
+			else{
+				//but directly
+			}
 			
 		}
 	}
