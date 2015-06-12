@@ -3,6 +3,7 @@ package Warmup;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class _15sherlockAndGCD {
 	public static void main(String[] args) throws IOException {
@@ -15,9 +16,18 @@ public class _15sherlockAndGCD {
 			for (int i = 0; i < elementArray.length; i++) {
 				elementArray[i]=Long.parseLong(strngArray[i]);
 			}
-			//create subsets
-			//check for divisibility condition for x>1 within the elements
-			//3rd condition?
-		}
+			Arrays.sort(elementArray);
+			long divisor=elementArray[0];
+			long count=0;
+			if(divisor!=1)
+			{
+				//check if there is a gcd
+			}
+			if(count==elementArray.length-1){
+				System.out.println("NO");
+			}
+			else{
+				System.out.println("YES");
+			}		}
 	}
 }
