@@ -9,8 +9,15 @@ public class _15sherlockAndGCD {
 		BufferedReader scanner=new BufferedReader(new InputStreamReader(System.in));
 		long T=Long.parseLong(scanner.readLine());
 		for (long noOfTestCases = 0; noOfTestCases < T; noOfTestCases++) {
-			
-
+			long arraySize=Long.parseLong(scanner.readLine());
+			long elementArray[]=new long[(int) arraySize];
+			String strngArray[]=scanner.readLine().split(" ");
+			for (int i = 0; i < elementArray.length; i++) {
+				elementArray[i]=Long.parseLong(strngArray[i]);
+			}
+			//create subsets
+			//check for divisibility condition for x>1 within the elements
+			//3rd condition?
 		}
 	}
 }
