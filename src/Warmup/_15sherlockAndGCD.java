@@ -21,13 +21,12 @@ public class _15sherlockAndGCD {
 			long count=0;
 			if(divisor!=1)
 			{
-				//check if there is a gcd
+				//check if there is a gcd,euclids algorithm
+				//no gcd,print no,else yes
+				
 			}
-			if(count==elementArray.length-1){
-				System.out.println("NO");
-			}
-			else{
-				System.out.println("YES");
-			}		}
+
+
+		}
 	}
 }
