@@ -18,6 +18,6 @@ public class _17fillingJars {
 			long noOfCandies=Long.parseLong(operationsLine[2]);
 			total+=(b-a+1)*noOfCandies;
 		}
-		System.out.println((int)Math.floor(total/N));
+		System.out.println((long)Math.floor(total/N));
 	}
 }
