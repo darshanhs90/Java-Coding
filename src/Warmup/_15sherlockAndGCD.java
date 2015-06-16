@@ -23,10 +23,35 @@ public class _15sherlockAndGCD {
 			{
 				//check if there is a gcd,euclids algorithm
 				//no gcd,print no,else yes
-				
+				long r=elementArray[0];
+				for (int i = 1; i < elementArray.length; i++) {
+					r=gcd(r,elementArray[i]);
+				}
+				if(r==1)
+					System.out.println("YES");
+				else
+					System.out.println("NO");
 			}
+			else
+				System.out.println("YES");
 
 
 		}
+	}
+	
+	
+	public static long gcd(long m,long n){
+		
+		long r=m%n;
+		//System.out.println(r);
+		if(r==0)
+			return n;
+		else
+		{
+			m=n;
+			n=r;
+			return gcd(m,n);
+		}
+		
 	}
 }
