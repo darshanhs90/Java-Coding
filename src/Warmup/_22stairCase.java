@@ -9,7 +9,7 @@ public class _22stairCase {
 		int N=Integer.parseInt(scanner.readLine());
 		String hashString="";
 		String emptyString="";
-		
+
 		for (int i = 0; i < N; i++) {
 			hashString+="#";
 			emptyString+=" ";
