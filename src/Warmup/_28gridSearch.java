@@ -37,7 +37,7 @@ public class _28gridSearch {
 					while(nextIndex!=-1 && !patternPresent){
 						int m=0;
 						for (int k1 = j; k1 < j+r; k1++) {
-							if(gridList.get(k1).substring(firstIndex, firstIndex+c).equals(patternList.get(m))){
+							if(gridList.get(k1).substring(nextIndex, nextIndex+c).equals(patternList.get(m))){
 								m++;
 							}
 							else{
@@ -49,7 +49,7 @@ public class _28gridSearch {
 							patternPresent=true;
 							break;
 						}
-						nextIndex=gridList.get(j).indexOf(patternLine, firstIndex+1);
+						nextIndex=gridList.get(j).indexOf(patternLine, nextIndex+1);
 					}
 				}
 			}
