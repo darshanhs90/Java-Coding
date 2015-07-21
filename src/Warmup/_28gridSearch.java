@@ -17,7 +17,7 @@ public class _28gridSearch {
 			for (int j = 0; j < R; j++) {
 				gridList.add(scanner.readLine());
 			}	
-			
+
 			String nextLineArray[]=scanner.readLine().split(" ");
 			int r=Integer.parseInt(nextLineArray[0]);
 			int c=Integer.parseInt(nextLineArray[1]);
@@ -25,28 +25,36 @@ public class _28gridSearch {
 			for (int j = 0; j < r; j++) {
 				patternList.add(scanner.readLine());
 			}	
-			
+
 			for (int j = 0; j < gridList.size(); j++) {
+				if(patternPresent){
+					break;
+				}
 				String patternLine=patternList.get(0);
 				if(gridList.get(j).contains(patternLine)){//we got the first match
-					gridList.get(j).indexOf(patternLine);
-					
+					int firstIndex=gridList.get(j).indexOf(patternLine);
+					int nextIndex=firstIndex;
+					while(nextIndex!=-1 && !patternPresent){
+						int m=0;
+						for (int k1 = j; k1 < j+r; k1++) {
+							if(gridList.get(k1).substring(firstIndex, firstIndex+c).equals(patternList.get(m))){
+								m++;
+							}
+							else{
+								break;
+							}
+						}
+						if(m==r){
+							System.out.println("YES");
+							patternPresent=true;
+							break;
+						}
+						nextIndex=gridList.get(j).indexOf(patternLine, firstIndex+1);
+					}
 				}
-				
 			}
-			
-			
-			
-			
-			
-			if(patternPresent)
-			{
-				System.out.println("YES");
-			}
-			else{
+			if(!patternPresent)
 				System.out.println("NO");
-
-			}	
 		}
 	}
 }
