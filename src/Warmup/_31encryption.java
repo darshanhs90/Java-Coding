@@ -10,14 +10,21 @@ public class _31encryption {
 		String messageInput=scanner.readLine();
 		int messageLength=messageInput.length();
 		//		System.out.println(messageLength);
-		int rows=(int) Math.sqrt(messageLength);
-		while(rows<Math.floor(Math.sqrt(messageLength)))
-			rows++;
-		int cols=rows;
-		while(cols>Math.ceil(Math.sqrt(messageLength)))
-			cols--;
-		while(rows*cols<messageLength)
-			cols++;
+		double sqrtValue=Math.sqrt(messageLength);
+		int floorRootValue=(int) Math.floor(sqrtValue);
+		int ceilRootValue=(int) Math.ceil(sqrtValue);
+		int rows=0,cols=0;
+		rows=floorRootValue;
+		cols=floorRootValue;
+		while(cols*rows<messageLength)
+		{
+			if((cols+1)<=ceilRootValue)
+				cols++;
+			else if((rows+1)<=ceilRootValue)
+				rows++;
+			else
+				break;
+		}
 		//change code for rows and cols
 		String [][]gridArray=new String[rows][cols];
 		int gridFilledLength=0;
