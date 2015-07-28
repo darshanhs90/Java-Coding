@@ -55,12 +55,10 @@ public class _32matrixRotation {
 		Boolean flag=false;
 		System.out.println("**********");
 		for (int j = 0; j < boxList.size(); j++) {
-			int position=j+rotations;
-			if(position>boxList.size()-1 || flag==true)
+			int position=(j-rotations);
+			if(position<0 )
 			{
-				position=counter+1;
-				counter++;
-				flag=true;
+				position=boxList.size()+position;
 			}
 			System.out.println(boxList.get(position));
 			modifiedBoxList.add(boxList.get(position));	
