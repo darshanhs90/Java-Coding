@@ -12,14 +12,14 @@ public class _32matrixRotation {
 		String inputArray[]=input.split(" ");
 		int M=Integer.parseInt(inputArray[0]);
 		int N=Integer.parseInt(inputArray[1]);
-		int R=Integer.parseInt(inputArray[2]);
-		int mainArray[][]=new int[M][N];
-		int finalArray[][]=new int[M][N];
+		long R=Long.parseLong(inputArray[2]);
+		Long mainArray[][]=new Long[M][N];
+		Long finalArray[][]=new Long[M][N];
 		for (int i = 0; i < M; i++) {
 			String rowValue=scanner.readLine();
 			String rowArray[]=rowValue.split(" ");
 			for (int j = 0; j < N; j++) {
-				mainArray[i][j]=Integer.parseInt(rowArray[j]);
+				mainArray[i][j]=Long.parseLong(rowArray[j]);
 			}
 		}
 		int leftIndex=0;
@@ -29,8 +29,8 @@ public class _32matrixRotation {
 		//M/2 is the number of inner matrices
 		for (int i = 0; i < M/2; i++) {//number of outer regions
 			leftIndex=i;
-			ArrayList<Integer> boxList=new ArrayList<Integer>();
-			Stack<Integer> stack=new Stack<Integer>();
+			ArrayList<Long> boxList=new ArrayList<Long>();
+			Stack<Long> stack=new Stack<Long>();
 			for (int j = bottomIndex-1; j >=topIndex; j--) {
 				if(j==topIndex||j==bottomIndex-1){
 					for (int j2 = leftIndex; j2 < rightIndex; j2++) {
@@ -49,50 +49,56 @@ public class _32matrixRotation {
 			while(!stack.isEmpty()){
 				boxList.add(stack.pop());
 			}
-		int rotations=R%boxList.size();
-		ArrayList<Integer> modifiedBoxList=new ArrayList<Integer>();
-		int counter=-1;
-		Boolean flag=false;
-		System.out.println("**********");
-		for (int j = 0; j < boxList.size(); j++) {
-			int position=(j-rotations);
-			if(position<0 )
-			{
-				position=boxList.size()+position;
+			long rotations=R%boxList.size();
+			ArrayList<Long> modifiedBoxList=new ArrayList<Long>();
+			int counter=-1;
+			Boolean flag=false;
+			//System.out.println("**********");
+			for (int j = 0; j < boxList.size(); j++) {
+				long position=(j-rotations);
+				if(position<0)
+				{
+					position=boxList.size()+position;
+				}
+				//System.out.println(boxList.get(position));
+				modifiedBoxList.add(boxList.get((int)position));	
 			}
-			System.out.println(boxList.get(position));
-			modifiedBoxList.add(boxList.get(position));	
-		}
-		System.out.println("**********");
-		counter=0;
-		for (int j = bottomIndex-1; j >=topIndex; j--) {
-			if(j==topIndex||j==bottomIndex-1){
-				for (int j2 = leftIndex; j2 < rightIndex; j2++) {
-					//get arraylists
-					if(j==bottomIndex-1)
-						finalArray[j][j2]=(modifiedBoxList.get(counter));
-					else
-						finalArray[j][j2]=(modifiedBoxList.get((counter+stackSize)%modifiedBoxList.size()));
+			//System.out.println("**********");
+			counter=0;
+			int lastCounter=modifiedBoxList.size()-1;
+			for (int j = bottomIndex-1; j >=topIndex; j--) {
+				if(j==topIndex||j==bottomIndex-1){
+					for (int j2 = leftIndex; j2 < rightIndex; j2++) {
+						//get arraylists
+						if(j==bottomIndex-1){//this is working fine
+							finalArray[j][j2]=(modifiedBoxList.get(counter));
+							counter++;
+						}
+						else{//this is for first row
+							finalArray[j][j2]=(modifiedBoxList.get(lastCounter));
+							lastCounter--;
+						}
+					}
+				}
+				else{
+					finalArray[j][leftIndex]=(modifiedBoxList.get(lastCounter));
+					lastCounter--;
+					finalArray[j][rightIndex-1]=(modifiedBoxList.get(counter));
 					counter++;
 				}
 			}
-			else{
-				finalArray[j][leftIndex]=(modifiedBoxList.get((counter+stackSize)%modifiedBoxList.size()));
-				counter++;
-				finalArray[j][rightIndex-1]=(modifiedBoxList.get(counter));
-				counter++;
-			}
+			topIndex++;
+			bottomIndex--;
+			rightIndex--;
+			//System.exit(0);
 		}
-		topIndex++;
-		bottomIndex--;
-		rightIndex--;
-	}
 
-	for (int i = 0; i < M; i++) {
-		for (int j = 0; j < N; j++) {
-			System.out.print(finalArray[i][j]+" ");
+		for (int i = 0; i < M; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.print(finalArray[i][j]+" ");
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
-}
+	
 }
