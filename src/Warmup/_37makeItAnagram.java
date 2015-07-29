@@ -16,61 +16,39 @@ public class _37makeItAnagram {
 		Arrays.sort(chars);
 		secondLine = new String(chars);
 
-
+		StringBuilder firstString=new StringBuilder(firstLine);
+		StringBuilder secondString=new StringBuilder(secondLine);
+		
 
 		int deletionCount=0;
-		String mainString=firstLine;
-		String comparisonString=secondLine;
 
-		int firstStringCounter=0,secondStringCounter=0;
-		while(firstStringCounter!=firstLine.length() && secondStringCounter!=secondLine.length()){
-			//choose a main string,if its char at its ocunter is > another stig char at its counter,flip,
-			//else if its less,delte,else if equal increase counter
-			System.out.println(mainString+" "+firstStringCounter);
-			System.out.println(comparisonString+" "+secondStringCounter);
-			StringBuilder str1=new StringBuilder(firstLine);
-			if((int)mainString.charAt(firstStringCounter)<(int)comparisonString.charAt(secondStringCounter))
+		while(true){
+			if(firstString.length()==0)
 			{
-				//swap strings
-				String swapString=mainString;
-				mainString=comparisonString;
-				comparisonString=swapString;
-				int swapcounter=firstStringCounter;
-				firstStringCounter=secondStringCounter;
-				secondStringCounter=swapcounter;
-
-				System.exit(1);
+				deletionCount+=secondString.length();
+				System.out.println(deletionCount);
+				System.exit(0);
+			}
+			if(secondString.length()==0)
+			{
+				deletionCount+=firstString.length();
+				System.out.println(deletionCount);
+				System.exit(0);
+			}
+			if(firstString.charAt(0)>secondString.charAt(0))
+			{
+				deletionCount++;
+				secondString.deleteCharAt(0);
+			}
+			else if(firstString.charAt(0)<secondString.charAt(0))
+			{
+				deletionCount++;
+				firstString.deleteCharAt(0);
 			}
 			else{
-				Boolean flag=false;
-				for (int i = firstStringCounter; i < mainString.length(); i++) {
-					System.out.println("i is"+i);
-					for (int j = secondStringCounter; j < comparisonString.length(); j++) {
-						System.out.println("j is"+j);
-						if(comparisonString.charAt(j)<mainString.charAt(i)){
-							System.out.println("deletion count increased");
-							deletionCount++;
-						}
-						else if(comparisonString.charAt(j)>mainString.charAt(i)){
-							System.out.println("swap the strings");
-							secondStringCounter=j;
-							flag=true;
-							break;
-						}
-						else{
-							secondStringCounter=j;
-							break;
-						}
-						
-					}
-					if(flag){
-						firstStringCounter=i;
-						break;
-					}
-				}
+				firstString.deleteCharAt(0);
+				secondString.deleteCharAt(0);
 			}
 		}
-		System.out.println(deletionCount);
-		//start comparison and count deletions
 	}
 }
