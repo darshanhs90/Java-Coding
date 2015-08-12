@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/*
+ * Problem Statement Link:https://www.hackerrank.com/challenges/find-digits
+ */
+
 public class _01findDigits {
 	public static void main(String[] args) throws IOException {
 		BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
