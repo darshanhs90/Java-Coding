@@ -2,10 +2,9 @@ package Warmup;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.TreeSet;
+import java.util.Set;
 
 public class _40biggerIsGreater {
 	static HashMap<String,Integer> elementDiffMap;
@@ -24,8 +23,35 @@ public class _40biggerIsGreater {
 	}
 	private static void findLongestSequenceIndexes(String w) {
 		elementDiffMap=new HashMap<String, Integer>();
+		char previousElement=w.charAt(0);
+		char presentElement=w.charAt(0);
+		Boolean decreasingFlag=false;
+		int startIndex=0,stopIndex=0;;
+		for (int i = 0; i < w.length(); i++) {//add fix for the first element
+				System.out.println(presentElement);
+			if(previousElement>presentElement && !decreasingFlag)
+			{	
+				startIndex=i-1;
+				decreasingFlag=true;
+			}else if(previousElement>presentElement && decreasingFlag){
+				stopIndex=i;
+
+			}else{
+				decreasingFlag=false;
+				if(startIndex!=stopIndex)
+				{
+					elementDiffMap.put(startIndex+"|"+stopIndex, stopIndex-startIndex);
+				}
+			}
+			previousElement=presentElement;
+			presentElement=w.charAt(i);
+		}
+		Object[] keys=elementDiffMap.keySet().toArray();
+		Object[] values=elementDiffMap.values().toArray();
 		
-		for (int i = 0; i < w.length(); i++) {
+		for (int i = 0; i < keys.length; i++) {
+			System.out.println(keys[i]);
+			System.out.println(values[i]);
 			
 		}
 	}
