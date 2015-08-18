@@ -10,14 +10,16 @@ public class _1hashMap {
 		Arrays.fill(list,null);
 	}
 	public int hashFunctionEncode(String str){
+		System.out.println(list.length-1+"||||||"+totalElements);
 		if(totalElements==list.length-1){
+			System.out.println(totalElements);
 			Arrays.copyOf(list,(int)(list.length*1.5));
 		}
-		int index=str.hashCode()%list.length-1;
+		int index=str.hashCode()%(list.length-1);
 		return index;
 	}
 	public boolean put(String key,String value){
-		int indexToUse=hashFunctionEncode(key);
+		int indexToUse=(int)Math.abs(hashFunctionEncode(key));
 		if(list[indexToUse]!=null)
 			return false;
 		else
@@ -26,13 +28,13 @@ public class _1hashMap {
 		return true;
 	}
 	public String get(String key){
-		int indexToUse=hashFunctionDecode(key);
-		if(indexToUse>list.length||indexToUse<0)
+		int indexToUse=(int)Math.abs(hashFunctionDecode(key));
+		if(indexToUse>list.length)
 			return  null;
 		return list[indexToUse];
 	}
 	public int hashFunctionDecode(String key){
-		return (int)(Math.abs(key.hashCode()%list.length-1));
+		return (int)(Math.abs(key.hashCode()%(list.length-1)));
 	}
 	public boolean delete(String key){
 		 if(list[hashFunctionDecode(key)]!=null?true:false){
