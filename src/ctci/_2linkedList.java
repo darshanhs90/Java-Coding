@@ -61,8 +61,25 @@ public class _2linkedList {
 		return true;
 	}
 	public boolean delete(int position){
-		//to be implemented
-		return false;
+		if(position>noOfElements)
+			return false;
+		if(position==0){
+			delete();
+			return true;
+		}
+		//go from header till that position
+		Node pointerNode=new Node();
+		pointerNode=headNode;
+		int elementCount=0;
+		while(position!=elementCount){
+			//conditions,its at last
+			pointerNode=pointerNode.next;
+			elementCount++;
+			//not at last
+		}
+		pointerNode.next=pointerNode.next.next;
+		pointerNode.data=pointerNode.next.data;
+		return true;
 	}
 }
 class Node{
