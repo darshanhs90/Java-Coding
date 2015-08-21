@@ -13,10 +13,11 @@ public class _5queue {
 		return "";
 	}
 	public Boolean isEmpty(){
-		return false;
+		return noOfElements==0?true:false;
 	}
 	public void clear(){
-		
+		noOfElements=0;
+		entryNode=exitNode=null;
 	}
 	public void add(String value){
 		
