@@ -102,14 +102,15 @@ public class _2linkedList {
 		}
 		return outputStringBuffer.toString();
 	}
-}
-class Node{
-	int data;
-	Node next;
-	public int getData() {
-		return data;
+	class Node{
+		int data;
+		Node next;
+		public int getData() {
+			return data;
+		}
+		public void setData(int data) {
+			this.data = data;
+		}
 	}
-	public void setData(int data) {
-		this.data = data;
-	}
 }
+
