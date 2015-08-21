@@ -1,6 +1,6 @@
 package ctci;
 
-/*Implementation of Hash Map Data Structure*/
+/*Implementation of Linked List Data Structure Tester*/
 public class _2linkedListTest {
 	public static void main(String[] args) {
 		_2linkedList ll = new _2linkedList();

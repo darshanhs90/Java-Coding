@@ -1,7 +1,7 @@
 package ctci;
 
 
-/*Implementation of Stack Data Structure*/
+/*Implementation of Stack Data Structure Tester*/
 public class _3stackTest {
 	public static void main(String[] args) {
 		_3stack stack=new _3stack();

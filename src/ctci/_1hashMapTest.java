@@ -3,7 +3,7 @@ package ctci;
 
 
 
-/*Implementation of Hash Map Data Structure Test Case*/
+/*Implementation of Hash Map Data Structure Tester*/
 public class _1hashMapTest {
 	public static void main(String[] args) {
 		_1hashMap map=new _1hashMap();

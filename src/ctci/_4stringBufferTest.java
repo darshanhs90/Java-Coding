@@ -1,7 +1,7 @@
 package ctci;
 
 
-/*Implementation of Hash Map Data Structure*/
+/*Implementation of StringBuffer Data Structure Tester*/
 public class _4stringBufferTest {
 	
 }
