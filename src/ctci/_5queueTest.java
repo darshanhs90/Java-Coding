@@ -1,7 +1,10 @@
 package ctci;
 
 
-/*Implementation of Hash Map Data Structure*/
+
+/*Implementation of Queue Data Structure Tester*/
 public class _5queueTest {
-	
+	public static void main(String[] args) {
+
+	}
 }
