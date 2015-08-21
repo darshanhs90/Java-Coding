@@ -8,10 +8,22 @@ public class _2linkedList {
 	public _2linkedList() {
 	}
 	public int get(int position){
-		return 0;
+		if(position>noOfElements)
+			throw new ArrayIndexOutOfBoundsException();
+		else{
+			int elementCount=0;
+			Node pointerNode=new Node();
+			pointerNode=headNode;
+			while(position!=elementCount){
+				//conditions,its at last
+				pointerNode=pointerNode.next;
+				elementCount++;
+				//not at last
+			}
+			return pointerNode.data;
+		}
 	}
-	public boolean add(int value,int position){
-		//check for posn number using noOFelements
+	public boolean add(int position,int value){
 		if(position>noOfElements)
 			return false;
 		if(position==0){
@@ -22,11 +34,9 @@ public class _2linkedList {
 		Node pointerNode=new Node();
 		pointerNode=headNode;
 		int elementCount=0;
-		while(position!=elementCount){
-			//conditions,its at last
+		while(position-1!=elementCount){
 			pointerNode=pointerNode.next;
 			elementCount++;
-			//not at last
 		}
 		Node newNode=new Node();
 		newNode.data=value;
@@ -58,6 +68,7 @@ public class _2linkedList {
 		if(headNode==null)
 			return false;
 		headNode=headNode.next;
+		noOfElements--;
 		return true;
 	}
 	public boolean delete(int position){
@@ -71,15 +82,25 @@ public class _2linkedList {
 		Node pointerNode=new Node();
 		pointerNode=headNode;
 		int elementCount=0;
-		while(position!=elementCount){
+		while(position-1!=elementCount){
 			//conditions,its at last
 			pointerNode=pointerNode.next;
 			elementCount++;
 			//not at last
 		}
 		pointerNode.next=pointerNode.next.next;
-		pointerNode.data=pointerNode.next.data;
+		noOfElements--;
 		return true;
+	}
+	public String toString(){
+		Node pointerNode=new Node();
+		pointerNode=headNode;
+		StringBuffer outputStringBuffer=new StringBuffer();
+		while(pointerNode!=null){
+			outputStringBuffer.append(pointerNode.data+"\n");
+			pointerNode=pointerNode.next;
+		}
+		return outputStringBuffer.toString();
 	}
 }
 class Node{
