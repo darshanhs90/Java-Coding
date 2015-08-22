@@ -3,39 +3,82 @@ package ctci;
 
 /*Implementation of Queue Data Structure*/
 public class _5queue {
-	Node entryNode;
+	Node headNode;
 	Node exitNode;
 	int noOfElements=0;
-	public String poll(){
-		return "";
+	public int poll(){//Retrieves and removes the head of this queue, or returns null if this queue is empty.
+		int returnData=0;
+		if(headNode!=null)
+		{
+			returnData=headNode.data;
+			headNode=headNode.next;
+			noOfElements--;
+		}
+		return returnData;
 	}
-	public String peek(){
-		return "";
+	public int peek(){//Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+		if(headNode!=null)
+			return headNode.data;
+		return 0;
 	}
 	public Boolean isEmpty(){
 		return noOfElements==0?true:false;
 	}
 	public void clear(){
 		noOfElements=0;
-		entryNode=exitNode=null;
+		headNode=exitNode=null;
 	}
-	public void add(String value){
-		
+	public void add(int value){
+		if(headNode==null){
+			headNode=new Node();
+			headNode.data=value;
+			exitNode=headNode;
+		}
+		else{
+			Node newNode=new Node();
+			newNode.data=value;
+			exitNode.next=newNode;
+			exitNode=newNode;
+		}
+		noOfElements++;
 	}
-	public String remove(){
-		return "";
+	public int remove(){//Retrieves and removes the head of this queue. This method differs from poll only in that it throws an exception if this queue is empty.
+		int returnData=0;
+		if(headNode!=null)
+		{
+			returnData=headNode.data;
+			headNode=headNode.next;
+			noOfElements--;
+		}
+		return returnData;
 	}
-	public Boolean contains(String value){
+	public Boolean contains(int value){
+		Node pointerNode=new Node();
+		pointerNode=headNode;
+		while(pointerNode!=null){
+			if(pointerNode.data==value)
+				return true;
+			pointerNode=pointerNode.next;
+		}
 		return false;
 	}
 	public int size(){
 		return noOfElements;
 	}
-	
-	
-	
-	
-	
+	public String toString(){
+		StringBuilder outputStringBuilder=new StringBuilder();
+		Node pointerNode=new Node();
+		pointerNode=headNode;
+		while(pointerNode!=null){
+			outputStringBuilder.append(pointerNode.data+"\n");
+			pointerNode=pointerNode.next;
+		}
+		return outputStringBuilder.toString();
+	}
+
+
+
+
 	class Node{
 		int data;
 		Node next;
