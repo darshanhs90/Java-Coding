@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-/*Implementation of CTCI 1.2*/
+/*Implementation of CTCI 1.3*/
 public class _6Arrays_2 {
 	public static void main(String args[]){
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
