@@ -4,12 +4,12 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 
-/*Implementation of CTCI 1.4*/
+/*Implementation of CTCI 1.5*/
 public class _6Arrays_4 {
 	public static void main(String args[]){
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		String inputString=scanner.nextLine();
-		System.out.println(compressedString(inputString));
+		
 	}
 	public static String compressedString(String inputString){
 		String outputString="";
