@@ -10,6 +10,7 @@ public class _6Arrays_3 {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		String inputString=scanner.nextLine();
 		int trueLength=Integer.parseInt(scanner.nextLine());
+		scanner.close();
 		System.out.println(replaceString(inputString,trueLength));
 	}
 

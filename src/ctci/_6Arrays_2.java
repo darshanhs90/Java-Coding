@@ -11,6 +11,7 @@ public class _6Arrays_2 {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		String inputString1=scanner.nextLine();
 		String inputString2=scanner.nextLine();
+		scanner.close();
 		System.out.println("String are in Permuted Order Count: "+isPermutationCount(inputString1, inputString2));
 		System.out.println("String are in Permuted Order Sort: "+isPermutationSort(inputString1, inputString2));
 

@@ -1,7 +1,6 @@
 package ctci;
 
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -12,7 +11,7 @@ public class _6Arrays_7 {
 		String inputString1=scanner.nextLine();
 		String inputString2=scanner.nextLine();
 		System.out.println("Is "+inputString1 +" substring of "+inputString2+" ? "+isSubstring(inputString1,inputString1+inputString2));
-		
+		scanner.close();
 		
 	}
 

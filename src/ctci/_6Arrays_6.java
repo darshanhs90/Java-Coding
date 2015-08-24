@@ -11,7 +11,7 @@ public class _6Arrays_6 {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		int noOfRows=Integer.parseInt(scanner.nextLine());
 		int noOfColumns=Integer.parseInt(scanner.nextLine());
-		
+		scanner.close();
 		int inputArray[][]=new int[noOfRows][noOfColumns];
 		for(int i=0;i<noOfRows;i++){
 			String rowString=scanner.nextLine();

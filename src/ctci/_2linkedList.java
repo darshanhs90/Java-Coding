@@ -7,6 +7,9 @@ public class _2linkedList {
 	private int noOfElements=0;
 	public _2linkedList() {
 	}
+	public Node getHeadNode(){
+		return headNode;
+	}
 	public int get(int position){
 		if(position>noOfElements)
 			throw new ArrayIndexOutOfBoundsException();

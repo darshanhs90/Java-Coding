@@ -9,7 +9,8 @@ public class _6Arrays_4 {
 	public static void main(String args[]){
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		String inputString=scanner.nextLine();
-		
+		scanner.close();
+		System.out.println(compressedString(inputString));
 	}
 	public static String compressedString(String inputString){
 		String outputString="";

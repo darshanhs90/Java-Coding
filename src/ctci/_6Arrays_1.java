@@ -10,6 +10,7 @@ public class _6Arrays_1 {
 	public static void main(String args[]){
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		String inputString=scanner.nextLine();
+		scanner.close();
 		System.out.println("Has Unique Characters Short : "+hasUniqueShort(inputString));
 		System.out.println("Has Unique Characters Long : "+hasUniqueLong(inputString));
 

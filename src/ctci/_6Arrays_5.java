@@ -1,7 +1,6 @@
 package ctci;
 
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -18,6 +17,7 @@ public class _6Arrays_5 {
 				inputArray[i][j]=Integer.parseInt(columnArray[j]);
 			}
 		}
+		scanner.close();
 		for(int i=0;i<noOfRows;i++){
 			for (int j = 0; j < noOfRows; j++) {
 				System.out.print(inputArray[i][j]+" ");
@@ -33,7 +33,10 @@ public class _6Arrays_5 {
 		int layers=noOfRows/2;
 		int outputArray[][]=new int[noOfRows][noOfRows];
 			for (int i = 0; i < layers; i++) {
-				
+				int index=noOfRows-2*layers;
+				for (int j = 0; j <noOfRows; j++) {
+					//outputArray[][]
+				}
 				
 				
 				
