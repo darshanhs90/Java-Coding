@@ -8,7 +8,7 @@ import java.util.Stack;
 
 
 /*Implementation of CTCI 3.5*/
-public class _8StacksAndQueues_5{
+public class _08StacksAndQueues_5{
 	public static void main(String[] args) {
 		MyQueue myQueue=new MyQueue();
 		myQueue.add(10);

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 /*Implementation of CTCI 3.1*/
-public class _8StacksAndQueues_1 {
+public class _08StacksAndQueues_1 {
 	private static int mainArray[];
 	private static int firstStackMin,firstStackMax;
 	private static int secondStackMin,secondStackMax;

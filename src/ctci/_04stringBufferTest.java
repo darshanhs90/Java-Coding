@@ -2,9 +2,9 @@ package ctci;
 
 
 /*Implementation of StringBuffer Data Structure Tester*/
-public class _4stringBufferTest {
+public class _04stringBufferTest {
 	public static void main(String[] args) {
-		_4stringBuffer stringBuffer=new _4stringBuffer();
+		_04stringBuffer stringBuffer=new _04stringBuffer();
 		stringBuffer.append('c');
 		System.out.println(stringBuffer.toString());
 		stringBuffer.append("2ndstring");

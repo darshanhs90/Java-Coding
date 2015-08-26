@@ -8,10 +8,10 @@ import java.util.Stack;
 
 
 /*Implementation of CTCI 2.7*/
-public class _7LinkedList_6 {
+public class _07LinkedList_6 {
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(new InputStreamReader(System.in));
-		_2linkedList linkedList=new _2linkedList();
+		_02linkedList linkedList=new _02linkedList();
 		System.out.println("Enter singly spaced elements");
 		String inputStringArray[]=scanner.nextLine().split(" ");
 		for (int i = 0; i < inputStringArray.length; i++) {
@@ -23,7 +23,7 @@ public class _7LinkedList_6 {
 
 	}
 
-	private static boolean checkPalindromeStack(_2linkedList linkedList) {
+	private static boolean checkPalindromeStack(_02linkedList linkedList) {
 		Stack<Integer> stack=new Stack<Integer>();
 		for (int i = 0; i < linkedList.size(); i++) {
 			stack.push(linkedList.get(i));
@@ -35,7 +35,7 @@ public class _7LinkedList_6 {
 		return true;
 	}
 
-	private static boolean checkPalindromeLonger(_2linkedList linkedList) {
+	private static boolean checkPalindromeLonger(_02linkedList linkedList) {
 		for (int i = 0; i < linkedList.size()/2; i++) {
 			if(linkedList.get(i)!=linkedList.get(linkedList.size()-i-1))
 				return false;

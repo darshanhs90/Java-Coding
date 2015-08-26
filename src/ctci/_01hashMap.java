@@ -3,10 +3,10 @@ package ctci;
 import java.util.Arrays;
 
 /*Implementation of Hash Map Data Structure*/
-public class _1hashMap {
+public class _01hashMap {
 	private String[] list=new String[20];
 	private int totalElements=0;
-	public _1hashMap() {
+	public _01hashMap() {
 		Arrays.fill(list,null);
 	}
 	public int hashFunctionEncode(String str){

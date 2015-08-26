@@ -1,9 +1,9 @@
 package ctci;
 
 /*Implementation of Linked List Data Structure Tester*/
-public class _2linkedListTest {
+public class _02linkedListTest {
 	public static void main(String[] args) {
-		_2linkedList ll = new _2linkedList();
+		_02linkedList ll = new _02linkedList();
 		ll.add(10);
 		ll.add(23123);
 		ll.add(123);

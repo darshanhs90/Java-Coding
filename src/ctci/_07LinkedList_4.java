@@ -3,18 +3,18 @@ package ctci;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-import ctci._2linkedList.Node;
+import ctci._02linkedList.Node;
 
 
 
 
 /*Implementation of CTCI 2.5*/
-public class _7LinkedList_4 {
+public class _07LinkedList_4 {
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(new InputStreamReader(System.in));
 		System.out.println("Enter First Number");
 		String firstNumberArray[]=scanner.nextLine().split("");
-		_2linkedList firstNumberList=new _2linkedList();
+		_02linkedList firstNumberList=new _02linkedList();
 		for (int i = firstNumberArray.length-1; i >0 ; i--) {
 
 			firstNumberList.add(Integer.parseInt(firstNumberArray[i]));
@@ -22,11 +22,11 @@ public class _7LinkedList_4 {
 		System.out.println("Enter Second Number");
 		String secondNumberArray[]=scanner.nextLine().split("");
 		scanner.close();
-		_2linkedList secondNumberList=new _2linkedList();
+		_02linkedList secondNumberList=new _02linkedList();
 		for (int i = secondNumberArray.length-1; i >0 ; i--) {
 			secondNumberList.add(Integer.parseInt(secondNumberArray[i]));
 		}
-		_2linkedList addedList=addNumbers(firstNumberList,secondNumberList);
+		_02linkedList addedList=addNumbers(firstNumberList,secondNumberList);
 		Node addedListNode=addedList.getHeadNode();
 		StringBuffer outputStringBuffer=new StringBuffer();
 		while(addedListNode!=null){
@@ -36,12 +36,12 @@ public class _7LinkedList_4 {
 		System.out.println(outputStringBuffer.reverse().toString());
 	}
 
-	private static _2linkedList addNumbers(_2linkedList firstNumberList,
-			_2linkedList secondNumberList) {
+	private static _02linkedList addNumbers(_02linkedList firstNumberList,
+			_02linkedList secondNumberList) {
 		int carry=0;
 		Node firstNumberNode=firstNumberList.getHeadNode();
 		Node secondNumberNode=secondNumberList.getHeadNode();
-		_2linkedList finalList=new _2linkedList();
+		_02linkedList finalList=new _02linkedList();
 		while(firstNumberNode!=null && secondNumberNode!=null)
 		{
 			String outputStringArray[]=String.valueOf((firstNumberNode.data+secondNumberNode.data+carry)).split("");

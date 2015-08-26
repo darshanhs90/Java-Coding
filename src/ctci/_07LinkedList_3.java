@@ -7,27 +7,27 @@ import java.util.Scanner;
 
 
 /*Implementation of CTCI 2.4*/
-public class _7LinkedList_3 {
+public class _07LinkedList_3 {
 	public static void main(String[] args) {
 		Scanner scanner =new Scanner(new InputStreamReader(System.in));
 		System.out.println("Enter Singly spaced elements");
 		String inputStringArray[]=scanner.nextLine().split(" ");
-		_2linkedList linkedList=new _2linkedList();
+		_02linkedList linkedList=new _02linkedList();
 		for (int i = 0; i < inputStringArray.length; i++) {
 			linkedList.add(Integer.parseInt(inputStringArray[i]));
 		}
 		System.out.println("Enter Pivot");
 		int pivot=Integer.parseInt(scanner.nextLine());
 		scanner.close();
-		_2linkedList dividedLinkedList=divideLinkedList(linkedList,pivot);
+		_02linkedList dividedLinkedList=divideLinkedList(linkedList,pivot);
 		for (int i = 0; i < dividedLinkedList.size(); i++) {
 			System.out.print(dividedLinkedList.get(i)+" ");
 		}
 	}
 
-	private static _2linkedList divideLinkedList(_2linkedList linkedList,
+	private static _02linkedList divideLinkedList(_02linkedList linkedList,
 			int pivot) {
-		_2linkedList mainList=new _2linkedList();
+		_02linkedList mainList=new _02linkedList();
 		int pivotCounter=0;
 		for (int i = 0; i < linkedList.size(); i++) {
 			int value=linkedList.get(i);

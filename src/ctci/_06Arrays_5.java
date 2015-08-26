@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 /*Implementation of CTCI 1.6*/
-public class _6Arrays_5 {
+public class _06Arrays_5 {
 	public static void main(String args[]){
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		int noOfRows=Integer.parseInt(scanner.nextLine());

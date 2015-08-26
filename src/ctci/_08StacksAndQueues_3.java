@@ -6,7 +6,7 @@ import java.util.Stack;
 
 
 /*Implementation of CTCI 3.3*/
-public class _8StacksAndQueues_3{
+public class _08StacksAndQueues_3{
 	public static void main(String[] args) {
 		SetOfStacks setOfStacks=new SetOfStacks();
 		setOfStacks.push(10);

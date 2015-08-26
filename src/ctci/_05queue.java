@@ -2,7 +2,7 @@ package ctci;
 
 
 /*Implementation of Queue Data Structure*/
-public class _5queue {
+public class _05queue {
 	Node headNode;
 	Node exitNode;
 	int noOfElements=0;

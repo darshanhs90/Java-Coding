@@ -7,7 +7,7 @@ import java.util.Stack;
 
 
 /*Implementation of CTCI 3.6*/
-public class _8StacksAndQueues_6{
+public class _08StacksAndQueues_6{
 	private static Stack<Integer> mainStack;
 	private static Stack<Integer> tempStack;
 

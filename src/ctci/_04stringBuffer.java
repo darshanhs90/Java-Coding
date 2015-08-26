@@ -4,9 +4,9 @@ import java.util.Stack;
 
 
 /*Implementation of String Buffer Data Structure*/
-public class _4stringBuffer {
+public class _04stringBuffer {
 	String mainString;
-	public _4stringBuffer() {
+	public _04stringBuffer() {
 		// TODO Auto-generated constructor stub
 		mainString=new String();
 	}

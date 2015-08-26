@@ -1,11 +1,11 @@
 package ctci;
 
 /*Implementation of Singly Linked List Data Structure*/
-public class _2linkedList {
+public class _02linkedList {
 	private Node presentNode;
 	private Node headNode;
 	private int noOfElements=0;
-	public _2linkedList() {
+	public _02linkedList() {
 	}
 	public Node getHeadNode(){
 		return headNode;

@@ -3,7 +3,7 @@ package ctci;
 import java.util.LinkedList;
 
 /*Implementation of CTCI 3.7*/
-public class _8StacksAndQueues_7{
+public class _08StacksAndQueues_7{
 
 	public static void main(String[] args) {
 		Shelter shelter=new Shelter();
