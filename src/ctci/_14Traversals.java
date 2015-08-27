@@ -4,7 +4,7 @@ package ctci;
 
 /*Implementation of CTCI */
 public class _14Traversals{
-
+	//level order traversal same as BFS
 	public void preOrder(Node node){
 		if(node!=null){
 			System.out.println(node.data);
