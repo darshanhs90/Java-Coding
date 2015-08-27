@@ -1,7 +1,6 @@
 package geeksforgeeks;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 
@@ -21,7 +20,6 @@ public class _01AmazonInterview_2_3 {
 			System.out.print(inputArray[i]+" ");
 		}
 		System.out.println();
-		List<int[]> list=Arrays.asList(inputArray);
 		int r=new Random().nextInt(10);
 		for (int j = 0; j <r; j++) {
 			int[] newArray=Arrays.copyOf(inputArray,inputArray.length);
