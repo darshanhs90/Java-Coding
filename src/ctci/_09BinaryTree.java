@@ -1,7 +1,7 @@
 package ctci;
 
 
-/*Implementation of CTCI */
+/*Implementation of Binary Tree */
 public class _09BinaryTree{
 	private int noOfElements=0;
 	private Node rootNode;

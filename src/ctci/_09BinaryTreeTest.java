@@ -1,7 +1,7 @@
 package ctci;
 
 
-/*Implementation of CTCI */
+/*Implementation of Binary Tree Tester */
 public class _09BinaryTreeTest{
 	public static void main(String[] args) {
 		_09BinaryTree binaryTree=new _09BinaryTree();
