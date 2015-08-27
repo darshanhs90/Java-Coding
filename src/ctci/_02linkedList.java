@@ -105,9 +105,16 @@ public class _02linkedList {
 		}
 		return outputStringBuffer.toString();
 	}
-	class Node{
-		int data;
-		Node next;
+	public class Node{//changed to public inorder to use this in other packages
+		public int data;
+		public Node next;
+		public Node() {
+			// TODO Auto-generated constructor stub
+		}
+		public Node( int data,Node next) {
+			this.data=data;
+			this.next=next;
+		}
 		public int getData() {
 			return data;
 		}
