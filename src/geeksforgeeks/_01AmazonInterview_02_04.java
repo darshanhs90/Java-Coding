@@ -12,7 +12,7 @@ import ctci._02linkedList.Node;
  *  The random pointer of a node N could be after N, before N or the node N itself.
  *  Note:Run through the same node loop again to set the random pointer
  */
-public class _01AmazonInterview_2_4 {
+public class _01AmazonInterview_02_04 {
 	public static void main(String[] args) {
 		_02linkedList linkedList=new _02linkedList();
 		linkedList.add(10);

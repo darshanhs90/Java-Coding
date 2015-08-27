@@ -6,7 +6,7 @@ import java.util.Scanner;
 /*
  * http://www.geeksforgeeks.org/count-total-set-bits-in-all-numbers-from-1-to-n/
  */
-public class _01AmazonInterview_1 {
+public class _01AmazonInterview_01 {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		int N=Integer.parseInt(scanner.nextLine());

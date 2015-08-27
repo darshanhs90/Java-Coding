@@ -7,7 +7,7 @@ import java.util.Random;
  * http://www.geeksforgeeks.org/amazon-interview/
  * Find an element in a sorted rotated integer array.
  */
-public class _01AmazonInterview_2_9 {
+public class _01AmazonInterview_02_09 {
 	public static void main(String[] args) {
 		int inputArray[]=new int[10];
 		for (int i = 0; i < inputArray.length; i++) {

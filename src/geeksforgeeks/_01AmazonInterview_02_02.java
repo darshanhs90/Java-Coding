@@ -10,7 +10,7 @@ import java.util.Stack;
  * http://www.geeksforgeeks.org/amazon-interview/
  *  Check if a character link list is palindrome or not.
  */
-public class _01AmazonInterview_2_2 {
+public class _01AmazonInterview_02_02 {
 	public static void main(String[] args) {
 		LinkedList<Character> characterList=new LinkedList<Character>();
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));

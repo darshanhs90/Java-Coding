@@ -9,7 +9,7 @@ import java.util.Random;
  * http://www.geeksforgeeks.org/amazon-interview/
  *  A sorted array has been rotated r times to the left. Find r in least possible time.
  */
-public class _01AmazonInterview_2_3 {
+public class _01AmazonInterview_02_03 {
 	public static void main(String[] args) {
 		int inputArray[]=new int[10];
 		for (int i = 0; i < inputArray.length; i++) {

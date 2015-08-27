@@ -15,7 +15,7 @@ import ctci._02linkedList.Node;
  *IV.isNumberPresent
  *All these operations should take O(1) time.
  */
-public class _01AmazonInterview_2_6 {
+public class _01AmazonInterview_02_06 {
 	public static void main(String[] args) {
 
 	}
