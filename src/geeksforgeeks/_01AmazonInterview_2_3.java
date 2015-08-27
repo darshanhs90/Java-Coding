@@ -1,9 +1,9 @@
 package geeksforgeeks;
 
-import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 
 
 /*
@@ -12,26 +12,49 @@ import java.util.Stack;
  */
 public class _01AmazonInterview_2_3 {
 	public static void main(String[] args) {
-		LinkedList<Character> characterList=new LinkedList<Character>();
-		Scanner scanner=new Scanner(new InputStreamReader(System.in));
-		String inputString=scanner.nextLine();
-		scanner.close();
-		for (int i = 0; i < inputString.length(); i++) {
-			characterList.add(inputString.charAt(i));
+		int inputArray[]=new int[10];
+		for (int i = 0; i < inputArray.length; i++) {
+			inputArray[i]=new Random().nextInt(10);
 		}
-		System.out.println("Character is a palindrome ? "+palindromeCheck(characterList));
-	}
-
-	private static boolean palindromeCheck(LinkedList<Character> characterList) {
-		Stack<Character> stack=new Stack<Character>();
-		for (int i = 0; i < characterList.size(); i++) {
-			stack.push(characterList.get(i));
+		Arrays.sort(inputArray);
+		for (int i = 0; i < inputArray.length; i++) {
+			System.out.print(inputArray[i]+" ");
 		}
-		for (int i = 0; i < characterList.size()/2; i++) {
-			if(stack.pop()!=characterList.get(i)){
-				return false;
+		System.out.println();
+		List<int[]> list=Arrays.asList(inputArray);
+		int r=new Random().nextInt(10);
+		for (int j = 0; j <r; j++) {
+			int[] newArray=Arrays.copyOf(inputArray,inputArray.length);
+			for (int i = 0; i < inputArray.length; i++) {
+				if(i==0)
+					inputArray[i]=newArray[inputArray.length-1];
+				else
+					inputArray[i]=newArray[i-1];
 			}
 		}
-		return true;
-	}
+		for (int i = 0; i < inputArray.length; i++) {
+			System.out.print(inputArray[i]+" ");
+		}
+		System.out.println();
+		int forwardCount=1,reverseCount=0;
+		System.out.println("Actual R is "+r);
+		for (int i = 0; i < inputArray.length; i++) {
+			if(i!=inputArray.length-1 && inputArray[i+1]<inputArray[i]){
+				System.out.println("Predicted R is ->"+(forwardCount));
+				break;
+			}
+			if(inputArray[inputArray.length-i-2]>inputArray[inputArray.length-i-1]){
+				System.out.println("Predicted R is <-"+(inputArray.length-1-reverseCount));
+				break;
+			}
+			if(i==0){
+				if(inputArray[inputArray.length-1]>inputArray[0]){
+					System.out.println("Predicted R is 0");
+					break;
+				}
+			}
+			forwardCount++;
+			reverseCount++;
+		}
+	}	
 }
