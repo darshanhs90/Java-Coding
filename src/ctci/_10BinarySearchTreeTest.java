@@ -13,15 +13,23 @@ public class _10BinarySearchTreeTest{
 		bst.insert(30);
 		bst.insert(25);
 		bst.insert(35);		
+		bst.insert(45);		
+		bst.insert(55);		
+		bst.insert(65);		
+		bst.insert(75);		
+		
 		bst.preOrder();
-		bst.postOrder();
-		bst.inOrder();
+		/*		bst.postOrder();
+		bst.inOrder();*/
 		System.out.println(bst.size());
-		System.out.println("Deleting 100 : "+bst.delete(100));
-		System.out.println("Deleting 10 : "+bst.delete(20));
+		bst.delete(100);
+		System.out.println("Deleting 20");
+		bst.delete(20);
+		System.out.println("Deletion of 20 completed");
 		System.out.println(bst.size());
-		bst.preOrder();
+		/*bst.preOrder();
 		bst.postOrder();
-		bst.inOrder();
+		bst.inOrder();*/
+		System.out.println("Height is :"+bst.height());
 	}
 }

@@ -68,24 +68,33 @@ public class _10BinarySearchTree{
 			System.out.println(node.data);
 		}
 	}
-	public boolean delete(int value){
-		searchedNode=null;
-		searchNode(rootNode,value);
-		if(searchedNode!=null)
-		{
-			if(searchedNode.right!=null){
-				searchedNode.data=searchedNode.right.data;
-				searchedNode=searchedNode.right;
-				searchedNode.right=null;
-			}
-			else{
-				searchedNode=searchedNode.left;
-				searchedNode.data=searchedNode.left.data;
-			}
+	public void delete(int value){
+		if(delete(rootNode,value)!=null)
 			noOfElements--;
-			return true;
+	}
+	private Node delete(Node node,int value){
+		if(node==null)
+			return node;
+
+		if(node.data>value)
+			node.left=delete(node.left,value);
+		else if(node.data<value)
+			node.right=delete(node.right,value);
+		else if(node.left!=null && node.right!=null){
+			node.data=findMinimum(node.right).data;
+			node.right=delete(node.right,node.data);
 		}
-		return  false;
+		else
+		{
+			node=(node.left!=null)?node.left:node.right;
+		}
+		return node;
+	}
+	private Node findMinimum(Node node) {
+		if(node.left==null)
+			return node;
+		else
+			return findMinimum(node.left);
 	}
 	private void searchNode(Node node,int value) {
 		if(node!=null && node.data>value){
@@ -108,7 +117,21 @@ public class _10BinarySearchTree{
 		return noOfElements;
 	}
 	public int height(){
-		return 0;
+		
+		return height(rootNode);
+		
+	}
+
+	private int height(Node node) {
+		if(node==null)
+			return 0;
+		
+		int leftDepth=height(node.left);
+		int rightDepth=height(node.right);
+		if(leftDepth>rightDepth)
+			return leftDepth+1;
+		else
+			return rightDepth+1;
 	}
 
 	class Node{
