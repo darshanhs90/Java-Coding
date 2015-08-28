@@ -40,7 +40,7 @@ Explanation
 
 There are 3 pairs of integers in the set with a difference of 2.*/
 
-public class _41SabreChallenge {
+public class _41sabreChallenge {
 	public static void main(String[] args) throws Exception {
 		BufferedReader scanner=new BufferedReader(new InputStreamReader(System.in));
 		String firstLine=(scanner.readLine());

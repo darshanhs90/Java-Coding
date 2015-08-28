@@ -2,7 +2,6 @@ package geeksforgeeks;
 
 import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,6 +19,7 @@ public class _01AmazonInterview_04_02 {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		int n=Integer.parseInt(scanner.nextLine());
+		scanner.close();
 		int inputArray[]=new int[n];
 		for (int i = 0; i < inputArray.length; i++) {
 			inputArray[i]=new Random().nextInt(n);
