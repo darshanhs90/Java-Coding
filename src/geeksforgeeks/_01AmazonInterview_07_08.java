@@ -9,7 +9,6 @@ import java.util.Scanner;
 /*
  * http://www.geeksforgeeks.org/amazon-interview-2/
  * Given an array, find three numbers a, b and c such that a^2 + b^2 = c^2
- * 
  */;
  public class _01AmazonInterview_07_08 {
 	 public static void main(String[] args) {
