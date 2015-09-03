@@ -12,7 +12,7 @@ import java.util.Stack;
  public class _01AmazonInterview_18_02 {
 	 public static void main(String[] args) {
 		 Scanner scanner=new Scanner(new InputStreamReader(System.in));
-		 String inputString="x y ^ 5 z * / 10 +";//scanner.nextLine();
+		 String inputString=scanner.nextLine();//"x y ^ 5 z * / 10 +"
 		 scanner.close();
 		 System.out.println(convertToInfix(inputString));
 	 }
