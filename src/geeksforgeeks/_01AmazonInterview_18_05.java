@@ -27,14 +27,12 @@ import java.util.Scanner;
 	 }
 
 	 private static void removeElements(int[] inputArray, int[] maxArray) {
-		 int index=1;
 		 while(inputArray.length>0){
 			 System.out.println("removing "+inputArray[inputArray.length-1]);
 			 inputArray=Arrays.copyOf(inputArray, inputArray.length-1);
 			 maxArray=Arrays.copyOf(maxArray, maxArray.length-1);
 			 if(maxArray.length>0)
 				 System.out.println(maxArray[maxArray.length-1]);
-			 index++;
 		 }
 
 	 }
