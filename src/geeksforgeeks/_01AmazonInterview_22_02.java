@@ -13,6 +13,6 @@ package geeksforgeeks;
  */;
  public class _01AmazonInterview_22_02 {
 	 public static void main(String[] args) {
-		
+		//minheap
 	 }
  }
