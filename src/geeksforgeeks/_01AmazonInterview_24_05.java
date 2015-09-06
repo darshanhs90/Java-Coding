@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 /*
  * http://www.geeksforgeeks.org/amazon-interview-set-24/
- * Reverse bits in a binary
+ * Given a matrix with ordered rows and columns(Rows are sorted 0’s followed by 1’s).
+ * Find the row with maximum 0
  */;
  public class _01AmazonInterview_24_05 {
 	 public static void main(String[] args) {

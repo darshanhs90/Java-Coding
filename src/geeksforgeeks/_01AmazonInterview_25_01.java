@@ -6,11 +6,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 /*
- * http://www.geeksforgeeks.org/amazon-interview-set-24/
+ * http://www.geeksforgeeks.org/amazon-interview-set-25/
  * Given an integer array and an integer value X,
  * return two elements in that array such that sum of them equals to X.
  */;
- public class _01AmazonInterview_24_06 {
+ public class _01AmazonInterview_25_01 {
 	 public static void main(String[] args) {
 		 Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		 Integer size=Integer.parseInt(scanner.nextLine());
