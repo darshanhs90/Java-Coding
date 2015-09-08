@@ -4,8 +4,8 @@ import geeksforgeeks._01DataStructures_BinaryTree_00.Node;
 
 
 /*
- * http://www.geeksforgeeks.org/level-order-tree-traversal/
- * Level Order Tree Traversal
+ * http://www.geeksforgeeks.org/write-a-c-program-to-get-count-of-leaf-nodes-in-a-binary-tree/
+ * Program to count leaf nodes in a binary tree
  */;
  public class _01DataStructures_BinaryTree_08 {
 	 public static void main(String[] args) {
