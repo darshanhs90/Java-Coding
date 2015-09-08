@@ -1,46 +1,13 @@
 package geeksforgeeks;
 
+
+
+
 /*
- * http://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
- * Write a C Program to Find the Maximum Depth or Height of a Tree
+ * http://www.geeksforgeeks.org/618/
+ * Tree Traversals
  */;
- public class _01DataStructures_BinaryTree_03 {
-	 public static void main(String[] args) {
-		 _01DataStructures_BinaryTree_00 binaryTree1=new _01DataStructures_BinaryTree_00();
-		 binaryTree1.insert(null,null,10);
-		 binaryTree1.insert(10,"left",11);
-		 binaryTree1.insert(10,"right",12);
-		 binaryTree1.insert(11,"left",13);
-		 binaryTree1.insert(11,"right",14);
-		 binaryTree1.insert(12,"left",15);
-		 binaryTree1.insert(12,"right",16);
-		 binaryTree1.insert(16,"right",17);		
-		 binaryTree1.insert(17,"right",18);
-		 binaryTree1.preOrder();
-		 System.out.println(getMaxDepth(binaryTree1));
-	 }
-
-	 private static int getMaxDepth(_01DataStructures_BinaryTree_00 binaryTree1) {
-		 if(binaryTree1.size()==0)
-			 return 0;
-		 else
-			 return getMaxDepth(binaryTree1.rootNode);
-	 }
-
-	 private static Integer getMaxDepth(_01DataStructures_BinaryTree_00.Node node) {
-		 if(node==null)
-		 {
-			 return 0;
-		 }
-		 else{
-			 int left=getMaxDepth(node.left);
-			 int right=getMaxDepth(node.right);
-			 return (left>right)?left+1:right+1;
-		 }
-	 }
-
- }
- class BinaryTree3{
+ public class _01DataStructures_BinaryTree_00 {
 	 Node rootNode,presentNode;
 	 int noOfElements=0;
 	 public void insert(Integer element,String type,int data){
@@ -113,7 +80,8 @@ package geeksforgeeks;
 	 }
 	 private void preorder(Node n){
 		 if(n!=null){			 
-			 System.out.print(n.data+",");
+			 if(n.data!=null)//not needed,needed only for tree deletion
+				 System.out.print(n.data+",");
 			 preorder(n.left);
 			 preorder(n.right);
 		 }
@@ -135,9 +103,9 @@ package geeksforgeeks;
 
 	 }
 	 class Node{
-		 int data;
+		 Integer data;
 		 Node left,right;
-		 public Node(int data,Node left,Node right) {
+		 public Node(Integer data,Node left,Node right) {
 			 this.data=data;
 			 this.left=left;
 			 this.right=right;
