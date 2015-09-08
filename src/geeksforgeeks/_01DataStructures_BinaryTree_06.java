@@ -2,8 +2,6 @@ package geeksforgeeks;
 
 import geeksforgeeks._01DataStructures_BinaryTree_00.Node;
 
-import java.util.ArrayList;
-
 
 /*
  * http://www.geeksforgeeks.org/given-a-binary-tree-print-out-all-of-its-root-to-leaf-paths-one-per-line/
