@@ -1,5 +1,7 @@
 package geeksforgeeks;
 
+import geeksforgeeks._01DataStructures_BinaryTree_00.Node;
+
 //Needs Bug Fixes
 
 /*
@@ -8,7 +10,7 @@ package geeksforgeeks;
  */;
  public class _01DataStructures_BinaryTree_19 {
 	  static int preIndex=0;
-	 _01DataStructures_BinaryTree_00 tree=new _01DataStructures_BinaryTree_00();
+	 static _01DataStructures_BinaryTree_00 tree=new _01DataStructures_BinaryTree_00();
 	 public static void main(String[] args) {
 		 _01DataStructures_BinaryTree_00 binaryTree1=new _01DataStructures_BinaryTree_00();
 		 binaryTree1.insert(null,null,50);
@@ -29,7 +31,7 @@ package geeksforgeeks;
 		 if(start>end)
 			 return null;
 		 System.out.println(preIndex);
-		 Node node=new Node(Integer.parseInt(preOrder[preIndex++]),null,null);
+		 Node node=tree.new Node(Integer.parseInt(preOrder[preIndex++]),null,null);
 		 //preIndex++;
 		 if(start==end)
 			 return node;
@@ -48,13 +50,3 @@ package geeksforgeeks;
 		 return 0;
 	 }
  }
- class Node{
-	 Integer data;
-	 Node left,right;
-	 public Node(Integer data,Node left,Node right) {
-		 this.data=data;
-		 this.left=left;
-		 this.right=right;
-	 }
- }
-
