@@ -3,4 +3,5 @@ TODO:
 2.The Great Tree-List Recursion Problem.
 3.http://www.geeksforgeeks.org/full-and-complete-binary-tree-from-given-preorder-and-postorder-traversals/
 4.http://www.geeksforgeeks.org/linked-complete-binary-tree-its-creation/
-5.
+5.http://www.geeksforgeeks.org/find-all-possible-interpretations/
+6.http://www.geeksforgeeks.org/custom-tree-problem/
