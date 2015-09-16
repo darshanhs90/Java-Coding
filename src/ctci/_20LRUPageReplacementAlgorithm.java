@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 
-/*Implementation of CTCI 4.1*/
+/*Implementation of LFU Page Replacement Algorithm*/
 public class _20LRUPageReplacementAlgorithm{
 
 	public static void main(String[] args) {
