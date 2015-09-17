@@ -70,7 +70,7 @@ public class _05queue {
 		Node pointerNode=new Node();
 		pointerNode=headNode;
 		while(pointerNode!=null){
-			outputStringBuilder.append(pointerNode.data+"\n");
+			outputStringBuilder.append(pointerNode.data+",");
 			pointerNode=pointerNode.next;
 		}
 		return outputStringBuilder.toString();
