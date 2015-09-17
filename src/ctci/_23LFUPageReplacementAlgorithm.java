@@ -20,6 +20,7 @@ public class _23LFUPageReplacementAlgorithm{
 		for (int i = 0; i < inputArray.length; i++) {
 			System.out.print(inputArray[i]+" ");
 		}
+		System.out.println();
 		performLFUReplacement(inputArray,frameLength);
 
 	}
@@ -29,58 +30,67 @@ public class _23LFUPageReplacementAlgorithm{
 		String frameArray[]=new String[frameLength];
 		Arrays.fill(frameArray," ");
 		HashMap<String,Integer> elementMap=new HashMap<String, Integer>();
+		int arrayFillCount=0;
 		for (int i = 0; i < inputArray.length; i++) {
 			String element=inputArray[i];
 			int elementIndex=-1;
-			if((elementIndex=checkElement(frameArray,element))!=-1 || !elementMap.containsKey(element)){
-				if(elementIndex!=-1){
-					int index=getIndexForReplacement(elementMap,frameArray,element);
-					frameArray[index]=element;
-					elementMap.put(element,elementMap.get(inputArray[i])+1);
+			//check if element is there in frame array
+			//if there leave it be and increment the count
+			//if not there,check if array is filled?
+			//if array is filled,get position for replacement
+			//if not filled,add to counter
+			if((elementIndex=checkElement(frameArray,element))!=-1){
+				elementMap.put(element,elementMap.get(element)+1);
+			}
+			else{
+				if(arrayFillCount<frameLength){
+					if(!elementMap.containsKey(element)){
+						frameArray[arrayFillCount]=element;
+						elementMap.put(element,1);
+						arrayFillCount++;
+					}
 				}
 				else{
-					frameArray=addToArrayStart(frameArray,element);
-					elementMap.put(element,1);
+					int index=getReplacementPosition(frameArray,elementMap);
+					frameArray[index]=element;
+					if(elementMap.containsKey(element)){
+						elementMap.put(element,elementMap.get(element)+1);
+					}
+					else{
+						elementMap.put(element,1);
+					}
 				}
 			}
-			System.out.println(Arrays.toString(frameArray));
+			System.out.println("Adding : "+element+"  "+Arrays.toString(frameArray));
 		}
 
 	}
 
-	private static String[] addToArrayStart(String[] frameArray, String element) {
-		String newArray[]=new String[frameArray.length];
-		Arrays.fill(newArray," ");
-		newArray[0]=element;
-		for (int i = 1; i < newArray.length; i++) {
-			newArray[i]=frameArray[i-1];
-		}
-		return newArray;
-	}
-
-	private static int checkElement(String[] frameArray, String element) {
+	private static int getReplacementPosition(String[] frameArray,
+			HashMap<String, Integer> elementMap) {
+		int index=0,min=Integer.MAX_VALUE;
 		for (int i = 0; i < frameArray.length; i++) {
-			if(frameArray[i].contentEquals(element))
-				return i;
-		}
-		return -1;
-	}
-
-	private static int getIndexForReplacement(
-			HashMap<String, Integer> elementMap, String[] frameArray,
-			String element) {
-		int index=-1,min=Integer.MAX_VALUE;
-		for (int i = 0; i < frameArray.length; i++) {
-			if(elementMap.containsKey(frameArray[i]))
-			{
-				if(elementMap.get(frameArray[i])<min){
+			String element=frameArray[i];
+			if(elementMap.containsKey(element)){
+				if(elementMap.get(element)<min)
+				{
+					min=elementMap.get(element);
 					index=i;
-					min=elementMap.get(frameArray[i]);
 				}
 			}
 		}
 		return index;
 	}
+
+	private static int checkElement(String[] frameArray, String element) {
+		for (int i = 0; i < frameArray.length; i++) {
+			if(frameArray[i].contentEquals(element)){
+				return i;
+			}
+		}
+		return -1;
+	}
+
 
 
 }
