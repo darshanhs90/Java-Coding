@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 
 /*Implementation of LFU Page Replacement Algorithm*/
-public class _23LFUPageReplacementAlgorithm{
+public class _22LFUPageReplacementAlgorithm{
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
