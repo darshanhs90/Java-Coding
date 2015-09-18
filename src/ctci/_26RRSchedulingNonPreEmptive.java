@@ -12,8 +12,8 @@ public class _26RRSchedulingNonPreEmptive{
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
-		Integer noOfProcesses=Integer.parseInt(scanner.nextLine());
-		Integer quantum=Integer.parseInt(scanner.nextLine());
+		Integer noOfProcesses=5;//Integer.parseInt(scanner.nextLine());
+		Integer quantum=1;//Integer.parseInt(scanner.nextLine());
 		int arrivalTimeArray[]=new int[noOfProcesses];
 		int serviceTimeArray[]=new int[noOfProcesses];
 		String arrivalTimeStringArray[]={"0","2","4","6","8"};//scanner.nextLine().split(",");
@@ -35,43 +35,35 @@ public class _26RRSchedulingNonPreEmptive{
 		}
 		_05queue queue=new _05queue();
 		int remainingTimeArray[]=Arrays.copyOf(serviceTimeArray,serviceTimeArray.length);
-		int count=0,index=0;;
+		int finishTimeArray[]=new int[remainingTimeArray.length];
+		int turnAroundTimeArray[]=new int[remainingTimeArray.length];
+		int count=0,index=-1;
+		StringBuffer sb=new StringBuffer();
 		for (int i = 0; i < totalServiceTime; i++) {
 			if(arrivalTimeArray[count]==i){
-				if(!queue.isEmpty())
-				{
-					queue.add(count);
-					if(remainingTimeArray[index]!=0){
-						queue.add(index);
-					}
-				}
-				else{
-					queue.add(count);
-				}
+				queue.add(count);
 				count=(count==arrivalTimeArray.length-1)?count:(count+1);
-				/*index=queue.poll();
-				remainingTimeArray[index]=remainingTimeArray[index]-1;*/	
 			}
-			else{
-				index=queue.poll();
-				remainingTimeArray[index]=remainingTimeArray[index]-1;
-				if((i+1)!=arrivalTimeArray[count])
-				{
-					queue.add(index);
-				}
+			if(index!=-1 && (remainingTimeArray[index]-1)>0){
+				queue.add(index);	
+				remainingTimeArray[index]--;
 			}
-			System.out.println("Queue is :"+queue.toString());
-			//System.out.println();
-			System.out.println(Arrays.toString(remainingTimeArray));
+			index=queue.poll();
+			sb.append(index+"");
 		}
-
-
-
-
-
-
-
-
-		return null;
+		System.out.println(sb.toString());
+		String outputString=sb.reverse().toString();
+		System.out.println(outputString);
+		for (int i = 0; i < finishTimeArray.length; i++) {
+			finishTimeArray[i]=outputString.length()-outputString.indexOf(i+"");
+			turnAroundTimeArray[i]=finishTimeArray[i]-arrivalTimeArray[i];
+		}
+		System.out.println(Arrays.toString(finishTimeArray));
+		System.out.println(Arrays.toString(turnAroundTimeArray));
+		float[] outputArray=new float[arrivalTimeArray.length];
+		for (int i = 0; i < turnAroundTimeArray.length; i++) {
+			outputArray[i]=(float)turnAroundTimeArray[i]/serviceTimeArray[i];
+		}
+		return outputArray;
 	}
 }
