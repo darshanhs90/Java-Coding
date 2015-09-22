@@ -7,7 +7,7 @@ import java.util.Stack;
 
 
 /*
- * http://www.geeksforgeeks.org/archives/6921
+ * http://www.geeksforgeeks.org/reverse-a-stack-using-recursion/
  * Reverse a stack using recursion
  */;
  public class _01DataStructures_Stack_02 {	 
