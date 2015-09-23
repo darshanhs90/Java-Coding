@@ -2,9 +2,7 @@ package Warmup;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Set;
 
 public class _40biggerIsGreater {
 	static HashMap<String,Integer> elementDiffMap;

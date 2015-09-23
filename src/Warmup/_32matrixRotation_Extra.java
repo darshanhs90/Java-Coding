@@ -3,7 +3,6 @@ package Warmup;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class _32matrixRotation_Extra {
 	public static void main(String[] args) throws Exception {

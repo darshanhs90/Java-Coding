@@ -2,7 +2,6 @@ package geeksforgeeks;
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.Stack;
 
 
 

@@ -1,9 +1,9 @@
 package geeksforgeeks;
 
+import geeksforgeeks._01DataStructures_BinaryTree_00.Node;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import geeksforgeeks._01DataStructures_BinaryTree_00.Node;
 
 /*
  * http://www.geeksforgeeks.org/print-nodes-distance-k-given-node-binary-tree/

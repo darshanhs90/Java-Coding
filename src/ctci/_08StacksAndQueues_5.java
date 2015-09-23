@@ -1,7 +1,6 @@
 package ctci;
 
 import java.util.EmptyStackException;
-import java.util.Queue;
 import java.util.Stack;
 
 

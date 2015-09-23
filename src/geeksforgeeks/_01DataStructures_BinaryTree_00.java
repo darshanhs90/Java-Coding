@@ -104,7 +104,7 @@ package geeksforgeeks;
 	 }
 	 class Node{
 		 Integer data;
-		 Node left,right;
+		 Node left,right,nextRight,next;
 		 public Node(Integer data,Node left,Node right) {
 			 this.data=data;
 			 this.left=left;
