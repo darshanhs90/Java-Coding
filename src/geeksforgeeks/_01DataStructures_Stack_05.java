@@ -3,8 +3,6 @@ package geeksforgeeks;
 import java.util.Arrays;
 
 
-
-
 /*
  * http://www.geeksforgeeks.org/implement-two-stacks-in-an-array/
  * Implement two stacks in an array
@@ -33,7 +31,37 @@ import java.util.Arrays;
 		 System.out.println(mainStack.pop2());
 		 System.out.println(mainStack.pop2());
 		 System.out.println(mainStack.pop2());
-
+		 
+		 
+		 BetterStack betterStack=new BetterStack();
+		 betterStack.push1(10);
+		 betterStack.push1(20);
+		 betterStack.push1(30);
+		 betterStack.push1(40);
+		 betterStack.push1(50);
+		 betterStack.push1(60);
+		 betterStack.push1(70);
+		 betterStack.push1(80);
+		 betterStack.push1(90);
+		 betterStack.push2(100);
+		 betterStack.stackString();
+		 betterStack.pop2();
+		 betterStack.push1(110);
+		 betterStack.stackString();
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 	 }
 
 
@@ -77,5 +105,50 @@ import java.util.Arrays;
 	 }
 	 public String stack2String(){
 		 return Arrays.toString(Arrays.copyOfRange(stackArray, stack2Start,stack2End+1));
+	 }
+ }
+ class BetterStack{
+	 int array[]=new int[10];
+	 int stack1Start=0,stack1End=0,stack2Start=array.length-1,stack2End=array.length-1;
+
+	 public boolean push1(int value){
+		 if((stack1End)>stack2End)
+			 return false;
+		 else
+			 array[stack1End]=value;
+		 stack1End++;
+		 return true;	
+	 }
+
+
+	 public boolean push2(int value){
+		 if((stack2End)<stack1End)
+			 return false;
+		 else
+			 array[stack2End]=value;
+		 stack2End--;
+		 return true;	
+	 }
+	 public int pop1(){
+		 if(stack1End<stack1Start)
+		 {
+			 stack1End=stack1Start;
+		 return Integer.MIN_VALUE;
+		 }
+		 stack1End--;
+		 return array[stack1End+1];
+		 
+	 }
+	 public int pop2(){
+		 if(stack2End>stack2Start)
+		 {
+			 stack2End=stack2Start;
+		 return Integer.MIN_VALUE;
+		 }
+		 stack2End++;
+		 return array[stack2End-1];
+	 }
+	 public void stackString(){
+		 System.out.println(Arrays.toString(array));
 	 }
  }
