@@ -10,7 +10,7 @@ import ctci._05queue;
  */;
  public class _01DataStructures_Stack_06 {	 
 	 public static void main(String[] args) {
-
+         
 		 MyStack myStack=new MyStack();
 		 myStack.push(10);
 		 myStack.push(20);
