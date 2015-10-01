@@ -1,13 +1,14 @@
 package careerCup;
 
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 /*
  * Main Link:  http://www.careercup.com/page?pid=google-interview-questions
  * Problem Link:  http://www.careercup.com/question?id=5200686994161664
-*/
+ */
 public class _01googleCareerCup {
 
 	public static void main(String[] args) {
@@ -17,7 +18,28 @@ public class _01googleCareerCup {
 		Integer max=Integer.parseInt(scanner.nextLine());
 		scanner.close();
 		String inputStringArray[]=inputString.split(",");
-		naiveAlgo(inputStringArray,min,max);
+		//naiveAlgo(inputStringArray,min,max);//O(N^2)
+		bestAlgo(inputStringArray,min,max);//early Termination
+	}
+
+	private static void bestAlgo(String[] inputStringArray, Integer min, Integer max) {
+		Arrays.sort(inputStringArray);
+		ArrayList<Integer> elementList=new ArrayList<Integer>();
+		int cumulativeArray[]=new int[inputStringArray.length];
+		int sum=0;
+		for (int i = 0; i < inputStringArray.length; i++) {
+			sum+=Integer.parseInt(inputStringArray[i]);
+			elementList.add(sum);
+			cumulativeArray[i]=sum;
+		}
+		Arrays.sort(cumulativeArray);
+		for (int i = 0; i < cumulativeArray.length; i++) {
+				
+		}
+		
+		
+		
+
 	}
 
 	private static void naiveAlgo(String[] inputStringArray, Integer min, Integer max) {
@@ -33,6 +55,6 @@ public class _01googleCareerCup {
 				}
 			}
 		}
-		
+
 	}
 }
