@@ -3,7 +3,6 @@ package careerCup;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
 
 /*
  * Link: http://www.geeksforgeeks.org/find-k-such-that-all-elements-in-kth-row-are-0-and-kth-column-are-1-in-a-boolean-matrix/
@@ -15,12 +14,23 @@ public class _04googleCareerCup {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		Integer n=Integer.parseInt(scanner.nextLine());
-		/*4
-		1,0,0,0
-		1,1,1,0
-		1,1,0,0
-		1,1,1,0*/		
-		String inputStringArray[]=new String[n];
+/*
+4
+1,0,0,0
+1,1,1,0
+1,1,0,0
+1,1,1,0
+*/		
+		
+/*		
+5
+0,1,1,0,1
+0,0,0,0,0
+1,1,1,0,0
+1,1,1,1,0
+1,1,1,1,1
+*/
+String inputStringArray[]=new String[n];
 		for (int i = 0; i < n; i++) {
 			inputStringArray[i]=scanner.nextLine();
 		}
@@ -39,8 +49,28 @@ public class _04googleCareerCup {
 	}
 
 	private static int findIndexLong(int[][] inputArray) {
-
-		return 0;
+		int rowSumArray[]=new int[inputArray.length];
+		int colSumArray[]=new int[inputArray.length];
+		Arrays.fill(rowSumArray,0);
+		Arrays.fill(colSumArray,0);
+		for (int i = 0; i < colSumArray.length; i++) {
+			
+			for (int j = 0; j < colSumArray.length; j++) {
+				rowSumArray[i]+=inputArray[i][j];
+				colSumArray[j]+=inputArray[i][j];
+			}
+		}
+		
+		for (int i = 0; i < colSumArray.length; i++) {
+			for (int j = 0; j < colSumArray.length; j++) {
+				if(rowSumArray[i]-inputArray[i][j]==0 && colSumArray[j]-inputArray[i][j]==inputArray.length-1)
+					return i;
+			}
+		}
+		
+		System.out.println(Arrays.toString(rowSumArray));
+		System.out.println(Arrays.toString(colSumArray));
+		return -1;
 	}
 
 	private static void printArray(int[][] inputArray) {
