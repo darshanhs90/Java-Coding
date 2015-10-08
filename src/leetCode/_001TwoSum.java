@@ -1,7 +1,9 @@
 package leetCode;
 
+/*
+ * Link : https://leetcode.com/problems/two-sum/
+*/
 import java.util.Arrays;
-
 public class _001TwoSum {
 	public static int[] twoSum(int[] nums, int target) {
 		int startIndex=0,endIndex=nums.length-1;
