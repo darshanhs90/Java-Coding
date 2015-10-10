@@ -15,20 +15,17 @@ public class _107BinaryLevelOrderTraversal {
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-	static ArrayList<ArrayList<Integer>> ArrayList;
-	static ArrayList<Integer> arrayArrayList;
-	public static List<ArrayList<Integer>> levelOrderBottom(TreeNode root) {
-		
-		if(root==null)
-			return null;
+	static List<List<Integer>> ArrayList;
+	static List<Integer> arrayArrayList;
+	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
 		int height=getHeight(root);
-		ArrayList=new ArrayList<ArrayList<Integer>>();
+		ArrayList=new ArrayList<List<Integer>>();
 		for (int i = 1; i <=height; i++) {
 			arrayArrayList=new ArrayList<>();
 			printNodes(root,i);
 			ArrayList.add(arrayArrayList);
 		}
-		List<ArrayList<Integer>> ArrayListNew=new ArrayList<ArrayList<Integer>>();
+		List<List<Integer>> ArrayListNew=new ArrayList<List<Integer>>();
 
 		for (int i = ArrayList.size()-1;i>=0; i--) {
 			ArrayListNew.add(ArrayList.get(i));	
@@ -80,7 +77,7 @@ public class _107BinaryLevelOrderTraversal {
 		rootnode.right=new TreeNode(20);
 		rootnode.right.left=new TreeNode(15);
 		rootnode.right.right=new TreeNode(7);
-		List<ArrayList<Integer>> ArrayList=levelOrderBottom(rootnode);
+		List<List<Integer>> ArrayList=levelOrderBottom(rootnode);
 		for (int i = 0; i < ArrayList.size(); i++) {
 			System.out.println(Arrays.toString(ArrayList.get(i).toArray()));
 		}
