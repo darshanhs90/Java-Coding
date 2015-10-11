@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 /*
  * Link : https://leetcode.com/problems/implement-stack-using-queues/
+ * Done in CTCI
  */
 
 public class _225StackUsingQueues {
