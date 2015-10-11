@@ -11,6 +11,8 @@ public class _160IntersectionLinkedLists {
 		ListNode nodeA=headA;
 		ListNode nodeB=headB;
 		int countA=0,countB=0;
+		if(headA==null || headB==null)
+			return null;
 		while(nodeA!=null){
 			nodeA=nodeA.next;
 			countA++;
@@ -32,7 +34,7 @@ public class _160IntersectionLinkedLists {
 		}else if(countB>countA){
 			while(counter<(countB-countA))
 			{
-				nodeA=nodeA.next;
+				nodeB=nodeB.next;
 				counter++;
 			}
 		}
@@ -80,10 +82,10 @@ public class _160IntersectionLinkedLists {
 		ln.next.next.next=new ListNode(15);
 		ln.next.next.next.next=new ListNode(30);
 		ListNode ln1=new ListNode(10);
-		ln1.next=new ListNode(15);
-		ln1.next.next=new ListNode(30);
-		System.out.println(getIntersectionNode(ln, ln1).val);
-		System.out.println(getIntersectionNodeExtraSpace(ln, ln1).val);
+		ln1.next=new ListNode(17);
+		ln1.next.next=new ListNode(31);
+		System.out.println(getIntersectionNode(ln, ln1));
+		System.out.println(getIntersectionNodeExtraSpace(ln, ln1));
 
 	}
 }
