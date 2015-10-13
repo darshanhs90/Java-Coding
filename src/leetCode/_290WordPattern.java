@@ -1,6 +1,5 @@
 package leetCode;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 /*
@@ -14,8 +13,17 @@ public class _290WordPattern {
 			return false;
 		else{
 			HashMap<Character, String> charMap=new HashMap<>();
+			HashMap<String,Character> reverseCharMap=new HashMap<>();
 			for (int i = 0; i < pattern.length(); i++) {
 				Character element=pattern.charAt(i);
+				if(!reverseCharMap.containsKey(strArray[i]))
+				{
+					reverseCharMap.put(strArray[i],element);
+				}
+				else{
+					if(reverseCharMap.get(strArray[i])!=element)
+						return false;
+				}
 				if(charMap.containsKey(element))
 				{
 					if(!(charMap.get(element).contentEquals(strArray[i])))
@@ -26,7 +34,6 @@ public class _290WordPattern {
 				}
 			}
 		}
-
 		return true;
 	}
 
@@ -35,6 +42,6 @@ public class _290WordPattern {
 		System.out.println(wordPattern("abba","dog cat cat fish"));
 		System.out.println(wordPattern("aaaa","dog cat cat dog"));
 		System.out.println(wordPattern("abba","dog dog dog dog"));
-		
+
 	}
 }
