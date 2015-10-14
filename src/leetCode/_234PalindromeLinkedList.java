@@ -1,36 +1,53 @@
 package leetCode;
 
-import java.util.Stack;
-
 /*
- * Link : https://leetcode.com/problems/palindrome-linked-list/
+ * Link : https://leetcode.com/problems/reverse-integer/
  */
 
 public class _234PalindromeLinkedList {
-	public static boolean isPalindromeLong(ListNode head) {
-		ListNode headNode=head;
-		ListNode headNodeCopy=head;
-		Stack<Integer> stack=new Stack<>();
-		while(headNode!=null)
+	public static int reverse(int x) {
+		String input=String.valueOf(x);
+		String output = null;
+		boolean negative=false;
+		if(input.contains("-"))
 		{
-			stack.push(headNode.val);
-			headNode=headNode.next;
+			StringBuffer sb=new StringBuffer(input);
+			output=sb.reverse().toString().replace("-","");
+			negative=true;
 		}
-		while(headNodeCopy!=null)
+		else{
+			StringBuffer sb=new StringBuffer(input);
+			output=sb.reverse().toString();
+		}
+		if(output.length()>10)
+			return 0;
+		else if(output.length()==10)
 		{
-			if(stack.pop()!=headNodeCopy.val)
+			if(negative)
+				return checkRange(output,(Integer.MIN_VALUE+"").replace("-",""))==true?Integer.parseInt("-"+output):0;
+				else
+					return checkRange(output,Integer.MAX_VALUE+"")==true?Integer.parseInt(output):0;		
+		}
+		return negative==true?Integer.parseInt("-"+output):Integer.parseInt(output);
+	}
+
+	private static boolean checkRange(String output, String value) {
+
+		for (int i = 0; i < output.length(); i++) {
+			if(Integer.parseInt(output.charAt(i)+"")>Integer.parseInt(value.charAt(i)+""))
 				return false;
-			headNodeCopy=headNodeCopy.next;
+			else 
+				if(Integer.parseInt(output.charAt(i)+"")<Integer.parseInt(value.charAt(i)+""))
+					return true;
 		}
 		return true;
 	}
-	public static class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) { val = x; }
-	}
-	public static void main(String[] args) {
 
+	public static void main(String[] args) {
+		System.out.println(reverse(-2147483412));
+		System.out.println(reverse(-123));
+		int x=1534236469;
+		int y=Integer.MAX_VALUE;
 	}
 
 }
