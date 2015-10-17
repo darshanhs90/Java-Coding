@@ -32,7 +32,7 @@ public class _089GrayCode {
 			list=tempList1;
 		}
 		return convertedList(list);
-	}
+	} 
 
 	private static List<Integer> convertedList(List<String> list) {
 		List<Integer> outputList=new ArrayList<>();
