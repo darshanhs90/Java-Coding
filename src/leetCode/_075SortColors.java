@@ -3,19 +3,17 @@ package leetCode;
 import java.util.Arrays;
 
 /*
- * Link : https://leetcode.com/problems/climbing-stairs/
+ * Link : https://leetcode.com/problemset/algorithms/
  */
 
 public class _075SortColors {
 	public static void sortColors(int[] nums) {
-		int zeroCount=0,oneCount=0,twoCount=0;
+		int zeroCount=0,oneCount=0;
 		for (int i = 0; i < nums.length; i++) {
 			if(nums[i]==0)
 				zeroCount++;
 			else if(nums[i]==1)
 				oneCount++;
-			else
-				twoCount++;
 		}
 		for (int i = 0; i < nums.length; i++) {
 
