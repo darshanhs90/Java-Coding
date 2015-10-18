@@ -3,7 +3,7 @@ package leetCode;
 import java.util.Arrays;
 
 /*
- * Link : https://leetcode.com/problems/climbing-stairs/
+ * Link : https://leetcode.com/problems/set-matrix-zeroes/
  */
 
 public class _073SetMatrixZeroes {
