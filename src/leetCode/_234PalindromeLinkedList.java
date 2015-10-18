@@ -46,8 +46,6 @@ public class _234PalindromeLinkedList {
 	public static void main(String[] args) {
 		System.out.println(reverse(-2147483412));
 		System.out.println(reverse(-123));
-		int x=1534236469;
-		int y=Integer.MAX_VALUE;
 	}
 
 }
