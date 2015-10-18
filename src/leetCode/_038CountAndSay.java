@@ -14,7 +14,7 @@ public class _038CountAndSay {
 			String numberString=String.valueOf(start);
 			char prevChar=' ';
 			int prevCharCount=0;
-			boolean ended=true;
+			//boolean ended=true;
 			StringBuffer sb=new StringBuffer();
 			for (int j = 0; j < numberString.length(); j++) {
 				if(prevChar==' ')
