@@ -1,8 +1,5 @@
 package GeeksforGeeksPractice;
 
-/*
- * Fuck You Navaneeth,Try copying the code now
- */
 public class _0025BoundaryTraversalOfBinaryTree {
 	public static class TreeNode {
 		int val;
