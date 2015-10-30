@@ -8,18 +8,18 @@ public class _0027DifferenceBetwenSumsOfEvenOddLevel {
 		TreeNode next;
 		TreeNode(int x) { val = x; }
 	}
-	public static void main(String args[]){
-		TreeNode tn=new TreeNode(5);
-		tn.left=new TreeNode(2);
-		tn.right=new TreeNode(6);
-		tn.left.left=new TreeNode(1);
-		tn.left.right=new TreeNode(4);
-		tn.left.right.left=new TreeNode(3);
-		tn.right.right=new TreeNode(8);
-		tn.right.right.right=new TreeNode(9);
-		tn.right.right.left=new TreeNode(7);
-		System.out.println(findDifference(tn));
-	}
+		public static void main(String args[]){
+			TreeNode tn=new TreeNode(5);
+			tn.left=new TreeNode(2);
+			tn.right=new TreeNode(6);
+			tn.left.left=new TreeNode(1);
+			tn.left.right=new TreeNode(4);
+			tn.left.right.left=new TreeNode(3);
+			tn.right.right=new TreeNode(8);
+			tn.right.right.right=new TreeNode(9);
+			tn.right.right.left=new TreeNode(7);
+			System.out.println(findDifference(tn));
+		}
 	static int oddSum=0,evenSum=0;
 	private static int findDifference(TreeNode tn) {
 		int height=getHeight(tn);
