@@ -11,14 +11,24 @@ public class _0001TCTapeEquilibrium {
 		System.out.println(minimise(new int[]{3,1,2,4,3}));
 	}
 
-	private static int minimise(int[] is) {
-		
-		
-		
+	private static int minimise(int[] inputArray) {
+		int min=-Integer.MAX_VALUE;
+		int leftSum=0,rightSum=0;
+		for (int i = 0; i < inputArray.length; i++) {
+			rightSum+=inputArray[i];
+		}
+		int diff=0;
+		for (int i = 0; i < inputArray.length; i++) {
+			leftSum+=inputArray[i];
+			rightSum-=inputArray[i];
+			diff=Math.abs(leftSum-rightSum);
+			if(diff<min)
+				min=diff;
+		}
 		
 		//use left sum =0,right sum as sum of elements of array,
 		//traverse the list to get the difference
-		return 0;
+		return diff;
 	}
 
 }
