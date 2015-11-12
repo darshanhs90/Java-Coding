@@ -2,6 +2,7 @@ package Codility;
 
 
 /*
+ * Author : Haridarshan H.S.
  * Link : https://codility.com/programmers/task/frog_jmp
  */
 
