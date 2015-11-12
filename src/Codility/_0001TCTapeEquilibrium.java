@@ -12,7 +12,7 @@ public class _0001TCTapeEquilibrium {
 	}
 
 	private static int minimise(int[] inputArray) {
-		int min=-Integer.MAX_VALUE;
+		int min=Integer.MAX_VALUE;
 		int leftSum=0,rightSum=0;
 		for (int i = 0; i < inputArray.length; i++) {
 			rightSum+=inputArray[i];
@@ -25,10 +25,7 @@ public class _0001TCTapeEquilibrium {
 			if(diff<min)
 				min=diff;
 		}
-		
-		//use left sum =0,right sum as sum of elements of array,
-		//traverse the list to get the difference
-		return diff;
+		return min;
 	}
 
 }
