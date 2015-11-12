@@ -6,7 +6,7 @@ package Codility;
  * Link : https://codility.com/programmers/task/perm_missing_elem
  */
 
-public class _0002TCPermMissingElem {
+public class _L0201CountingElementsFrogRiverOne {
 
 	public static void main(String[] args) {
 		System.out.println(solution(new int[]{2,3,1,5}));

@@ -6,7 +6,7 @@ package Codility;
  * Link : https://codility.com/programmers/task/tape_equilibrium
  */
 
-public class _0001TCTapeEquilibrium {
+public class _L0101TimeComplexityTapeEquilibrium {
 
 	public static void main(String[] args) {
 		System.out.println(minimise(new int[]{3,1,2,4,3}));

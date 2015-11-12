@@ -6,7 +6,7 @@ package Codility;
  * Link : https://codility.com/programmers/task/frog_jmp
  */
 
-public class _0002TCFrogJump {
+public class _L0102TimeComplexityFrogJump {
 
 	public static void main(String[] args) {
 		System.out.println(solution(10, 85, 30));
