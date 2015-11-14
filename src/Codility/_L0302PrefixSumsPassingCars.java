@@ -2,17 +2,26 @@ package Codility;
 
 /*
  * Author : Haridarshan H.S.
- * Link : https://codility.com/programmers/task/count_div
+ * Link : https://codility.com/programmers/task/passing_cars
  */
 
 public class _L0302PrefixSumsPassingCars {
 
 	public static void main(String[] args) {
-		System.out.println(solution(new int[]{0,1,0,1,1}));
+		System.out.println(solution(new int[]{0,1,0,1,1,0,1,1}));
 	}
-	//need to figure out permutation/combination thingy
 	public static int solution(int[] A){
-		
-		return 0;
+		int count=0;
+		int previous=0;
+		for (int i = A.length-1; i >=0; i--) {
+			if(A[i]==0)
+			{
+				previous+=count;
+			}
+			else{
+				count++;
+			}			
+		}
+		return previous;
 	}
 }
