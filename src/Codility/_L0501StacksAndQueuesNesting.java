@@ -7,7 +7,7 @@ import java.util.Stack;
  * Link : https://codility.com/programmers/task/nesting
  */
 
-public class _L0405StacksAndQueuesNesting {
+public class _L0501StacksAndQueuesNesting {
 	public static void main(String[] args) {
 		System.out.println("(()(())())"+solution("(()(())())"));
 		System.out.println(""+solution(""));
