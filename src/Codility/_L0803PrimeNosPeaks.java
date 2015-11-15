@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Link : https://codility.com/programmers/task/peaks
  */
 
-public class _L0803PrimeNosCountPeaks {
+public class _L0803PrimeNosPeaks {
 	public static void main(String[] args) {
 		System.out.println(solution(new int[]{1, 2, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2}));
 	}
