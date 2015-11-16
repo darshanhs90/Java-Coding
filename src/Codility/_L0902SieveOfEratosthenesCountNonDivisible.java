@@ -1,6 +1,5 @@
 package Codility;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /*
@@ -10,9 +9,9 @@ import java.util.Arrays;
 
 public class _L0902SieveOfEratosthenesCountNonDivisible {
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(longSolution(new int[]{3,1,2,3,6})));
+		System.out.println(Arrays.toString(solution(new int[]{3,1,2,3,6})));
 	}
-	public static int[] longSolution(int[] A){
+	public static int[] solution(int[] A){
 		int outputArr[]=new int[A.length];
 		outputArr=Arrays.copyOfRange(A,0, A.length);
 		Arrays.sort(outputArr);
