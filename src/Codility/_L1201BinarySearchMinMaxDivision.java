@@ -20,7 +20,6 @@ public class _L1201BinarySearchMinMaxDivision {
 		}
 		int beg = max;
 		int end = sum; 
-
 		int min = sum; 
 		while (beg <= end){
 			int mid = (beg + end) / 2;
@@ -49,7 +48,6 @@ public class _L1201BinarySearchMinMaxDivision {
 			sum += A[i];
 			if (sum > num){
 				sum = A[i];
-
 				K--;
 				if (K == 0){
 					return 0;
