@@ -1,5 +1,8 @@
 package GeeksforGeeksPractice;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0006LevelOrderTraversal {
 	public static void main(String args[]){
 		TreeNode tn=new TreeNode(1);
@@ -13,8 +16,21 @@ public class _0006LevelOrderTraversal {
 		//1/2/3/5/4/6/7/
 	}
 	public static void levelOrderTraversal(TreeNode tn)
-	{
-		
+	{	
+		Queue<TreeNode> q=new LinkedList<TreeNode>();
+		if(tn!=null)
+		{
+			q.add(tn);
+		}
+		while(!q.isEmpty())
+		{
+			TreeNode tnNew=q.poll();
+			System.out.print(tnNew.val+"/");
+			if(tnNew.left!=null)
+				q.add(tnNew.left);
+			if(tnNew.right!=null)
+				q.add(tnNew.right);
+		}
 	}
 	
 	public static class TreeNode {
