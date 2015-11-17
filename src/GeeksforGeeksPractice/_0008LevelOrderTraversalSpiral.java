@@ -23,6 +23,42 @@ public class _0008LevelOrderTraversalSpiral {
 	
 	public static void levelOrderTraversalSpiral(TreeNode tn)
 	{
+		int height=getHeight(tn);
+		boolean flag=false;
+		for (int i = 1; i <=height; i++) {
+			if(flag)
+				getNodes(tn,flag,i);
+			else
+				getNodes(tn,flag,i);
+			flag=!flag;		
+			System.out.println();
+		}
+	}
+
+	private static void getNodes(TreeNode tn, boolean flag, int i) {
+		if(tn!=null)
+		{
+			if(i==1){
+				System.out.print(tn.val+"/");
+			}
+			if(flag)
+			{
+				getNodes(tn.left, flag, i-1);
+				getNodes(tn.right, flag, i-1);
+			}
+			else{
+				getNodes(tn.right, flag, i-1);
+				getNodes(tn.left, flag, i-1);
+			}
+		}
 		
+	}
+
+	private static int getHeight(TreeNode tn) {
+		if(tn!=null)
+		{
+			return 1+Math.max(getHeight(tn.left),getHeight(tn.right));
+		}
+		return 0;
 	}
 }
