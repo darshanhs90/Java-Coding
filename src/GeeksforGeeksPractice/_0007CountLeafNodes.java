@@ -17,8 +17,13 @@ public class _0007CountLeafNodes {
 	}
 	
 	public static int countLeafNodes(TreeNode tn)
-	{
-		
+	{	
+		if(tn!=null)
+		{
+			if(tn.left==null && tn.right==null)
+				return 1;
+			return countLeafNodes(tn.left)+countLeafNodes(tn.right);
+		}
 		return 0;
 	}
 	
