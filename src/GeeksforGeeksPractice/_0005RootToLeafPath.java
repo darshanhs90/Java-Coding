@@ -1,5 +1,7 @@
 package GeeksforGeeksPractice;
 
+import java.util.Arrays;
+
 public class _0005RootToLeafPath {
 	public static void main(String args[]){
 		TreeNode tn=new TreeNode(1);
@@ -14,10 +16,30 @@ public class _0005RootToLeafPath {
 		//[1, 2, 4, 6, 7
 		//[1, 3, 4, 6, 7
 	}
+	static int path[];
 	public static void rootToLeafPath(TreeNode tn){
-		
+		path=new int[100];
+		printNodes(tn,path,0);
 	}
 	
+	private static void printNodes(TreeNode tn, int[] path, int pathLen) {
+		if(tn!=null)
+		{
+			path[pathLen]=tn.val;
+			pathLen++;
+			if(tn.left==null && tn.right==null)
+			{
+				System.out.println(Arrays.toString(path));
+			}
+			else{
+				printNodes(tn.left, path, pathLen);
+				printNodes(tn.right, path, pathLen);
+			}
+			
+			
+		}	
+	}
+
 	public static class TreeNode {
 		int val;
 		TreeNode left;
