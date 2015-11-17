@@ -26,7 +26,14 @@ public class _0004BinaryMirrorTree {
 	}
 
 	private static void mirrorTree(TreeNode tn) {
-		
+		if(tn!=null)
+		{
+			mirrorTree(tn.left);
+			mirrorTree(tn.right);
+			TreeNode tnNew=tn.left;
+			tn.left=tn.right;
+			tn.right=tnNew;
+		}
 	}
 
 	public static class TreeNode {
