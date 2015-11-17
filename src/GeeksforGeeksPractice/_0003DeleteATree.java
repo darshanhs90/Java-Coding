@@ -24,7 +24,13 @@ public class _0003DeleteATree {
 	}
 
 	private static void deleteTree(TreeNode tn) {
-		
+		if(tn!=null)
+		{
+			deleteTree(tn.left);
+			deleteTree(tn.right);
+			//make tn as null,but to check output make value as -1
+			tn.val=-1;
+		}
 		
 	}
 
