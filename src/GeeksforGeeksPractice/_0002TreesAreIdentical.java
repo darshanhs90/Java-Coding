@@ -16,7 +16,7 @@ public class _0002TreesAreIdentical {
 		tn1.left.left=new TreeNode(5);
 		tn1.left.left.left=new TreeNode(6);
 		tn1.left.left.left.left=new TreeNode(8);
-		System.out.println(isIdentical(tn,tn1));
+		System.out.println(isIdentical(tn,tn1));//returns false
 	}
 	
 	public static class TreeNode {
@@ -28,15 +28,14 @@ public class _0002TreesAreIdentical {
 
 	public static boolean isIdentical(TreeNode tn,TreeNode tn1)
 	{
-		if(tn!=null && tn1!=null)
+		if(tn==null && tn1==null)
 		{
-			return tn.val==tn1.val && isIdentical(tn.left,tn1.left) && isIdentical(tn.right,tn1.right);
-		}
-		else if(tn==null && tn1!=null||tn!=null && tn1==null)
-		{
-		return false;
-		}
-		else
 			return true;
+		}
+		else{
+			if((tn==null && tn1!=null)|| (tn!=null && tn1==null))
+				return false;
+			return tn.val==tn1.val && isIdentical(tn.left, tn1.left) && isIdentical(tn.right, tn1.right);
+		}
 	}
 }
