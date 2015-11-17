@@ -11,7 +11,7 @@ public class _0003DeleteATree {
 		tn.left.left.left.left=new TreeNode(7);
 		preOrder(tn);System.out.println();
 		deleteTree(tn);
-		preOrder(tn);System.out.println();	
+		preOrder(tn);System.out.println();	//-1/-1/-1/-1/-1/-1/-1/
 	}
 	
 	private static void preOrder(TreeNode tn) {
@@ -25,7 +25,7 @@ public class _0003DeleteATree {
 
 	private static void deleteTree(TreeNode tn) {
 		if(tn!=null)
-		{	
+		{
 			deleteTree(tn.left);
 			deleteTree(tn.right);
 			tn.val=-1;
