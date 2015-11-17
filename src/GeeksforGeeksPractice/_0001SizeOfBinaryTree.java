@@ -14,6 +14,10 @@ public class _0001SizeOfBinaryTree {
 
 
 	public static int findSize(TreeNode tn){
+		if(tn!=null)
+		{
+			return 1+Math.max(findSize(tn.left), findSize(tn.right));
+		}	
 		return 0;
 	}
 
