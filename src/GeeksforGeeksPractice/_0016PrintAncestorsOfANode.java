@@ -1,7 +1,5 @@
 package GeeksforGeeksPractice;
 
-import java.util.Arrays;
-
 public class _0016PrintAncestorsOfANode {
 	static int[] path;
 	public static class TreeNode {
@@ -22,17 +20,7 @@ public class _0016PrintAncestorsOfANode {
 		getAncestorsOfANode(tn,path,0,30);
 	}
 	public static void getAncestorsOfANode(TreeNode tn,int[] path,int pathLen,int val) {
-		if(tn!=null)
-		{
-			path[pathLen]=tn.val;
-			pathLen++;
-			if(tn.val==val)
-			{
-				System.out.println(Arrays.toString(Arrays.copyOf(path, pathLen)));
-			}
-			getAncestorsOfANode(tn.left, path, pathLen, val);
-			getAncestorsOfANode(tn.right, path, pathLen, val);			
-		}
+		
 	}
 
 }

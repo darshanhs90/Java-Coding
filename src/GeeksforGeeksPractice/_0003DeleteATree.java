@@ -24,12 +24,7 @@ public class _0003DeleteATree {
 	}
 
 	private static void deleteTree(TreeNode tn) {
-		if(tn!=null)
-		{
-			deleteTree(tn.left);
-			deleteTree(tn.right);
-			tn.val=-1;
-		}
+		
 		
 	}
 

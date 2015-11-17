@@ -20,14 +20,11 @@ public class _0021ConvertTreeToSumTree {
 		System.out.println();
 		getSum(tn);
 		preOrder(tn);
+		//10//-2//8//-4//6//7//5//
+		//20//4//0//0//12//0//0//
 	}
 	private static int getSum(TreeNode tn) {
-		if(tn!=null)
-		{	
-			int old_val=tn.val;
-			tn.val=getSum(tn.left)+getSum(tn.right);
-			return old_val+tn.val;
-		}	
+		
 		return 0;
 	}
 	private static void preOrder(TreeNode tn) {

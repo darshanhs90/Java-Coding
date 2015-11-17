@@ -1,7 +1,5 @@
 package GeeksforGeeksPractice;
 
-import java.util.HashMap;
-
 public class _0022VerticalSumInTree {
 	public static class TreeNode {
 		int val;
@@ -19,27 +17,11 @@ public class _0022VerticalSumInTree {
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(7);
 		getVerticalSum(tn);
+		//12,2,4,3,7
 	}
-	static HashMap<Integer,Integer> levelSum=new HashMap<>();
 	private static void getVerticalSum(TreeNode tn) {
-		getVerticalSumUtil(tn,0);
-		for (int i = 0; i < levelSum.values().toArray().length; i++) {
-			System.out.println(levelSum.values().toArray()[i]);
-		}
+		
+		
 	}
-	private static void getVerticalSumUtil(TreeNode tn, int level) {
-		if(tn==null)
-			return;
-		if(!levelSum.containsKey(level))
-		{
-			levelSum.put(level, tn.val);
-		}
-		else
-		{
-			levelSum.put(level, levelSum.get(level)+tn.val);
-		}
-		getVerticalSumUtil(tn.left,level-1);
-		getVerticalSumUtil(tn.right,level+1);
-	}
-
+	
 }

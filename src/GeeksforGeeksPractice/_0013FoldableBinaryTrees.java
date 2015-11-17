@@ -18,14 +18,6 @@ public class _0013FoldableBinaryTrees {
 		System.out.println(isFoldable(tn));
 	}
 	private static boolean isFoldable(TreeNode tn) {
-		boolean x=checkFoldable(tn.left,tn.right);
-		return x;
-	}
-	private static boolean checkFoldable(TreeNode tn, TreeNode tnNew) {
-		if(tn==null && tnNew==null)
-			return true;
-		if(tn==null || tnNew==null)
-			return false;
-		return checkFoldable(tn.left, tnNew.right) && checkFoldable(tn.right, tnNew.left);
+		return false;
 	}	
 }

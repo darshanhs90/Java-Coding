@@ -17,33 +17,9 @@ public class _0026ReverseLevelOrderTraversal {
 		reverseLevelOrderTraversal(tn);
 	}
 	private static void reverseLevelOrderTraversal(TreeNode tn) {
-		int height=getHeight(tn);
-		for (int i = height; i >0; i--) {
-			printNodes(tn,i);
-		}
+		
 	}
-	private static void printNodes(TreeNode tn, int level) {
-		if(tn==null)
-			return;
-		if(level==1)
-		{
-			System.out.println(tn.val);
-		}
-		printNodes(tn.left, level-1);
-		printNodes(tn.right, level-1);
-	}
-	private static int getHeight(TreeNode tn) {
-		if(tn!=null)
-		{
-			int leftHeight=0,rightHeight=0;
-			if(tn.left!=null)
-				leftHeight=getHeight(tn.left);
-			if(tn.right!=null)
-				rightHeight=getHeight(tn.right);
-			return Math.max(leftHeight, rightHeight)+1;
-		}
-		return 0;
-	}
+	
 
 
 }

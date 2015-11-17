@@ -19,26 +19,8 @@ public class _0012HeightBalanceCheck {
 	}
 	
 	private static boolean heightBalanceCheck(TreeNode tn) {
-		if(tn!=null)
-		{
-			int leftHeight=height(tn.left);
-			int rightHeight=height(tn.right);
-			return Math.abs(leftHeight-rightHeight)<2 && heightBalanceCheck(tn.left) && heightBalanceCheck(tn.right);
-		}
-		return true;
-	}
-
-	private static int height(TreeNode tn) {
-		if(tn!=null)
-		{
-			int leftHeight=0,rightHeight=0;
-			if(tn.left!=null)
-				leftHeight=height(tn.left);
-			if(tn.right!=null)
-				rightHeight=height(tn.right);
-			return Math.max(leftHeight, rightHeight)+1;
-		}
-		return 0;
+		
+		return false;
 	}
 
 

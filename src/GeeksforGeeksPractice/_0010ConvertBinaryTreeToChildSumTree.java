@@ -18,6 +18,9 @@ public class _0010ConvertBinaryTreeToChildSumTree {
 		preOrder(tn);System.out.println();
 		modifyChildSumProperty(tn);
 		preOrder(tn);System.out.println();
+		//50/8/3/5/2/1/30/
+		//50/19/14/5/31/1/30/
+
 	}
 	private static void preOrder(TreeNode tn) {
 		if(tn!=null)
@@ -29,37 +32,7 @@ public class _0010ConvertBinaryTreeToChildSumTree {
 
 	}
 	private static void modifyChildSumProperty(TreeNode tn) {
-		int leftValue=0,rightValue=0,diff;
-		if(tn==null ||( tn.left==null && tn.right==null))
-			return;
-		else
-		{	
-			modifyChildSumProperty(tn.left);
-			modifyChildSumProperty(tn.right);
-			if(tn.left!=null)
-				leftValue=tn.left.val;
-			if(tn.right!=null)
-				rightValue=tn.right.val;
-			diff=-tn.val+(leftValue+rightValue);
-			if(diff>0)
-			{
-				tn.val=tn.val+diff;
-			}
-			if(diff<0)
-			{
-				incrementValue(tn,-diff);
-			}
-		}
-	}
-	private static void incrementValue(TreeNode tn, int i) {
-		if(tn.left!=null){
-			tn.left.val=tn.left.val+i;	
-			incrementValue(tn.left, i);
-		}
-		else if(tn.right!=null){
-			tn.right.val=tn.right.val+i;
-			incrementValue(tn.right, i);
-		}
+		
 	}
 
 }

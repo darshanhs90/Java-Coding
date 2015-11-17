@@ -22,21 +22,7 @@ public class _0018BinaryTreeSubTreeCheck {
 
 	}
 	public static boolean checkBinarySubTree(TreeNode tn1,TreeNode tn2){
-		if(tn1==null)
-			return false;
-		if(tn2==null)
-			return false;
-/*		if(isIdentical(tn1,tn2))
-			return true;*/
-		return isIdentical(tn1,tn2)||isIdentical(tn1.left,tn2)||isIdentical(tn1.right,tn2);
-
-	}
-	private static boolean isIdentical(TreeNode tn1, TreeNode tn2) {
-		if(tn1==null && tn2!=null || tn1!=null && tn2==null)
-			return false;
-		else if(tn1==null&& tn2==null)
-			return true;
-		return tn1.val==tn2.val && isIdentical(tn1.left, tn2.left) && isIdentical(tn1.right, tn2.right);
+		return false;
 	}
 
 }

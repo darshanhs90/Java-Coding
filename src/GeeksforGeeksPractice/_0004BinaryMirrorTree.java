@@ -12,6 +12,8 @@ public class _0004BinaryMirrorTree {
 		preOrder(tn);System.out.println();
 		mirrorTree(tn);
 		preOrder(tn);System.out.println();
+		//1/2/5/6/7/4/3/
+		//1/3/2/4/5/6/7/
 	}
 	
 	private static void preOrder(TreeNode tn) {
@@ -24,14 +26,7 @@ public class _0004BinaryMirrorTree {
 	}
 
 	private static void mirrorTree(TreeNode tn) {
-		if(tn!=null)
-		{
-			mirrorTree(tn.left);
-			mirrorTree(tn.right);
-			TreeNode temp=tn.left;
-			tn.left=tn.right;
-			tn.right=temp;
-		}
+		
 	}
 
 	public static class TreeNode {

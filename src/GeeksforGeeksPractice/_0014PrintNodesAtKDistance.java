@@ -18,15 +18,7 @@ public class _0014PrintNodesAtKDistance {
 		printAtDistance(tn,3);
 	}
 	public static void printAtDistance(TreeNode tn, int level) {
-		if(tn!=null)
-		{
-			if(level==1)
-				System.out.println(tn.val);
-			else{
-				printAtDistance(tn.left,level-1);
-				printAtDistance(tn.right,level-1);
-			}			
-		}
+		
 	}
 
 }

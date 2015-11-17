@@ -18,17 +18,7 @@ public class _0017CheckSumTree {
 		System.out.println(checkSumTree(tn));
 	}
 	public static boolean checkSumTree(TreeNode tn) {
-		if(tn!=null)
-		{	
-			if(tn.left==null && tn.right==null)
-				return true;
-			int leftVal=0,rightVal=0;
-			if(tn.left!=null)
-				leftVal=tn.left.val;
-			if(tn.right!=null)
-				rightVal=tn.right.val;
-			return (tn.val==leftVal+rightVal) && checkSumTree(tn.left) && checkSumTree(tn.right);
-		}
+		
 		return true;
 	}
 

@@ -18,6 +18,9 @@ public class _0025BoundaryTraversalOfBinaryTree {
 		tn.left.right.right=new TreeNode(14);
 		tn.right.right=new TreeNode(25);
 		boundaryTraversal(tn);
+		//20//8//4//
+		//4//10//14//25//
+		//20//22//25//
 	}
 	private static void boundaryTraversal(TreeNode tn) {
 		TreeNode tnLeft=tn,tnLeaf=tn,tnRight=tn;

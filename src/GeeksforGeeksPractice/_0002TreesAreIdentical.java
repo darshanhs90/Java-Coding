@@ -28,14 +28,6 @@ public class _0002TreesAreIdentical {
 
 	public static boolean isIdentical(TreeNode tn,TreeNode tn1)
 	{
-		if(tn==null && tn1==null)
-		{
-			return true;
-		}
-		else{
-			if((tn==null && tn1!=null)|| (tn!=null && tn1==null))
-				return false;
-			return tn.val==tn1.val && isIdentical(tn.left, tn1.left) && isIdentical(tn.right, tn1.right);
-		}
+		return false;
 	}
 }

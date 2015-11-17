@@ -13,20 +13,12 @@ public class _0007CountLeafNodes {
 		tn.right=new TreeNode(3);
 		tn.left.right=new TreeNode(4);
 		tn.left.left=new TreeNode(5);
-		System.out.println(countLeafNodes(tn));
+		System.out.println(countLeafNodes(tn));//3
 	}
 	
 	public static int countLeafNodes(TreeNode tn)
 	{
-		if(tn!=null)
-		{
-			if(tn.left==null && tn.right==null)
-			{
-				return 1;
-			}
-			else
-				return countLeafNodes(tn.left)+countLeafNodes(tn.right);
-		}
+		
 		return 0;
 	}
 	

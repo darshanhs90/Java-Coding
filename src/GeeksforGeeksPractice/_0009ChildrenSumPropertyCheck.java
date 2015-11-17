@@ -15,20 +15,10 @@ public class _0009ChildrenSumPropertyCheck {
 		tn.left.right=new TreeNode(5);
 		tn.right.left=new TreeNode(20);
 		tn.right.right=new TreeNode(0);
-		System.out.println(checkChildrenSumProperty(tn));
+		System.out.println(checkChildrenSumProperty(tn));//false
 	}
 	private static boolean checkChildrenSumProperty(TreeNode tn) {
-		if(tn!=null)
-		{	
-			if(tn.left==null && tn.right==null)
-				return true;
-			int leftVal=0,rightVal=0;
-			if(tn.left!=null)
-				leftVal=tn.left.val;
-			if(tn.right!=null)
-				rightVal=tn.right.val;
-			return (tn.val==leftVal+rightVal) && checkChildrenSumProperty(tn.left) && checkChildrenSumProperty(tn.right);
-		}
+		
 		return true;
 	}	
 }

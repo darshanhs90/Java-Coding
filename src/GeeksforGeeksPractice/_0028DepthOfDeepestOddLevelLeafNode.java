@@ -20,42 +20,12 @@ public class _0028DepthOfDeepestOddLevelLeafNode {
 		tn.right.right.right=new TreeNode(8);
 		tn.right.right.right.right=new TreeNode(10);
 		tn.right.right.right.right.left=new TreeNode(11);
-		findDepthOfDeepestOddLevelLeaf(tn);
+		findDepthOfDeepestOddLevelLeaf(tn);//4->9
 	}
 	private static void findDepthOfDeepestOddLevelLeaf(TreeNode tn) {
-		int height=getHeight(tn);
-		for (int i = 1; i <=height; i++) {
-			if(i%2!=0)
-			{
-				printNodes(tn,i);
-			}
-		}
+		
 		
 	}
-	private static int getHeight(TreeNode tn) {
-		if(tn!=null)
-		{
-			int leftHeight=0,rightHeight=0;
-			if(tn.left!=null)
-				leftHeight=getHeight(tn.left);
-			if(tn.right!=null)
-				rightHeight=getHeight(tn.right);
-			return Math.max(leftHeight, rightHeight)+1;
-		}
-		return 0;
-	}
-	private static void printNodes(TreeNode tn, int level) {
-		if(tn!=null)
-		{
-			if(level==1 && tn.left==null && tn.right==null)
-				System.out.println(tn.val);
-			printNodes(tn.left, level-1);
-			printNodes(tn.right, level-1);
-			
-		}
-		
-	}
-	
 	
 
 

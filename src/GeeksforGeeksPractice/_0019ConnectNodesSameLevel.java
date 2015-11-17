@@ -21,23 +21,7 @@ public class _0019ConnectNodesSameLevel {
 		connect(tn);
 	}
 	private static void connect(TreeNode tn) {
-		if(tn==null)
-			return;
-		if(tn.left!=null)
-			tn.left.next=tn.right;
-		if(tn.right!=null)
-			tn.right.next=tn.next!=null?tn.next.left:null;
-		connect(tn.left);
-		connect(tn.right);
-	}
-	public static void preOrder(TreeNode tn)
-	{
-		if(tn!=null)
-		{
-			System.out.println(tn.val+"//"+tn.next);
-			preOrder(tn.left);
-			preOrder(tn.right);
-		}
+		
 	}
 
 }
