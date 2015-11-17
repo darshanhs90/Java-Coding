@@ -9,22 +9,16 @@ public class _0001SizeOfBinaryTree {
 		tn.left.left=new TreeNode(5);
 		tn.left.left.left=new TreeNode(6);
 		tn.left.left.left.left=new TreeNode(7);
-		System.out.println(findSize(tn));
+		System.out.println(findSize(tn));//should get 5 as output
 	}
 
 
 	public static int findSize(TreeNode tn){
-
-		if(tn!=null)
-		{
-			int leftHeight=0,rightHeight=0;
-			if(tn.left!=null)
-				leftHeight=findSize(tn.left);
-			if(tn.right!=null)
-				rightHeight=findSize(tn.right);
-			return 1+Math.max(leftHeight,rightHeight);
-		}
-		return 0;
+		if(tn==null)
+			return 0;
+		int leftHeight=findSize(tn.left);
+		int rightHeight=findSize(tn.left);
+		return 1+Math.max(leftHeight, rightHeight);
 	}
 
 	public static class TreeNode {
