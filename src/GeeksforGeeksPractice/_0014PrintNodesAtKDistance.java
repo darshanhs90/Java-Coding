@@ -15,9 +15,21 @@ public class _0014PrintNodesAtKDistance {
 		//tn.left.right=new TreeNode(5);
 		//tn.right.left=new TreeNode(1);
 		tn.right.right=new TreeNode(30);
-		printAtDistance(tn,3);
+		printAtDistance(tn,2);
 	}
 	public static void printAtDistance(TreeNode tn, int level) {
+		if(tn!=null)
+		{
+			if(level==0)
+			{
+				System.out.println(tn.val);
+			}
+			else
+			{
+				printAtDistance(tn.left, level-1);
+				printAtDistance(tn.right, level-1);
+			}			
+		}
 		
 	}
 
