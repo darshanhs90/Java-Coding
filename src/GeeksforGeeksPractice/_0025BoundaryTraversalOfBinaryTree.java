@@ -23,39 +23,34 @@ public class _0025BoundaryTraversalOfBinaryTree {
 		//20//22//25//
 	}
 	private static void boundaryTraversal(TreeNode tn) {
-		TreeNode tnLeft=tn,tnLeaf=tn,tnRight=tn;
-		printLeftNodes(tnLeft);
-		System.out.println();
-		printLeafNodes(tnLeaf);
-		System.out.println();
-		printRightNodes(tnRight);
-	}
-	private static void printRightNodes(TreeNode tnLeft) {
-		while(tnLeft!=null)
-		{
-			System.out.print(tnLeft.val+"//");
-			tnLeft=tnLeft.right;
-		}
-
+		printLeftNodes(tn);System.out.println();
+		printLeafNodes(tn);System.out.println();
+		printRightNodes(tn);
 	}
 	private static void printLeafNodes(TreeNode tn) {
 		if(tn!=null)
 		{
 			if(tn.left==null && tn.right==null)
-			{
 				System.out.print(tn.val+"//");
-			}
 			printLeafNodes(tn.left);
 			printLeafNodes(tn.right);
-			
 		}
+		
 	}
-	private static void printLeftNodes(TreeNode tnLeft) {
-		while(tnLeft!=null)
+	private static void printLeftNodes(TreeNode tn) {
+		if(tn!=null)
 		{
-			System.out.print(tnLeft.val+"//");
-			tnLeft=tnLeft.left;
+			System.out.print(tn.val+"//");
+			printLeftNodes(tn.left);
 		}
 	}
+	private static void printRightNodes(TreeNode tn) {
+		if(tn!=null)
+		{
+			printRightNodes(tn.right);
+			System.out.print(tn.val+"//");
+		}
+	}
+	
 
 }
