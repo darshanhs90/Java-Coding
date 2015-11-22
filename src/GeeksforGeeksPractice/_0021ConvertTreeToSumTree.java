@@ -24,7 +24,12 @@ public class _0021ConvertTreeToSumTree {
 		//20//4//0//0//12//0//0//
 	}
 	private static int getSum(TreeNode tn) {
-		
+		if(tn!=null)
+		{
+			int val=tn.val;
+			tn.val=getSum(tn.left)+getSum(tn.right);
+			return val+tn.val;
+		}
 		return 0;
 	}
 	private static void preOrder(TreeNode tn) {
