@@ -19,8 +19,24 @@ public class _0012HeightBalanceCheck {
 	}
 	
 	private static boolean heightBalanceCheck(TreeNode tn) {
-		
-		return false;
+		if(tn!=null)
+		{
+			int leftHeight=getHeight(tn.left);
+			int rightHeight=getHeight(tn.right);
+			if(Math.abs(leftHeight-rightHeight)<=1 && heightBalanceCheck(tn.left) && heightBalanceCheck(tn.right))
+				return true;
+			else
+				return false;
+		}
+		return true;
+	}
+
+	private static int getHeight(TreeNode tn) {
+		if(tn!=null)
+		{
+			return 1+Math.max(getHeight(tn.left),getHeight(tn.right));
+		}
+		return 0;
 	}
 
 
