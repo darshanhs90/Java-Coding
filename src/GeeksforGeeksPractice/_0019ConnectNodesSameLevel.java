@@ -17,8 +17,25 @@ public class _0019ConnectNodesSameLevel {
 		tn.right.left=new TreeNode(1);
 		tn.right.right=new TreeNode(30);
 		tn.next=null;
-		connect(tn);
+		//connect(tn);
+		connectRecursive(tn);
 		preOrder(tn);
+	}
+	private static void connectRecursive(TreeNode tn) {
+		if(tn!=null)
+		{
+			if(tn.left!=null)
+			{
+				tn.left.next=tn.right;
+			}
+			if(tn.right!=null)
+			{
+				tn.right.next=(tn.next!=null)?tn.next.left:null;
+			}
+			connectRecursive(tn.left);
+			connectRecursive(tn.right);
+		}
+		
 	}
 	static TreeNode temp;
 	private static void preOrder(TreeNode tn) {
@@ -63,5 +80,5 @@ public class _0019ConnectNodesSameLevel {
 		}
 		return 0;
 	}
-
+	
 }
