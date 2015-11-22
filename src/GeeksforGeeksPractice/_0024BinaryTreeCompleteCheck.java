@@ -1,5 +1,7 @@
 package GeeksforGeeksPractice;
 
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class _0024BinaryTreeCompleteCheck {
 	public static class TreeNode {
@@ -18,7 +20,32 @@ public class _0024BinaryTreeCompleteCheck {
 		System.out.println(checkBinaryTree(tn));//true
 	}
 	private static boolean checkBinaryTree(TreeNode tn) {
-		return false;
+		Queue<TreeNode> q=new LinkedList<>();
+		if(tn!=null)
+		{
+			q.add(tn);
+		}
+		boolean flag=false;
+		while(!q.isEmpty())
+		{
+			TreeNode temp=q.poll();
+			System.out.println(temp.val);
+			if(temp.left!=null){
+				if(flag==true)
+					return false;
+				q.add(temp.left);
+			}
+			else
+				flag=true;
+			if(temp.right!=null){
+				if(flag==true)
+					return false;
+				q.add(temp.right);
+			}
+			else
+				flag=true;
+		}
+		return true;
 	}
 
 }
