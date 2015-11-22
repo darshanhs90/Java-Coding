@@ -16,12 +16,52 @@ public class _0019ConnectNodesSameLevel {
 		tn.left.right=new TreeNode(5);
 		tn.right.left=new TreeNode(1);
 		tn.right.right=new TreeNode(30);
-		//preOrder(tn);
 		tn.next=null;
 		connect(tn);
+		preOrder(tn);
+	}
+	static TreeNode temp;
+	private static void preOrder(TreeNode tn) {
+		if(tn!=null)
+		{	
+			if(tn.next==null)
+				System.out.println(tn.val+"//null");
+			else
+				System.out.println(tn.val+"//"+tn.next.val);
+			preOrder(tn.left);
+			preOrder(tn.right);
+		}
 	}
 	private static void connect(TreeNode tn) {
-		
+		int height=getHeight(tn);
+		for (int i = 0; i <=height; i++) {
+			temp=null;
+			connectNodes(tn,i);
+			System.out.println();
+		}
+	}
+	private static void connectNodes(TreeNode tn, int i) {
+		if(tn!=null)
+		{
+			if(i==1){
+				System.out.print(tn.val+"/");
+				if(temp!=null)
+					tn.next=temp;
+				else{
+					tn.next=null;
+				}
+				temp=tn;
+			}
+			connectNodes(tn.right,i-1);
+			connectNodes(tn.left,i-1);
+		}
+	}
+	private static int getHeight(TreeNode tn) {
+		if(tn!=null)
+		{
+			return 1+Math.max(getHeight(tn.left), getHeight(tn.right));
+		}
+		return 0;
 	}
 
 }
