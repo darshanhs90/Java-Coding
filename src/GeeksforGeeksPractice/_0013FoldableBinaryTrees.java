@@ -18,6 +18,40 @@ public class _0013FoldableBinaryTrees {
 		System.out.println(isFoldable(tn));
 	}
 	private static boolean isFoldable(TreeNode tn) {
+		if(tn!=null)
+		{
+			mirror(tn.left);
+			if(isStructureSame(tn.left,tn.right))
+			{
+				mirror(tn.left);
+				return true;
+			}
+			
+		}
 		return false;
+	}
+	private static boolean isStructureSame(TreeNode left, TreeNode right) {
+		if(left==null && right==null)
+		{
+			return true;
+		}
+		else if(left==null||right==null)
+		{
+			return false;
+		}
+		else{
+			return isStructureSame(left.left, right.left) && isStructureSame(left.right, right.right);
+		}
+	}
+	private static void mirror(TreeNode tn) {
+		if(tn!=null)
+		{
+			mirror(tn.left);
+			mirror(tn.right);
+			TreeNode temp=tn.left;
+			tn.left=tn.right;
+			tn.right=temp;
+		}
+		
 	}	
 }
