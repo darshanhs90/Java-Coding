@@ -15,10 +15,19 @@ public class _0015GetLevelOfANode {
 		//tn.left.right=new TreeNode(5);
 		//tn.right.left=new TreeNode(1);
 		tn.right.right=new TreeNode(30);
-		getLevelOfANode(tn,8,0);
+		getLevelOfANode(tn,30,0);
 	}
 	public static void getLevelOfANode(TreeNode tn,int val, int level) {
-		
+		if(tn!=null)
+		{
+			if(tn.val==val)
+				System.out.println(level);
+			else{
+				getLevelOfANode(tn.left, val, level+1);
+				getLevelOfANode(tn.right, val, level+1);
+
+			}
+		}
 	}
 
 }
