@@ -28,10 +28,6 @@ public class _0057RemoveNodesSumPath {
 
 
 
-
-
-
-
 	private static TreeNode pruneTree(TreeNode tn, int k) {
 		return pruneTreeUtil(tn,k);
 	}

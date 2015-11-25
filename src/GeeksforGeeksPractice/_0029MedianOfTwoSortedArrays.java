@@ -6,7 +6,7 @@ public class _0029MedianOfTwoSortedArrays {
 
 		int arr1[] = {1, 12, 15, 26, 38};
 		int arr2[] = {2, 13, 17, 30, 45};
-		System.out.println(findMedian(arr1,arr2));//17
+		System.out.println(findMedian(arr1,arr2));//17 
 
 
 	}
