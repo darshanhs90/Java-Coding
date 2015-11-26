@@ -20,7 +20,7 @@ public class _0069ArrayElementDistanceCheck {
 	}
 
 	private static boolean findDuplicates(int[] arr, int k) {
-		HashMap<Integer, Integer> elementMap=new HashMap();
+		HashMap<Integer, Integer> elementMap=new HashMap<Integer, Integer>();
 		for (int i = 0; i < arr.length; i++) {
 			int element=arr[i];
 			if(elementMap.containsKey(element))
