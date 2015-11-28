@@ -31,8 +31,6 @@ public class _0088CountNumberOfIslands {
 						count++;
 			}
 		}
-
-
 		return count;
 	}
 
