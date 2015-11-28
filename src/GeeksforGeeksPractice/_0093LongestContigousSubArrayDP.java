@@ -3,7 +3,7 @@ package GeeksforGeeksPractice;
 /*
  * Link : http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
  */
-public class _0093LongestContigousSubArray {
+public class _0093LongestContigousSubArrayDP {
 	public static void main(String[] args) {
 		int a[]={-2, -3, 4, -1, -2, 1, 5, -3};
 		System.out.println(calculateLongest(a));

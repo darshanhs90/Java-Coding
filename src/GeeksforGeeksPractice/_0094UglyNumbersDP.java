@@ -3,7 +3,7 @@ package GeeksforGeeksPractice;
 /*
  * Link : http://www.geeksforgeeks.org/ugly-numbers/
  */
-public class _0094UglyNumbers {
+public class _0094UglyNumbersDP {
 	public static void main(String[] args) {
 		System.out.println(findUglyNumberNaive(150));
 		System.out.println(findUglyNumberDP(150));
