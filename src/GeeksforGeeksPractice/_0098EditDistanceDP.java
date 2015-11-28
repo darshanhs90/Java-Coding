@@ -3,7 +3,7 @@ package GeeksforGeeksPractice;
 /*
  * Link : http://www.geeksforgeeks.org/dynamic-programming-set-5-edit-distance/
  */
-public class _0098EditDistance {
+public class _0098EditDistanceDP {
 	public static void main(String[] args) {
 		String x = "sunday";
 		String y = "saturday";
