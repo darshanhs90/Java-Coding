@@ -1,7 +1,7 @@
 package GeeksforGeeksPractice;
 
 /*
- * Link : http://www.geeksforgeeks.org/find-the-number-occurring-odd-number-of-times/
+ * Link : http://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
  */
 public class _0104LargestContigousSubArray {
 	public static void main(String[] args) {
