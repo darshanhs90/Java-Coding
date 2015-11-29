@@ -5,7 +5,7 @@ import java.util.Arrays;
 /*
  * Link:http://www.geeksforgeeks.org/two-elements-whose-sum-is-closest-to-zero/
  */
-public class _011ElementsZeroSumArray {
+public class _0113ElementsZeroSumArray {
 	public static void main(String[] args) {
 		int arr[] = {1, 60, -10, 70, -80, 85};
 		System.out.println(findElementsSum(arr));
