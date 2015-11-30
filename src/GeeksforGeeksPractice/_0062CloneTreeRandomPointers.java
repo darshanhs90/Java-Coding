@@ -3,7 +3,7 @@ package GeeksforGeeksPractice;
 import java.util.ArrayList;
 
 /*
- * Link : http://www.geeksforgeeks.org/find-all-possible-interpretations/
+ * Link : http://www.geeksforgeeks.org/clone-binary-tree-random-pointers/
  * To be done later
  */
 public class _0062CloneTreeRandomPointers {
