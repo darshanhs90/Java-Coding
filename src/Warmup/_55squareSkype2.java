@@ -12,15 +12,14 @@ public class _55squareSkype2 {
 	}
 
 	private static boolean checkNumber(Long i) {
-		// TODO Auto-generated method stub
 		StringBuilder sb=new StringBuilder(i.toString());
 		sb.reverse();
 		String str=sb.toString();
-		int oddSum=0,evenSum=0;
+		int oddSum=0,oddSumNew=0;
 		for (int j = 0; j < str.length(); j++) {
 			if(j%2==0)
 			{
-				evenSum+=Integer.parseInt(str.charAt(j)+"");
+				oddSumNew+=Integer.parseInt(str.charAt(j)+"");
 			}
 			else{
 				int value=2*Integer.parseInt(str.charAt(j)+"");
@@ -35,7 +34,7 @@ public class _55squareSkype2 {
 				oddSum+=value;
 			}
 		}
-		if((oddSum+evenSum)%10==0)
+		if((oddSum+oddSumNew)%10==0)
 			return true;
 		return false;
 	}
