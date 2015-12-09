@@ -6,5 +6,7 @@ Java implementation of programming problems for
 ###Amazon Interview 
 ###Google Interview 
 ##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/Warmup">3.HackerRank challenges</a>
-##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/Warmup">4.LeetCode challenges</a>
-##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/Warmup">5.Codility challenges</a>
+##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/leetCode">4.LeetCode challenges</a>
+##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/Codility">5.Codility challenges</a>
+##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/careerCup">6.Career Cup challenges</a>
+##<a href="https://github.com/darshanhs90/Java-InterviewPrep/tree/master/src/GeeksforGeeksPractice">7.Geeks for Geeks Practice</a>
