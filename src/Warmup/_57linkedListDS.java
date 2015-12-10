@@ -1,7 +1,7 @@
 package Warmup;
 
 /*
- * Link:https://www.hackerrank.com/challenges/arrays-ds 
+ * Link:https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list 
  */	
 public class _57linkedListDS {
 
