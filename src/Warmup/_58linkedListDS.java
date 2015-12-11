@@ -1,7 +1,7 @@
 package Warmup;
 
 /*
- * Link:https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list 
+ * Link:https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list 
  */	
 public class _58linkedListDS {
 	public static void main(String[] args) {
