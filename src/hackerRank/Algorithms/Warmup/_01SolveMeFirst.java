@@ -5,7 +5,7 @@ import java.util.Scanner;
 /*
  * Link:https://www.hackerrank.com/challenges/solve-me-first
 */
-public class SolveMeFirst {
+public class _01SolveMeFirst {
 
 	  static int solveMeFirst(int a, int b) {
 	      // Hint: Type return a+b; below
