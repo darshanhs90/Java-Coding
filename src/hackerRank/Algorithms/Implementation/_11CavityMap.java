@@ -1,7 +1,6 @@
 package hackerRank.Algorithms.Implementation;
 
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
