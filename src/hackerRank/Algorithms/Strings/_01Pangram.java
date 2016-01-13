@@ -4,6 +4,9 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.TreeSet;
 
+/*
+ * Link:https://www.hackerrank.com/challenges/pangrams
+*/
 public class _01Pangram {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));

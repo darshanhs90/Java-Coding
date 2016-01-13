@@ -3,7 +3,9 @@ package hackerRank.Algorithms.Strings;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/*
+ * Link:https://www.hackerrank.com/challenges/funny-string
+*/
 public class _02FunnyString {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
