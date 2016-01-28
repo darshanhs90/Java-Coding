@@ -64,6 +64,11 @@ public class _59squareSkypeInterview2 {
 			addLeftChild(tn.right);
 			return tn.value;      
 		}
+		@Override
+		public void remove() {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 
 	static class BST implements Iterable<Integer> {
