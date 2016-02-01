@@ -1,8 +1,11 @@
-package projectEuler;
+package hackerRank.ProjectEuler;
+
 
 import java.io.InputStreamReader;
 import java.util.Scanner;
-
+/*
+ * Link:https://www.hackerrank.com/contests/projecteuler/challenges/euler001
+*/
 public class _001MultiplesOf3And5 {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
