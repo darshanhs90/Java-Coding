@@ -6,7 +6,7 @@ package hackerRank.DataStructures.LinkedList;
 
 public class _09MergeTwoSortedLinkedLists {
 
-	static Node MergeLists(Node headA, Node headB) {
+	Node MergeLists(Node headA, Node headB) {
 		if(headA==null && headB==null)
 			return null;
 
@@ -46,30 +46,8 @@ public class _09MergeTwoSortedLinkedLists {
 		}
 		return newHead;
 	}
-	static class Node{
+	class Node{
 		Node next;
 		int data;
-	}
-
-
-	public static void main(String[] args) {
-		Node a=new Node();
-		a.data=1;a.next=new Node();
-		a.next.data=3;a.next.next=new Node();
-		a.next.next.data=5;a.next.next.next=new Node();
-		a.next.next.next.data=6;
-
-		Node b=new Node();
-		b.data=2;b.next=new Node();
-		b.next.data=4;b.next.next=new Node();
-		b.next.next.data=7;
-
-		a=MergeLists(a, b);
-		while(a!=null)
-		{
-			System.out.println(a.data);
-			a=a.next;
-		}
-
 	}
 }
