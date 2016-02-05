@@ -11,7 +11,7 @@ import java.util.TreeSet;
 
 public class _11DeleteDuplicateValueSortedList {
 
-	static Node RemoveDuplicates(Node head) {
+	Node RemoveDuplicates(Node head) {
 		if(head==null)
 			return head;
 		TreeSet<Integer> nodeMap=new TreeSet<>();
@@ -36,21 +36,8 @@ public class _11DeleteDuplicateValueSortedList {
 		}
 		return q1;
 	} 
-	
-	public static void main(String[] args) {
-		Node n=new Node();
-		n.data=1;n.next=new Node();
-		n.next.data=1;n.next.next=new Node();
-		n.next.next.data=1;
-		n=RemoveDuplicates(n);
-		while(n!=null)
-		{
-			System.out.println(n.data);n=n.next;
-		}
-	}
-	
-	
-	static class Node{
+
+	class Node{
 		Node next;
 		int data;
 	}
