@@ -4,7 +4,7 @@ package hackerRank.Java.OOP;
  * Link:https://www.hackerrank.com/challenges/java-inheritance-1
  */
 
-public class _01WelcomeToJava {
+public class _01JavaInheritance1 {
 
 	static class Animal{
 		void walk()
@@ -19,8 +19,11 @@ public class _01WelcomeToJava {
 		{
 			System.out.println("I am flying");
 		}
+		void sing()
+		{
+			System.out.println("I am singing");
+		}
 	}
-
 
 	public static void main(String args[])
 	{
@@ -28,7 +31,9 @@ public class _01WelcomeToJava {
 		Bird bird = new Bird();
 		bird.walk();
 		bird.fly();
+		bird.sing();
 
 	}
+
 
 }
