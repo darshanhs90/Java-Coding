@@ -3,7 +3,7 @@ package hackerRank.Java.OOP;
 import java.util.Scanner;
 
 /*
- * Link:https://www.hackerrank.com/challenges/java-inheritance-2
+ * Link:https://www.hackerrank.com/challenges/java-abstract-class
  */
 
 public class _03JavaAbstractClass {

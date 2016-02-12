@@ -4,7 +4,7 @@ package hackerRank.Java.OOP;
  * Link:https://www.hackerrank.com/challenges/java-inheritance-2
  */
 
-public class _01JavaInheritance2 {
+public class _02JavaInheritance2 {
 
 	//Write your code here
 	//Write your code here
