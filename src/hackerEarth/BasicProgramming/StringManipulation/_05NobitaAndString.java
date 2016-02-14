@@ -2,7 +2,6 @@ package hackerEarth.BasicProgramming.StringManipulation;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Stack;
 /*
  * Link:https://www.hackerearth.com/problem/algorithm/nobita-and-string-4/
  */
