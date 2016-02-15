@@ -14,33 +14,42 @@ public class _05ConnectedCellInGrid {
 		int m=Integer.parseInt(scanner.nextLine());
 		int n=Integer.parseInt(scanner.nextLine());
 		int inputArray[][]=new int[m][n];
+		boolean visited[][]=new boolean[m][n];
+
 		for (int i = 0; i < m; i++) {
+			Arrays.fill(visited[i], false);
 			for (int j = 0; j < n; j++) {
 				inputArray[i][j]=scanner.nextInt();
 			}
 		}
-		//first scan each row
-		//get the start point by checking all its neighbors
-		//if its a start point,find its neighbors count using dfs
-		//get max value
-		getMaxGridCount(inputArray);
-
-		printArray(inputArray);
-	}
-
-	private static void getMaxGridCount(int[][] inputArray) {
-		for (int i = 0; i < inputArray.length; i++) {
-			for (int j = 0; j < inputArray.length; j++) {
-				if(i==0)
-				{
-
-				}
-				else{
-
-				}
+		int max=Integer.MIN_VALUE;
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if(inputArray[i][j]==1)
+					max=Math.max(max, getMaxGridCount(inputArray,visited,i,j,0));
 			}
 		}
+		System.out.println(max);
+		//printArray(inputArray);
+	}
 
+
+
+
+	private static int getMaxGridCount(int[][] inputArray,boolean visited[][],int i,int j,int c) {
+		if(i>=inputArray.length||j>=inputArray[0].length||i<0||j<0)
+			return 0;
+		if(inputArray[i][j]==0 ||visited[i][j]==true)
+			return 0;
+		visited[i][j]=true;
+		return 1+getMaxGridCount(inputArray, visited, i-1, j, c)
+		+getMaxGridCount(inputArray, visited, i+1, j, c)
+		+getMaxGridCount(inputArray, visited, i, j-1, c)
+		+getMaxGridCount(inputArray, visited, i, j+1, c)
+		+getMaxGridCount(inputArray, visited, i-1, j-1, c)
+		+getMaxGridCount(inputArray, visited, i-1, j+1, c)
+		+getMaxGridCount(inputArray, visited, i+1, j-1, c)
+		+getMaxGridCount(inputArray, visited, i+1, j+1, c);
 	}
 
 	private static void printArray(int[][] inputArray) {
@@ -48,4 +57,10 @@ public class _05ConnectedCellInGrid {
 			System.out.println(Arrays.toString(inputArray[i]));
 		}
 	}
+
+
+
+
+
+
 }
