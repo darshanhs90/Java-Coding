@@ -4,9 +4,9 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /*
- * Link:https://www.hackerrank.com/challenges/angry-professor
+ * Link:https://www.hackerrank.com/challenges/maximizing-xor
  */
-public class _01MaximiseXor {
+public class _02MaximiseXor {
 
 	public static void main(String ards[])
 	{
