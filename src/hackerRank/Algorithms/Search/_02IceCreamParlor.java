@@ -14,19 +14,22 @@ public class _02IceCreamParlor {
 		int noOfTestCases=Integer.parseInt(scanner.nextLine());
 		for(int i=0;i<noOfTestCases;i++)
 		{
-			int M=Integer.parseInt(scanner.nextLine());
-			int N=Integer.parseInt(scanner.nextLine());
-			String inputArray[]=scanner.nextLine().split(" ");
-			String copyArray[]=Arrays.copyOf(inputArray,inputArray.length);
-			Arrays.sort(copyArray);			
+			int M=scanner.nextInt();//Integer.parseInt(scanner.nextLine());
+			int N=scanner.nextInt();//Integer.parseInt(scanner.nextLine());
+			int inputArray[]=new int[N];
+			for (int j = 0; j < N; j++) {
+				inputArray[j]=scanner.nextInt();
+			}
+			int copyArray[]=Arrays.copyOf(inputArray,inputArray.length);
+			Arrays.sort(copyArray);		
 			int leftIndex=0,rightIndex=copyArray.length-1;
 			while(leftIndex<rightIndex)
 			{
-				if((Integer.parseInt(copyArray[leftIndex])+Integer.parseInt(copyArray[rightIndex]))<M)            
+				if(((copyArray[leftIndex])+(copyArray[rightIndex]))<M)            
 				{
 					leftIndex++;
 				}
-				else if((Integer.parseInt(copyArray[leftIndex])+Integer.parseInt(copyArray[rightIndex]))>M)            
+				else if(((copyArray[leftIndex])+(copyArray[rightIndex]))>M)            
 				{
 					rightIndex--;
 				}
@@ -34,14 +37,14 @@ public class _02IceCreamParlor {
 					break;
 				}
 			}
-			int leftElement=Integer.parseInt(copyArray[leftIndex]);
-			int rightElement=Integer.parseInt(copyArray[rightIndex]);
+			int leftElement=(copyArray[leftIndex]);
+			int rightElement=(copyArray[rightIndex]);
 			leftIndex=-1;rightIndex=-1;
 			for(int j=0;j<inputArray.length;j++)
 			{
-				if(Integer.parseInt(inputArray[j])==leftElement && leftIndex==-1)
+				if((inputArray[j])==leftElement && leftIndex==-1)
 					leftIndex=j;                
-				else if(Integer.parseInt(inputArray[j])==rightElement && rightIndex==-1 )
+				else if((inputArray[j])==rightElement && rightIndex==-1 )
 					rightIndex=j; 
 			}
 			if(leftIndex<rightIndex)
