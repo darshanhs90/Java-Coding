@@ -10,27 +10,12 @@ import java.util.TreeSet;
 
 public class _03HappinessScore{
 
-	private static boolean isPrime(Object object) {
-		int n=(Integer)object;
-		if (n == 2)
-			return true;
-		if (n == 3)
-			return true;
-		if (n % 2 == 0)
-			return false;
-		if (n % 3 == 0)
-			return false;
-
-		int i = 5;
-		int w = 2;
-
-		while (i * i <= n){
-			if (n % i == 0)
-				return false;
-			i += w;
-			w = 6 - w;
-		}
-		return true;
+	private static boolean isPrime(int num) {
+        if (num == 2 ) return true;
+        if (num % 2 == 0) return false;
+        for (int i = 3; i * i <= num; i += 2)
+            if (num % i == 0) return false;
+        return true;
 	}
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
@@ -41,6 +26,8 @@ public class _03HappinessScore{
 			s.add(scanner.nextInt());
 		}
 		Set<Set<Integer>> outputSet=powerSet(s);
+		System.out.println(outputSet.size());
+		System.out.println(outputSet);
 		s=new TreeSet<Integer>();
 		Iterator<Set<Integer>> iter=outputSet.iterator();
 		while(iter.hasNext())
@@ -51,7 +38,7 @@ public class _03HappinessScore{
 			{
 				sum+=it.next();
 			}
-			if(isPrime(sum))
+			if(isPrime(sum)&&sum!=1)
 				s.add(sum);
 		}
 		System.out.println(s.size());
