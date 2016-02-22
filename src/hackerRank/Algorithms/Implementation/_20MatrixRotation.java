@@ -1,6 +1,7 @@
 package hackerRank.Algorithms.Implementation;
 
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -19,12 +20,31 @@ public class _20MatrixRotation {
 			for (int j = 0; j < N; j++) {
 				inputArray[i][j]=scanner.nextInt();
 			}
+			System.out.println(Arrays.toString(inputArray[i]));
 		}
 
+		for (int i = 0; i < R; i++) {
+			inputArray=rotateMatrix(inputArray);
+		}
+		printMatrix(inputArray);
+	}
 
+	private static int[][] rotateMatrix(int[][] inputArray) {
+		
+		
+		
+		
+		
+		
+		
+		
+		return inputArray;
+	}
 
-
-
+	private static void printMatrix(int[][] inputArray) {
+		for (int i = 0; i < inputArray.length; i++) {
+			System.out.println(Arrays.toString(inputArray[i]).replaceAll(",","").replace("[","").replace("]",""));
+		}
 
 	}
 }

@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-
+/*
+ * Link:https://www.hackerrank.com/contests/booking-hack-a-holiday/challenges/milos-diary
+*/
 public class _04MilosDiary{
 
 	public static void main(String[] args) {

@@ -8,6 +8,9 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
+/*
+ * Link:https://www.hackerrank.com/contests/booking-hack-a-holiday/challenges/happiness-score
+*/
 public class _03HappinessScore{
 
 	private static boolean isPrime(int num) {

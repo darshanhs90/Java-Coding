@@ -1,37 +1,43 @@
 package hackerRank.Algorithms.Search;
 
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 
 /*
  * Link:https://www.hackerrank.com/challenges/maximise-sum
+ * https://www.quora.com/What-is-the-logic-used-in-the-HackerRank-Maximise-Sum-problem
  */
 public class _03MaximiseSum {
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
-		int m=Integer.parseInt(scanner.nextLine());
-		String mArray[]=scanner.nextLine().split(" ");
-		int n=Integer.parseInt(scanner.nextLine());
-		String nArray[]=scanner.nextLine().split(" ");
-		Arrays.sort(mArray);
-		Arrays.sort(nArray);
-		int countArray[]=new int[10001];
-		for (int i = 0; i < mArray.length; i++) {
-			countArray[Integer.parseInt(mArray[i])]--;
+		int noOfTestCases=scanner.nextInt();
+		for (int i = 0; i < noOfTestCases; i++) {
+			int N=scanner.nextInt();
+			int M=scanner.nextInt();
+			int inputArray[]=new int[N];
+			for (int j = 0; j < inputArray.length; j++) {
+				inputArray[j]=scanner.nextInt();
+			}
+			System.out.println(findSubMatrixSum(inputArray,M));
 		}
-		Set<Integer> elementsSet=new TreeSet<>();
-		for (int i = 0; i < nArray.length; i++) {
-			countArray[Integer.parseInt(nArray[i])]++;
-			elementsSet.add(Integer.parseInt(nArray[i]));
+	}
+
+	private static int findSubMatrixSum(int[] inputArray, int m) {
+		int curr = 0;
+		int prefix[]=new int[inputArray.length];
+		for(int i = 0; i < inputArray.length; i ++) {
+			curr = (inputArray[i] % m + curr) % m;
+			prefix[i] = curr;
 		}
-		Object elementsArray[]=elementsSet.toArray();
-		for (int i = 0; i < elementsArray.length; i++) {
-			if(countArray[(int) elementsArray[i]]!=0)
-				System.out.print(elementsArray[i]+" ");
+		int ret = 0;
+		for(int i = 0; i < inputArray.length; i ++) {
+			for(int j = i-1; j >= 0; j --) {
+				ret = Math.max(ret, (prefix[i] - prefix[j] + m) % m);
+			}
+			ret = Math.max(ret, prefix[i]); // Don't forget sum from beginning. 
 		}
+		System.out.println(ret);
+		return ret;
 	}
 }
