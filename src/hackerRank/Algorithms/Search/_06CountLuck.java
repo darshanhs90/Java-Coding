@@ -11,7 +11,8 @@ public class _06CountLuck {
 
 	static boolean found=false;
 	static boolean[][] visited;
-
+//	*.M
+//	.X.
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
 		int noOfTestCases=1;//Integer.parseInt(scanner.nextLine());
@@ -34,18 +35,15 @@ public class _06CountLuck {
 				}
 			}
 			int K=1;//Integer.parseInt(scanner.nextLine());
-			System.out.println(getCountLuck(inputArray,visited,indexX+1,indexY,1));
-			System.out.println(getCountLuck(inputArray,visited,indexX-1,indexY,1));
-			System.out.println(getCountLuck(inputArray,visited,indexX,indexY+1,1));
-			System.out.println(getCountLuck(inputArray,visited,indexX,indexY-1,1));
+			System.out.println(getCountLuck(inputArray,visited,indexX,indexY,0));
 		}
 	}
 
 	private static int getCountLuck(char[][] inputArray, boolean[][] visited, int i, int j,int count) {
-		if(i<0||j<0||i>=inputArray.length||j>=inputArray[0].length)
-			return count-1;
+		if(i<0||j<0||i>inputArray.length-1||j>inputArray[0].length-1)
+			return count;
 		if(visited[i][j]==true||inputArray[i][j]=='X')
-			return count-1;
+			return count;
 		visited[i][j]=true;
 		if(inputArray[i][j]=='*')
 			return count;

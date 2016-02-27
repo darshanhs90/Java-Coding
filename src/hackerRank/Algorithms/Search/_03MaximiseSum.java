@@ -1,6 +1,7 @@
 package hackerRank.Algorithms.Search;
 
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -11,7 +12,7 @@ public class _03MaximiseSum {
 
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(new InputStreamReader(System.in));
-		int noOfTestCases=scanner.nextInt();
+		int noOfTestCases=1;//scanner.nextInt();
 		for (int i = 0; i < noOfTestCases; i++) {
 			int N=scanner.nextInt();
 			int M=scanner.nextInt();
@@ -35,9 +36,8 @@ public class _03MaximiseSum {
 			for(int j = i-1; j >= 0; j --) {
 				ret = Math.max(ret, (prefix[i] - prefix[j] + m) % m);
 			}
-			ret = Math.max(ret, prefix[i]); // Don't forget sum from beginning. 
+			ret = Math.max(ret, prefix[i]); 
 		}
-		System.out.println(ret);
 		return ret;
 	}
 }
