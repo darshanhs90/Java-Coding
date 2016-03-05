@@ -1,11 +1,11 @@
-package TopCoder.Div1;
+package TopCoder;
 import java.util.Arrays;
 
 /*
  * SRM 144 Div 1
  * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1704&rd=4515
  */
-public class BinaryCode {
+public class SRM144BinaryCode {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(decode("123210120")));
 	}

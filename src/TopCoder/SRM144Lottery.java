@@ -1,4 +1,4 @@
-package TopCoder.Div1;
+package TopCoder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 
 
-public class Lottery {
+public class SRM144Lottery {
 /*	public static void main(String[] args) {
 		System.out.println(Arrays.toString(sortByOdds(new String[]{"INDIGO: 93 8 T F",
 			 "ORANGE: 29 8 F T",

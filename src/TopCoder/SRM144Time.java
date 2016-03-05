@@ -1,4 +1,4 @@
-package TopCoder.Div1;
+package TopCoder;
 
 /*
  * SRM 144 Div2
@@ -7,7 +7,7 @@ package TopCoder.Div1;
 
 
 
-public class Time {
+public class SRM144Time {
 	/*public static void main(String[] args) {
 		System.out.println(whatTime(0));
 		System.out.println(whatTime(3661));
