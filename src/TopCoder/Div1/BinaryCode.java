@@ -2,8 +2,8 @@ package TopCoder.Div1;
 import java.util.Arrays;
 
 /*
- * SRM 144
- * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1704
+ * SRM 144 Div 1
+ * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1704&rd=4515
  */
 public class BinaryCode {
 	public static void main(String[] args) {

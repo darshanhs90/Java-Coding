@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /*
- * SRM 144
- * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1704
+ * SRM 144 Div1
+ * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1659&rd=4515
  */
 
 
