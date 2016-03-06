@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Link:https://community.topcoder.com/stat?c=problem_statement&pm=7259
  */
 
-public class CoderDojoChessboardPattern {
+public class SRM333ChessboardPattern {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(makeChessboard(8, 8)));
 		System.out.println(Arrays.toString(makeChessboard(1, 20)));
