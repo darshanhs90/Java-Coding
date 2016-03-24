@@ -1,6 +1,7 @@
 package appleInterview;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class _03PrepDocReverseListOfLists {
 	public static void main(String[] args) {
@@ -13,13 +14,15 @@ public class _03PrepDocReverseListOfLists {
 		}
 		reverseLists(listOfLists);
 	}
-
-	private static void reverseLists(LinkedList<LinkedList<Integer>> listOfLists) {
-		
-		
+	private static LinkedList<LinkedList<Integer>> reverseLists(LinkedList<LinkedList<Integer>> listOfLists) {
+		Stack<LinkedList<Integer>> listStack=new Stack<>();
+		for (int i = 0; i < listOfLists.size(); i++) {
+			listStack.push(listOfLists.get(i));
+		}
+		listOfLists=new LinkedList<>();
+		while(!listStack.isEmpty()){
+			listOfLists.add(listStack.pop());
+		}
+		return listOfLists;
 	}
-
-
-
-
 }
