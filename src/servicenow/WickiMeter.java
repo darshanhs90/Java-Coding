@@ -5,14 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-//Users/Darshan/Downloads/TestData.wck
-//Users/Darshan/Downloads/PhotonBomb.wck
-//Users/Darshan/Downloads/Starship.wck
-
-//Users/Darshan/Downloads/files/TestData.wck
-//Users/Darshan/Downloads/files/PhotonBomb.wck
-//Users/Darshan/Downloads/files/Starship.wck
-
 /*
  * Author : Haridarshan H.S.
  * Class  : WickiMeter
@@ -20,6 +12,12 @@ import java.util.TreeMap;
  * 			   starship images and list the top 10 possible targets based on the confidence level.
  */
 public class WickiMeter {
+	/**
+	 * This is the main method which makes use of WickiMeterImageGrid,PhotonBombImageGrid and StarShipImageGrid classes,
+	 * to find the list of possible targets and lists out top 10 targets based on the confidence level.
+	 * @param args Unused.
+	 * @return Nothing.
+	 */
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter the TestData File Path");

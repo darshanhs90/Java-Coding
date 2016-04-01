@@ -14,6 +14,12 @@ public class WickiMeterImageGrid {
 	public WickiMeterImageGrid(String filePath){
 		wickiMeterFilePath=filePath;
 	}
+	/**
+	 * This method is used to scan the WickiMeter image and store it in a 2D character array
+	 *
+	 * @return             Nothing
+	 * @exception		   IOException On invalid input file.
+	 */
 	public  void scanImage() throws IOException{
 		BufferedReader br;
 		try {
@@ -33,18 +39,12 @@ public class WickiMeterImageGrid {
 			throw new IOException("Invalid File Path - Wicki Meter");
 		}
 	}
-	public  String getWickiMeterFilePath() {
-		return wickiMeterFilePath;
-	}
-	public  void setWickiMeterFilePath(String wickiMeterFilePath) {
-		this.wickiMeterFilePath = wickiMeterFilePath;
-	}
-	public  char[][] getImageGrid() {
-		return imageGrid;
-	}
-	public  void setImageGrid(char[][] imageGrid) {
-		this.imageGrid = imageGrid;
-	}
+	/**
+	 * This method is used to calculate the height and width of the WickiMeter image.
+	 *
+	 * @return             Nothing
+	 * @exception		   IOException On invalid input file.
+	 */
 	private  void getCoOrdinates() throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(wickiMeterFilePath));
 		String sCurrentLine;
@@ -57,4 +57,16 @@ public class WickiMeterImageGrid {
 		br.close();
 
 	}		
+	public  String getWickiMeterFilePath() {
+		return wickiMeterFilePath;
+	}
+	public  void setWickiMeterFilePath(String wickiMeterFilePath) {
+		this.wickiMeterFilePath = wickiMeterFilePath;
+	}
+	public  char[][] getImageGrid() {
+		return imageGrid;
+	}
+	public  void setImageGrid(char[][] imageGrid) {
+		this.imageGrid = imageGrid;
+	}
 }

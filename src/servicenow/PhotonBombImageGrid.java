@@ -14,6 +14,12 @@ public class PhotonBombImageGrid {
 	public PhotonBombImageGrid(String filePath){
 		photonFilePath=filePath;
 	}
+	/**
+	 * This method is used to scan the photonbomb image and store it in a 2D character array
+	 *
+	 * @return             Nothing
+	 * @exception		   IOException On invalid input file.
+	 */
 	public  void scanImage() throws IOException{
 		BufferedReader br;
 		try{
@@ -33,6 +39,12 @@ public class PhotonBombImageGrid {
 			throw new IOException("Invalid File Path - Photon bomb");
 		};
 	}
+	/**
+	 * This method is used to calculate the height and width of the photonbomb image.
+	 *
+	 * @return             Nothing
+	 * @exception		   IOException On invalid input file.
+	 */
 	private  void getCoOrdinates() throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(photonFilePath));
 		String sCurrentLine;
