@@ -17,7 +17,6 @@ public class SRM155Quipu {
 	}
 	public static int readKnots(String knots){
 		StringBuilder sb=new StringBuilder("");
-		char c='A';
 		int knotCounter=0;
 		int dashCounter=0;
 		for (int i = 1; i < knots.length(); i++) {
