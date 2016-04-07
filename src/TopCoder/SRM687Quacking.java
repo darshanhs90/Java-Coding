@@ -1,7 +1,5 @@
 package TopCoder;
 
-import java.util.Arrays;
-
 /*
  * SRM 687 Div2
  * Link:
