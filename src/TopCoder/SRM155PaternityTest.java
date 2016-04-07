@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /*
  * SRM 155 Div2
- * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1348&rd=4580
+ * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1669&rd=4580
  */
 
 
