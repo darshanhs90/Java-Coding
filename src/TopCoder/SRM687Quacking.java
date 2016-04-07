@@ -15,8 +15,12 @@ public class SRM687Quacking {
 		System.out.println(quack("qqqqqqqqqquuuuuuuuuuaaaaaaaaaacccccccccckkkkkkkkkk"));
 		System.out.println(quack("quqaquuacakcqckkuaquckqauckack"));
 		System.out.println(quack("quackqauckquack"));
+		System.out.println(quack("quackk"));
+		
 	}
 	public static int quack(String s){
+		if(s.length()%5!=0)
+			return -1;
 		int count=0;
 		boolean arr[]=new boolean[s.length()];
 		int numOfQs=0;
