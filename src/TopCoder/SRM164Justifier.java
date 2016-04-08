@@ -3,14 +3,18 @@ package TopCoder;
 import java.util.Arrays;
 
 /*
- * SRM 149 Div2
- * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1331&rd=4550
+ * SRM 164 Div2
+ * Link:https://community.topcoder.com/stat?c=problem_statement&pm=1757&rd=4625
  */
 
 
 
 public class SRM164Justifier {
-
+	public static void main(String[] args) {
+		System.out.println(Arrays.toString(justify(new String[]{"BOB","TOMMY","JIM"})));
+		System.out.println(Arrays.toString(justify(new String[]{"JOHN","JAKE","ALAN","BLUE"})));
+		System.out.println(Arrays.toString(justify(new String[]{"LONGEST","A","LONGER","SHORT"})));
+	}
 
 	public static String[] justify(String[] textIn){
 		int maxLength=0;
