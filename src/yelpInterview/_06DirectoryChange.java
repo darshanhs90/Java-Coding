@@ -1,12 +1,11 @@
-package Warmup;
+package yelpInterview;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 /*
  * Link:https://www.careercup.com/question?id=5130528848084992
  */
-public class _80DirectoryChange {
+public class _06DirectoryChange {
 
 
 	public static void main(String a[]){

@@ -1,9 +1,9 @@
-package Warmup;
+package yelpInterview;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class _75anagramChecker {
+public class _01anagramChecker {
 
 
 	public static void main(String[] args) {

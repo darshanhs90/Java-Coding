@@ -1,9 +1,9 @@
-package Warmup;
+package yelpInterview;
 
 /*
  * Link:https://www.careercup.com/question?id=5761652767064064
  */
-public class _81PrintCombinations {
+public class _07PrintCombinations {
 
 
 	public static void main(String a[]){

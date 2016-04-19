@@ -1,4 +1,4 @@
-package Warmup;
+package yelpInterview;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 /*
  * Link:https://www.careercup.com/question?id=5678837729853440
  */
-public class _78DotProduct {
+public class _04DotProduct {
 
 
 	public static void main(String a[]){

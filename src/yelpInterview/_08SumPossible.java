@@ -1,11 +1,11 @@
-package Warmup;
+package yelpInterview;
 
 import java.util.Arrays;
 
 /*
  * Link:https://www.careercup.com/question?id=23884662
  */
-public class _82SumPossible {
+public class _08SumPossible {
 
 
 	public static void main(String a[]){

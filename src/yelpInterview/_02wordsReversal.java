@@ -1,9 +1,9 @@
-package Warmup;
+package yelpInterview;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class _76wordsReversal {
+public class _02wordsReversal {
 
 
 	public static void main(String[] args) {

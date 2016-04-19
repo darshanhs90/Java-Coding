@@ -1,4 +1,4 @@
-package Warmup;
+package yelpInterview;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 /*
  * Link:https://www.careercup.com/question?id=6213156200251392
  */
-public class _79RestaurantType {
+public class _05RestaurantType {
 
 
 	public static void main(String a[]){
