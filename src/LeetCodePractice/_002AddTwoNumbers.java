@@ -1,6 +1,6 @@
 package LeetCodePractice;
 
-public class _02AddTwoNumbers {
+public class _002AddTwoNumbers {
 	public static class ListNode {
 		int val;
 		ListNode next;

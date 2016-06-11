@@ -2,7 +2,7 @@ package LeetCodePractice;
 
 import java.math.BigInteger;
 
-public class _08StringtoInteger_atoi {
+public class _008StringtoInteger_atoi {
 
 	public static void main(String[] args) {
 		System.out.println(myAtoi("123"));

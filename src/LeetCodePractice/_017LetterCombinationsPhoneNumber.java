@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class _17LetterCombinationsPhoneNumber {
+public class _017LetterCombinationsPhoneNumber {
 
 	public static void main(String[] args) {
 		System.out.println(letterCombinations("67"));

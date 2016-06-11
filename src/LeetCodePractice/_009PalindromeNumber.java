@@ -1,6 +1,6 @@
 package LeetCodePractice;
 
-public class _09PalindromeNumber {
+public class _009PalindromeNumber {
 
 	public static void main(String[] args) {
 		System.out.println(isPalindrome(-2147447412));

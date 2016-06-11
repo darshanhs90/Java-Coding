@@ -1,6 +1,6 @@
 package LeetCodePractice;
 
-public class _03LongestSubStringWORepeat {
+public class _003LongestSubStringWORepeat {
 
 	public static void main(String[] args) {
 		System.out.println(lengthOfLongestSubstring("abcabcbb"));

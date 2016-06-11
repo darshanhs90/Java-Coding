@@ -1,6 +1,6 @@
 package LeetCodePractice;
 
-public class _04MedianOfTwoSortedArrays {
+public class _004MedianOfTwoSortedArrays {
 
 	public static void main(String[] args) {
 		

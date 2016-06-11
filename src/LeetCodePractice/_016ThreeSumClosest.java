@@ -2,7 +2,7 @@ package LeetCodePractice;
 
 import java.util.Arrays;
 
-public class _16ThreeSumClosest {
+public class _016ThreeSumClosest {
 
 	public static void main(String[] args) {
 		System.out.println(threeSumClosest(new int[]{1,1,1,1},3));
