@@ -1,6 +1,5 @@
 package hackerRank.Algorithms.Search;
 
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /*
@@ -9,7 +8,7 @@ import java.util.Scanner;
 public class _01SherlockAndArray {
 
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(new InputStreamReader(System.in));
+		Scanner scanner=new Scanner((System.in));
 		int noOfTestCases=Integer.parseInt(scanner.nextLine());
 		for (int i = 0; i < noOfTestCases; i++) {
 			int arrayLength=Integer.parseInt(scanner.nextLine());

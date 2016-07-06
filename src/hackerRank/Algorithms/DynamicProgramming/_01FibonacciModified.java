@@ -1,6 +1,5 @@
 package hackerRank.Algorithms.DynamicProgramming;
 
-import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.util.Scanner;
 
@@ -11,7 +10,7 @@ public class _01FibonacciModified {
 
 	public static void main(String ards[])
 	{
-		Scanner scanner=new Scanner(new InputStreamReader(System.in));
+		Scanner scanner=new Scanner((System.in));
 		int a=scanner.nextInt();
 		int b=scanner.nextInt();
 		long n=scanner.nextInt();
