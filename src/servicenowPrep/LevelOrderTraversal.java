@@ -1,4 +1,5 @@
-public class BinaryTreeToMirrorTree
+package servicenowPrep;
+public class LevelOrderTraversal
 {
 	static class TreeNode{
 		int value;
@@ -16,18 +17,9 @@ public class BinaryTreeToMirrorTree
 		tn.left.right=new TreeNode(5);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(7);
-		tn=getMirrorTree(tn);
 		levelOrderTraversal(tn);
 	}
 
-	private static void preOrder(TreeNode tn) {
-		if(tn!=null)
-		{
-			preOrder(tn.left);
-			System.out.println(tn.value);
-			preOrder(tn.right);
-		}
-	}
 	private static void levelOrderTraversal(TreeNode tn) {
 		int height=getHeight(tn);
 		for (int i = 0; i < height; i++) {
@@ -49,20 +41,7 @@ public class BinaryTreeToMirrorTree
 			return 0;
 		return 1+Math.max(getHeight(tn.left), getHeight(tn.right));
 	}
-	private static TreeNode getMirrorTree(TreeNode tn) {
-		if(tn==null)
-			return tn;
-		else
-		{
-			getMirrorTree(tn.left);
-			getMirrorTree(tn.right);			
-			TreeNode tn1=tn.left;
-			tn.left=tn.right;
-			tn.right=tn1;
-			return tn;
-		}
-	}
 
 
-	
+
 }
