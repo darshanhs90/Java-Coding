@@ -1,5 +1,5 @@
 package servicenowPrep;
-public class TreeIdentical
+public class _035TreeIdentical
 {
 	static class TreeNode{
 		int value;

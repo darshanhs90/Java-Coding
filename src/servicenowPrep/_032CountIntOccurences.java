@@ -22,14 +22,15 @@ public class _032CountIntOccurences {
 		ln.next.next.next.next.next.next.next.next = new ListNode(8);
 		System.out.println(getCount(ln,2));
 
-		while(ln!=null)
-		{
-			System.out.println(ln.value);ln=ln.next;
-		}
 	}
 	private static int getCount(ListNode ln,int number) {
-
-		return 0;
+		int count=0;
+		while(ln!=null)
+		{	
+			count+=(ln.value==number)?1:0;
+			ln=ln.next;
+		}
+		return count;
 	}
 
 }

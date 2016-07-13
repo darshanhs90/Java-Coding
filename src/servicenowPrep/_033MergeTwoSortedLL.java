@@ -29,8 +29,39 @@ public class _033MergeTwoSortedLL {
 		}
 	}
 	private static ListNode merge(ListNode ln,ListNode ln1) {
-
-		return ln;
+		ListNode output=new ListNode(-1),pointer=output;
+		while(ln!=null && ln1!=null)
+		{
+			if(ln.value<ln1.value)
+			{
+				output.next=ln;
+				output=output.next;
+				ln=ln.next;
+			}
+			else{
+				output.next=ln1;
+				output=output.next;
+				ln1=ln1.next;
+			}
+		}
+		if(ln!=null)
+		{
+			while(ln!=null)
+			{
+				output.next=ln;
+				output=output.next;
+				ln=ln.next;
+			}
+		}
+		else{
+			while(ln1!=null)
+			{
+				output.next=ln1;
+				output=output.next;
+				ln1=ln1.next;
+			}
+		}
+		return pointer.next;
 	}
 
 }

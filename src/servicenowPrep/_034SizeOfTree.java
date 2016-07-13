@@ -1,5 +1,5 @@
 package servicenowPrep;
-public class RootToLeafPath
+public class _034SizeOfTree
 {
 	static class TreeNode{
 		int value;
@@ -8,7 +8,7 @@ public class RootToLeafPath
 			this.value=value;
 		}
 	}
-	static int[] path=new int[1000];
+
 	public static void main(String[] args) {
 		TreeNode tn=new TreeNode(1);
 		tn.left=new TreeNode(2);
@@ -17,11 +17,13 @@ public class RootToLeafPath
 		tn.left.right=new TreeNode(5);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(7);
-		printPaths(tn,path,0);
+		System.out.println(sizeOfTree(tn));
 	}
 
-	private static void printPaths(TreeNode tn,int[] path,int level) {
-			
-		
+	private static int sizeOfTree(TreeNode tn) {
+		if(tn==null)	
+			return 0;
+		return 1+sizeOfTree(tn.left)+sizeOfTree(tn.right);
 	}
+
 }

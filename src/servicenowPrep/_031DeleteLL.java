@@ -28,8 +28,13 @@ public class _031DeleteLL {
         }
 	}
 	private static ListNode deleteLL(ListNode ln) {
-		
-		return null;
+		while(ln!=null)
+		{
+			ListNode temp=ln.next;
+			ln=null;
+			ln=temp;
+		}
+		return ln;
 	}
 	
 }

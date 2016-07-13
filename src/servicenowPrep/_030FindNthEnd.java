@@ -20,16 +20,26 @@ public class _030FindNthEnd {
         ln.next.next.next.next.next.next = new ListNode(6);
         ln.next.next.next.next.next.next.next = new ListNode(7);
         ln.next.next.next.next.next.next.next.next = new ListNode(8);
-        ln=getNthNode(ln);
+        ln=getNthNode(ln,3);
         System.out.println(ln.value);
        /* while(ln!=null)
         {
         	System.out.println(ln.value);ln=ln.next;
         }*/
 	}
-	private static ListNode getNthNode(ListNode ln) {
-		
-		return null;
+	private static ListNode getNthNode(ListNode ln,int fromEnd) {
+		ListNode startPointer=ln,endPointer=ln;
+		while(fromEnd!=0)
+		{
+			endPointer=endPointer.next;
+			fromEnd--;
+		}
+		while(endPointer!=null)
+		{
+			endPointer=endPointer.next;
+			startPointer=startPointer.next;
+		}
+		return startPointer;
 	}
 	
 }

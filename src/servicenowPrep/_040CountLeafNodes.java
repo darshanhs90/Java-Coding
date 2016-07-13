@@ -1,5 +1,6 @@
 package servicenowPrep;
-public class SizeOfTree
+
+public class _040CountLeafNodes
 {
 	static class TreeNode{
 		int value;
@@ -8,7 +9,7 @@ public class SizeOfTree
 			this.value=value;
 		}
 	}
-
+	static int[] path=new int[1000];
 	public static void main(String[] args) {
 		TreeNode tn=new TreeNode(1);
 		tn.left=new TreeNode(2);
@@ -17,13 +18,15 @@ public class SizeOfTree
 		tn.left.right=new TreeNode(5);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(7);
-		System.out.println(sizeOfTree(tn));
+		System.out.println(countLeafNodes(tn));
 	}
-
-	private static int sizeOfTree(TreeNode tn) {
-		if(tn==null)	
+	private static int countLeafNodes(TreeNode tn) {
+		if(tn==null)
 			return 0;
-		return 1+sizeOfTree(tn.left)+sizeOfTree(tn.right);
+		if(tn.left==null && tn.right==null)
+			return 1;
+		return countLeafNodes(tn.left)+countLeafNodes(tn.right);
 	}
 
+	
 }

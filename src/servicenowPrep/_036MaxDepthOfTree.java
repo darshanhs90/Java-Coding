@@ -1,5 +1,5 @@
 package servicenowPrep;
-public class MaxDepthOfTree
+public class _036MaxDepthOfTree
 {
 	static class TreeNode{
 		int value;
