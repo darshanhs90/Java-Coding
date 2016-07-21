@@ -1,6 +1,6 @@
 package eBayPrep;
 
-public class _004LongestPalindromicSubstring {
+public class _005LongestPalindromicSubstring {
 
 	public static void main(String[] args) {
 		System.out.println(longestPalindrome("amsalayalam"));

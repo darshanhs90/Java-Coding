@@ -1,6 +1,6 @@
 package eBayPrep;
 
-public class _005ZigZagConversion {
+public class _006ZigZagConversion {
 
 	public static void main(String[] args) {
 		System.out.println(convert("PAYPALISHIRING",3));

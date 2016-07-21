@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.List;
 public class _017LetterCombinationsPhoneNumber {
 
 	public static void main(String[] args) {
-		System.out.println(letterCombinations("67"));
+		letterCombinations("67");
 	}
 	static HashMap<Character, String> map;
 	static HashMap<String, String> tempMap;
@@ -25,35 +25,22 @@ public class _017LetterCombinationsPhoneNumber {
 		map.put('9', "wxyz");
 		map.put('0', "");
 		output=new ArrayList<>();
-		if(digits.length()==0||digits==null)
-			return output;
-		int length=map.get(digits.charAt(0)).length();
-		for (int i = 0; i < length; i++) {
-			getCombinations(digits,"",0,i);
-		}
+		printCombinations(digits,"");
 		return output;
 	}
-	private static void getCombinations(String digits, String tempOutput,int stringIndex,int subIndex) {
-		if(stringIndex>digits.length()-1){
-			if(!tempMap.containsKey(tempOutput)){
-				output.add(tempOutput);
-				tempMap.put(tempOutput, tempOutput);
-			}
-			return;
+	private static void printCombinations(String digits, String str) {
+		if(digits.length()==0)
+		{
+			System.out.println(str);
+			return;	
 		}
-		else{
-			int subStringlength=map.get(digits.charAt(stringIndex)).length();
-			if(subIndex<=subStringlength-1)
-			{
-				tempOutput+=map.get(digits.charAt(stringIndex)).charAt(subIndex);
-				for (int i = 0; i <=subStringlength; i++) {
-					getCombinations(digits, tempOutput, stringIndex+1, i);
-				}
-			}
-			if(stringIndex==digits.length()-1)
-			{
-				return;
-			}
-		}	
+		char c=digits.charAt(0);
+		String strn=map.get(c);
+		for (int i = 0; i < strn.length(); i++) {
+			str+=strn.charAt(i);
+			printCombinations(digits.substring(1), str);
+			str=str.substring(0, str.length()-1);
+		}
 	}
+
 }

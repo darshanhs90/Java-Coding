@@ -1,7 +1,7 @@
-package LeetCodePractice;
+package eBayPrep;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class _022GenerateParentheses {
@@ -9,27 +9,26 @@ public class _022GenerateParentheses {
 
 	public static void main(String[] args) {
 		List<String> ls1=generateParenthesis(3);
-		System.out.println(Arrays.toString(ls1.toArray()));
 
 	}
-	static List<String> ls;
-
-	public static List<String> generateParenthesis(int n) {
-		ls=new ArrayList<>();
-		parenthesesGenerator("",n,n);
-		return ls;
+	static HashSet<String> set=new HashSet<>();
+	private static List<String> generateParenthesis(int N) {
+		printParentheses("",N,N);
+		System.out.println(Arrays.toString(set.toArray()));
+		return null;
 	}
 
-
-	private static void parenthesesGenerator(String str,int forward, int backward) {
-		if(forward==0 && backward==0 )
-		{	
-			ls.add(str);
-			return ;
-		}
-		if(backward>forward || forward<0 || backward<0)
+	private static void printParentheses(String string, int forward,int backward) {
+		if(backward>forward || forward<0 ||backward<0)
+		{
 			return;
-		parenthesesGenerator(str+")", forward-1, backward);
-		parenthesesGenerator(str+"(", forward, backward-1);
+		}
+		else if(forward==0 && backward==0)
+			set.add(string);
+
+		for (int i = 0; i < forward; i++) {
+			printParentheses(string+"(", forward,backward-1);
+			printParentheses(string+")", forward-1,backward);
+		}
 	}
 }
