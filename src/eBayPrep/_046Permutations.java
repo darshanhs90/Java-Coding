@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,27 +9,24 @@ public class _046Permutations {
 	public static void main(String[] args) {
 		permute(new int[]{1,2,3});
 	}
-	static List<List<Integer>> output;
+	static List<List<Integer>> outputList;
 	public static List<List<Integer>> permute(int[] nums) {
-		output=new ArrayList<>();
-		String str=(Arrays.toString(nums).replace(" ", "").replace("[", "").replace("]", "").replace(",", ""));
-		permuteString("",str);
-		return output;
+		outputList=new ArrayList<>();
+		printPermutations("",Arrays.toString(nums).replace(", ", "").replace("[", "").replace("]", ""));
+		return outputList;
+
 	}
-
-	private static void permuteString(String prefix, String str) {
-		if(str.length()==0)
-		{	
-			List<Integer> list=new ArrayList<>();
+	private static void printPermutations(String prefix,String str) {
+		if(str.length()==0){
+			List<Integer> aList=new ArrayList<>();
 			for (int i = 0; i < prefix.length(); i++) {
-				list.add(Integer.parseInt(prefix.charAt(i)+""));
+				aList.add(Integer.parseInt(prefix.charAt(i)+""));
 			}
-			output.add(list);
-			return;
-		}
-		for (int i = 0; i < str.length(); i++) {
-			permuteString(prefix+str.charAt(i),str.substring(0,i)+str.substring(i+1));
+			outputList.add(aList);
 		}
 
+		for (int i = 0; i < str.length(); i++) {
+			printPermutations(prefix+str.charAt(i), str.substring(0,i)+str.substring(i+1));
+		}
 	}
 }

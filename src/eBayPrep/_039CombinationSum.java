@@ -1,7 +1,5 @@
-package LeetCodePractice;
+package eBayPrep;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 //http://www.programcreek.com/2014/02/leetcode-combination-sum-java/
 public class _039CombinationSum {
@@ -11,16 +9,6 @@ public class _039CombinationSum {
 	}
 
 	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-		List<List<Integer>> outputList=new ArrayList<List<Integer>>();
-		Arrays.sort(candidates);
-		
-		
-		
-		
-		
-		
-		
-		
-		return outputList;
+
 	}
 }

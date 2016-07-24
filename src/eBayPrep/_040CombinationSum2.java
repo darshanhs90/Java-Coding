@@ -1,6 +1,5 @@
-package LeetCodePractice;
+package eBayPrep;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _040CombinationSum2 {
@@ -10,7 +9,6 @@ public class _040CombinationSum2 {
 	}
 
 	public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
-		List<List<Integer>> outputList=new ArrayList<List<Integer>>();
-		return outputList;
+
 	}
 }
