@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
-public class _056MergeIntervals {
+public class _057InsertInterval {
 
 	public static class Interval {
 		int start;
@@ -16,24 +16,23 @@ public class _056MergeIntervals {
 	}
 
 	public static void main(String[] args) {
-
-
-
-		ArrayList<Interval> aList=new ArrayList<>();
-		aList.add(new Interval(1, 4));
-		aList.add(new Interval(0,4));
-		//aList.add(new Interval(8, 10));
-		//aList.add(new Interval(15, 18));
-		aList=(ArrayList<Interval>) merge(aList);
+		List<Interval> aList=new ArrayList<>();
+		aList.add(new Interval(1,2));
+		aList.add(new Interval(3,5));
+		aList.add(new Interval(6,7));
+		aList.add(new Interval(8,10));
+		aList.add(new Interval(12,16));
+		
+		aList=insert(aList, new Interval(4,9));
 		for (int i = 0; i < aList.size(); i++) {
 			System.out.println(aList.get(i).start+"///"+aList.get(i).end);
 		}
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static List<Interval> merge(List<Interval> intervals) {
+	public static List<Interval> insert(List<Interval> intervals, Interval newInterval) {
 		Stack<Interval> stack=new Stack<>();
 		List<Interval> outputList=new ArrayList<>();
+		intervals.add(newInterval);
 		Collections.sort(intervals,new Comparator<Interval>() {
 
 			@Override
@@ -69,7 +68,9 @@ public class _056MergeIntervals {
 		{
 			outputList.add(stack.pop());
 		}
+		Collections.reverse(outputList);
 		return outputList;	
+		
 	}
 }
 

@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _062UniquePaths {
 
@@ -8,18 +8,15 @@ public class _062UniquePaths {
 	}
 
 	public static int uniquePaths(int m, int n) {
-		int value=(dfs(0,0,m,n));
-		return value;
+		return dfs(0,0,m,n);
 	}
 
-	private static int dfs(int i,int j,int m, int n) {
+	private static int dfs(int i, int j, int m, int n) {
+		if(i<0||j<0||i>=m||j>=n)
+			return 0;
 		if(i==m-1 && j==n-1)
 			return 1;
-		if(i<0 || j<0 ||i>m-1||j>n-1)
-			return 0;
-		return dfs(i+1, j, m, n)+dfs(i, j+1, m, n);
-		
+		return dfs(i+1,j,m,n)+dfs(i,j+1,m,n);
 	}
-
 }
 

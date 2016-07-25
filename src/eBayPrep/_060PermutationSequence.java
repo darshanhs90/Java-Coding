@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _060PermutationSequence {
 
@@ -6,33 +6,31 @@ public class _060PermutationSequence {
 	public static void main(String[] args) {
 		System.out.println(getPermutation(3, 3));
 	}
-
+	
+	static int counter=0;
+	static String outputString="";
 	public static String getPermutation(int n, int k) {
-		String str="";
+		StringBuilder sb=new StringBuilder();
 		for (int i = 1; i <=n; i++) {
-			str+=i+"";
+			sb.append(i);
 		}
-		if(k==1)
-			return str;
-		permutationGenerator("",str,k);
+		outputString="";
+		counter=1;
+		printPermutation("",sb.toString(),k);
 		return outputString;
 	}
 
-	static int counter=1;
-	static String outputString="";
-
-	private static void permutationGenerator(String prefix, String output, int k) {
-		if(output.length()==0 && counter<=k)
-		{
+	private static void printPermutation(String prefix,String str,int k) {
+		if(str.length()==0){
 			if(counter==k)
 				outputString=prefix;
-			System.out.println(prefix);
 			counter++;
-			return;
 		}
-		for (int i = 0; i < output.length(); i++) {
-			permutationGenerator(prefix+output.charAt(i), output.substring(0,i)+output.substring(i+1), k);
+		for (int i = 0; i < str.length(); i++) {
+			printPermutation(prefix+str.charAt(i),str.substring(0,i)+str.substring(i+1),k);
 		}
 	}
+
+
 }
 

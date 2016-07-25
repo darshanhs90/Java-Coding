@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _058LengthOfLastWord {
 
@@ -9,9 +9,8 @@ public class _058LengthOfLastWord {
 	}
 
 	public static int lengthOfLastWord(String s) {
-		if(s.split(" ").length==0)
-			return 0;
-		return s.split(" ")[s.split(" ").length-1].length();
+		String  arr[]=s.split(" ");
+		return arr.length>0?arr[arr.length-1].length():0;
 	}
 }
 
