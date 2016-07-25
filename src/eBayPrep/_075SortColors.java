@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.Arrays;
 
@@ -11,24 +11,21 @@ public class _075SortColors {
 
 
 	public static void sortColors(int[] nums) {
-		int zeroCount=0,onesCount=0;
+		int noOfZeros=0,noOfOnes=0;
 		for (int i = 0; i < nums.length; i++) {
-			if(nums[i]==0)
-				zeroCount++;
-			else if(nums[i]==1)
-				onesCount++;
+			if(nums[i]==0)noOfZeros++;
+			else if(nums[i]==1)noOfOnes++;
 		}
 		for (int i = 0; i < nums.length; i++) {
-			if(zeroCount>0){
+			if(noOfZeros>0){
 				nums[i]=0;
-				zeroCount--;
-			}else if(onesCount>0){
+				noOfZeros--;
+			}else if(noOfOnes>0){
 				nums[i]=1;
-				onesCount--;
+				noOfOnes--;
 			}else
 				nums[i]=2;
 		}
-
 		System.out.println(Arrays.toString(nums));
 	}
 }
