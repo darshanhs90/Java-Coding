@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.Stack;
 
@@ -19,35 +19,38 @@ public class _114FlattenBinaryTreetoLinkedList {
 		tn.left.right=new TreeNode(4);
 		tn.right.right=new TreeNode(6);
 		preOrder(tn);
+		System.out.println();
 		flatten(tn);
+	}
+	private static void flatten(TreeNode tn) {
+		if(tn==null)
+			return;
+		Stack<TreeNode> stack=new Stack<>();
+		TreeNode pointer=tn;
+		while(tn!=null)
+		{
+			if(tn.right!=null)
+				stack.push(tn.right);
+			if(tn.left!=null){
+				tn.right=tn.left;
+				tn.left=null;
+			}
+			else if(!stack.isEmpty()){
+				tn.right=stack.pop();
+			}
+			tn=tn.right;
+		}
+		preOrder(pointer);
 	}
 	private static void preOrder(TreeNode tn) {
 		if(tn!=null)
 		{
-			System.out.println(tn.val);
 			preOrder(tn.left);
+			System.out.print(tn.val+"/");
 			preOrder(tn.right);
 		}
 
 	}
-	public static void flatten(TreeNode root) {
-		if(root==null)
-			return;
-		Stack<TreeNode> stack=new Stack<>();
-		while(root!=null)
-		{
-			if(root.right!=null)
-				stack.push(root.right);
-			if(root.left!=null)
-			{
-				root.right=root.left;
-				root.left=null;
-			}else if(!stack.isEmpty()){
-				root.right=stack.pop();
-			}
-			root=root.right;
-		}
-	}
-	
+
 }
 

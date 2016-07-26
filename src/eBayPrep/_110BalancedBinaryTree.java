@@ -1,35 +1,20 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _110BalancedBinaryTree {
-
-	public static class TreeNode {
+	static class TreeNode {
 		int val;
 		TreeNode left;
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-
 	public boolean isBalanced(TreeNode tn) {
-		if(tn!=null)
-		{
-			int leftHeight=0,rightHeight=0;
-			if(tn.left!=null)
-				leftHeight=getHeight(tn.left);
-			if(tn.right!=null)
-				rightHeight=getHeight(tn.right);
-			return Math.abs(leftHeight-rightHeight)<=1 && isBalanced(tn.left) && isBalanced(tn.right);
-		}
-		return true;
+		if(tn==null)
+			return true;
+		return Math.abs(getHeight(tn.left)-getHeight(tn.right))<=1 && isBalanced(tn.left) && isBalanced(tn.right);
 	}
-
-	public int getHeight(TreeNode tn) {
-		if(tn!=null)
-		{
-			return 1+Math.max(getHeight(tn.left), getHeight(tn.right));
-		}
-		return 0;
+	private int getHeight(TreeNode tn) {
+		return tn==null?0:1+Math.max(getHeight(tn.left), getHeight(tn.right));
 	}
-
 
 
 }

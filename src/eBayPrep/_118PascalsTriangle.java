@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,32 +10,31 @@ public class _118PascalsTriangle {
 		TreeLinkNode left, right, next;
 		TreeLinkNode(int x) { val = x; }
 	}
-
 	public static void main(String[] args) {
 		System.out.println(generate(5));
 	}
 	public static List<List<Integer>> generate(int numRows) {
-		List<List<Integer>> outputList=new ArrayList<List<Integer>>();
-		for (int i = 0; i < numRows; i++) {
-			if(outputList.size()==0){
-				ArrayList<Integer> newList=new ArrayList<>();
-				newList.add(1);
-				outputList.add(newList);
-			}
-			else{
-				ArrayList<Integer> aList=(ArrayList<Integer>) outputList.get(outputList.size()-1);
-				ArrayList<Integer> newList=new ArrayList<>();
-				for (int j = 0; j < aList.size(); j++) {
-					if(j==0 )
+		List<List<Integer>> outputList=new ArrayList<>();
+		if(numRows==0)return outputList;
+		List<Integer> individualList=new ArrayList<>();
+		individualList.add(1);
+		outputList.add(individualList);
+		if(numRows==1)
+			return outputList;
+		else{
+			for (int i = 2; i <=numRows; i++) {
+				individualList=outputList.get(outputList.size()-1);
+				List<Integer> tempList=new ArrayList<>();
+				for (int j = 0; j <=individualList.size(); j++) {
+					if(j==0||j==individualList.size())
 					{
-						newList.add(aList.get(0));
+						tempList.add(individualList.get(0));
 					}
 					else{
-						newList.add(aList.get(j-1)+aList.get(j));
+						tempList.add(individualList.get(j)+individualList.get(j-1));
 					}
 				}
-				newList.add(aList.get(0));
-				outputList.add(newList);
+				outputList.add(tempList);
 			}
 		}
 		return outputList;
