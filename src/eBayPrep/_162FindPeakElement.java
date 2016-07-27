@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _162FindPeakElement {
 
@@ -8,20 +8,8 @@ public class _162FindPeakElement {
 	}
 
 	public static int findPeakElement(int[] nums) {
-		return findPeakElement(nums,0,nums.length-1);
+
 	}
 
-	private static int findPeakElement(int[] arr, int left, int right) {
-
-		int mid=(left+right)/2;
-		if(arr[mid]>=arr[mid-1] && arr[mid]>=arr[mid+1])
-			return arr[mid];
-		else if(arr[left]>arr[right])
-		{
-			return findPeakElement(arr,mid,right);
-		}
-		else
-			return findPeakElement(arr,left,mid);
-	}
 }
 

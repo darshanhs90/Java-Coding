@@ -1,57 +1,6 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _160IntersectionofTwoLinkedLists {
-	
-	public static void main(String[] args) {
-		ListNode ln1=new ListNode(3);
-		ListNode ln2=new ListNode(2);
-		ln2.next=ln1;
-		System.out.println(getIntersectionNode(ln1, ln2));
-		
-	}
-	
-	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-
-		int lengthA=0,lengthB=0;
-		ListNode pointerA=headA,pointerB=headB;
-		while(pointerA!=null)
-		{
-			pointerA=pointerA.next;
-			lengthA++;
-		}
-		while(pointerB!=null)
-		{
-			pointerB=pointerB.next;
-			lengthB++;
-		}
-		if(lengthA>lengthB)
-		{
-			int diff=lengthA-lengthB;
-			for (int i = 0; i < diff; i++) {
-				headA=headA.next;
-			}
-			while(headA!=null && headB!=null && headA!=headB )
-			{
-				headA=headA.next;
-				headB=headB.next;
-			}
-		}
-		else{
-			int diff=lengthB-lengthA;
-			for (int i = 0; i < diff; i++) {
-				headB=headB.next;
-			}
-			while(headA!=null && headB!=null && headA!=headB)
-			{
-				headA=headA.next;
-				headB=headB.next;
-			}
-		}		
-		if(headA==headB)
-			return headA;
-		return null;
-
-	}
 	public static class ListNode {
 		int val;
 		ListNode next;
@@ -59,6 +8,52 @@ public class _160IntersectionofTwoLinkedLists {
 			val = x;
 			next = null;
 		}
+	}
+	public static void main(String[] args) {
+		ListNode ln1=new ListNode(3);
+		ListNode ln2=new ListNode(2);
+		ln2.next=ln1;
+		System.out.println(getIntersectionNode(ln1, ln2).val);
+
+	}
+
+	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		int lengthA=getLength(headA);
+		int lengthB=getLength(headB);
+		if(lengthA>lengthB)
+		{
+			int diff=lengthA-lengthB;
+			while(diff!=0)
+			{
+				headA=headA.next;diff--;
+			}
+			while(headA!=headB)
+			{
+				headA=headA.next;
+				headB=headB.next;
+			}
+			return headA;		
+		}
+		else
+		{
+			int diff=lengthB-lengthA;
+			while(diff!=0)
+			{
+				headB=headB.next;diff--;
+			}
+			while(headA!=headB)
+			{
+				headA=headA.next;
+				headB=headB.next;
+			}
+			return headA;
+		}
+	}
+
+	private static int getLength(ListNode headA) {
+		if(headA==null)
+			return 0;
+		return 1+getLength(headA.next);
 	}
 }
 

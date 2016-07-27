@@ -1,50 +1,44 @@
-package LeetCodePractice;
-
-import java.util.Stack;
+package eBayPrep;
 
 public class _155MinStack {
-	static Stack<Integer> stack;
-	static Stack<Integer> minStack;
-	public _155MinStack() {
-		stack=null;
-		minStack=null;
-	}
-
+	int[] stack;
+	int[] minStack;
+	int pointer=-1;
 	public void push(int x) {
-		if(stack==null){
-			minStack=null;
-			stack=new Stack<>();
-		}
-		stack.push(x);
-		if(minStack==null||minStack.isEmpty())
+		if(stack==null||pointer==-1)
 		{
-			minStack=new Stack<>();
-			minStack.push(x);
+			pointer++;
+			stack=new int[10000];
+			minStack=new int[10000];
+			stack[pointer]=x;
+			minStack[pointer]=x;
 		}
 		else{
-			minStack.push(Math.min(minStack.peek(), x));
+			pointer++;
+			stack[pointer]=x;
+			minStack[pointer]=Math.min(minStack[pointer-1],x);
 		}
 	}
 
 	public void pop() {
-		stack.pop();
+		pointer--;
 	}
 
 	public int top() {
-		return stack.peek();
-
+		return stack[pointer];
 	}
 
 	public int getMin() {
-		return minStack.pop();
-
+		return minStack[pointer];
 	}
 	public static void main(String[] args) {
-		_155MinStack m=new _155MinStack();
-		m.push(-1);
-		System.out.println(m.top());
-		m.getMin();
-		
+		_155MinStack a=new _155MinStack();
+		a.push(-2);
+		System.out.println(a.getMin());
+		a.push(0);
+		System.out.println(a.getMin());
+		a.push(-3);
+		System.out.println(a.getMin());
 	}
 }
 

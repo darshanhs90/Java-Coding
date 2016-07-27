@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.Stack;
 
@@ -9,14 +9,16 @@ public class _173BinarySearchTreeIterator {
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-
-	Stack<TreeNode> stack;
-	public _173BinarySearchTreeIterator(TreeNode root) {
+	static Stack<TreeNode> stack;
+	public _173BinarySearchTreeIterator(TreeNode tn) {
 		stack=new Stack<>();
-		while(root!=null)
-		{
-			stack.push(root);
-			root=root.left;
+		if(tn!=null){
+			stack.push(tn);
+			while(tn!=null && tn.left!=null)
+			{
+				stack.push(tn.left);
+				tn=tn.left;
+			}
 		}
 	}
 
@@ -27,14 +29,22 @@ public class _173BinarySearchTreeIterator {
 
 	/** @return the next smallest number */
 	public int next() {
-		TreeNode tn=stack.pop();
-		TreeNode tn1=tn.right;
-		while(tn1!=null)
+		if(hasNext())
 		{
-			stack.push(tn1);
-			tn1=tn1.left;
+			TreeNode tn=stack.pop();
+			int value=tn.val;
+			if(tn.right!=null)
+				stack.push(tn.right);
+			tn=tn.right;
+			while(tn!=null && tn.left!=null)
+			{
+				stack.push(tn.left);
+				tn=tn.left;
+			}
+			return value;
 		}
-		return tn.val;
+		else
+			return -1;
 	}
 	public static void main(String[] args) {
 		TreeNode tn=new TreeNode(5);
