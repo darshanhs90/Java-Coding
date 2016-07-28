@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _226InvertBinaryTree{
 	public static class TreeNode {
@@ -15,8 +15,19 @@ public class _226InvertBinaryTree{
 		tn.left.right=new TreeNode(3);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(9);
+		preOrder(tn);System.out.println();
 		tn=invertTree(tn);
 		preOrder(tn);
+	}
+	private static TreeNode invertTree(TreeNode tn) {
+		if(tn==null)
+			return tn;
+		invertTree(tn.left);
+		invertTree(tn.right);
+		TreeNode tn1=tn.left;
+		tn.left=tn.right;
+		tn.right=tn1;
+		return tn;
 	}
 	private static void preOrder(TreeNode tn) {
 		if(tn!=null)
@@ -24,16 +35,7 @@ public class _226InvertBinaryTree{
 			preOrder(tn.left);System.out.print(tn.val+"/");preOrder(tn.right);
 		}
 	}
-	public static TreeNode invertTree(TreeNode root) {
-		if(root==null)
-			return root;
-		TreeNode temp=root.left;
-		root.left=root.right;
-		root.right=temp;
-		root.left=invertTree(root.left);
-		root.right=invertTree(root.right);
-		return root;
-	}
+
 
 }
 

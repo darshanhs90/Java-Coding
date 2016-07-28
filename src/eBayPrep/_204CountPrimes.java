@@ -1,43 +1,41 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _204CountPrimes {
 
 	public static void main(String[] args) {
-		System.out.println(countPrimes(35));
+		System.out.println(countPrimes(2));
 	}
-	static boolean primeMat[];
-	public static int countPrimes(int n) {
-		primeMat=new boolean[n];
+	static boolean multiple[];
+	private static int countPrimes(int n) {
+		multiple=new boolean[n];
 		int count=0;
-		for (int i = 2; i < primeMat.length; i++) {
-			if(!primeMat[i])
+		for (int i = 2; i <multiple.length; i++) {
+			if(!multiple[i])
 			{
-				if(isPrime(i))
-				{
+				if(isPrime(i)==true)
 					count++;
-				}
-				else{
-					primeMat[i]=false;
-				}
-				handleValues(i);
 			}
+			appendToMatrix(i);
 		}
 		return count;
 	}
-	private static void handleValues(int i) {
-		int value=2;
-		int product=i*value;
-		while(product<primeMat.length)
+
+	private static void appendToMatrix(int number) {
+		int count=1;
+		while(count*number<multiple.length)
 		{
-			primeMat[product]=true;
-			value++;
-			product=i*value;
+			multiple[count*number]=true;
+			count++;
 		}
 	}
-	private static boolean isPrime(int num) {
-		if (num <= 1) return false;
-		for (int i = 2; i * i <= num; i++) {
-			if (num % i == 0) return false;
+
+	public static boolean isPrime(int number)
+	{
+		if(number<=1)
+			return false;
+		for (int i = 2; i*i < number; i++) {
+			if(number%i==0)
+				return false;
 		}
 		return true;
 	}

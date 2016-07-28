@@ -1,6 +1,4 @@
-package LeetCodePractice;
-
-import java.util.HashMap;
+package eBayPrep;
 
 public class _205IsomorphicStrings {
 
@@ -8,21 +6,25 @@ public class _205IsomorphicStrings {
 		System.out.println(isIsomorphic("add", "egg"));
 		System.out.println(isIsomorphic("foo", "bar"));
 		System.out.println(isIsomorphic("paper", "title"));
+		System.out.println(isIsomorphic("ab", "ba"));
+		System.out.println(isIsomorphic("13", "42"));
 
 	}
 	public static boolean isIsomorphic(String s, String t) {
-		HashMap<Character, Character> charMap=new HashMap<>();
+		int[] str1Array=new int[127];
+		int[] str2Array=new int[127];
 		if(s.length()!=t.length())
 			return false;
 		for (int i = 0; i < s.length(); i++) {
-			if(charMap.containsKey(s.charAt(i)))
-			{
-				if(charMap.get(s.charAt(i))!=t.charAt(i))
-					return false;
-			}else{
-				if(charMap.containsKey(t.charAt(i)))
-					return false;
-				charMap.put(s.charAt(i), t.charAt(i));
+			str1Array[s.charAt(i)]++;
+			str2Array[t.charAt(i)]++;
+		}
+		for (int i = 0; i < s.length(); i++) {
+			if(str1Array[s.charAt(i)]!=str2Array[t.charAt(i)])
+				return false;
+			else{
+				str1Array[s.charAt(i)]--;
+				str2Array[t.charAt(i)]--;
 			}
 		}
 		return true;

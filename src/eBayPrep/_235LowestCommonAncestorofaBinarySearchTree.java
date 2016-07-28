@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _235LowestCommonAncestorofaBinarySearchTree{
 	public static class TreeNode {
@@ -6,15 +6,14 @@ public class _235LowestCommonAncestorofaBinarySearchTree{
 		TreeNode left,right;
 		TreeNode(int x) { val = x; }
 	}
-	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		if(root==null||root==p||root==q)
+	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+		if(root==null||p==root||q==root)
 			return root;
-
 		TreeNode left=lowestCommonAncestor(root.left, p, q);
 		TreeNode right=lowestCommonAncestor(root.right, p, q);
 		if(left!=null && right!=null)
 			return root;
-		return left!=null?left:right;
+		return left==null?right:left;
 	}
 }
 

@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,35 +8,36 @@ public class _228SummaryRanges{
 	public static void main(String[] args) {
 		List<String> outputList=summaryRanges(new int[]{-1000000000,-9999,0,1,2,10,100,1000,999999999,1000000000});
 		System.out.println(Arrays.toString(outputList.toArray()));
-
+		outputList=summaryRanges(new int[]{0,1,2,4,5,7});
+		System.out.println(Arrays.toString(outputList.toArray()));		
 	}
-	public static List<String> summaryRanges(int[] nums) {
-		if(nums.length<1)
-			return new ArrayList<>();
-		List<String> outputList=new ArrayList<>();
-		if(nums.length==1){
-			outputList.add(nums[0]+"");
-			return outputList;
-		}
-		int prev=nums[0],end=nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			if(nums[i]==end+1)
+
+	private static List<String> summaryRanges(int[] arr) {
+		List<String> list=new ArrayList<>();
+		if(arr==null||arr.length==0)
+			return list;
+		int startValue=arr[0],endValue=arr[0];
+		for (int i = 1; i < arr.length; i++) {
+			if(arr[i]==endValue+1)
 			{
-				end=nums[i];
+				endValue=arr[i];
 			}
 			else{
-				if(prev!=end)
-					outputList.add(prev+"->"+end);
-				else
-					outputList.add(prev+"");
-				prev=end=nums[i];
+				if(startValue==endValue)
+					list.add(startValue+"");
+				else{
+					list.add(startValue+"->"+endValue);
+				}
+				startValue=arr[i];
+				endValue=arr[i];
 			}
 		}
-		if(prev!=end)
-			outputList.add(prev+"->"+end);
-		else
-			outputList.add(prev+"");
-		return outputList;
+		if(startValue==endValue)
+			list.add(startValue+"");
+		else{
+			list.add(startValue+"->"+endValue);
+		}
+		return list;
 	}
 
 }

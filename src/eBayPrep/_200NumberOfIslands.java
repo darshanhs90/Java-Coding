@@ -1,41 +1,40 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _200NumberOfIslands {
 	public static void main(String[] args) {
-		System.out.println(numIslands(new char[][]{{'1','1','1','1','0'},
-												{'1','1','0','1','0'},
-												{'1','1','0','0','0'},
-												{'0','0','0','0','0'}}));
-		System.out.println(numIslands(new char[][]{{'1','1','0','0','0'},
+		System.out.println(numIslands(new char[][]{
+			{'1','1','1','1','0'},
+			{'1','1','0','1','0'},
+			{'1','1','0','0','0'},
+			{'0','0','0','0','0'}}));
+		System.out.println(numIslands(new char[][]{
+			{'1','1','0','0','0'},
 			{'1','1','0','0','0'},
 			{'0','0','1','0','0'},
 			{'0','0','0','1','1'}}));
 	}
 	static boolean[][] visited;
-	public static int numIslands(char[][] grid) {
-		int count=0;
-		if(grid.length==0)
+	private static int numIslands(char[][] cs) {
+		if(cs==null||cs.length==0)
 			return 0;
-		visited=new boolean[grid.length][grid[0].length];
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid[0].length; j++) {
-				if(!visited[i][j] && grid[i][j]=='1'){
-					captureGrid(grid,i,j);
-					count++;
-				}
+		visited=new boolean[cs.length][cs[0].length];
+		int count=0;
+		for (int i = 0; i < cs.length; i++) {
+			for (int j = 0; j < cs[0].length; j++) {
+				if(!visited[i][j] && cs[i][j]=='1')
+					count+=findIslands(i,j,cs)>0?1:0;
 			}
 		}
 		return count;
 	}
-	private static  void captureGrid(char[][] grid, int i, int j) {
-		if(i<0||i>grid.length-1||j<0||j>grid[0].length-1)
-			return;
-		if(grid[i][j]=='0' || visited[i][j])return;
+	private static int findIslands(int i, int j, char[][] cs) {
+		if(i<0||j<0||i>cs.length-1||j>cs[0].length-1||visited[i][j]||cs[i][j]=='0')
+			return 0;
 		visited[i][j]=true;
-		captureGrid(grid, i-1, j);
-		captureGrid(grid, i+1, j);
-		captureGrid(grid, i, j-1);
-		captureGrid(grid, i, j+1);
+		return 1+findIslands(i+1, j, cs)+findIslands(i-1, j, cs)+findIslands(i, j+1, cs)+findIslands(i, j-1, cs);
 	}
+
+
+
 }
 

@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _230KthSmallestElementBST{
 	public static class TreeNode {
@@ -7,27 +7,23 @@ public class _230KthSmallestElementBST{
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
-	static int counter=0;
-	static int output=0;
+	static int output=0,count=0;
 	public int kthSmallest(TreeNode root, int k) {
-		counter=0;
-		preOrder(root,k);
+		count=0;
+		getSmallest(root,k);
 		return output;
 	}
-	private void preOrder(TreeNode root,int k) {
-		if(root!=null&& counter<=k)
+	private void getSmallest(TreeNode tn,int k) {
+		if(tn!=null)
 		{
-			preOrder(root.left,k);
-
-			if(counter==k){
-				counter++;
-				output=root.val;
-				return;
-			}
-			counter++;
-			preOrder(root.right, k);
+			getSmallest(tn.left,k);
+			count++;
+			if(count==k)
+				output=tn.val;
+			getSmallest(tn.right,k);
 		}
 	}
+
 
 
 }

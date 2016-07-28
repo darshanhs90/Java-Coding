@@ -1,4 +1,4 @@
-package LeetCodePractice;
+package eBayPrep;
 
 public class _222CountCompleteTreeNodes{
 	public class TreeNode {
@@ -11,38 +11,26 @@ public class _222CountCompleteTreeNodes{
 	public int countNodes(TreeNode root) {
 		if(root==null)
 			return 0;
-		int leftHeight=getLeftHeight(root);
-		int rightHeight=getRightHeight(root);
-
+		int leftHeight=getLeftHeight(root.left);
+		int rightHeight=getRightHeight(root.right);
 		if(leftHeight==rightHeight)
-		{
-			return (2<<(leftHeight-1))-1;
-		}
-		return countNodes(root.left) + countNodes(root.right)+1;
-
+			return 2<<(leftHeight-1)-1;
+		return countNodes(root.left)+countNodes(root.right)+1;
 	}
 
-	private int getLeftHeight(TreeNode root) {
-		if(root==null)
-			return 0;
-		int count=0;
-		while(root.left!=null)
-		{
-			count++;
-			root=root.left;
-		}
-		return 1+count;
+	private int getRightHeight(TreeNode tn) {
+		if(tn!=null)
+			return 1+getRightHeight(tn.right);
+		return 0;
 	}
-	private int getRightHeight(TreeNode root) {
-		if(root==null)
-			return 0;
-		int count=0;
-		while(root.right!=null)
-		{
-			count++;
-			root=root.right;
-		}
-		return 1+count;
+
+	private int getLeftHeight(TreeNode tn) {
+		if(tn!=null)
+			return 1+getRightHeight(tn.left);
+		return 0;
 	}
+
+
+
 }
 
