@@ -19,9 +19,9 @@ public class _76IndeedChallenge {
 			String arr[]=scanner.nextLine().split(" ");
 			map.put(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]));
 			N+=Integer.parseInt(arr[1]);
-						for (int j = 0; j < Integer.parseInt(arr[1]); j++) {
+			/*for (int j = 0; j < Integer.parseInt(arr[1]); j++) {
 				list.add(Integer.parseInt(arr[0]));
-			}
+			}*/
 		}
 		long noOfQuantiles=Q-1;
 		Iterator itr=map.entrySet().iterator();
