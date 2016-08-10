@@ -1,14 +1,14 @@
 package Warmup;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.TreeMap;
 
 public class _76IndeedChallenge {
-	/*public static void main(String args[] ) throws Exception {
+	public static void main(String args[] ) throws Exception {
 		Scanner scanner=new Scanner(System.in);
 		long Q=Long.parseLong(scanner.nextLine());
 		int M=Integer.parseInt(scanner.nextLine());
@@ -23,7 +23,6 @@ public class _76IndeedChallenge {
 				list.add(Integer.parseInt(arr[0]));
 			}
 		}
-		//Collections.sort(list);
 		long noOfQuantiles=Q-1;
 		Iterator itr=map.entrySet().iterator();
 		Entry<Integer, Integer> entry=(Entry<Integer, Integer>) itr.next();
@@ -31,7 +30,6 @@ public class _76IndeedChallenge {
 		int endIndex=entry.getValue();
 		for (long i = 1; i <=noOfQuantiles; i++) {
 			int value=(int)Math.ceil(N*i/Q);
-			//System.out.println(value);
 			if(value>=startIndex && value<=endIndex)
 			{
 				System.out.println(entry.getKey());
@@ -44,38 +42,7 @@ public class _76IndeedChallenge {
 				i--;
 			}
 		}
-	}*/
-/*	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int Q = scan.nextInt();
-		int M = scan.nextInt();
-		int vi = 0;
-		int ci = 0;
-		Set<Integer> s1 = new HashSet<Integer>();
-		for (int i = 0; i < M; i++) {
-			vi = scan.nextInt();
-			ci = scan.nextInt();
-			for (int j = 0; j < ci; j++) {
-				s1.add(vi);
-			}
-		}
-		TreeSet<Integer> sortedSet=new TreeSet<Integer>(s1);
-		List<Integer> list = new ArrayList<Integer>(sortedSet);
-		if (Q > 2) {
-			for (int l = 0; l < Q-1; l++) {
-				double[] iK = new double[Q];
-				//int k = Q - 1;
-				iK[l] = Math.floor(list.size() * l / Q);
-				System.out.println(list.get((int) iK[l]));
-			}
-		}
-		else{
-			double iK=0;
-			int k=Q-1;
-			iK=Math.floor(list.size()*k/Q);
-			System.out.println(list.get((int)iK));
-		}
-	}*/
+	}
 
 
 }
