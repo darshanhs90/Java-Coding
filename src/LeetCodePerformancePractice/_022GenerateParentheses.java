@@ -5,7 +5,7 @@ import java.util.List;
 
 public class _022GenerateParentheses {
 	public static void main(String[] args) {
-		System.out.println(generateParenthesis(3));
+		System.out.println(generateParenthesis(2));
 	}
 	static List<String> outputList;
 	public static List<String> generateParenthesis(int n) {
