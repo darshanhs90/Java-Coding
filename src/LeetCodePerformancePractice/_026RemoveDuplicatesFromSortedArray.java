@@ -19,16 +19,16 @@ public class _026RemoveDuplicatesFromSortedArray {
 		}
 		return count;
 	}
-	/*public static int findOddCount(int[] arr,int pos)
+	public static int findOddCount(int[] arr,int pos)
 	{	
 		if(pos>=arr.length)return 0;
 		int count=0;
 		if(arr[pos]%2!=0)
 			count=1;
 		return count+findOddCount(arr, pos+1);
-	}*/
-	
-	
+	}
+
+
 
 
 }
