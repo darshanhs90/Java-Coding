@@ -5,7 +5,15 @@ public class _027RemoveElement {
 		System.out.println(removeElement(new int[]{3,2,2,3},3));
 	}
 	public static int removeElement(int[] nums, int val) {
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}	
 
 

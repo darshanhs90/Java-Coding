@@ -19,5 +19,12 @@ public class _019RemoveNthNodeEnd {
 			ln=ln.next;
 		}
 	}
+	private static ListNode removeNthFromEnd(ListNode ln, int i) {
+		int length=getLength(ln);
+
+	}
+	private static int getLength(ListNode ln) {
+		return ln!=null?getLength(ln.next)+1:0;
+	}
 	
 }
