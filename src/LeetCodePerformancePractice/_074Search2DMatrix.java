@@ -10,18 +10,6 @@ public class _074Search2DMatrix {
 
 	}
 	public static boolean searchMatrix(int[][] matrix, int target) {
-		int numRows=matrix.length;
-		int numCols=matrix[0].length;
-		int row=0,col=numCols-1;
-		while(row>=0 && row<numRows && col>=0 &&col<numCols)
-		{
-			if(matrix[row][col]==target)
-				return true;
-			else if(matrix[row][col]>target)
-				col--;
-			else
-				row++;
-		}
-		return false;
+		
 	}
 }

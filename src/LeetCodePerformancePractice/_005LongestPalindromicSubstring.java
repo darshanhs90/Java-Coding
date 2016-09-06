@@ -5,24 +5,32 @@ public class _005LongestPalindromicSubstring {
 	public static void main(String[] args) {
 		System.out.println(longestPalindrome("Neoemalayalameo"));
 	}
-	public static String longestPalindrome(String s) {
-		String longest="";
-		for (int i = 0; i < s.length(); i++) {
-			String str=helper(s,i,i);
-			if(str.length()>longest.length())
-				longest=str;
-			str=helper(s,i,i+1);
-			if(str.length()>longest.length())
-				longest=str;
+
+	private static String longestPalindrome(String string) {
+		if(string==null||string.length()<=1)
+			return string;
+		String longestString="";
+		for (int i = 0; i < string.length(); i++) {
+			String str=helper(string,i,i);
+			if(str.length()>longestString.length())
+				longestString=str;
+			str=helper(string,i,i+1);
+			if(str.length()>longestString.length())
+				longestString=str;
 		}
-		return longest;
+		return longestString;
 	}
-	private static String helper(String s, int start,int end) {
-		while(start>=0 && end<s.length() && start<=end && s.charAt(start)==s.charAt(end))
+
+	private static String helper(String string, int start,int end) {
+		while(start>=0 && end<=string.length()-1 && string.charAt(start)==string.charAt(end))
 		{
 			start--;
 			end++;
 		}
-		return s.substring(start+1,end);
+		return string.substring(start+1,end);
 	}
+
+
+
+
 }

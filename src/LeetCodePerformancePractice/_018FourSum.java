@@ -13,15 +13,15 @@ public class _018FourSum {
 		List<List<Integer>> outputList=new ArrayList<List<Integer>>();
 		Arrays.sort(nums);
 		for (int i = 0; i < nums.length-3; i++) {
-			if(i==0 || nums[i]>nums[i-1])
+			if(i==0||nums[i]>nums[i-1])
 				for (int j = i+1; j < nums.length-2; j++) {
-					int k=j+1;
-					int l=nums.length-1;
-					if(j==i+1 || nums[j]>nums[j-1])
+					if(j==i+1||nums[j]>nums[j-1])
+					{
+						int k=j+1;
+						int l=nums.length-1;
 						while(k<l)
 						{
-							int sum=nums[i]+nums[j]+nums[k]+nums[l];
-							if(sum==target)
+							if(nums[i]+nums[j]+nums[k]+nums[l]==target)
 							{
 								List<Integer> aList=new ArrayList<>();
 								aList.add(nums[i]);
@@ -36,12 +36,13 @@ public class _018FourSum {
 								while(k<l && nums[l]==nums[l+1])
 									l--;
 							}
-							else if(sum<target)
-								k++;
-							else
+							else if(nums[i]+nums[j]+nums[k]+nums[l]>target)
 								l--;
+							else
+								k++;
 						}
-				}
+					}
+				}	
 		}
 		return outputList;
 	}

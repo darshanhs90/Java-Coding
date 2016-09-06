@@ -9,10 +9,14 @@ public class _017LetterCombinationsOfPhoneNumber {
 
 	public static void main(String[] args) {
 		System.out.println(letterCombinations(""));
+		System.out.println(letterCombinations("23"));
 	}
-	static Map<Character,String> map;
-	static List<String> list;
+	static HashMap<Character, String> map=new HashMap<>();
+	static List<String> outputList;
 	public static List<String> letterCombinations(String digits) {
+		outputList=new ArrayList<>();
+		if(digits==null||digits.length()==0)
+			return outputList;	
 		map=new HashMap<>();
 		map.put('2', "abc");
 		map.put('3', "def");
@@ -22,23 +26,21 @@ public class _017LetterCombinationsOfPhoneNumber {
 		map.put('7', "pqrs");
 		map.put('8', "tuv");
 		map.put('9', "wxyz");
-		list=new ArrayList<>();
-		if(digits==null|digits.length()==0)
-			return list;
-		printLetterCombinations("",digits,digits.length());
-		return list;
+		populateList("",digits);
+		return outputList;
 	}
-	private static void printLetterCombinations(String prefix, String digits,int length) {
-		if(prefix.length()==length||digits.length()==0){
-			list.add(prefix);
+	private static void populateList(String prefix,String digits) {
+		if(digits.length()==0)
+		{
+			outputList.add(prefix);
 			return;
 		}
 		char c=digits.charAt(0);
 		String str=map.get(c);
-		for (int j = 0; j < str.length(); j++) {
-			prefix+=str.charAt(j);
-			printLetterCombinations(prefix, digits.substring(1), length);
-			prefix=prefix.substring(0,prefix.length()-1);
+		for (int i = 0; i < str.length(); i++) {
+			populateList(prefix+str.charAt(i), digits.substring(1));
 		}
 	}
+
+
 }

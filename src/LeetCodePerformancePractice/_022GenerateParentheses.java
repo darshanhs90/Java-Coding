@@ -5,22 +5,29 @@ import java.util.List;
 
 public class _022GenerateParentheses {
 	public static void main(String[] args) {
-		System.out.println(generateParenthesis(5));
+		System.out.println(generateParenthesis(2));
 	}
 	static List<String> outputList;
 	public static List<String> generateParenthesis(int n) {
 		outputList=new ArrayList<>();
-		generateParentheses(0,0,n,"");
+		if(n==0)
+			return outputList;
+		generateParenthes("",n,n,n);
 		return outputList;
 	}
-	private static void generateParentheses(int forwardBraceCount, int backwardBraceCount,int count, String string) {
-		if(backwardBraceCount>forwardBraceCount||forwardBraceCount>count||backwardBraceCount>count)
+	private static void generateParenthes(String prefix, int forward, int backward,int n) {
+		if(forward>n ||backward>n || forward<0||backward<0)
 			return;
-		if(forwardBraceCount==count && backwardBraceCount==count){
-			outputList.add(string);
+		if(forward==0 && backward==0)
+		{
+			outputList.add(prefix);
+			return;
 		}
-		generateParentheses(forwardBraceCount, backwardBraceCount+1,count, string+")");
-		generateParentheses(forwardBraceCount+1, backwardBraceCount,count, string+"(");
+		if(backward<forward)
+			return;
+		generateParenthes(prefix+"(", forward-1, backward, n);
+		generateParenthes(prefix+")", forward, backward-1, n);
+
 	}
 }
 

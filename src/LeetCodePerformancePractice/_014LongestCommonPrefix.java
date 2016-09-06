@@ -5,21 +5,27 @@ public class _014LongestCommonPrefix {
 	public static void main(String[] args) {
 		System.out.println(longestCommonPrefix(new String[]{}));
 	}
-	public static String longestCommonPrefix(String[] strs) {
+
+	private static String longestCommonPrefix(String[] strings) {
+		if(strings==null ||strings.length==0)
+			return "";
 		int minLength=Integer.MAX_VALUE;
-		for (int i = 0; i < strs.length; i++) {
-			minLength=Math.min(minLength, strs[i].length());
+		for (int i = 0; i < strings.length; i++) {
+			minLength=Math.min(strings[i].length(), minLength);
 		}
-		if(strs.length>0)
-			for (int i = 0; i < minLength; i++) {
-				char c=strs[0].charAt(i);
-				for (int j = 1; j < strs.length; j++) {
-					if(c!=strs[j].charAt(i))
-					{
-						return strs[j].substring(0, i);
-					}
+		for (int i = 0; i < minLength; i++) {
+			char c=strings[0].charAt(i);
+			for (int j = 1; j < strings.length; j++) {
+				if(strings[j].charAt(i)!=c)
+				{
+					return strings[j].substring(0, i);
 				}
 			}
-		return strs.length>0?strs[0].substring(0, minLength):"";
+		}
+		return strings[0].substring(0, minLength);
 	}
+
+
+
+
 }

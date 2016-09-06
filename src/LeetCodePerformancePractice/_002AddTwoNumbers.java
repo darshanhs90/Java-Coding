@@ -22,7 +22,6 @@ public class _002AddTwoNumbers {
 			l1=l1.next;
 		}
 	}
-
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		ListNode output=new ListNode(-1);
 		ListNode outputPointer=output;
@@ -74,4 +73,5 @@ public class _002AddTwoNumbers {
 		}
 		return outputPointer.next;	
 	}
+	
 }

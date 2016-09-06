@@ -19,27 +19,5 @@ public class _019RemoveNthNodeEnd {
 			ln=ln.next;
 		}
 	}
-	public static ListNode removeNthFromEnd(ListNode head, int n) {
-		ListNode pointer=head;
-		while(head!=null && n!=0)
-		{
-			head=head.next;
-			n--;
-		}
-		if(head==null)
-			return pointer.next;
-		ListNode prev=null,curr=pointer;
-		while(head!=null)
-		{
-			prev=curr;
-			curr=curr.next;
-			head=head.next;
-		}
-		System.out.println(prev);
-		System.out.println(curr);
-		
-		if(prev!=null)
-			prev.next=curr!=null?curr.next:null;
-		return pointer;
-	}
+	
 }
