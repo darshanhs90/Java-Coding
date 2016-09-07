@@ -1,6 +1,6 @@
 package LeetCodePerformancePractice;
 
-public class _082RemoveDuplicatesSortedList {
+public class _083RemoveDuplicatesSortedList {
 	public static class ListNode {
 		int val;
 		ListNode next;

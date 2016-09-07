@@ -1,5 +1,6 @@
 package LeetCodePerformancePractice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _054SpiralMatrix {
@@ -13,8 +14,34 @@ public class _054SpiralMatrix {
 			{7,8,9}}));
 	}
 	public static List<Integer> spiralOrder(int[][] matrix) {
+		List<Integer> outputList=new ArrayList<Integer>();
+		if(matrix==null ||matrix.length==0)
+			return outputList;
 		int top=0,left=0,right=matrix[0].length-1,bottom=matrix.length-1;
-		
+		while(top<=bottom && left<=right)
+		{
+			for (int i = left; i <=right; i++) {
+				outputList.add(matrix[top][i]);
+			}
+			top++;
+			for (int i = top; i <=bottom; i++) {
+				outputList.add(matrix[i][right]);
+			}
+			right--;
+			if(top>bottom)
+				continue;
+			for (int i = right; i >=left; i--) {
+				outputList.add(matrix[bottom][i]);
+			}
+			bottom--;
+			if(left>right)
+				continue;
+			for (int i = bottom; i >=top; i--) {
+				outputList.add(matrix[i][left]);
+			}	
+			left++;
+		}
+		return outputList;
 	}
 }
 
