@@ -8,7 +8,21 @@ public class _035SearchInsertPosition {
 		System.out.println(searchInsert(new int[]{1,3,5,6}, 0));//0
 	}
 	public static int searchInsert(int[] arr, int target) {
-
+		int left=0,right=arr.length-1;
+		while(left<=right)
+		{
+			int mid=(left+right)/2;
+			if(arr[mid]==target)
+				return mid;
+			else if(arr[mid]<target)
+			{
+				left=mid+1;
+			}
+			else{
+				right=mid-1;
+			}
+		}
+		return Math.max(left, right);
 	}
 }
 

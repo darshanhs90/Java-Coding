@@ -8,7 +8,7 @@ public class _048RotateImage {
 			{7,8,9}});
 	}
 	public static void rotate(int[][] matrix) {
-		
+		sa
 	}
 }
 
