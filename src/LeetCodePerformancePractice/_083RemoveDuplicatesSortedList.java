@@ -19,9 +19,26 @@ public class _083RemoveDuplicatesSortedList {
 		{
 			System.out.println(ln.val);ln=ln.next;
 		}
-		
-		
-		
+
 	}
-	
+	private static ListNode deleteDuplicates(ListNode ln) {
+		ListNode output=new ListNode(0);
+		output.next=null;
+		ListNode pointer=output;
+		while(ln!=null)
+		{
+			if(ln.next!=null && ln.val==ln.next.val)
+			{
+				while(ln!=null && ln.next!=null && ln.val==ln.next.val)
+				{
+					ln=ln.next;
+				}
+			}
+			output.next=ln;
+			output=output.next;
+			ln=ln.next;
+		}
+		return pointer.next;
+	}
+
 }

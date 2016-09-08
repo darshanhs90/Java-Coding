@@ -19,7 +19,7 @@ public class _02wordsReversal {
 			else 
 				sb.append(inputArray[i]);
 		}
-		//System.out.println(sb.toString());
+		System.out.println(sb.toString());
 		System.out.println(Reverse(str));
 	}
 	private static String Reverse(String str) {
