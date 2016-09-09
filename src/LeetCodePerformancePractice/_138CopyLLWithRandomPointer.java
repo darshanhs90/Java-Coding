@@ -10,37 +10,44 @@ public class _138CopyLLWithRandomPointer {
 
 	}
 	public RandomListNode copyRandomList(RandomListNode head) {
-
-		if(head==null)
-			return head;
-		RandomListNode rn=head;
-		while(rn!=null)
+		   if(head==null)
+		    return head;
+		RandomListNode headPointer=head;
+		//copy node
+		while(headPointer!=null)
 		{
-			RandomListNode newRn=new RandomListNode(rn.label);
-			newRn.next=rn.next;
-			rn.next=newRn;
-			rn=newRn.next;
+			RandomListNode temp=new RandomListNode(headPointer.label);
+			temp.next=headPointer.next;
+			headPointer.next=temp;
+			headPointer=temp.next;
 		}
-		rn=head;
-		while(rn!=null)
+
+		headPointer=head;
+		//copy random pointers
+
+		while(headPointer!=null)
 		{
-			if(rn.random!=null)
+			if(headPointer.random!=null)
 			{
-				rn.next.random=rn.random.next;
+				headPointer.next.random=headPointer.random.next;
 			}
-			rn=rn.next.next;
+			headPointer=headPointer.next.next;
 		}
-		rn=head;
-		RandomListNode newHead=head.next;
-		while(rn!=null)
-		{
-			RandomListNode temp=rn.next;
-			rn.next=temp.next;
-			if(temp.next!=null)
-				temp.next=temp.next.next;
-			rn=rn.next;
-		}
-		return newHead;
 
+		headPointer=head;
+		//differentiate lists
+		RandomListNode output=headPointer.next;
+		while(headPointer!=null)
+		{
+			RandomListNode temp=headPointer.next;
+			headPointer.next=temp.next;
+			if(temp.next!=null)
+			{
+				temp.next=temp.next.next;
+			}
+			headPointer=headPointer.next;
+		}
+		return output;
 	}
+	
 }

@@ -1,40 +1,29 @@
 package LeetCodePerformancePractice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _145PostOrderTraversal {
-	public static class ListNode {
+	public static class TreeNode {
 		int val;
-		ListNode next;
-		ListNode(int x) { val = x; }
+		TreeNode left,right;
+		TreeNode(int x) { val = x; }
 	}
 	public static void main(String[] args) {
-		ListNode ln=new ListNode(3);
-		ln.next=new ListNode(2);
-		ln.next.next=new ListNode(0);
-		ln.next.next.next=new ListNode(-4);
-		ln.next.next.next.next=ln.next;
-		System.out.println(detectCycle(ln));
 
 	}
-	public static ListNode detectCycle(ListNode head) {
-		ListNode fastPointer=head;
-		ListNode slowPointer=head;
-		while(fastPointer!=null && fastPointer.next!=null)
+	static List<Integer> outputList;
+	public List<Integer> postorderTraversal(TreeNode root) {
+		outputList=new ArrayList<>();
+		postOrder(root);
+		return outputList;
+	}
+	private void postOrder(TreeNode root) {
+		if(root!=null)
 		{
-			fastPointer=fastPointer.next.next;
-			slowPointer=slowPointer.next;
-			if(fastPointer==slowPointer)
-			{
-				break;
-			}
+			postOrder(root.left);
+			postOrder(root.right);
+			outputList.add(root.val);
 		}
-
-		if(fastPointer==null || fastPointer.next==null)
-			return null;
-		slowPointer=head;
-		while(fastPointer!=slowPointer){
-			slowPointer=slowPointer.next;
-			fastPointer=fastPointer.next;
-		}
-		return fastPointer;
 	}
 }

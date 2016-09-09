@@ -14,5 +14,11 @@ public class _127WordLadder {
 		System.out.println(ladderLength("hit", "cog", set));
 	}
 	public static int ladderLength(String beginWord, String endWord, Set<String> wordList) {
+
+		
+		
+		
+		
+		
 	}
 }

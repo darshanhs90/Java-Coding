@@ -23,23 +23,6 @@ public class _328OddEvenLinkedList {
 		}
 	}
 	public static ListNode oddEvenList(ListNode head) {
-		if(head==null||head.next==null)
-			return head;
-		ListNode output=head;
-		ListNode t1=head;
-		ListNode t2=head.next;
-		ListNode connector=t2;
-		while(t1!=null &&t2!=null)
-		{
-			if(t2.next==null)
-				break;
-			t1.next=t1.next.next;
-			t1=t1.next;
-			if(t2.next!=null)
-				t2.next=t2.next.next;
-			t2=t2.next;
-		}
-		t1.next=connector;
-		return head;
+		
 	}
 }

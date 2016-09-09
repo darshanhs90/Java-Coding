@@ -1,40 +1,30 @@
 package LeetCodePerformancePractice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _144PreOrderTraversal {
-	public static class ListNode {
+	public static class TreeNode {
 		int val;
-		ListNode next;
-		ListNode(int x) { val = x; }
+		TreeNode left,right;
+		TreeNode(int x) { val = x; }
 	}
 	public static void main(String[] args) {
-		ListNode ln=new ListNode(3);
-		ln.next=new ListNode(2);
-		ln.next.next=new ListNode(0);
-		ln.next.next.next=new ListNode(-4);
-		ln.next.next.next.next=ln.next;
-		System.out.println(detectCycle(ln));
+
 
 	}
-	public static ListNode detectCycle(ListNode head) {
-		ListNode fastPointer=head;
-		ListNode slowPointer=head;
-		while(fastPointer!=null && fastPointer.next!=null)
+	static List<Integer> outputList;
+	public List<Integer> preorderTraversal(TreeNode root) {
+		outputList=new ArrayList<>();
+		preOrder(root);
+		return outputList;
+	}
+	private void preOrder(TreeNode root) {
+		if(root!=null)
 		{
-			fastPointer=fastPointer.next.next;
-			slowPointer=slowPointer.next;
-			if(fastPointer==slowPointer)
-			{
-				break;
-			}
+			outputList.add(root.val);
+			preOrder(root.left);
+			preOrder(root.right);			
 		}
-
-		if(fastPointer==null || fastPointer.next==null)
-			return null;
-		slowPointer=head;
-		while(fastPointer!=slowPointer){
-			slowPointer=slowPointer.next;
-			fastPointer=fastPointer.next;
-		}
-		return fastPointer;
 	}
 }
