@@ -1,40 +1,50 @@
 package LeetCodePerformancePractice;
 
-public class _150EvaluateReversePolishNotation {
-	public static class ListNode {
-		int val;
-		ListNode next;
-		ListNode(int x) { val = x; }
-	}
-	public static void main(String[] args) {
-		ListNode ln=new ListNode(3);
-		ln.next=new ListNode(2);
-		ln.next.next=new ListNode(0);
-		ln.next.next.next=new ListNode(-4);
-		ln.next.next.next.next=ln.next;
-		System.out.println(detectCycle(ln));
+import java.util.Stack;
 
+public class _150EvaluateReversePolishNotation {
+	public static void main(String[] args) {
+		System.out.println(evalRPN(new String[]{"2", "1", "+", "3", "*"}));
+		System.out.println(evalRPN(new String[]{"4", "13", "5", "/", "+"}));
+		
 	}
-	public static ListNode detectCycle(ListNode head) {
-		ListNode fastPointer=head;
-		ListNode slowPointer=head;
-		while(fastPointer!=null && fastPointer.next!=null)
-		{
-			fastPointer=fastPointer.next.next;
-			slowPointer=slowPointer.next;
-			if(fastPointer==slowPointer)
+	public static int evalRPN(String[] tokens) {
+		if(tokens==null||tokens.length<1)
+			return 0;
+		Stack<Integer> stack=new Stack<>();
+		for (int i = 0; i < tokens.length; i++) {
+			String str=tokens[i];
+			if(str.length()==1 && (str.contentEquals("+")||str.contentEquals("-")
+					||str.contentEquals("*")||str.contentEquals("/")))
 			{
-				break;
+				int value1=0,value2=0;
+				if(!stack.isEmpty())
+				{
+					value1=stack.pop();
+					if(!stack.isEmpty())
+					{
+						value2=stack.pop();
+						if(str.contentEquals("+"))
+							stack.push(value2+value1);
+						else if(str.contentEquals("-"))
+							stack.push(value2-value1);
+						else if(str.contentEquals("/"))
+							stack.push(value2/value1);
+						else
+							stack.push(value1*value2);
+					}
+					else
+						return -1;
+				}
+				else
+					return -1;
+			}
+			else{
+				stack.push(Integer.parseInt(str));
 			}
 		}
+		return stack.pop();
 
-		if(fastPointer==null || fastPointer.next==null)
-			return null;
-		slowPointer=head;
-		while(fastPointer!=slowPointer){
-			slowPointer=slowPointer.next;
-			fastPointer=fastPointer.next;
-		}
-		return fastPointer;
+
 	}
 }

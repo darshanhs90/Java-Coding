@@ -1,6 +1,6 @@
 package LeetCodePerformancePractice;
 
-public class _236LowestCommonAncestorBinaryTree {
+public class _242ValidAnagram {
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -9,9 +9,9 @@ public class _236LowestCommonAncestorBinaryTree {
 	}
 	public static void main(String[] args) {
 
+	}
+	public boolean isAnagram(String s, String t) {
 
 	}
-	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
-	}
 }

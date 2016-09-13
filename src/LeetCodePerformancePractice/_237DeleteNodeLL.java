@@ -1,6 +1,6 @@
 package LeetCodePerformancePractice;
 
-public class _236LowestCommonAncestorBinaryTree {
+public class _237DeleteNodeLL {
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -11,7 +11,7 @@ public class _236LowestCommonAncestorBinaryTree {
 
 
 	}
-	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-
-	}
+    public void deleteNode(ListNode node) {
+        
+    }
 }

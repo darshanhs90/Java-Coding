@@ -1,6 +1,6 @@
 package LeetCodePerformancePractice;
 
-public class _236LowestCommonAncestorBinaryTree {
+public class _257BinaryTreePaths {
 	public class TreeNode {
 		int val;
 		TreeNode left;
@@ -9,9 +9,9 @@ public class _236LowestCommonAncestorBinaryTree {
 	}
 	public static void main(String[] args) {
 
-
 	}
-	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    public List<String> binaryTreePaths(TreeNode root) {
+        
+    }
 
-	}
 }
