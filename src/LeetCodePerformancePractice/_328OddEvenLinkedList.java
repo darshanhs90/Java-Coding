@@ -14,8 +14,7 @@ public class _328OddEvenLinkedList {
 		ln.next.next.next.next=new ListNode(5);
 		ln.next.next.next.next.next=new ListNode(6);
 		ln.next.next.next.next.next.next=new ListNode(7);
-		ln.next.next.next.next.next.next.next=new ListNode(8);
-
+		//ln.next.next.next.next.next.next.next=new ListNode(8);
 		ln=oddEvenList(ln);
 		while(ln!=null)
 		{
@@ -23,6 +22,25 @@ public class _328OddEvenLinkedList {
 		}
 	}
 	public static ListNode oddEvenList(ListNode head) {
-		
+		if(head==null||head.next==null||head.next.next==null)
+			return head;
+		ListNode oddNode=head;
+		ListNode evenNode=new ListNode(-1);
+		ListNode evenNodepointer=evenNode;
+		while(oddNode!=null && evenNode!=null)
+		{	
+			if(oddNode.next==null)
+				break;
+			evenNode.next=oddNode.next;
+			evenNode=evenNode.next;
+			if(oddNode.next.next==null)
+				break;
+			oddNode.next=oddNode.next.next;
+			oddNode=oddNode.next;
+		}
+		if(evenNode!=null)
+			evenNode.next=null;
+		oddNode.next=evenNodepointer.next;
+		return head;
 	}
 }
