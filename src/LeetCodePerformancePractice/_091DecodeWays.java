@@ -1,48 +1,43 @@
 package LeetCodePerformancePractice;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _091DecodeWays {
 	public static void main(String[] args) {
-		System.out.println(grayCode(2));
+		System.out.println(numDecodings("12"));
 	}
-	public static List<Integer> grayCode(int n) {
-		List<Integer> outputList=new ArrayList<>();
-		List<String> stringList=new ArrayList<>();
-		if(n==0){
-			outputList.add(0);
-			return outputList;
-		}
-		outputList.add(0);
-		outputList.add(1);
-		if(n==1)
-			return outputList;
-		stringList.add("0");
-		stringList.add("1");
-		for (int i = 2	; i <=n; i++) {
-			List<String> stringListNew=new ArrayList<>();
-			outputList=new ArrayList<>();
-			for (int j = 0; j < stringList.size(); j++) {
-				if(j%2==0)
-				{
-					stringListNew.add(stringList.get(j)+"0");
-					outputList.add(Integer.parseInt(stringList.get(j)+"0", 2));
-					stringListNew.add(stringList.get(j)+"1");
-					outputList.add(Integer.parseInt(stringList.get(j)+"1", 2));					
-				}
-				else{
-					stringListNew.add(stringList.get(j)+"1");
-					outputList.add(Integer.parseInt(stringList.get(j)+"1", 2));
-					stringListNew.add(stringList.get(j)+"0");
-					outputList.add(Integer.parseInt(stringList.get(j)+"0", 2));
-				}
+	public static int numDecodings(String s) {
+		if(s==null||s.length()==0|| s.charAt(0)=='0')
+			return 0;
+		if(s.length()==1)
+			return 1;
+		int[] dp=new int[s.length()];
+		dp[0]=1;
+		if(Integer.parseInt(s.substring(0,2))>26)
+		{
+			if(s.charAt(1)!='0'){
+				dp[1]=1;
+			}else{
+				dp[1]=0;
 			}
-			stringList=stringListNew;
 		}
-		return outputList;
+		else
+		{
+			if(s.charAt(1)!='0'){
+				dp[1]=2;
+			}else{
+				dp[1]=1;
+			}
 
+		}
 
+		for (int i = 2; i < dp.length; i++) {
+			if(s.charAt(i)!='0')
+				dp[i]+=dp[i-1];
+
+			String str=s.substring(i-1,i+1);
+			if(Integer.parseInt(str)<=26 && Integer.parseInt(str)>=10)
+				dp[i]+=dp[i-2];
+		}
+		return dp[dp.length-1];
 
 	}
 

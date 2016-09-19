@@ -7,34 +7,56 @@ public class _143ReorderList {
 		ListNode(int x) { val = x; }
 	}
 	public static void main(String[] args) {
-		ListNode ln=new ListNode(3);
+		ListNode ln=new ListNode(1);
 		ln.next=new ListNode(2);
-		ln.next.next=new ListNode(0);
-		ln.next.next.next=new ListNode(-4);
-		ln.next.next.next.next=ln.next;
-		System.out.println(detectCycle(ln));
-
+		ln.next.next=new ListNode(3);
+		ln.next.next.next=new ListNode(4);
+		reorderList(ln);
 	}
-	public static ListNode detectCycle(ListNode head) {
-		ListNode fastPointer=head;
+
+	private static ListNode reverseList(ListNode ln) {
+		if(ln==null||ln.next==null)
+			return ln;
+		ListNode nextNode=ln.next;
+		ln.next=null;
+		ListNode reverse=reverseList(nextNode);
+		nextNode.next=ln;
+		return reverse;
+	}
+	public static void reorderList(ListNode head) {
+		if(head==null||head.next==null)
+			return;
+		ListNode headPointer=head;
+		ListNode fastPointer=head.next;
 		ListNode slowPointer=head;
-		while(fastPointer!=null && fastPointer.next!=null)
+		while(fastPointer!=null)
 		{
-			fastPointer=fastPointer.next.next;
-			slowPointer=slowPointer.next;
-			if(fastPointer==slowPointer)
+			if(fastPointer.next!=null){
+				fastPointer=fastPointer.next.next;
+				slowPointer=slowPointer.next;
+			}
+			else
 			{
 				break;
 			}
 		}
-
-		if(fastPointer==null || fastPointer.next==null)
-			return null;
-		slowPointer=head;
-		while(fastPointer!=slowPointer){
-			slowPointer=slowPointer.next;
-			fastPointer=fastPointer.next;
+		ListNode reverseNode=slowPointer.next;
+		slowPointer.next=null;
+		reverseNode=reverseList(reverseNode);
+		head=headPointer;
+		while(head!=null && reverseNode!=null)
+		{
+			ListNode headNext=head.next;
+			ListNode reverseNext=reverseNode.next;
+			head.next=reverseNode;
+			reverseNode.next=headNext;
+			reverseNode=reverseNext;
+			head=headNext;
 		}
-		return fastPointer;
+		head=headPointer;
+		while(head!=null)
+		{
+			System.out.println(head.val);head=head.next;
+		}
 	}
 }
