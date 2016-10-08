@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _116PopulateNextRightPointers {
 	public static class TreeLinkNode {
@@ -17,7 +17,31 @@ public class _116PopulateNextRightPointers {
 		tn.right.right=new TreeLinkNode(7);
 		connect(tn);
 	}
-	
+	static TreeLinkNode nextNode=null;
+	public static void connect(TreeLinkNode root) {
+		if(root==null)
+			return;
+		int height=getHeight(root);
+		for (int i = 0; i < height; i++) {
+			connectNodes(root,i);
+			nextNode=null;
+		}
+	}
+	private static void connectNodes(TreeLinkNode root, int level) {
+		if(root==null)
+			return;
+		if(level==0)
+		{
+			root.next=nextNode;
+			nextNode=root;
+			return;
+		}
+		connectNodes(root.right, level-1);
+		connectNodes(root.left, level-1);
+	}
+	private static int getHeight(TreeLinkNode root) {
+		return root==null?0:1+Math.max(getHeight(root.left), getHeight(root.right));
+	}
 
 
 }

@@ -1,11 +1,7 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-
-import LeetCodePerformancePractice._056MergeIntervals.Interval;
 
 public class _057Insertinterval {
 	public static class Interval {
@@ -28,12 +24,12 @@ public class _057Insertinterval {
 		}
 	}
 	public static List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-		
-		
-		
-		
-		
-		
+		return null;
+
+
+
+
+
 	}
 
 
