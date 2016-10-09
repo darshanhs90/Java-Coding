@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,5 +19,25 @@ public class _139WordBreak {
 		set.add("aaa");
 		set.add("aaaa");
 		System.out.println(wordBreak("aaab", set));
+	}
+
+	public static boolean wordBreak(String s, Set<String> wordDict) {
+		if(s==null||s.length()==0)
+			return false;
+		return checkWordBreak(0,s,wordDict);
+	}
+
+	private static boolean checkWordBreak(int i, String s, Set<String> wordDict) {
+		if(i>s.length())
+			return false;
+		if(i==s.length())
+			return true;
+		for (int j = i+1; j <=s.length(); j++) {
+			String str=s.substring(i,j);
+			if(wordDict.contains(str) && checkWordBreak(j, s, wordDict)){
+				return true;
+			}
+		}
+		return false;
 	}
 }

@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 import java.util.Stack;
 
@@ -20,4 +20,16 @@ public class _114FlattenBinaryTreeLL {
 		flatten(tn);
 	}
 
+	private static void preOrder(TreeNode tn) {
+		if(tn!=null)
+		{
+			System.out.println(tn.val);
+			preOrder(tn.right);
+		}
+
+	}
+
+	public static void flatten(TreeNode root) {
+		retur
+	}
 }
