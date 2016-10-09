@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _172FactorialTrailingZeroes {
 	public class ListNode {
@@ -12,5 +12,14 @@ public class _172FactorialTrailingZeroes {
 	public static void main(String[] args) {
 		System.out.println(trailingZeroes(1808548329));
 	}
-	
+	public static int trailingZeroes(int n) {
+		int count=0;
+		long div=5;
+		while((n/div)>=1)
+		{
+			count+=n/div;
+			div=div*5;
+		}
+		return count;
+	}
 }
