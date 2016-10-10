@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _203RemoveLinkedListElements {
 	public static class ListNode {
@@ -19,5 +19,20 @@ public class _203RemoveLinkedListElements {
 		{
 			System.out.println(ln.val);ln=ln.next;
 		}
+	}
+	public static ListNode removeElements(ListNode head, int val) {
+		ListNode fakeHead=new ListNode(-1);
+		ListNode pointer=fakeHead;
+		while(head!=null)
+		{
+			if(head.val!=val)
+			{
+				fakeHead.next=head;
+				fakeHead=fakeHead.next;
+			}
+			head=head.next;
+		}
+		fakeHead.next=null;
+		return pointer.next;
 	}
 }

@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _237DeleteNodeLL {
 	public class ListNode {
@@ -10,4 +10,9 @@ public class _237DeleteNodeLL {
 
 
 	}
+	public void deleteNode(ListNode node) {
+		node.val=node.next.val;
+		node.next=node.next.next;
+	}
 }
+

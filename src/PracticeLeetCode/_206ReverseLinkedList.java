@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _206ReverseLinkedList {
 	public static class ListNode {
@@ -15,5 +15,15 @@ public class _206ReverseLinkedList {
 		{
 			System.out.println(ln.val);ln=ln.next;
 		}
+	}
+
+	public static ListNode reverseList(ListNode head) {
+		if(head==null||head.next==null)
+			return head;
+		ListNode nextNode=head.next;
+		ListNode reverse=reverseList(head.next);
+		head.next=null;
+		nextNode.next=head;
+		return reverse;
 	}
 }

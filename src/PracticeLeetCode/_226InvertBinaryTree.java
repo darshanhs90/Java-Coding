@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _226InvertBinaryTree {
 	public static class TreeNode {
@@ -20,5 +20,22 @@ public class _226InvertBinaryTree {
 		System.out.println();
 		preOrder(tn);
 	}
-	
+	private static void preOrder(TreeNode tn) {
+		if(tn!=null)
+		{
+			preOrder(tn.left);
+			System.out.print(tn.val+"/");
+			preOrder(tn.right);
+		}
+
+	}
+	public static TreeNode invertTree(TreeNode root) {
+		if(root==null)
+			return root;
+		TreeNode newLeft=invertTree(root.left);
+		TreeNode newRight=invertTree(root.right);
+		root.right=newLeft;
+		root.left=newRight;
+		return root;
+	}
 }

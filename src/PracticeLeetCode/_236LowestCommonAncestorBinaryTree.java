@@ -1,4 +1,5 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
+
 
 public class _236LowestCommonAncestorBinaryTree {
 	public class TreeNode {
@@ -11,5 +12,22 @@ public class _236LowestCommonAncestorBinaryTree {
 
 
 	}
-	
+	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+		if(root==null)
+			return root;
+		if(root==p||root==q)
+			return root;
+		TreeNode left=lowestCommonAncestor(root.left, p, q);
+		TreeNode right=lowestCommonAncestor(root.right, p, q);
+		if(left==null && right==null)
+			return null;
+		else if(left!=null && right!=null)
+		{
+			return root;
+		}
+		else
+			return left!=null?left:right;
+
+	}
+
 }
