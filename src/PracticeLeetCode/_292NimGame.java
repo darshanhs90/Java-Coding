@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _292NimGame {
 	public class TreeNode {
@@ -8,6 +8,8 @@ public class _292NimGame {
 		TreeNode(int x) { val = x; }
 	}
 
-
+    public boolean canWinNim(int n) {
+    	return n%4>0;
+    }
 
 }
