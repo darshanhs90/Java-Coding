@@ -1,4 +1,4 @@
-package LeetCodePerformancePractice;
+package PracticeLeetCode;
 
 public class _328OddEvenLinkedList {
 	public static class ListNode {
@@ -21,5 +21,9 @@ public class _328OddEvenLinkedList {
 			System.out.println(ln.val);ln=ln.next;
 		}
 	}
-	
+	private static ListNode oddEvenList(ListNode head) {
+
+
+	}
+
 }
