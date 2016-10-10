@@ -6,6 +6,9 @@ import java.util.Map;
 /*
  * Link :https://leetcode.com/problems/two-sum/
  */	
+
+
+//https://www.careercup.com/page?pid=microsoft-interview-questions
 public class _001TwoSum {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
