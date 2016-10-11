@@ -5,7 +5,7 @@ public class _091DecodeWays {
 		System.out.println(numDecodings("12"));
 	}
 	public static int numDecodings(String s) {
-
+		
 	}
 
 }
