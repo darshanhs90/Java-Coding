@@ -2,40 +2,40 @@ package PracticeLeetCode;
 
 public class _387FirstUniqueCharacterInString {
 	public static void main(String[] args) {
-		System.out.println(firstUniqChar("loveleetcode"));
+		System.out.println(firstUniqChar("itwqbtcdprfsuprkrjkausiterybzncbmdvkgljxuekizvaivszowqtmrttiihervpncztuoljftlxybpgwnjb"));
 	}
-	static class Counter{
-		int count,index;
-		public Counter(int count,int index) {
+
+	static class WordNode{
+		int count;
+		int index;
+		public WordNode(int count,int index) {
 			this.count=count;
-			this.index=index;a
+			this.index=index;
 		}
 	}
+
 	public static int firstUniqChar(String s) {
-		if(s==null||s.length()==0)
+		if(s==null||s.length()<1)
 			return -1;
-		Counter[] counterArr=new Counter[26];
+		WordNode[] wordArr=new WordNode[26];
 		for (int i = 0; i < s.length(); i++) {
 			char c=s.charAt(i);
-			if(counterArr[c-'a']!=null)
+			if(wordArr[c-'a']==null)
 			{
-				counterArr[c-'a'].count+=1;
+				wordArr[c-'a']=new WordNode(1, i);
 			}
 			else{
-				counterArr[c-'a']=new Counter(1, i);
+				wordArr[c-'a'].count++;				
 			}
 		}
-		int firstPos=s.length();
-		for (int i = 0; i < counterArr.length; i++) {
-			if(counterArr[i]!=null && counterArr[i].count==1)
+		int pos=s.length();
+		for (int i = 0; i < wordArr.length; i++) {
+			if(wordArr[i]!=null && wordArr[i].count==1)
 			{
-				int newIndex=counterArr[i].index;
-				if(newIndex<firstPos)
-				{
-					firstPos=newIndex;
-				}
+				pos=Math.min(pos, wordArr[i].index);
 			}
 		}
-		return firstPos==s.length()?-1:firstPos;
+		return pos==s.length()?-1:pos;
 	}
+
 }

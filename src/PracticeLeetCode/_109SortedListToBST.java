@@ -16,7 +16,5 @@ public class _109SortedListToBST {
 		ListNode ln1=new ListNode(1);
 		sortedListToBST(ln1);
 	}
-	public static TreeNode sortedListToBST(ListNode head) {
 
-	}
 }
