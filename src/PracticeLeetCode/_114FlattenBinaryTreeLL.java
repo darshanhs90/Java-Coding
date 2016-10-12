@@ -1,5 +1,7 @@
 package PracticeLeetCode;
 
+import java.util.Stack;
+
 public class _114FlattenBinaryTreeLL {
 	public static class TreeNode {
 		int val;
@@ -28,6 +30,23 @@ public class _114FlattenBinaryTreeLL {
 	}
 
 	public static void flatten(TreeNode root) {
-		a
+		if(root==null)
+			return;
+		Stack<TreeNode> stack=new Stack<>();
+		while(root!=null || !stack.isEmpty())
+		{
+			if(root.right!=null)
+				stack.push(root.right);
+			if(root.left!=null)
+			{
+				root.right=root.left;
+				root.left=null;
+			}
+			else{
+				if(!stack.isEmpty())
+					root.right=stack.pop();
+			}
+			root=root.right;
+		}
 	}
 }
