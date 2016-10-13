@@ -10,7 +10,7 @@ public class _023MergeKSortedLists {
 		public ListNode(int value) {
 			this.val=value;
 		}
-	}a
+	}
 	public static void main(String[] args) {
 
 	}
