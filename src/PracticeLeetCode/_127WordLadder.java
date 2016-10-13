@@ -14,45 +14,48 @@ public class _127WordLadder {
 		set.add("lot");
 		set.add("log");
 		System.out.println(ladderLength("hit", "cog", set));//5
-	}a
+	}
 	static class WordNode{
 		String word;
-		int steps;
-		public WordNode(String word,int steps) {
+		int numSteps;
+		public WordNode(String word,int numSteps) {
 			this.word=word;
-			this.steps=steps;
+			this.numSteps=numSteps;
 		}
 	}
 
-	public static int ladderLength(String beginWord, String endWord, Set<String> wordList) {
-		wordList.add(endWord);
+	private static int  ladderLength(String start, String end, Set<String> set) {
 		Queue<WordNode> queue=new LinkedList<>();
-		queue.add(new WordNode(beginWord, 1));
+		set.add(end);
+		queue.add(new WordNode(start, 1));
 		while(!queue.isEmpty())
 		{
 			WordNode w=queue.poll();
-			if(w.word.contentEquals(endWord))
-			{
-				return w.steps;
-			}
-			char[] cArr=w.word.toCharArray();
-			for (int i = 0; i < cArr.length; i++) {
-				for (char c='a';c<='z';c++) {
-					char temp=cArr[i];
-					if(temp!=c)
+			if(w.word.contentEquals(end))
+				return w.numSteps;
+			char[] currWord=w.word.toCharArray();
+			for (int i = 0; i < currWord.length; i++) {
+				for (char c = 'a'; c<='z'; c++) {
+					char currChar=currWord[i];
+					if(currChar!=c)
 					{
-						cArr[i]=c;
+						currWord[i]=c;
 					}
-					String newWord=new String(cArr);
-					if(wordList.contains(newWord))
+
+					String newString=new String(currWord);
+					if(set.contains(newString))
 					{
-						queue.add(new WordNode(newWord, w.steps+1));
-						wordList.remove(newWord);
+						set.remove(newString);
+						queue.add(new WordNode(newString, w.numSteps+1));
 					}
-					cArr[i]=temp;
+					currWord[i]=currChar;
 				}
 			}
 		}
-		return 0;
+		return -1;
 	}
+
+
+
+
 }

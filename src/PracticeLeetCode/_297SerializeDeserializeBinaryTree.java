@@ -9,9 +9,11 @@ public class _297SerializeDeserializeBinaryTree {
 		TreeNode left;
 		TreeNode right;
 		TreeNode(int x) { val = x; }
-	}a
+	}
 	public String serialize(TreeNode root) {
 		StringBuilder sb=new StringBuilder();
+		if(root==null)
+			return sb.toString();
 		Queue<TreeNode> queue=new LinkedList<>();
 		queue.add(root);
 		while(!queue.isEmpty())
@@ -23,8 +25,8 @@ public class _297SerializeDeserializeBinaryTree {
 			}
 			else{
 				sb.append(tn.val+",");
-				queue.offer(tn.left);
-				queue.offer(tn.right);				
+				queue.add(tn.left);
+				queue.add(tn.right);
 			}
 		}
 		sb.deleteCharAt(sb.length()-1);
@@ -35,7 +37,7 @@ public class _297SerializeDeserializeBinaryTree {
 		if(data==null||data.length()==0)
 			return null;
 		String[] arr=data.split(",");
-		if(arr.length==0||arr[0].contentEquals("#"))
+		if(arr[0].contentEquals("#"))
 			return null;
 		TreeNode root=new TreeNode(Integer.parseInt(arr[0]));
 		Queue<TreeNode> queue=new LinkedList<>();
@@ -44,28 +46,28 @@ public class _297SerializeDeserializeBinaryTree {
 		while(!queue.isEmpty())
 		{
 			TreeNode tn=queue.poll();
-			if(!arr[index].contentEquals("#"))
+			if(arr[index].contentEquals("#"))
 			{
-				tn.left=new TreeNode(Integer.parseInt(arr[index++]));
+				tn.left=null;
+			}
+			else{
+				tn.left=new TreeNode(Integer.parseInt(arr[index]));
 				queue.add(tn.left);
 			}
-			else{
-				tn.left=null;
-				index++;
-			}
+			index++;
 
-			if(!arr[index].contentEquals("#"))
+
+			if(arr[index].contentEquals("#"))
 			{
-				tn.right=new TreeNode(Integer.parseInt(arr[index++]));
+				tn.right=null;
+			}
+			else{
+				tn.right=new TreeNode(Integer.parseInt(arr[index]));
 				queue.add(tn.right);
 			}
-			else{
-				tn.right=null;
-				index++;
-			}
+			index++;
 		}
-		return root;
-
+		return root;	
 	}
 
 	public static void main(String[] args) {

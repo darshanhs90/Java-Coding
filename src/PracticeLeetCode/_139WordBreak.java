@@ -20,23 +20,20 @@ public class _139WordBreak {
 		set.add("aaaa");
 		System.out.println(wordBreak("aaab", set));
 	}
-a
 	public static boolean wordBreak(String s, Set<String> wordDict) {
 		if(s==null||s.length()==0)
 			return false;
-		return checkWordBreak(0,s,wordDict);
+		return wordBreak(0,s,wordDict);
 	}
-
-	private static boolean checkWordBreak(int i, String s, Set<String> wordDict) {
-		if(i>s.length())
+	private static boolean wordBreak(int index, String s, Set<String> wordDict) {
+		if(index>s.length())
 			return false;
-		if(i==s.length())
+		if(index==s.length())
 			return true;
-		for (int j = i+1; j <=s.length(); j++) {
-			String str=s.substring(i,j);
-			if(wordDict.contains(str) && checkWordBreak(j, s, wordDict)){
+		for (int i = index; i < s.length(); i++) {
+			String s1=s.substring(index,i+1);
+			if(wordDict.contains(s1) && wordBreak(i+1, s, wordDict))
 				return true;
-			}
 		}
 		return false;
 	}
