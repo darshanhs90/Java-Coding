@@ -20,7 +20,7 @@ public class _139WordBreak {
 		set.add("aaaa");
 		System.out.println(wordBreak("aaab", set));
 	}
-
+a
 	public static boolean wordBreak(String s, Set<String> wordDict) {
 		if(s==null||s.length()==0)
 			return false;

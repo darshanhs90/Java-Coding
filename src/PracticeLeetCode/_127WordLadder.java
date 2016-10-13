@@ -14,7 +14,7 @@ public class _127WordLadder {
 		set.add("lot");
 		set.add("log");
 		System.out.println(ladderLength("hit", "cog", set));//5
-	}
+	}a
 	static class WordNode{
 		String word;
 		int steps;

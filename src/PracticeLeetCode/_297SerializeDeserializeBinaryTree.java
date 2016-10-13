@@ -9,7 +9,7 @@ public class _297SerializeDeserializeBinaryTree {
 		TreeNode left;
 		TreeNode right;
 		TreeNode(int x) { val = x; }
-	}
+	}a
 	public String serialize(TreeNode root) {
 		StringBuilder sb=new StringBuilder();
 		Queue<TreeNode> queue=new LinkedList<>();

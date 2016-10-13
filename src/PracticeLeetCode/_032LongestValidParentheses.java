@@ -8,7 +8,6 @@ public class _032LongestValidParentheses {
 		System.out.println(longestValidParentheses("(()"));
 
 	}
-
 	public static int longestValidParentheses(String s) {
 		if(s==null||s.length()<2)
 			return 0;

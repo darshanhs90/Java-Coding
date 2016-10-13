@@ -12,7 +12,7 @@ public class _146LRUCache {
 			this.value=value;
 		}
 	}
-
+a
 	int capacity=0;
 	Node head=null,tail=null;
 	HashMap<Integer, Node> map=new HashMap<>();
