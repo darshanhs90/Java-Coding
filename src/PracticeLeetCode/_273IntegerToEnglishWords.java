@@ -8,7 +8,7 @@ public class _273IntegerToEnglishWords {
 		TreeNode left;
 		TreeNode right;
 		TreeNode(int x) { val = x; }
-	}a
+	}
 	public class Solution {
 	    HashMap<Integer, String> map = new HashMap<Integer, String>();
 	 

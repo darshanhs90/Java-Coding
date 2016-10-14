@@ -16,7 +16,7 @@ public class _206ReverseLinkedList {
 			System.out.println(ln.val);ln=ln.next;
 		}
 	}
-
+	//recursive method
 	public static ListNode reverseList(ListNode head) {
 		if(head==null||head.next==null)
 			return head;
