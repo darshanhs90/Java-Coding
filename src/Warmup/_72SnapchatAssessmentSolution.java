@@ -94,7 +94,7 @@ public class _72SnapchatAssessmentSolution {
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(simpleWords(
 				new String[]{"chat","ever","snapchat","snap","salesperson","per","person","sales","son","whatsoever","what","so"})));
-		
+
 		
 		
 		/*System.out.println(Arrays.toString(simpleWords(
