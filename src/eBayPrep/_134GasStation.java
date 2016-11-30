@@ -1,7 +1,7 @@
 package eBayPrep;
 
 public class _134GasStation {
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		System.out.println(canCompleteCircuit(new int[]
 				{1,2,3,4,5},new int[]
 						{1,3,2,4,5}));
@@ -10,6 +10,6 @@ public class _134GasStation {
 	}
 	public static int canCompleteCircuit(int[] gas, int[] cost) {
 
-	}
+	}*/
 }
 

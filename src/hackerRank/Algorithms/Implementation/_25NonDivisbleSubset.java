@@ -24,6 +24,6 @@ public class _25NonDivisbleSubset {
 
 	private static boolean Checksum(int[] array) {
 		
-		return flse;
+		return false;
 	}
 }

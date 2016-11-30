@@ -7,7 +7,7 @@ public class _071SimplifyPath {
 
 	}
 	public static String simplifyPath(String path) {
-
+		return "";
 
 
 

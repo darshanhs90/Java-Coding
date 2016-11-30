@@ -1,7 +1,7 @@
 package LeetCodePerformancePractice;
 
 public class _166FractionToRecurringDecimal {
-	public class ListNode {
+/*	public class ListNode {
 		int val;
 		ListNode next;
 		ListNode(int x) {
@@ -14,5 +14,5 @@ public class _166FractionToRecurringDecimal {
 	}
     public String fractionToDecimal(int numerator, int denominator) {
         
-    }
+    }*/
 }

@@ -1,4 +1,4 @@
-package eBayPrep1;
+package eBayPrep;
 
 import java.util.Stack;
 
