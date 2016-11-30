@@ -13,5 +13,10 @@ public class _26DesignerPDFViewer {
             h[h_i] = in.nextInt();
         }
         String word = in.next();
+        int max=0;
+        for (int i = 0; i < word.length(); i++) {
+			max=Math.max(h[word.charAt(i)-'a'],max);
+		}
+        System.out.println(max*word.length());
     }
 }
