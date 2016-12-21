@@ -12,10 +12,8 @@ public class _01DrawingBook {
 		int n = in.nextInt();
 		int p = in.nextInt();
 		// your code goes here
-		
-		int distanceFromStart=n/2-(p/2);
-		int distanceFromEnd=p/2;
-		System.out.println(Math.min(distanceFromStart, distanceFromEnd));
+
+		System.out.println(Math.min(n/2-(p/2), p/2));
 	}
 }
 
