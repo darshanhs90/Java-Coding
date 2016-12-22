@@ -18,7 +18,7 @@ public class _02TailorShop {
             a[a_i] = in.nextInt();
         }
         Arrays.sort(a);
-        int count=0;
+        long count=0;
         int value=a[0]/p;
         int prevCount=a[0]%p==0?value+1:value+2;
         count=prevCount-1;
