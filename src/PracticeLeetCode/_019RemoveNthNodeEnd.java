@@ -21,24 +21,6 @@ public class _019RemoveNthNodeEnd {
 	}
 
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
-		ListNode leadPointer=head;
-		ListNode lagPointer=head;
-		int count=0;
-		while(leadPointer!=null && count<n)
-		{
-			leadPointer=leadPointer.next;
-			count++;
-		}
-		if(leadPointer==null)
-			return head.next;
-		ListNode prevNode=null;
-		while(leadPointer!=null)
-		{
-			leadPointer=leadPointer.next;
-			prevNode=lagPointer;
-			lagPointer=lagPointer.next;
-		}
-		prevNode.next=lagPointer.next;
-		return head;
+		
 	}
 }

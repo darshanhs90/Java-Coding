@@ -8,21 +8,23 @@ public class _003LongestSubStringWORepeat {
 		System.out.println(lengthOfLongestSubstring("pwwkew"));
 	}
 
-	private static int lengthOfLongestSubstring(String string) {
-		int maxLength=0;
-		StringBuilder sb=new StringBuilder();
-		for (int i = 0; i < string.length(); i++) {
-			char c=string.charAt(i);
-			if(sb.indexOf(c+"")>-1)
-			{
-				sb=new StringBuilder(sb.toString().substring(sb.indexOf(c+"")+1));
+	public static int lengthOfLongestSubstring(String s) {
+
+		if(s==null||s.length()==0)
+			return 0;
+		StringBuilder sb=new StringBuilder(s.charAt(0)+"");
+		int maxSize=sb.length();
+		for (int i = 1; i < s.length(); i++) {
+			char c=s.charAt(i);
+			if(sb.toString().indexOf(c+"")>-1){
+				sb=new StringBuilder(sb.substring(sb.indexOf(c+"")+1));
 			}
 			sb.append(c);
-			maxLength=Math.max(maxLength, sb.length());
+			maxSize=Integer.max(sb.length(), maxSize);
 		}
-		return maxLength;
+		return maxSize;
 	}
 
-	
+
 
 }

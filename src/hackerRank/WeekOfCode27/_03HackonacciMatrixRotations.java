@@ -1,5 +1,6 @@
 package hackerRank.WeekOfCode27;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 /*
@@ -21,9 +22,16 @@ public class _03HackonacciMatrixRotations {
 			{'Y','Y','Y','Y','Y','Y','Y'}
 		};
 		char[][] charMat=generateMatrix(n,c);
+		HashMap<Integer,Integer> map=new HashMap<>();
 		for(int a0 = 0; a0 < q; a0++){
 			int angle = in.nextInt();
-			System.out.println(findDiff(angle,charMat));
+			if(map.containsKey(angle))
+				System.out.println(map.get(angle));
+			else{
+				int value=findDiff(angle,charMat);
+				map.put(angle, value);
+				System.out.println(value);
+			}
 		}
 	}
 

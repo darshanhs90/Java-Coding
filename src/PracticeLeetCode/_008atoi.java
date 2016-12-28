@@ -33,7 +33,7 @@ public class _008atoi {
 			return Integer.MIN_VALUE;
 		return (int)result;
 
-
+asd
 	}
 
 

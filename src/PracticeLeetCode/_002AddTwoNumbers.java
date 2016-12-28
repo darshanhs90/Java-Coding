@@ -22,53 +22,53 @@ public class _002AddTwoNumbers {
 			l1=l1.next;
 		}
 	}
-
-
-	private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		ListNode output=new ListNode(-1);
-		ListNode pointer=output;
+	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		int carry=0;
+		ListNode output=new ListNode(-1);
+		ListNode outputPointer=output;
 		while(l1!=null && l2!=null)
 		{
-			int value=l1.val+l2.val+carry;
-			if(value>9)
+			int val=l1.val+l2.val+carry;
+			if(val>9)
 				carry=1;
 			else
 				carry=0;
-			value=value%10;
-			output.next=new ListNode(value);
-			output=output.next;
+			output.next=new ListNode(val%10);
+			output=output.next;	
 			l1=l1.next;
 			l2=l2.next;
 		}
-		while(l1!=null)
-		{
-			int value=l1.val+carry;
-			if(value>9)
-				carry=1;
-			else
-				carry=0;
-			value=value%10;
-			output.next=new ListNode(value);
+		if(l1!=null)
+			while(l1!=null)
+			{
+				int val=l1.val+carry;
+				if(val>9)
+					carry=1;
+				else
+					carry=0;
+				output.next=new ListNode(val%10);
+				output=output.next;	
+				l1=l1.next;
+			}
+		if(l2!=null)
+			while(l2!=null)
+			{
+				int val=l2.val+carry;
+				if(val>9)
+					carry=1;
+				else
+					carry=0;
+				output.next=new ListNode(val%10);
+				output=output.next;	
+				l2=l2.next;
+			}
+		if(carry==1){
+			output.next=new ListNode(1);
 			output=output.next;
-			l1=l1.next;
 		}
-		while(l2!=null)
-		{
-			int value=l2.val+carry;
-			if(value>9)
-				carry=1;
-			else
-				carry=0;
-			value=value%10;
-			output.next=new ListNode(value);
-			output=output.next;
-			l2=l2.next;
-		}
-		if(carry!=0)
-			output.next=new ListNode(carry);
-		return pointer.next;
+		return outputPointer.next;
 	}
+
 
 
 }
