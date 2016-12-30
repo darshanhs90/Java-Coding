@@ -18,26 +18,20 @@ public class _024SwapNodesInPairs {
 		}
 	}
 	public static ListNode swapPairs(ListNode head) {
-		ListNode fakeHead=new ListNode(-1);
-		fakeHead.next=head;
-		ListNode pointer=fakeHead;
-		while(pointer!=null)
+		ListNode prevNode=new ListNode(-1);
+		prevNode.next=head;
+		ListNode prevNodePointer=prevNode;
+		while(prevNode.next!=null && prevNode.next.next!=null)
 		{
-			ListNode firstNode=pointer.next;
-			ListNode nextNode=null;
-			if(firstNode!=null && firstNode.next!=null){
-				nextNode=firstNode.next;
-				pointer.next=nextNode;
-				ListNode temp=nextNode.next;
-				nextNode.next=firstNode;
-				firstNode.next=temp;
-				pointer=pointer.next.next;
-			}
-			else{
-				pointer=pointer.next;
-			}
+			ListNode curr=prevNode.next;
+			ListNode next=prevNode.next.next;
+			ListNode nextNext=prevNode.next.next.next;
+			next.next=curr;
+			curr.next=nextNext;
+			prevNode.next=next;
+			prevNode=curr;
 		}
-		return fakeHead.next;
+		return prevNodePointer.next;
 	}
 
 

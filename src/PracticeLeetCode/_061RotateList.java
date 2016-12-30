@@ -19,29 +19,7 @@ public class _061RotateList {
 		}
 	}
 	public static ListNode rotateRight(ListNode head, int k) {
-		if(head==null||head.next==null)
-			return head;
-		int length=findLength(head);
-		ListNode headNode=head;
-		if(k>length)
-			k=k%length;
-		if(length==k|k==0)
-			return head;
-		for (int i = 0; i < length-k-1; i++) {
-			head=head.next;
-		}
-		ListNode output=head.next;
-		ListNode nextNode=output;
-		head.next=null;
-		while(nextNode.next!=null)
-		{
-			nextNode=nextNode.next;
-		}
-		nextNode.next=headNode;
-		return output;
-	}
-	private static int findLength(ListNode head) {
-		return head==null?0:1+findLength(head.next);
+		
 	}
 }
 

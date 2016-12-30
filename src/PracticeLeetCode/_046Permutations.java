@@ -7,7 +7,8 @@ public class _046Permutations {
 	}
 
 	private static void permute1(String prefix, String string) {
-		if(string.length()==0){
+		if(string.length()==0)
+		{
 			System.out.println(prefix);
 			return;
 		}

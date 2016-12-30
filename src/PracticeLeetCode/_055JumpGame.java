@@ -10,17 +10,7 @@ public class _055JumpGame {
 		System.out.println(canJump(new int[]{2,0,0}));
 	}
 	public static boolean canJump(int[] nums) {
-		if(nums==null||nums.length==0)
-			return true;
-		int maxReach=nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			if(nums[i]==0 && maxReach<i||maxReach<i)
-				return false;
-			if(maxReach>=nums.length)
-				return true;
-			maxReach=Math.max(maxReach, nums[i]+i);
-		}
-		return true;
+		
 	}
 }
 

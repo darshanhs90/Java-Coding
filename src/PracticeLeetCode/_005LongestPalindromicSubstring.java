@@ -6,12 +6,12 @@ public class _005LongestPalindromicSubstring {
 		System.out.println(longestPalindrome("Neoemalayalameo"));
 		System.out.println(longestPalindrome("cbbd"));
 		System.out.println(longestPalindrome("babad"));
-		
+
 	}
 	public static String longestPalindrome(String s) {
 		if(s==null||s.length()<2)
 			return s;
-		String output=new String("");
+		String output="";
 		for (int i = 0; i < s.length(); i++) {
 			String temp=helper(s,i,i);
 			if(temp.length()>output.length())
@@ -23,9 +23,9 @@ public class _005LongestPalindromicSubstring {
 		return output;
 	}
 	private static String helper(String s, int start, int end) {
-		if(start>end)
+		if(start<0||end>=s.length()||start>end)
 			return "";
-		while(start>=0 && end<s.length() && s.charAt(start)==s.charAt(end))
+		while(start>=0 && end<s.length() && start<=end && s.charAt(start)==s.charAt(end))
 		{
 			start--;
 			end++;

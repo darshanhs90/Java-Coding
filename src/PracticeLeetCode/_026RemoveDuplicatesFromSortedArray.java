@@ -1,27 +1,22 @@
 package PracticeLeetCode;
 
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class _026RemoveDuplicatesFromSortedArray {
 	public static void main(String[] args) {
-		System.out.println(removeDuplicates(new int[]{1,2,3}));
+		System.out.println(removeDuplicates(new int[]{}));
 	}
 	public static int removeDuplicates(int[] nums) {
+		int count=0;
 		if(nums==null||nums.length==0)
-			return 0;
-		int index=0;
-		Set<Integer> set=new HashSet<>();
-		for (int i = 0; i < nums.length; i++) {
-			if(!set.contains(nums[i]))
+			return count;
+		count++;
+		for (int i = 1; i < nums.length; i++) {
+			if(nums[i]!=nums[i-1])
 			{
-				nums[index]=nums[i];
-				index++;
-				set.add(nums[i]);
+					nums[count]=nums[i];
+					count++;
 			}
 		}
-		return index;
+		return count;
 	}
 
 }

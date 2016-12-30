@@ -2,7 +2,6 @@ package PracticeLeetCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 public class _049GroupAnagrams {
@@ -12,27 +11,28 @@ public class _049GroupAnagrams {
 	public static List<List<String>> groupAnagrams(String[] strs) {
 		List<List<String>> outputList=new ArrayList<>();
 		HashMap<String, List<String>> map=new HashMap<>();
+		char[] arr=new char[26];
 		for (int i = 0; i < strs.length; i++) {
-			char[] c=new char[26];
 			String str=strs[i];
+			arr=new char[26];
 			for (int j = 0; j < str.length(); j++) {
-				c[str.charAt(j)-'a']++;
+				arr[str.charAt(j)-97]++;
 			}
-			String charString=new String(c);
-			if(map.containsKey(charString))
+			String s=new String(arr);
+			if(map.containsKey(s))
 			{
-				map.get(charString).add(str);
+				map.get(s).add(str);
 			}
-			else{
+			else
+			{
 				List<String> list=new ArrayList<>();
 				list.add(str);
-				map.put(charString, list);
+				map.put(s,list);
 			}
 		}
-		Iterator<List<String>> itr=map.values().iterator();
-		while(itr.hasNext())
-		{
-			outputList.add(itr.next());
+		Object[] listArray=map.values().toArray();
+		for (int i = 0; i < listArray.length; i++) {
+			outputList.add((List<String>) listArray[i]);
 		}
 		return outputList;
 	}

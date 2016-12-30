@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Stack;
 
 public class _056MergeIntervals {
 	static class Interval {
@@ -30,32 +31,32 @@ public class _056MergeIntervals {
 		}
 	}
 	public static List<Interval> merge(List<Interval> intervals) {
+		if(intervals==null||intervals.size()==0)
+			return intervals;
 		Collections.sort(intervals,new Comparator<Interval>() {
+
 			@Override
 			public int compare(Interval o1, Interval o2) {
-				if(o1.start==o2.start)
-					return o1.end-o2.end;
-				else
+				if(o1.start!=o2.start)
 					return o1.start-o2.start;
+				return o1.end-o2.end;
 			}
 		});
 		List<Interval> outputList=new ArrayList<>();
 		for (int i = 0; i < intervals.size(); i++) {
-			Interval curr=intervals.get(i);
 			if(outputList.isEmpty())
 			{
-				outputList.add(curr);
+				outputList.add(intervals.get(i));
 			}
 			else{
-				Interval prev=outputList.get(outputList.size()-1);
-				if(curr.start<=prev.end)
+				if(outputList.get(outputList.size()-1).end>=intervals.get(i).start)
 				{
-					outputList.remove(outputList.size()-1);
-					prev.end=Math.max(prev.end, curr.end);
-					outputList.add(prev);
+					Interval temp=outputList.remove(outputList.size()-1);
+					temp.end=Math.max(intervals.get(i).end, temp.end);
+					outputList.add(temp);
 				}
 				else{
-					outputList.add(curr);
+					outputList.add(intervals.get(i));
 				}
 			}
 		}

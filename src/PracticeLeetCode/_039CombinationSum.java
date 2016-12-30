@@ -5,28 +5,29 @@ import java.util.List;
 
 public class _039CombinationSum {
 	public static void main(String[] args) {
-		System.out.println(combinationSum(new int[]{2, 3, 6, 7},7));
+		System.out.println(combinationSum(new int[]{2, 3, 5, 7},7));
 	}
+	static List<List<Integer>> outputList;
 	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-		List<List<Integer>> outputList=new ArrayList<>();
+		outputList=new ArrayList<>();
+		List<Integer> list=new ArrayList<>();
 		if(candidates==null||candidates.length==0)
 			return outputList;
-		List<Integer> list=new ArrayList<>();
-		dfs(candidates,target,0,0,list,outputList);
+		dfs(0,0,candidates,target,list);
 		return outputList;
 	}
-	private static void dfs(int[] candidates, int target,int currSum,int start, List<Integer> list, List<List<Integer>> outputList) {
-		if(currSum>target)
+	private static void dfs(int sum,int index,int[] candidates, int target, List<Integer> list) {
+		if(sum>target)
 			return;
-		if(currSum==target)
+		if(sum==target)
 		{
 			outputList.add(new ArrayList<>(list));
 			return;
 		}
-		for (int i = start; i < candidates.length; i++) {
+		for (int i = index; i < candidates.length; i++) {
 			list.add(candidates[i]);
-			dfs(candidates, target, currSum+candidates[i], i, list, outputList);
-			list.remove(list.size()-1);
+			dfs(sum+candidates[i], i, candidates, target, list);
+			list.remove(list.size()-1);	
 		}
 	}
 }

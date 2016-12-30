@@ -10,44 +10,49 @@ public class _059SpiralMatrix2 {
 		}
 	}
 	public static int[][] generateMatrix(int n) {
-		int[][] output=new int[n][n];
-		int top=0,bottom=n-1,left=0,right=n-1;
+		int[][] matrix=new int[n][n];
+		if(n==0)
+			return matrix;
 		int count=1;
+		int top=0,left=0,right=matrix[0].length-1,bottom=matrix.length-1;
 		while(top<=bottom && left<=right)
 		{
 			//toprow
 			for (int i = left; i <=right; i++) {
-				output[top][i]=count;
+				matrix[top][i]=count;
 				count++;
 			}
 			top++;
 
+
+
 			//right col
 			for (int i = top; i <=bottom; i++) {
-				output[i][right]=count;
+				matrix[i][right]=count;
 				count++;
 			}
 			right--;
-
 			//bottom row
-			if(top>bottom)
+			if(top>bottom){
 				continue;
+			}
 			for (int i = right; i >=left; i--) {
-				output[bottom][i]=count;
+				matrix[bottom][i]=count;
 				count++;
 			}
 			bottom--;
 
 			//left col
-			if(left>right)
+			if(left>right){
 				continue;
-			for (int i = bottom; i>=top; i--) {
-				output[i][left]=count;
+			}
+			for (int i = bottom; i >=top; i--) {
+				matrix[i][left]=count;
 				count++;
 			}
 			left++;
 		}
-		return output;
+		return matrix;
 	}
 }
 
