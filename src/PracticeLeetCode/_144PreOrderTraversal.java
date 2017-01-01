@@ -13,18 +13,18 @@ public class _144PreOrderTraversal {
 
 
 	}
-    public List<Integer> preorderTraversal(TreeNode root) {
-    	 List<Integer> outputList=new ArrayList<>();
-    	 if(root==null)
-    		 return outputList;
-    	 preOrder(root,outputList);
-    	 return outputList;
-    }
-	private void preOrder(TreeNode root, List<Integer> outputList) {
-		if(root==null)
-			return ;
-		outputList.add(root.val);
-		preOrder(root.left, outputList);
-		preOrder(root.right, outputList);
+	static List<Integer> outputList;
+	public List<Integer> preorderTraversal(TreeNode root) {
+		outputList=new ArrayList<>();
+		preOrder(root);
+		return outputList;
+	}
+	private void preOrder(TreeNode root) {
+		if(root!=null)
+		{
+			outputList.add(root.val);
+			preOrder(root.left);
+			preOrder(root.right);
+		}
 	}
 }

@@ -22,23 +22,6 @@ public class _328OddEvenLinkedList {
 		}
 	}
 	private static ListNode oddEvenList(ListNode head) {
-		if(head==null||head.next==null)
-			return head;
-		ListNode headPointer=head;
-		ListNode evenHead=new ListNode(-1);
-		ListNode evenNodePtr=evenHead;
-		while(head!=null && head.next!=null)
-		{
-			ListNode ln=head.next;
-			head.next=head.next.next;
-			evenHead.next=ln;
-			evenHead=evenHead.next;
-			if(head.next!=null)
-				head=head.next;
-		}
-		evenHead.next=null;
-		head.next=evenNodePtr.next;
-		return headPointer;
-	}
+			}
 
 }

@@ -3,6 +3,8 @@ package PracticeLeetCode;
 import java.util.ArrayList;
 import java.util.List;
 
+import PracticeLeetCode._102BinaryTreeLevelOrderTraversal.TreeNode;
+
 public class _103BinaryTreeZigZaglOrderTraversal {
 	public static class TreeNode {
 		int val;
@@ -26,19 +28,23 @@ public class _103BinaryTreeZigZaglOrderTraversal {
 		tn.left.right=new TreeNode(3);
 		System.out.println(zigzagLevelOrder(tn));
 	}
+	static List<Integer> list;
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		int height=getHeight(root);
 		List<List<Integer>> outputList=new ArrayList<>();
-		boolean flag=true;
+		if(root==null)
+			return outputList;
+		int height=getHeight(root);
 		for (int i = 0; i < height; i++) {
-			List<Integer> list=new ArrayList<>();
-			printNodes(root,i,list,flag);
-			flag=!flag;
+			list=new ArrayList<>();
+			if(i%2==0)
+				printLevel(true,i,root);
+			else
+				printLevel(false,i,root);
 			outputList.add(list);
 		}
 		return outputList;
 	}
-	private static void printNodes(TreeNode root, int level, List<Integer> list,boolean flag) {
+	private static void printLevel(boolean flag,int level, TreeNode root) {
 		if(root==null)
 			return;
 		if(level==0){
@@ -46,13 +52,12 @@ public class _103BinaryTreeZigZaglOrderTraversal {
 			return;
 		}
 		if(flag){
-			printNodes(root.left, level-1, list,flag);
-			printNodes(root.right, level-1, list,flag);
+			printLevel(flag,level-1, root.left);
+			printLevel(flag,level-1, root.right);
 		}
-		else
-		{
-			printNodes(root.right, level-1, list,flag);
-			printNodes(root.left, level-1, list,flag);
+		else{
+			printLevel(flag,level-1, root.right);
+			printLevel(flag,level-1, root.left);
 		}
 	}
 	private static int getHeight(TreeNode root) {

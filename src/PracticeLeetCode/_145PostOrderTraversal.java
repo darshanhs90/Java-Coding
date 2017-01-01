@@ -12,18 +12,18 @@ public class _145PostOrderTraversal {
 	public static void main(String[] args) {
 
 	}
+	static List<Integer> outputList;
 	public List<Integer> postorderTraversal(TreeNode root) {
-		List<Integer> outputList=new ArrayList<>();
-		if(root==null)
-			return outputList;
-		postOrder(root,outputList);
+		outputList=new ArrayList<>();
+		postOrder(root);
 		return outputList;
 	}
-	private void postOrder(TreeNode root, List<Integer> outputList) {
-		if(root==null)
-			return ;
-		postOrder(root.left, outputList);
-		postOrder(root.right, outputList);
-		outputList.add(root.val);
+	private void postOrder(TreeNode root) {
+		if(root!=null)
+		{
+			postOrder(root.left);
+			postOrder(root.right);
+			outputList.add(root.val);
+		}
 	}
 }

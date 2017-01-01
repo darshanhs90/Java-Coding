@@ -4,42 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class _225StackUsingQueues {
-	Queue<Integer> queue1=new LinkedList<>();
-	Queue<Integer> queue2=new LinkedList<>();
-	public void push(int x) {
-		queue1.offer(x);
-	}
-
-	// Removes the element on top of the stack.
-	public void pop() {
-		while(queue1.size()>1)
-		{
-			queue2.offer(queue1.poll());
-		}
-		queue1.poll();
-		while(!queue2.isEmpty())
-		{
-			queue1.offer(queue2.poll());
-		}
-	}
-
-	// Get the top element.
-	public int top() {
-		while(queue1.size()>1)
-		{
-			queue2.offer(queue1.poll());
-		}
-		int value=queue1.poll();
-		queue2.offer(value);
-		while(!queue2.isEmpty())
-		{
-			queue1.offer(queue2.poll());
-		}
-		return value;
-	}
-
-	// Return whether the stack is empty.
-	public boolean empty() {
-		return queue1.isEmpty();
+	
 	}
 }

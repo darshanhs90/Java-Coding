@@ -20,21 +20,6 @@ public class _139WordBreak {
 		set.add("aaaa");
 		System.out.println(wordBreak("aaab", set));
 	}
-	public static boolean wordBreak(String s, Set<String> wordDict) {
-		if(s==null||s.length()==0)
-			return false;
-		return wordBreak(0,s,wordDict);
-	}
-	private static boolean wordBreak(int index, String s, Set<String> wordDict) {
-		if(index>s.length())
-			return false;
-		if(index==s.length())
-			return true;
-		for (int i = index; i < s.length(); i++) {
-			String s1=s.substring(index,i+1);
-			if(wordDict.contains(s1) && wordBreak(i+1, s, wordDict))
-				return true;
-		}
-		return false;
+	a
 	}
 }

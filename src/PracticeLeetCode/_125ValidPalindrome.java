@@ -6,12 +6,7 @@ public class _125ValidPalindrome {
 		System.out.println(isPalindrome("race a car"));
 	}
 	public static boolean isPalindrome(String s) {
-		if(s==null||s.length()==0)
-			return true;
-		s=s.toLowerCase().replaceAll("[^a-z0-9]", "");
-		StringBuilder sb=new StringBuilder(s);
-		if(s.contentEquals(sb.reverse().toString()))
-			return true;
-		return false;
+		s=s.replaceAll("[^A-Za-z0-9]", "").trim().toLowerCase();
+		return new StringBuilder(s).reverse().toString().contentEquals(s);
 	}
 }

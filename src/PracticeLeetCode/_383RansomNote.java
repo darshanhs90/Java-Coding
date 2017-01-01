@@ -8,19 +8,7 @@ public class _383RansomNote {
 	}
 
 	public static boolean canConstruct(String ransomNote, String magazine) {
-		char[] c=new char[26];
-		for (int i = 0; i < magazine.length(); i++) {
-			c[magazine.charAt(i)-'a']++;
-		}
-		for (int i = 0; i < ransomNote.length(); i++) {
-			if(c[ransomNote.charAt(i)-'a']>0)
-			{
-				c[ransomNote.charAt(i)-'a']--;
-			}
-			else
-				return false;
-		}
-		return true;
+	
 	}
 
 }

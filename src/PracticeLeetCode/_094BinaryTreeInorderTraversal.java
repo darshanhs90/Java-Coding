@@ -10,19 +10,19 @@ public class _094BinaryTreeInorderTraversal {
 		TreeNode right;
 		TreeNode(int x) { val = x; }
 	}
+	static List<Integer> outputList;
 	public List<Integer> inorderTraversal(TreeNode root) {
-		List<Integer> list=new ArrayList<>();
-		if(root==null)
-			return list;
-		inOrder(root,list);
-		return list;
+		outputList=new ArrayList<>();
+		inorder(root);
+		return outputList;
 	}
-	private void inOrder(TreeNode root, List<Integer> list) {
-		if(root==null)
-			return ;
-		inOrder(root.left, list);
-		list.add(root.val);
-		inOrder(root.right, list);
+	private void inorder(TreeNode root) {
+		if(root!=null)
+		{
+			inorder(root.left);
+			outputList.add(root.val);
+			inorder(root.right);
+		}
 	}
 
 }

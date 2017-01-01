@@ -10,8 +10,7 @@ public class _104MaximumDepthOfBinaryTree {
 	public static void main(String[] args) {
 
 	}
-    public int maxDepth(TreeNode root) {
-        return root==null?0:1+Math.max(maxDepth(root.left), maxDepth(root.right));
-    }
-
+	public int maxDepth(TreeNode root) {
+		return root==null?0:1+Math.max(maxDepth(root.left), maxDepth(root.right));
+	}
 }

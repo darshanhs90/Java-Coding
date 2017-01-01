@@ -28,27 +28,31 @@ public class _107BinaryTreeLevelOrderTraversal2 {
 		tn.left.right=new TreeNode(3);
 		System.out.println(levelOrderBottom(tn));
 	}
+	static List<Integer> list;
 	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
-		int height=getHeight(root);
 		List<List<Integer>> outputList=new ArrayList<>();
+		if(root==null)
+			return outputList;
+		int height=getHeight(root);
 		for (int i = height-1; i >=0; i--) {
-			List<Integer> list=new ArrayList<>();
-			printNodes(root,i,list);
+			list=new ArrayList<>();
+			printLevel(i,root);
 			outputList.add(list);
 		}
 		return outputList;
 	}
-	private static void printNodes(TreeNode root, int level, List<Integer> list) {
+	private static void printLevel(int level, TreeNode root) {
 		if(root==null)
 			return;
 		if(level==0){
 			list.add(root.val);
 			return;
 		}
-		printNodes(root.left, level-1, list);
-		printNodes(root.right, level-1, list);
+		printLevel(level-1, root.left);
+		printLevel(level-1, root.right);
 	}
 	private static int getHeight(TreeNode root) {
 		return root==null?0:1+Math.max(getHeight(root.left), getHeight(root.right));
 	}
+
 }

@@ -18,24 +18,6 @@ public class _187RepeatedDNASequences {
 		System.out.println(findRepeatedDnaSequences("AAAAAAAAAAA"));
 	}
 	public static List<String> findRepeatedDnaSequences(String s) {
-		List<String> outputList=new ArrayList<String>();
-		if(s==null||s.length()==0)
-			return outputList;
-		HashMap<String, Integer> strCount=new HashMap<>();
-		for (int i = 0; i <=s.length()-10; i++) {
-			String str=s.substring(i,i+10);
-			if(strCount.containsKey(str))
-			{
-				if(strCount.get(str)==1)
-				{
-					outputList.add(str);
-					strCount.put(str, 2);
-				}
-			}
-			else{
-				strCount.put(str, 1);
-			}
-		}
-		return outputList;
+	a
 	}
 }
