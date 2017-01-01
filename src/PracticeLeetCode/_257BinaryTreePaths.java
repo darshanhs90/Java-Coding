@@ -17,8 +17,27 @@ public class _257BinaryTreePaths {
 		tn.left.right=new TreeNode(5);
 		System.out.println(binaryTreePaths(tn));
 	}
+	static List<String> outputList;
 	public static List<String> binaryTreePaths(TreeNode root) {
-	
+		outputList=new ArrayList<>();
+		populatePaths("",root);
+		return outputList;
+	}
+	private static void populatePaths(String string, TreeNode root) {
+		if(root==null)
+			return;
+		if(root.left==null && root.right==null)
+		{
+			if(string.length()==0)
+			{
+				outputList.add(root.val+"");
+			}
+			else{
+				outputList.add(string+"->"+root.val);
+			}
+		}
+		populatePaths(string.length()==0?root.val+"":string+"->"+root.val,root.left);
+		populatePaths(string.length()==0?root.val+"":string+"->"+root.val,root.right);
 	}
 
 }

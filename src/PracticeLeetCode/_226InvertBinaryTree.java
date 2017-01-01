@@ -15,12 +15,17 @@ public class _226InvertBinaryTree {
 		tn.left.right=new TreeNode(3);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(9);
-		preOrder(tn);
 		tn=invertTree(tn);
-		System.out.println();
-		preOrder(tn);
-	}
 
-		
 	}
+    public static TreeNode invertTree(TreeNode root) {
+        if(root==null)
+        	return root;
+        invertTree(root.left);
+        TreeNode temp=root.left;
+        root.left=root.right;
+        root.right=temp;
+        invertTree(root.right);
+        return root;
+    }
 }

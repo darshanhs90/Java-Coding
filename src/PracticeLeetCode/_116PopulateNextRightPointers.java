@@ -17,8 +17,30 @@ public class _116PopulateNextRightPointers {
 		tn.right.right=new TreeLinkNode(7);
 		connect(tn);
 	}
+	static TreeLinkNode nextNode;
 	public static void connect(TreeLinkNode root) {
-		a
+		if(root==null)
+			return;
+		int height=getHeight(root);
+		for (int i = 0; i < height; i++) {
+			nextNode=null;
+			printNodes(i,root);
+		}
+	}
+	private static void printNodes(int level, TreeLinkNode root) {
+		if(root==null)
+			return;
+		if(level==0)
+		{
+			root.next=nextNode;
+			nextNode=root;
+			return;
+		}
+		printNodes(level-1, root.right);
+		printNodes(level-1, root.left);
+	}
+	private static int getHeight(TreeLinkNode root) {
+		return root==null?0:1+Math.max(getHeight(root.left), getHeight(root.right));
 	}
 
 
