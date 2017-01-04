@@ -1,5 +1,6 @@
 package PracticeLeetCode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _093RestoreIPAddress {
@@ -10,8 +11,10 @@ public class _093RestoreIPAddress {
 	}
 	public static void main(String[] args) {
 		System.out.println(restoreIpAddresses("25525511135"));
+		System.out.println(restoreIpAddresses("10101010"));
+		
 	}
 	public static List<String> restoreIpAddresses(String s) {
-			
+		
 	}
 }

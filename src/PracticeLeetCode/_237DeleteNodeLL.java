@@ -11,7 +11,8 @@ public class _237DeleteNodeLL {
 
 	}
 	public void deleteNode(ListNode node) {
-a
+		node.val=node.next.val;
+		node.next=node.next.next;
 	}
 }
 
