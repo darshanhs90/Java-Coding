@@ -18,8 +18,9 @@ public class _139WordBreak {
 		set=new HashSet<>();
 		set.add("aaa");
 		set.add("aaaa");
-		System.out.println(wordBreak("aaab", set));
+		System.out.println(wordBreak("aaaaaaa", set));
 	}
-	a
+	public static boolean wordBreak(String s, Set<String> wordDict) {
+		
 	}
 }

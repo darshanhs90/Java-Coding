@@ -13,5 +13,7 @@ public class _143ReorderList {
 		ln.next.next.next=new ListNode(4);
 		reorderList(ln);
 	}
-	a
+    public void reorderList(ListNode head) {
+        
+    }
 }
