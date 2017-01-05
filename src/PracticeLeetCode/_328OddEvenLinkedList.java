@@ -1,3 +1,4 @@
+
 package PracticeLeetCode;
 
 public class _328OddEvenLinkedList {
@@ -22,6 +23,30 @@ public class _328OddEvenLinkedList {
 		}
 	}
 	private static ListNode oddEvenList(ListNode head) {
+		if(head==null||head.next==null||head.next.next==null)
+			return head;
+		ListNode evenNode=new ListNode(-1);
+		ListNode evenNodePointer=evenNode;
+		ListNode headPointer=head;
+		while(head!=null && head.next!=null)
+		{
+			ListNode temp=head.next;
+			evenNode.next=temp;
+			evenNode=evenNode.next;
+			if(head.next.next!=null){
+				head.next=head.next.next;
+				head=head.next;
 			}
+			else{
+				break;
+			}
+		}
+		if(evenNode!=null)
+			evenNode.next=null;
+		if(head!=null)
+			head.next=evenNodePointer.next;
+		return headPointer;
+
+	}
 
 }
