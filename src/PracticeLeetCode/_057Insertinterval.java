@@ -24,13 +24,5 @@ public class _057Insertinterval {
 		}
 	}
 	public static List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-		return null;
-
-
-
-
-
-	}
-
 
 }

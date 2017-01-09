@@ -6,6 +6,6 @@ public class _344ReverseString {
 		System.out.println(reverseString("asd"));
 	}
 	public static String reverseString(String s) {
-		   return new StringBuilder(s).reverse().toString();
+		  
 	}
 }

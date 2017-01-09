@@ -19,13 +19,6 @@ public class _226InvertBinaryTree {
 
 	}
     public static TreeNode invertTree(TreeNode root) {
-        if(root==null)
-        	return root;
-        invertTree(root.left);
-        TreeNode temp=root.left;
-        root.left=root.right;
-        root.right=temp;
-        invertTree(root.right);
-        return root;
+       
     }
 }

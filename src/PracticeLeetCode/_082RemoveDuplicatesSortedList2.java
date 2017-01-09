@@ -21,27 +21,7 @@ public class _082RemoveDuplicatesSortedList2 {
 		}
 	}
 	public static ListNode deleteDuplicates(ListNode head) {
-		if(head==null||head.next==null)
-			return head;
-		ListNode prevNode=new ListNode(-1);
-		ListNode pointer=prevNode;
-		while(head!=null)
-		{
-			int currVal=head.val;
-			ListNode temp=head;
-			head=head.next;
-			if(head!=null && head.val==currVal)
-				while(head!=null && currVal==head.val)
-				{
-					head=head.next;
-				}
-			else{
-				prevNode.next=temp;
-				prevNode=prevNode.next;
-			}
-		}
-		prevNode.next=null;
-		return pointer.next;
+		
 	}
 
 }

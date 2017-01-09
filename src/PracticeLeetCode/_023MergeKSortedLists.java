@@ -15,30 +15,7 @@ public class _023MergeKSortedLists {
 
 	}
 	public ListNode mergeKLists(ListNode[] lists) {
-		PriorityQueue<ListNode> queue=new PriorityQueue<>(new Comparator<ListNode>() {
-
-			@Override
-			public int compare(ListNode o1, ListNode o2) {
-				return o1.val-o2.val;
-			}
-		});
-		ListNode outputNode=new ListNode(-1);
-		ListNode outputPointer=outputNode;
-		for (int i = 0; i < lists.length; i++) {
-			if(lists[i]!=null)
-				queue.add(lists[i]);
-		}
-
-		while(!queue.isEmpty()){
-			ListNode ln=queue.poll();
-			outputNode.next=new ListNode(ln.val);
-			outputNode=outputNode.next;
-			if(ln.next!=null)
-			{
-				queue.add(ln.next);
-			}			
-		}
-		return outputPointer.next;	
+		
 	}
 }
 

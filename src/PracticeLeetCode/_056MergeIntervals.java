@@ -30,36 +30,4 @@ public class _056MergeIntervals {
 			System.out.println(intervals.get(i).start+"///"+intervals.get(i).end);
 		}
 	}
-	public static List<Interval> merge(List<Interval> intervals) {
-		if(intervals==null||intervals.size()==0)
-			return intervals;
-		Collections.sort(intervals,new Comparator<Interval>() {
-
-			@Override
-			public int compare(Interval o1, Interval o2) {
-				if(o1.start!=o2.start)
-					return o1.start-o2.start;
-				return o1.end-o2.end;
-			}
-		});
-		List<Interval> outputList=new ArrayList<>();
-		for (int i = 0; i < intervals.size(); i++) {
-			if(outputList.isEmpty())
-			{
-				outputList.add(intervals.get(i));
-			}
-			else{
-				if(outputList.get(outputList.size()-1).end>=intervals.get(i).start)
-				{
-					Interval temp=outputList.remove(outputList.size()-1);
-					temp.end=Math.max(intervals.get(i).end, temp.end);
-					outputList.add(temp);
-				}
-				else{
-					outputList.add(intervals.get(i));
-				}
-			}
-		}
-		return outputList;
-	}
-}
+	public static List<Interval> merge(List<Interval> intervals) {}

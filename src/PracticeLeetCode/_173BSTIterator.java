@@ -24,39 +24,6 @@ public class _173BSTIterator {
 		}
 	}
 	static public class BSTIterator {
-		Stack<TreeNode> stack;
-		public BSTIterator(TreeNode root) {
-			stack=new Stack<>();
-			while(root!=null)
-			{
-				stack.push(root);
-				root=root.left;
-			}
-		}
-
-		/** @return whether we have a next smallest number */
-		public boolean hasNext() {
-			return !stack.isEmpty();
-		}
-
-		/** @return the next smallest number */
-		public int next() {
-			if(!stack.isEmpty())
-			{
-				TreeNode tn=stack.pop();
-				int val=tn.val;
-				if(tn.right!=null)
-				{
-					TreeNode tn1=tn.right;
-					while(tn1!=null)
-					{
-						stack.push(tn1);
-						tn1=tn1.left;
-					}
-				}
-				return val;
-			}
-			return -1;
-		}
+		
 	}
 }

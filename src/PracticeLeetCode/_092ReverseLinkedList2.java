@@ -19,16 +19,7 @@ public class _092ReverseLinkedList2 {
 		}
 	}
 	public static ListNode reverseBetween(ListNode head, int m, int n) {
-		return reverseLL(head);
-	}
-	private static ListNode reverseLL(ListNode head) {
-		if(head==null||head.next==null)
-			return head;
-		ListNode nextNode=head.next;
-		ListNode reverse=reverseLL(head.next);
-		head.next=null;
-		nextNode.next=head;
-		return reverse;
+	
 	}
 	
 	

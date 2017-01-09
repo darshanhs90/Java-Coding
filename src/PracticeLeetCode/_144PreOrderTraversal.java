@@ -13,18 +13,5 @@ public class _144PreOrderTraversal {
 
 
 	}
-	static List<Integer> outputList;
-	public List<Integer> preorderTraversal(TreeNode root) {
-		outputList=new ArrayList<>();
-		preOrder(root);
-		return outputList;
-	}
-	private void preOrder(TreeNode root) {
-		if(root!=null)
-		{
-			outputList.add(root.val);
-			preOrder(root.left);
-			preOrder(root.right);
-		}
-	}
+	
 }
