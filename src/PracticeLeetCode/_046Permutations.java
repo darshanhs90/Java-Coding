@@ -7,7 +7,14 @@ public class _046Permutations {
 	}
 
 	private static void permute1(String prefix, String string) {
-	
+		if(string.length()==0)
+		{
+			System.out.println(prefix);
+			return;
+		}
+		for (int i = 0; i < string.length(); i++) {
+			permute1(prefix+string.charAt(i), string.substring(0,i)+string.substring(i+1));
+		}
 	}
 
 }
