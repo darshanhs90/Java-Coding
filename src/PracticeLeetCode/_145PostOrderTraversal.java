@@ -10,7 +10,7 @@ public class _145PostOrderTraversal {
 		TreeNode(int x) { val = x; }
 	}
 	public static void main(String[] args) {
-
+a
 	}
 	
 }

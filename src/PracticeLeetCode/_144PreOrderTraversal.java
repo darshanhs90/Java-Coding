@@ -11,7 +11,7 @@ public class _144PreOrderTraversal {
 	}
 	public static void main(String[] args) {
 
-
+a
 	}
 	
 }

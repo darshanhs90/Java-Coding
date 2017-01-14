@@ -12,6 +12,18 @@ public class _242ValidAnagram {
 		System.out.println(isAnagram("rzt", "car"));
 	}
 	public static boolean isAnagram(String s, String t) {
-		
+		if(s==null && t==null)
+			return true;
+		else if(s==null||t==null)
+			return false;
+		if(s.length()!=t.length())
+			return false;
+		char[] c1=new char[26];
+		char[] c2=new char[26];
+		for (int i = 0; i < s.length(); i++) {
+			c1[s.charAt(i)-97]++;
+			c2[t.charAt(i)-97]++;
+		}
+		return new String(c1).contentEquals(new String(c2));
 	}
 }
