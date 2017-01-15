@@ -10,7 +10,21 @@ public class _145PostOrderTraversal {
 		TreeNode(int x) { val = x; }
 	}
 	public static void main(String[] args) {
-a
+
+	}
+	static List<Integer> outputList;
+    public static List<Integer> postorderTraversal(TreeNode root) {
+        outputList=new ArrayList<>();
+        postOrder(root);
+        return outputList;
+    }
+	private static void postOrder(TreeNode root) {
+		if(root!=null)
+		{
+			postOrder(root.left);
+			postOrder(root.right);
+			outputList.add(root.val);
+		}
 	}
 	
 }

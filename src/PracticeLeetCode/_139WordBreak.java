@@ -21,6 +21,20 @@ public class _139WordBreak {
 		System.out.println(wordBreak("aaaaaaa", set));
 	}
 	public static boolean wordBreak(String s, List<String> wordDict) {
-		
+		if(s==null||s.length()==0)
+			return true;
+		return dfs(0,s,wordDict);
+	}
+	private static boolean dfs(int i, String s, List<String> wordDict) {
+		if(i<0||i>s.length())
+			return false;
+		if(i==s.length())
+			return true;
+		for (int j = i; j < s.length(); j++) {
+			String str=s.substring(i,j+1);
+			if(wordDict.contains(str) && dfs(j+1,s,wordDict))
+				return true;
+		}
+		return false;
 	}
 }

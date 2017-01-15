@@ -16,10 +16,15 @@ public class _206ReverseLinkedList {
 			System.out.println(ln.val);ln=ln.next;
 		}
 	}
-	private static ListNode reverseList(ListNode ln) {
-		
-		return reverse;
-	}
+    public static ListNode reverseList(ListNode head) {
+        if(head==null||head.next==null)
+        	return head;
+        ListNode next=head.next;
+        ListNode reverse=reverseList(head.next);
+        head.next=null;
+        next.next=head;
+        return reverse;
+    }
 
 
 }

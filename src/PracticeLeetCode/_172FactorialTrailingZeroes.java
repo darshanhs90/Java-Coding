@@ -13,6 +13,15 @@ public class _172FactorialTrailingZeroes {
 		System.out.println(trailingZeroes(1808548329));
 	}
 	public static int trailingZeroes(int n) {
-	
+		if(n<=0)
+			return 0;
+		long div=5;
+		int count=0;
+		while((n/div)>=1)
+		{
+			count+=(n/div);
+			div=div*5;
+		}
+		return count;
 	}
 }
