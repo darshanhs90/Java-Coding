@@ -15,10 +15,27 @@ public class _226InvertBinaryTree {
 		tn.left.right=new TreeNode(3);
 		tn.right.left=new TreeNode(6);
 		tn.right.right=new TreeNode(9);
+		preOrder(tn);
+		System.out.println();
 		tn=invertTree(tn);
+		preOrder(tn);
+	}
+	private static void preOrder(TreeNode tn) {
+		if(tn!=null){
+			preOrder(tn.left);
+			System.out.print(tn.val+"/");
+			preOrder(tn.right);
+		}
 
 	}
-    public static TreeNode invertTree(TreeNode root) {
-       
-    }
+	public static TreeNode invertTree(TreeNode root) {
+		if(root==null)
+			return root;
+		TreeNode right=invertTree(root.left);
+		TreeNode left=invertTree(root.right);
+		TreeNode temp=root.left;
+		root.left=root.right;
+		root.right=temp;
+		return root;
+	}
 }

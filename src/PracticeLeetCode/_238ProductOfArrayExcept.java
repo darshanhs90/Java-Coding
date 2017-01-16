@@ -13,6 +13,22 @@ public class _238ProductOfArrayExcept {
 		System.out.println(Arrays.toString(productExceptSelf(new int[]{1,2,3,4})));
 	}
 	public static int[] productExceptSelf(int[] nums) {
-
+		if(nums==null||nums.length==0)
+			return nums;
+		int temp1[]=new int[nums.length];
+		int temp2[]=new int[nums.length];
+		temp1[0]=1;
+		temp2[nums.length-1]=1;
+		for (int i = 1; i < temp2.length; i++) {
+			temp1[i]=temp1[i-1]*nums[i-1];
+		}
+		for (int i = nums.length-2; i >=0; i--) {
+			temp2[i]=temp2[i+1]*nums[i+1];
+		}
+		for (int i = 0; i < temp2.length; i++) {
+			nums[i]=temp1[i]*temp2[i];
+		}
+		System.out.println(Arrays.toString(nums));
+		return nums;
 	}
 }

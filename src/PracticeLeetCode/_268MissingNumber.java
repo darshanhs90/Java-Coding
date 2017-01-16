@@ -15,6 +15,13 @@ public class _268MissingNumber {
 	}
 
 	public static int missingNumber(int[] nums) {
-	
+		if(nums==null||nums.length==0)
+			return 0;
+		int arrSum=0;
+		for (int i = 0; i < nums.length; i++) {
+			arrSum+=nums[i];
+		}
+		int newSum=(nums.length)*(nums.length+1)/2;
+		return -arrSum+newSum;
 	}
 }
