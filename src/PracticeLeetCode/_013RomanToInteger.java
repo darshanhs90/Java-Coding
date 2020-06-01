@@ -2,14 +2,7 @@ package PracticeLeetCode;
 
 public class _013RomanToInteger {
 
-	public static void main(String[] args) {
-		System.out.println(romanToInt("MMMCMXCIX"));
-	}
-
+	psvm
 	
-	public static int romanToInt(String s) {
-		
-	}
-
 
 }
