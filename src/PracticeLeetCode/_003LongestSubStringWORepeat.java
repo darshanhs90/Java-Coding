@@ -1,7 +1,5 @@
 package PracticeLeetCode;
 
-import java.util.HashMap;
-
 public class _003LongestSubStringWORepeat {
 
 	public static void main(String[] args) {
@@ -13,21 +11,19 @@ public class _003LongestSubStringWORepeat {
 		System.out.println(lengthOfLongestSubstring("abba") == 2);
 	}
 
-    public static int lengthOfLongestSubstring(String s) {
-        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-        int maxLen = 0;
-        StringBuilder sb =new StringBuilder();
-        for (int i = 0; i < s.length(); i++) {
-        	char c = s.charAt(i);
-        	int index = sb.indexOf(c + "");
-        	if(index != -1)
-        	{
-        		sb = new StringBuilder(sb.substring(index + 1));
-        	}
-    		sb.append(c);
-    		maxLen = Math.max(maxLen, sb.length());
+	public static int lengthOfLongestSubstring(String s) {
+		int maxLen = 0;
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			int index = sb.indexOf(c + "");
+			if (index != -1) {
+				sb = new StringBuilder(sb.substring(index + 1));
+			}
+			sb.append(c);
+			maxLen = Math.max(maxLen, sb.length());
 		}
-        return maxLen;
-    }
+		return maxLen;
+	}
 
 }
