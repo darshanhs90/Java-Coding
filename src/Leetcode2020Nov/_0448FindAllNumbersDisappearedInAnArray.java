@@ -11,5 +11,8 @@ public class _0448FindAllNumbersDisappearedInAnArray {
 
 	public List<Integer> findDisappearedNumbers(int[] nums) {
 		List<Integer> output = new ArrayList<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			
+		}
 	}
 }
