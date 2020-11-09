@@ -12,7 +12,7 @@ public class _0387FirstUniqueCharacterInAString {
 	}
 
 	public static int firstUniqChar(String s) {
-		Queue<Character> queue = new LinkedList();
+		Queue<Character> queue = new LinkedList<Character>();
 		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
