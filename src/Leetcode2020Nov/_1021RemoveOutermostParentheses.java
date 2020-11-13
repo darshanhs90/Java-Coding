@@ -10,20 +10,19 @@ public class _1021RemoveOutermostParentheses {
 
 	public static String removeOuterParentheses(String S) {
 		int leftParentheses = 0;
-		boolean leftInit = false;
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < S.length(); i++) {
 			char c = S.charAt(i);
 			if (leftParentheses > 0) {
 				sb = sb.append(c);
 			}
-			
+
 			if (c == '(') {
 				leftParentheses++;
 			} else {
 				leftParentheses--;
 			}
-			if(leftParentheses == 0)
+			if (leftParentheses == 0)
 				sb = sb.deleteCharAt(sb.length() - 1);
 
 		}

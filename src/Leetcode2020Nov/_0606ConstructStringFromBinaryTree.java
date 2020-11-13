@@ -36,6 +36,22 @@ public class _0606ConstructStringFromBinaryTree {
 	}
 
 	public static String tree2str(TreeNode t) {
+		if (t == null)
+			return "";
+		String str = t.val + "";
 
+		String leftString = tree2str(t.left);
+		String rightString = tree2str(t.right);
+		if (leftString == "" && rightString == "") {
+			return str;
+		}
+		if (leftString == "" && rightString != "") {
+			return str + "()" + "(" + rightString + ")";
+		}
+		if (leftString != "" && rightString == "") {
+			return str + "(" + leftString + ")";
+		}
+
+		return str + "(" + leftString + ")" + "(" + rightString + ")";
 	}
 }
