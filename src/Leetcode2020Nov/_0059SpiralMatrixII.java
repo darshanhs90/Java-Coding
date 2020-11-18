@@ -1,7 +1,5 @@
 package Leetcode2020Nov;
 
-import java.util.Arrays;
-
 public class _0059SpiralMatrixII {
 
 	public static void main(String[] args) {
@@ -45,7 +43,6 @@ public class _0059SpiralMatrixII {
 			}
 			leftCol++;
 		}
-
 
 		return out;
 	}
