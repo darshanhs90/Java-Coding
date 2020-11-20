@@ -55,7 +55,27 @@ public class _0082RemoveDuplicatesFromSortedListII {
 	}
 
 	public static ListNode deleteDuplicates(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
 
+		ListNode fakeHead = new ListNode(-1);
+		ListNode fakeHeadPtr = fakeHead;
+
+		while (head != null) {
+			if (head.next != null && head.val == head.next.val) {
+				while (head != null && head.next != null && head.val == head.next.val) {
+					head = head.next;
+				}
+				head = head != null ? head.next : null;
+				fakeHead.next = null;
+			} else {
+				fakeHead.next = head;
+				fakeHead = fakeHead.next;
+				head = head.next;
+			}
+		}
+		return fakeHeadPtr.next;
 	}
 
 	public static void printNodes(ListNode head) {
