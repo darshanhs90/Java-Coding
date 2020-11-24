@@ -1,0 +1,40 @@
+package Nov2020Leetcode;
+
+import java.util.HashMap;
+
+public class _0299BullsAndCows {
+
+	public static void main(String[] args) {
+		System.out.println(getHint("1807", "7810"));
+		System.out.println(getHint("1123", "0111"));
+		System.out.println(getHint("1", "0"));
+		System.out.println(getHint("1", "1"));
+	}
+
+	public static String getHint(String secret, String guess) {
+
+		int noOfBulls = 0;
+		int noOfCows = 0;
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+
+		for (int i = 0; i < secret.length(); i++) {
+			if (secret.charAt(i) == guess.charAt(i)) {
+				noOfBulls++;
+			} else {
+				map.compute(secret.charAt(i), (k, v) -> v == null ? 1 : v + 1);
+			}
+		}
+
+		for (int i = 0; i < guess.length(); i++) {
+			char guessChar = guess.charAt(i);
+			if (secret.charAt(i) != guessChar) {
+				if (map.containsKey(guessChar) && map.get(guessChar) > 0) {
+					noOfCows++;
+					map.compute(guessChar, (k, v) -> v - 1);
+				}
+			}
+		}
+
+		return noOfBulls + "A" + noOfCows + "B";
+	}
+}

@@ -42,6 +42,26 @@ public class _0147InsertionSortList {
 		System.out.println();
 	}
 
-	public static ListNode insertionSortList(ListNode head) {x
+	public static ListNode insertionSortList(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode dummyHead = new ListNode();
+		ListNode prev = dummyHead;
+		ListNode curr = head;
+		ListNode next = head.next;
+
+		while (curr != null) {
+			next = curr.next;
+			while (prev != null && prev.next != null && prev.next.val < curr.val) {
+				prev = prev.next;
+			}
+			curr.next = prev.next;
+			prev.next = curr;
+			curr = next;
+			prev = dummyHead;
 		}
+
+		return dummyHead.next;
+	}
 }
