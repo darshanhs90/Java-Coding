@@ -1,16 +1,16 @@
 package Nov2020Leetcode;
 
-import java.util.Arrays;
-
 public class _0319BulbSwitcher {
 
 	public static void main(String[] args) {
-		System.out.println(searchMatrix);
+		System.out.println(bulbSwitch(3));
+		System.out.println(bulbSwitch(0));
+		System.out.println(bulbSwitch(1));
 
 	}
 
-    public static boolean searchMatrix(int[][] matrix, int target) {
-        
-    }
+	public static int bulbSwitch(int n) {
+		return (int) Math.sqrt(n);
+	}
 
 }
