@@ -12,7 +12,7 @@ public class _034WordLadder {
 		System.out.println(Arrays.toString(plusOne(new int[] { 0 })));
 	}
 
-    public String minWindow(String s, String t) {
+    public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
         
     }
 }
