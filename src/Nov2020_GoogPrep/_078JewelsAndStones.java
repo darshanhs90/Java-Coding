@@ -1,18 +1,24 @@
 package Nov2020_GoogPrep;
 
-import java.util.Arrays;
+import java.util.HashSet;
 
 public class _078JewelsAndStones {
 
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(plusOne(new int[] { 1, 2, 3 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 4, 3, 2, 1 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 9, 9, 9, 9 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 9 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 0 })));
+		System.out.println(numJewelsInStones("aA", "aAAbbbb"));
+		System.out.println(numJewelsInStones("z", "ZZ"));
 	}
 
-    public String minWindow(String s, String t) {
-        
-    }
+	public static int numJewelsInStones(String J, String S) {
+		HashSet<Character> set = new HashSet<Character>();
+		for (int i = 0; i < J.length(); i++) {
+			set.add(J.charAt(i));
+		}
+		int count = 0;
+		for (int i = 0; i < S.length(); i++) {
+			if (set.contains(S.charAt(i)))
+				count++;
+		}
+		return count;
+	}
 }
