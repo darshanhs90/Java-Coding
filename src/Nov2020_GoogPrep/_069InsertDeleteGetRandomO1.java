@@ -1,5 +1,10 @@
 package Nov2020_GoogPrep;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+
 public class _069InsertDeleteGetRandomO1 {
 
 	public static void main(String[] args) {
@@ -15,10 +20,15 @@ public class _069InsertDeleteGetRandomO1 {
 	}
 
 	static class RandomizedSet {
+		HashMap<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+		Random random;
+		List<Integer> valueList;
 
 		/** Initialize your data structure here. */
 		public RandomizedSet() {
-
+			indexMap = new HashMap<Integer, Integer>();
+			random = new Random();
+			valueList = new ArrayList<Integer>();
 		}
 
 		/**
@@ -26,7 +36,12 @@ public class _069InsertDeleteGetRandomO1 {
 		 * the specified element.
 		 */
 		public boolean insert(int val) {
-
+			if (!indexMap.containsKey(val)) {
+				indexMap.put(val, valueList.size());
+				valueList.add(valueList.size(), val);
+				return true;
+			}
+			return false;
 		}
 
 		/**
@@ -34,12 +49,21 @@ public class _069InsertDeleteGetRandomO1 {
 		 * element.
 		 */
 		public boolean remove(int val) {
-
+			if (indexMap.containsKey(val)) {
+				int lastElement = valueList.get(valueList.size() - 1);
+				int indexOfElement = indexMap.get(val);
+				valueList.set(indexOfElement, lastElement);
+				valueList.remove(valueList.size() - 1);
+				indexMap.put(lastElement, indexOfElement);
+				indexMap.remove(val);
+				return true;
+			}
+			return false;
 		}
 
 		/** Get a random element from the set. */
 		public int getRandom() {
-
+			return valueList.get(random.nextInt(valueList.size()));
 		}
 	}
 }

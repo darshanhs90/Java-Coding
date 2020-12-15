@@ -8,27 +8,38 @@ public class _079SwapAdjacentInLRString {
 		System.out.println(canTransform("LLR", "RRL"));
 		System.out.println(canTransform("XL", "LX"));
 		System.out.println(canTransform("XLLR", "LXLX"));
+		System.out.println(canTransform("XXXXLXXXXX", "LXXXXXXXXX"));
 	}
 
 	public static boolean canTransform(String start, String end) {
+		if (!start.replace("X", "").equals(end.replace("X", "")))
+			return false;
 
+		int index = 0;
 		for (int i = 0; i < start.length(); i++) {
-			char c1 = start.charAt(i);
-			char c2 = end.charAt(i);
-			if (c1 != c2) {
-				if ((i + 1) < start.length()) {
-					String str1 = c1 + "" + start.charAt(i + 1);
-					String str2 = c2 + "" + end.charAt(i + 1);
-					if ((str1.equals("XL") && str2.equals("LX")) || (str1.equals("RX") && str2.equals("XR"))) {
-						i += 1;
-					} else {
-						return false;
-					}
-				} else {
-					return false;
+			if (start.charAt(i) == 'L') {
+
+				while (index < end.length() && end.charAt(index) != 'L') {
+					index++;
 				}
+
+				if (i < index++)
+					return false;
 			}
-		}x
+		}
+
+		index = 0;
+		for (int i = 0; i < start.length(); i++) {
+			if (start.charAt(i) == 'R') {
+
+				while (index < end.length() && end.charAt(index) != 'R') {
+					index++;
+				}
+
+				if (i > index++)
+					return false;
+			}
+		}
 
 		return true;
 	}

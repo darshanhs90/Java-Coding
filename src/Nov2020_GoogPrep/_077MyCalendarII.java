@@ -1,18 +1,43 @@
 package Nov2020_GoogPrep;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class _077MyCalendarII {
 
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(plusOne(new int[] { 1, 2, 3 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 4, 3, 2, 1 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 9, 9, 9, 9 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 9 })));
-		System.out.println(Arrays.toString(plusOne(new int[] { 0 })));
+		MyCalendarTwo MyCalendar = new MyCalendarTwo();
+		System.out.println(MyCalendar.book(10, 20)); // returns true
+		System.out.println(MyCalendar.book(50, 60)); // returns true
+		System.out.println(MyCalendar.book(10, 40)); // returns true
+		System.out.println(MyCalendar.book(5, 15)); // returns false
+		System.out.println(MyCalendar.book(5, 10)); // returns true
+		System.out.println(MyCalendar.book(25, 55)); // returns true
 	}
 
-    public String minWindow(String s, String t) {
-        
-    }
+	static class MyCalendarTwo {
+		List<int[]> events;
+		List<int[]> overlaps;
+
+		public MyCalendarTwo() {
+			events = new ArrayList<int[]>();
+			overlaps = new ArrayList<int[]>();
+		}
+
+		public boolean book(int start, int end) {
+			for (int[] overlap : overlaps) {
+				if (overlap[0] < end && overlap[1] > start)
+					return false;
+			}
+
+			for (int[] event : events) {
+				if (event[0] < end && event[1] > start) {
+					overlaps.add(new int[] { Math.max(event[0], start), Math.min(event[1], end) });
+				}
+			}
+
+			events.add(new int[] { start, end });
+			return true;
+		}
+	}
 }

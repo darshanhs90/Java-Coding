@@ -1,5 +1,7 @@
 package Nov2020_GoogPrep;
 
+import java.util.HashMap;
+
 public class _004FruitIntoBaskets {
 
 	public static void main(String[] args) {
@@ -12,26 +14,31 @@ public class _004FruitIntoBaskets {
 	}
 
 	public static int totalFruit(int[] tree) {
-		if (tree.length < 2)
+		if (tree.length <= 2)
 			return tree.length;
 		int max = 0;
-		int currCount = 0;
-		Integer fruitType1 = null, fruitType2 = null;
+		int left = 0;
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int i = 0; i < tree.length; i++) {
-			if (fruitType1 == null) {
-				fruitType1 = tree[i];
-				currCount++;
-			} else if (fruitType1 != tree[i] && fruitType2 == null) {
-				fruitType2 = tree[i];
-				currCount++;
-			} else if (tree[i] == fruitType1 || tree[i] == fruitType2) {
-				currCount++;
+			if (map.containsKey(tree[i])) {
+				map.put(tree[i], map.get(tree[i]) + 1);
+			} else {
+				map.put(tree[i], 1);
 			}
-			else {
-				// tree[i] != either of fruittype
-				//find first change and add count to it and set either of fruittypes to null;
-			}
-		}
 
+			if (map.size() == 3) {
+				while (map.size() == 3) {
+					if (map.get(tree[left]) == 1) {
+						map.remove(tree[left]);
+					} else {
+						map.put(tree[left], map.get(tree[left]) - 1);
+					}
+					left++;
+				}
+			}
+
+			max = Math.max(max, i - left + 1);
+		}
+		return max;
 	}
 }
