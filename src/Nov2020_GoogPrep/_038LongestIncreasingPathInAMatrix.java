@@ -12,32 +12,36 @@ public class _038LongestIncreasingPathInAMatrix {
 			return 0;
 		int maxVal = 0;
 		boolean[][] visited = new boolean[matrix.length][matrix[0].length];
+		int[][] cache = new int[matrix.length][matrix[0].length];
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
-				maxVal = Math.max(maxVal, dfs(i, j, matrix, visited));
+				maxVal = Math.max(maxVal, dfs(i, j, matrix, visited, cache));
 			}
 		}
 		return maxVal;
 	}
 
-	public static int dfs(int x, int y, int[][] matrix, boolean[][] visited) {
+	public static int dfs(int x, int y, int[][] matrix, boolean[][] visited, int[][] cache) {
+		if (cache[x][y] != 0)
+			return cache[x][y];
 		if (x < 0 || y < 0 || x > matrix.length - 1 || y > matrix[0].length - 1 || visited[x][y] == true)
 			return 0;
 		visited[x][y] = true;
 		int leftCount = 1, rightCount = 1, topCount = 1, bottomCount = 1;
 		if (x - 1 >= 0 && matrix[x - 1][y] > matrix[x][y])
-			leftCount = 1 + dfs(x - 1, y, matrix, visited);
+			leftCount = 1 + dfs(x - 1, y, matrix, visited, cache);
 
 		if (x + 1 < matrix.length && matrix[x + 1][y] > matrix[x][y])
-			rightCount = 1 + dfs(x + 1, y, matrix, visited);
+			rightCount = 1 + dfs(x + 1, y, matrix, visited, cache);
 
 		if (y - 1 >= 0 && matrix[x][y - 1] > matrix[x][y])
-			topCount = 1 + dfs(x, y - 1, matrix, visited);
+			topCount = 1 + dfs(x, y - 1, matrix, visited, cache);
 
 		if (y + 1 < matrix[0].length && matrix[x][y + 1] > matrix[x][y])
-			bottomCount = 1 + dfs(x, y + 1, matrix, visited);
+			bottomCount = 1 + dfs(x, y + 1, matrix, visited, cache);
 		visited[x][y] = false;
-		return Math.max(leftCount, Math.max(rightCount, Math.max(topCount, bottomCount)));
+		cache[x][y] = Math.max(leftCount, Math.max(rightCount, Math.max(topCount, bottomCount)));
+		return cache[x][y];
 	}
 
 }

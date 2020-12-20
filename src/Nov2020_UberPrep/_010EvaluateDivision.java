@@ -1,4 +1,4 @@
-package Nov2020_GoogPrep;
+package Nov2020_UberPrep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-public class _040EvaluateDivision {
+public class _010EvaluateDivision {
 
 	public static void main(String[] args) {
 		List<List<String>> equations = new ArrayList<List<String>>();
@@ -43,66 +43,65 @@ public class _040EvaluateDivision {
 	}
 
 	public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-		HashMap<String, HashMap<String, Double>> graph = buildGraph(equations, values);
+		HashMap<String, HashMap<String, Double>> map = new HashMap<String, HashMap<String, Double>>();
 
-		double[] output = new double[queries.size()];
-		for (int i = 0; i < queries.size(); i++) {
-			output[i] = getValue(queries.get(i).get(0), queries.get(i).get(1), graph, new HashSet<String>());
+		for (int i = 0; i < equations.size(); i++) {
+			double currVal = values[i];
+			String start = equations.get(i).get(0);
+			String end = equations.get(i).get(1);
+			if (map.containsKey(start)) {
+				HashMap<String, Double> destMap = map.get(start);
+				destMap.put(end, currVal);
+				map.put(start, destMap);
+			} else {
+				HashMap<String, Double> destMap = new HashMap<String, Double>();
+				destMap.put(end, currVal);
+				map.put(start, destMap);
+			}
+
+			if (map.containsKey(end)) {
+				HashMap<String, Double> destMap = map.get(end);
+				destMap.put(start, 1 / currVal);
+				map.put(end, destMap);
+			} else {
+				HashMap<String, Double> destMap = new HashMap<String, Double>();
+				destMap.put(start, 1 / currVal);
+				map.put(end, destMap);
+			}
 		}
-		return output;
+		System.out.println(map);
+		double[] out = new double[queries.size()];
+		int index = 0;
+		for (List<String> query : queries) {
+			String start = query.get(0);
+			String end = query.get(1);
+			out[index] = dfs(start, end, map, new HashSet<String>());
+			index++;
+		}
+		return out;
 	}
 
-	public static double getValue(String start, String end, HashMap<String, HashMap<String, Double>> graph,
+	public static double dfs(String start, String end, HashMap<String, HashMap<String, Double>> map,
 			HashSet<String> visited) {
-		if (!graph.containsKey(start))
+		if (!map.containsKey(start))
 			return -1.0;
 
-		if (graph.get(start).containsKey(end))
-			return graph.get(start).get(end);
+		if (map.get(start).containsKey(end))
+			return map.get(start).get(end);
 
 		visited.add(start);
-		HashMap<String, Double> vals = graph.get(start);
-		for (Map.Entry<String, Double> entry : vals.entrySet()) {
+
+		HashMap<String, Double> newMap = map.get(start);
+
+		for (Map.Entry<String, Double> entry : newMap.entrySet()) {
 			if (!visited.contains(entry.getKey())) {
-				double newVal = getValue(entry.getKey(), end, graph, visited);
-				if (newVal != -1.0) {
-					return entry.getValue() * newVal;
+				double val = dfs(entry.getKey(), end, map, visited);
+				if (val != -1.0) {
+					return entry.getValue() * val;
 				}
 			}
 		}
-
 		return -1.0;
-
-	}
-
-	public static HashMap<String, HashMap<String, Double>> buildGraph(List<List<String>> equations, double[] values) {
-		HashMap<String, HashMap<String, Double>> graph = new HashMap<String, HashMap<String, Double>>();
-
-		for (int i = 0; i < equations.size(); i++) {
-			String start = equations.get(i).get(0);
-			String end = equations.get(i).get(1);
-			double weight = values[i];
-			if (graph.containsKey(start)) {
-				HashMap<String, Double> val = graph.get(start);
-				val.put(end, weight);
-				graph.put(start, val);
-			} else {
-				HashMap<String, Double> val = new HashMap<String, Double>();
-				val.put(end, weight);
-				graph.put(start, val);
-			}
-
-			if (graph.containsKey(end)) {
-				HashMap<String, Double> val = graph.get(end);
-				val.put(start, 1 / weight);
-				graph.put(end, val);
-			} else {
-				HashMap<String, Double> val = new HashMap<String, Double>();
-				val.put(start, 1 / weight);
-				graph.put(end, val);
-			}
-		}
-		return graph;
 	}
 
 }
