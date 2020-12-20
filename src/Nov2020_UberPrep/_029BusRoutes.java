@@ -1,16 +1,13 @@
 package Nov2020_UberPrep;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _029BusRoutes {
 
 	public static void main(String[] args) {
-		System.out.println(
-				fullJustify(new String[] { "This", "is", "an", "example", "of", "text", "justification." }, 16));
-		System.out.println(fullJustify(new String[] { "What", "must", "be", "acknowledgment", "shall", "be" }, 16));
-		System.out.println(fullJustify(new String[] { "Science", "is", "what", "we", "understand", "well", "enough",
-				"to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do" }, 20));
+		System.out.println(numBusesToDestination(new int[][] { new int[] { 1, 2, 7 }, new int[] { 3, 6, 7 } }, 1, 6));
+	}
+
+	public static int numBusesToDestination(int[][] routes, int S, int T) {
+
 	}
 
 }

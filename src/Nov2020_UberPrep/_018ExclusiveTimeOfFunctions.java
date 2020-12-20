@@ -3,6 +3,7 @@ package Nov2020_UberPrep;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 public class _018ExclusiveTimeOfFunctions {
 
@@ -24,6 +25,29 @@ public class _018ExclusiveTimeOfFunctions {
 	}
 
 	public static int[] exclusiveTime(int n, List<String> logs) {
-
+		int[] res = new int[n];
+		Stack<Integer> stack = new Stack<Integer>();
+		String[] newStr = logs.get(0).split(":");
+		stack.push(Integer.parseInt(newStr[0]));
+		int prevEnd = Integer.parseInt(newStr[2]);
+		for (int i = 1; i < logs.size(); i++) {
+			String str = logs.get(i);
+			String[] strArray = str.split(":");
+			if (strArray[1].equals("start")) {
+				if (stack.isEmpty()) {
+					stack.push(Integer.parseInt(strArray[0]));
+					prevEnd = Integer.parseInt(strArray[2]);
+				} else {
+					res[stack.peek()] += Integer.parseInt(strArray[2]) - prevEnd;
+					stack.push(Integer.parseInt(strArray[0]));
+					prevEnd = Integer.parseInt(strArray[2]);
+				}
+			} else {
+				res[stack.peek()] += Integer.parseInt(strArray[2]) - prevEnd + 1;
+				stack.pop();
+				prevEnd = Integer.parseInt(strArray[2])+1;
+			}
+		}
+		return res;
 	}
 }
