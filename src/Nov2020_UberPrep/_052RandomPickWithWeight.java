@@ -1,16 +1,60 @@
 package Nov2020_UberPrep;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class _052RandomPickWithWeight {
 
 	public static void main(String[] args) {
-		System.out.println(
-				fullJustify(new String[] { "This", "is", "an", "example", "of", "text", "justification." }, 16));
-		System.out.println(fullJustify(new String[] { "What", "must", "be", "acknowledgment", "shall", "be" }, 16));
-		System.out.println(fullJustify(new String[] { "Science", "is", "what", "we", "understand", "well", "enough",
-				"to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do" }, 20));
+		Solution solution = new Solution(new int[] { 1 });
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+
+		solution = new Solution(new int[] { 1, 3 });
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+
+		solution = new Solution(new int[] { 1, 9, 11 });
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+		System.out.println(solution.pickIndex());
+
+	}
+
+	static class Solution {
+		int totalSum;
+		int prefixSum[];
+		Random rand;
+
+		public Solution(int[] w) {
+			this.prefixSum = new int[w.length];
+			int sum = 0;
+			for (int i = 0; i < w.length; i++) {
+				sum += w[i];
+				this.prefixSum[i] = sum;
+			}
+			this.totalSum = sum;
+			rand = new Random();
+		}
+
+		public int pickIndex() {
+			int val = rand.nextInt(totalSum);
+			for (int i = 0; i < prefixSum.length; i++) {
+				if (prefixSum[i] > val)
+					return i;
+			}
+			return -1;
+		}
 	}
 
 }
