@@ -1,27 +1,51 @@
 package Dec2020Leetcode;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 public class _0002AddTwoNumbers {
+	static public class ListNode {
+		int val;
+		ListNode next;
+
+		ListNode() {
+		}
+
+		ListNode(int val) {
+			this.val = val;
+		}
+
+		ListNode(int val, ListNode next) {
+			this.val = val;
+			this.next = next;
+		}
+	}
 
 	public static void main(String[] args) {
-		System.out.println(Arrays.toString(twoSum(new int[] { 2, 7, 11, 15 }, 9)));
-		System.out.println(Arrays.toString(twoSum(new int[] { 3, 3 }, 6)));
+		ListNode ln1 = new ListNode(2);
+		ln1.next = new ListNode(4);
+		ln1.next.next = new ListNode(3);
+		ListNode ln2 = new ListNode(5);
+		ln2.next = new ListNode(6);
+		ln2.next.next = new ListNode(4);
+		ln1 = addTwoNumbers(ln1, ln2);
+		printElements(ln1);
+
+		ln1 = new ListNode(0);
+		ln2 = new ListNode(0);
+		ln1 = addTwoNumbers(ln1, ln2);
+		printElements(ln1);
+
+		ln1 = new ListNode(9);
+		ln1.next = new ListNode(9);
+		ln1.next.next = new ListNode(9);
+		ln1.next.next.next = new ListNode(9);
+		ln1.next.next.next.next = new ListNode(9);
+		ln1.next.next.next.next.next = new ListNode(9);
+		ln1.next.next.next.next.next.next = new ListNode(9);
+		ln2 = new ListNode(9);
+		ln2.next = new ListNode(9);
+		ln2.next.next = new ListNode(9);
+		ln2.next.next.next = new ListNode(9);
+		ln1 = addTwoNumbers(ln1, ln2);
+		printElements(ln1);
 	}
 
-	public static int[] twoSum(int[] nums, int target) {
-		if (nums.length <= 1)
-			return new int[] { -1, -1 };
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < nums.length; i++) {
-			int diff = target - nums[i];
-			if (map.containsKey(diff)) {
-				return new int[] { map.get(diff), i };
-			} else {
-				map.put(nums[i], i);
-			}
-		}
-		return new int[] { -1, -1 };
-	}
 }
