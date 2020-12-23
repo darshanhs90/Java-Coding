@@ -10,4 +10,52 @@ public class _0004MedianOfTwoSortedArrays {
 		System.out.println(findMedianSortedArrays(new int[] { 2 }, new int[] {}));
 	}
 
+	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+		int leftIndex = 0, rightIndex = 0;
+		int n1 = nums1.length, n2 = nums2.length;
+		int sumLength = n1 + n2;
+		int leftLimit = 0, rightLimit = 0;
+		boolean hasDoubleMedian = false;
+		if (sumLength % 2 == 0) {
+			// two medians
+			leftLimit = sumLength / 2 - 1;
+			rightLimit = sumLength / 2;
+			hasDoubleMedian = true;
+		} else {
+			leftLimit = sumLength / 2;
+			rightLimit = sumLength / 2;
+		}
+
+		int index = 0;
+		int leftVal = 0, rightVal = 0;
+		while (index < sumLength) {
+			int val = 0;
+			if (leftIndex < nums1.length && rightIndex < nums2.length) {
+				if (nums1[leftIndex] < nums2[rightIndex]) {
+					val = nums1[leftIndex];
+					leftIndex++;
+				} else {
+					val = nums2[rightIndex];
+					rightIndex++;
+				}
+			} else if (leftIndex < nums1.length) {
+				val = nums1[leftIndex];
+				leftIndex++;
+			} else {
+				val = nums2[rightIndex];
+				rightIndex++;
+			}
+
+			if (index == leftLimit) {
+				leftVal = val;
+			} else if (index == rightLimit) {
+				rightVal = val;
+				break;
+			}
+			index++;
+		}
+		return hasDoubleMedian ? (leftVal + rightVal) / (double) 2 : leftVal;
+	}
+
 }

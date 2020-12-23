@@ -11,5 +11,23 @@ public class _0014LongestCommonPrefix {
 		System.out.println(longestCommonPrefix(new String[] { "flower", "flower", "flower", "flower" }));
 	}
 
-	
+	public static String longestCommonPrefix(String[] strs) {
+		if (strs == null || strs.length == 0)
+			return "";
+		else if (strs.length == 1)
+			return strs[0];
+
+		int index = 0;
+		while (index < strs[0].length()) {
+			char c = strs[0].charAt(index);
+			for (int i = 1; i < strs.length; i++) {
+				String str = strs[i];
+				if (index >= str.length() || str.charAt(index) != c) {
+					return strs[0].substring(0, index);
+				}
+			}
+			index++;
+		}
+		return strs[0];
+	}
 }
