@@ -13,5 +13,24 @@ public class _0066PlusOne {
 		System.out.println(Arrays.toString(plusOne(new int[] { 9, 9 })));
 	}
 
-	
+	public static int[] plusOne(int[] digits) {
+
+		int[] output = new int[digits.length + 1];
+		boolean hasCarry = true;
+		for (int i = digits.length - 1; i >= 0; i--) {
+			int sum = digits[i] + (hasCarry == true ? 1 : 0);
+			hasCarry = false;
+			if (sum > 9) {
+				sum = sum - 10;
+				hasCarry = true;
+			}
+			output[i + 1] = sum;
+		}
+
+		if (hasCarry == true) {
+			output[0] = 1;
+			return output;
+		}
+		return Arrays.copyOfRange(output, 1, output.length);
+	}
 }

@@ -9,5 +9,26 @@ public class _0075SortColors {
 		sortColors(new int[] { 1 });
 	}
 
-	
+	public static void sortColors(int[] nums) {
+		int noOf0s = 0, noOf1s = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 0)
+				noOf0s++;
+			else if (nums[i] == 1)
+				noOf1s++;
+		}
+
+		for (int i = 0; i < nums.length; i++) {
+			if (noOf0s > 0) {
+				nums[i] = 0;
+				noOf0s--;
+			} else if (noOf1s > 0) {
+				nums[i] = 1;
+				noOf1s--;
+			} else {
+				nums[i] = 2;
+			}
+		}
+	}
+
 }

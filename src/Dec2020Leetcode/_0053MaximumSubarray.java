@@ -11,5 +11,20 @@ public class _0053MaximumSubarray {
 		System.out.println(maxSubArray(new int[] { -2, 1 }));
 	}
 
-	
+	public static int maxSubArray(int[] nums) {
+		if (nums == null || nums.length == 0)
+			return 0;
+		int maxSum = nums[0];
+		int sum = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			if (sum + nums[i] > nums[i]) {
+				sum += nums[i];
+			} else {
+				sum = nums[i];
+			}
+			maxSum = Math.max(maxSum, sum);
+		}
+		return maxSum;
+	}
+
 }

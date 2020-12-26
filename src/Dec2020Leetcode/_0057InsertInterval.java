@@ -1,8 +1,6 @@
 package Dec2020Leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class _0057InsertInterval {
@@ -21,5 +19,63 @@ public class _0057InsertInterval {
 
 	}
 
-	
+	public static int[][] insert(int[][] intervals, int[] newInterval) {
+
+		List<int[]> output = new ArrayList<int[]>();
+		int i = 0;
+		for (i = 0; i < intervals.length; i++) {
+			if (intervals[i][0] < newInterval[0])
+				output.add(intervals[i]);
+			else {
+				break;
+			}
+		}
+
+		// check for overlap and then add
+		if (output.size() == 0) {
+			output.add(newInterval);
+		} else {
+			int[] prevInterval = output.get(output.size() - 1);
+			int prevStart = prevInterval[0];
+			int prevEnd = prevInterval[1];
+
+			int currStart = newInterval[0];
+			int currEnd = newInterval[1];
+
+			if (currStart > prevEnd) {
+				output.add(newInterval);
+			} else if (currStart >= prevStart && currStart <= prevEnd) {
+				int[] newIntervals = new int[] { Math.min(prevStart, currStart), Math.max(prevEnd, currEnd) };
+				output.remove(output.size() - 1);
+				output.add(newIntervals);
+			}
+		}
+
+		for (int j = i; j < intervals.length; j++) {
+			int[] prevInterval = output.get(output.size() - 1);
+			int prevStart = prevInterval[0];
+			int prevEnd = prevInterval[1];
+
+			int[] currInterval = intervals[j];
+			int currStart = currInterval[0];
+			int currEnd = currInterval[1];
+
+			if (currStart >= prevStart && currEnd <= prevEnd) {
+				continue;
+			} else if (currStart <= prevEnd) {
+				int[] newIntervals = new int[] { Math.min(prevStart, currStart), Math.max(prevEnd, currEnd) };
+				output.remove(output.size() - 1);
+				output.add(newIntervals);
+			} else if (currStart > prevEnd) {
+				output.add(currInterval);
+			}
+		}
+
+		int[][] outputArr = new int[output.size()][2];
+		for (int j = 0; j < outputArr.length; j++) {
+			outputArr[j] = output.get(j);
+		}
+		return outputArr;
+	}
+
 }
