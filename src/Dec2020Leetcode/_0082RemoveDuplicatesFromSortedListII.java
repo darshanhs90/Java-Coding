@@ -54,4 +54,36 @@ public class _0082RemoveDuplicatesFromSortedListII {
 
 	}
 
+	public static void printNodes(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode deleteDuplicates(ListNode head) {
+
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+
+		while (head != null) {
+			int count = 1;
+			ListNode headNode = head;
+			while (head != null && head.next != null && head.val == head.next.val) {
+				head = head.next;
+				count++;
+			}
+			if (count == 1) {
+				op.next = headNode;
+				op = op.next;
+				head = head.next;
+			} else {
+				head = head.next != null ? head.next : null;
+			}
+		}
+		op.next = null;
+		return opPtr.next;
+	}
+
 }

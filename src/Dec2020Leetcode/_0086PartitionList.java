@@ -36,7 +36,7 @@ public class _0086PartitionList {
 		ln.next.next.next.next.next = new ListNode(2);
 		printNodes(partition(ln, 1));
 		System.out.println();
-		
+
 		ln = new ListNode(1);
 		ln.next = new ListNode(4);
 		ln.next.next = new ListNode(3);
@@ -45,7 +45,7 @@ public class _0086PartitionList {
 		ln.next.next.next.next.next = new ListNode(2);
 		printNodes(partition(ln, 4));
 		System.out.println();
-				
+
 		ln = new ListNode(1);
 		ln.next = new ListNode(4);
 		ln.next.next = new ListNode(3);
@@ -54,7 +54,7 @@ public class _0086PartitionList {
 		ln.next.next.next.next.next = new ListNode(2);
 		printNodes(partition(ln, 5));
 		System.out.println();
-		
+
 		ln = new ListNode(1);
 		ln.next = new ListNode(4);
 		ln.next.next = new ListNode(3);
@@ -63,11 +63,38 @@ public class _0086PartitionList {
 		ln.next.next.next.next.next = new ListNode(2);
 		printNodes(partition(ln, 2));
 		System.out.println();
-		
+
 		ln = new ListNode(1);
 		printNodes(partition(ln, 0));
 		System.out.println();
 	}
 
-	
+	public static void printNodes(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+	}
+
+	public static ListNode partition(ListNode head, int x) {
+		ListNode less = new ListNode();
+		ListNode lessPtr = less;
+		ListNode great = new ListNode();
+		ListNode greatPtr = great;
+
+		while (head != null) {
+			if (head.val < x) {
+				less.next = head;
+				less = less.next;
+			} else {
+				great.next = head;
+				great = great.next;
+			}
+			head = head.next;
+		}
+		great.next = null;
+		less.next = greatPtr.next;
+		return lessPtr.next;
+	}
+
 }

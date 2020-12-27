@@ -40,5 +40,18 @@ public class _0110BalancedBinaryTree {
 		System.out.println(isBalanced(null));
 	}
 
-	
+	public static boolean isBalanced(TreeNode root) {
+		if (root == null)
+			return true;
+		int leftHeight = getHeight(root.left);
+		int rightHeight = getHeight(root.right);
+		return isBalanced(root.left) && isBalanced(root.right) && Math.abs(leftHeight - rightHeight) <= 1;
+	}
+
+	public static int getHeight(TreeNode root) {
+		if (root == null)
+			return 0;
+		return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+	}
+
 }

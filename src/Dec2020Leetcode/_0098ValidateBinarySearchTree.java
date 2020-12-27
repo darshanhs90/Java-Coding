@@ -24,12 +24,12 @@ public class _0098ValidateBinarySearchTree {
 		TreeNode tn = new TreeNode(2);
 		tn.left = new TreeNode(1);
 		tn.right = new TreeNode(3);
-		// System.out.println(isValidBST(tn));
+		System.out.println(isValidBST(tn));
 
 		tn = new TreeNode(1);
 		tn.left = new TreeNode(3);
 		tn.right = new TreeNode(2);
-		// System.out.println(isValidBST(tn));
+		System.out.println(isValidBST(tn));
 
 		tn = new TreeNode(3);
 		tn.left = new TreeNode(1);
@@ -39,7 +39,16 @@ public class _0098ValidateBinarySearchTree {
 		tn.right.left = new TreeNode(4);
 		tn.right.right = new TreeNode(6);
 		System.out.println(isValidBST(tn));
-
 	}
 
+	public static boolean isValidBST(TreeNode root) {
+		return isValidBST(Long.MIN_VALUE, root, Long.MAX_VALUE);
+	}
+
+	public static boolean isValidBST(long minValue, TreeNode root, long maxValue) {
+		if (root == null)
+			return true;
+		return root.val > minValue && root.val < maxValue && isValidBST(minValue, root.left, root.val)
+				&& isValidBST(root.val, root.right, maxValue);
+	}
 }

@@ -39,5 +39,33 @@ public class _0107BinaryTreeLevelOrderTraversalII {
 		System.out.println(levelOrderBottom(tn));
 	}
 
-	
+	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		int height = getHeight(root);
+		for (int i = height; i >= 1; i--) {
+			List<Integer> list = new ArrayList<Integer>();
+			getNodes(root, list, i);
+			output.add(list);
+		}
+		return output;
+	}
+
+	public static void getNodes(TreeNode root, List<Integer> list, int currLevel) {
+		if(currLevel < 1 || root == null)
+			return;
+		if (currLevel == 1) {
+			list.add(root.val);
+			return;
+		}
+
+		getNodes(root.left, list, currLevel - 1);
+		getNodes(root.right, list, currLevel - 1);
+	}
+
+	public static int getHeight(TreeNode root) {
+		if (root == null)
+			return 0;
+		return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+	}
+
 }

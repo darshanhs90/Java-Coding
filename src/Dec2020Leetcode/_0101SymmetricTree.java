@@ -37,5 +37,19 @@ public class _0101SymmetricTree {
 		System.out.println(isSymmetric(tn));
 	}
 
-	
+	public static boolean isSymmetric(TreeNode root) {
+		if (root == null)
+			return true;
+		return isSymmetricSubTree(root.left, root.right);
+	}
+
+	public static boolean isSymmetricSubTree(TreeNode left, TreeNode right) {
+		if (left != null && right != null) {
+			return left.val == right.val && isSymmetricSubTree(left.left, right.right)
+					&& isSymmetricSubTree(left.right, right.left);
+		} else if (left != null || right != null)
+			return false;
+		return true;
+	}
+
 }

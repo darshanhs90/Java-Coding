@@ -29,5 +29,28 @@ public class _0111MinimumDepthOfBinaryTree {
 		System.out.println(minDepth(tn));
 	}
 
-	
+	static int minDepth = Integer.MAX_VALUE;
+
+	public static int minDepth(TreeNode root) {
+		if (root == null)
+			return 0;
+		else if (root.left == null && root.right == null)
+			return 1;
+		minDepth = Integer.MAX_VALUE;
+		findMinDepth(root, 0);
+		return minDepth;
+	}
+
+	public static void findMinDepth(TreeNode root, int currLevel) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			minDepth = Math.min(minDepth, currLevel + 1);
+			return;
+		}
+
+		findMinDepth(root.left, currLevel + 1);
+		findMinDepth(root.right, currLevel + 1);
+	}
+
 }
