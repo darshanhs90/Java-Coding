@@ -42,5 +42,41 @@ public class _0133CloneGraph {
 		System.out.println(node);
 	}
 
+	public static Node cloneGraph(Node node) {
+		if (node == null)
+			return null;
+		HashMap<Node, Node> map = new HashMap<Node, Node>();
+		HashSet<Node> visited = new HashSet<Node>();
+		populateNodes(node, map, visited);
+		visited = new HashSet<Node>();
+		populateChildrens(node, map, visited);
+		return map.get(node);
+	}
+
+	public static void populateNodes(Node node, HashMap<Node, Node> map, HashSet<Node> visited) {
+		if (visited.contains(node))
+			return;
+		if (!map.containsKey(node)) {
+			Node n = new Node(node.val);
+			map.put(node, n);
+		}
+
+		visited.add(node);
+		for (Node child : node.neighbors) {
+			populateNodes(child, map, visited);
+		}
+	}
+
+	public static void populateChildrens(Node node, HashMap<Node, Node> map, HashSet<Node> visited) {
+		if (visited.contains(node))
+			return;
+		Node newNode = map.get(node);
+
+		visited.add(node);
+		for (Node child : node.neighbors) {
+			newNode.neighbors.add(map.get(child));
+			populateChildrens(child, map, visited);
+		}
+	}
 
 }

@@ -40,5 +40,36 @@ public class _0160IntersectionOfTwoLinkedLists {
 		System.out.println(getIntersectionNode(ln1, ln2));
 	}
 
-	
+	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+		int lengthA = getLength(headA);
+		int lengthB = getLength(headB);
+
+		if (lengthA > lengthB) {
+			int diff = lengthA - lengthB;
+			while (diff > 0) {
+				headA = headA.next;
+				diff--;
+			}
+		} else {
+			int diff = lengthB - lengthA;
+			while (diff > 0) {
+				headB = headB.next;
+				diff--;
+			}
+		}
+
+		while (headA != null && headB != null) {
+			if (headA == headB)
+				return headA;
+			headA = headA.next;
+			headB = headB.next;
+		}
+		return null;
+	}
+
+	public static int getLength(ListNode ln) {
+		if (ln == null)
+			return 0;
+		return 1 + getLength(ln.next);
+	}
 }

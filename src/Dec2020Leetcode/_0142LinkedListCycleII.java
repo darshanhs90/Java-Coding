@@ -31,4 +31,28 @@ public class _0142LinkedListCycleII {
 		System.out.println(ln != null ? ln.val : "null");
 	}
 
+	public static ListNode detectCycle(ListNode head) {
+		if (head == null || head.next == null)
+			return null;
+		ListNode slow = head.next;
+		ListNode fast = head.next.next;
+		while (slow != null && fast != null && slow != fast) {
+			slow = slow.next;
+			fast = fast.next;
+			if (fast != null)
+				fast = fast.next;
+		}
+
+		if (fast == null)
+			return null;
+
+		slow = head;
+		while (slow != fast) {
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		return fast;
+	}
+
 }

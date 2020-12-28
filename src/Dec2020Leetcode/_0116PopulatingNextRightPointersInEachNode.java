@@ -1,5 +1,8 @@
 package Dec2020Leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0116PopulatingNextRightPointersInEachNode {
 	public static class Node {
 		public int val;
@@ -33,4 +36,37 @@ public class _0116PopulatingNextRightPointersInEachNode {
 		printNodes(connect(tn));
 	}
 
+	public static void printNodes(Node n) {
+		if (n != null) {
+			printNodes(n.left);
+			printNodes(n.right);
+			if (n.next != null) {
+				System.out.println(n.val + "->" + n.next.val);
+			} else {
+				System.out.println(n.val + "->null");
+			}
+
+		}
+	}
+
+	public static Node connect(Node root) {
+		if (root == null)
+			return root;
+		Queue<Node> q = new LinkedList<Node>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			Node pre = null;
+			for (int i = 0; i < size; i++) {
+				Node n = q.poll();
+				n.next = pre;
+				pre = n;
+				if (n.right != null)
+					q.offer(n.right);
+				if (n.left != null)
+					q.offer(n.left);
+			}
+		}
+		return root;
+	}
 }

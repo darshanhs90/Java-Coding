@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0146LRUCache {
 
 	static class ListNode {
@@ -31,7 +29,7 @@ public class _0146LRUCache {
 
 		lRUCache = new LRUCache(1);
 		lRUCache.put(2, 1); // cache is {1=1}
-		System.out.println(lRUCache.get(2)); // return -1 (not found)
+		System.out.println(lRUCache.get(2)); // return 1 (found)
 	}
 
 }

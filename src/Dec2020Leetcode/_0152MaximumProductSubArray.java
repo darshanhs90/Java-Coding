@@ -1,0 +1,26 @@
+package Dec2020Leetcode;
+
+public class _0152MaximumProductSubArray {
+
+	public static void main(String[] args) {
+		System.out.println(maxProduct(new int[] { 2, 3, -2, 4 }));
+		System.out.println(maxProduct(new int[] { -2, 0, -1 }));
+	}
+
+	public static int maxProduct(int[] nums) {
+		if (nums == null || nums.length == 0)
+			return 0;
+		int minVal = nums[0];
+		int maxVal = nums[0];
+		int res = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			int temp = maxVal;
+			maxVal = Math.max(nums[i], Math.max(maxVal * nums[i], minVal * nums[i]));
+			minVal = Math.min(nums[i], Math.min(temp * nums[i], minVal * nums[i]));
+
+			res = Math.max(res, maxVal);
+		}
+
+		return res;
+	}
+}

@@ -37,5 +37,39 @@ public class _0138CopyListWithRandomPointer {
 		printNodes(n1);
 	}
 
-	
+	public static void printNodes(Node head) {
+		while (head != null) {
+			Node randomVal = head.random != null ? head.random : null;
+			System.out.println(head + "->" + randomVal);
+			head = head.next;
+		}
+	}
+
+	public static Node copyRandomList(Node head) {
+		HashMap<Node, Node> map = new HashMap<Node, Node>();
+		map.put(null, null);
+		populateNodes(head, map);
+		populateNextAndRandomPointers(head, map);
+		return map.get(head);
+	}
+
+	public static void populateNodes(Node head, HashMap<Node, Node> map) {
+		while (head != null) {
+			if (!map.containsKey(head)) {
+				Node newNode = new Node(head.val);
+				map.put(head, newNode);
+			}
+			head = head.next;
+		}
+	}
+
+	public static void populateNextAndRandomPointers(Node head, HashMap<Node, Node> map) {
+		while (head != null) {
+			Node n = map.get(head);
+			n.next = map.get(head.next);
+			n.random = map.get(head.random);
+			head = head.next;
+		}
+	}
+
 }
