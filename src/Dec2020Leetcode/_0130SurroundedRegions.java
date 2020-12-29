@@ -1,7 +1,5 @@
 package Dec2020Leetcode;
 
-import java.util.Arrays;
-
 public class _0130SurroundedRegions {
 
 	public static void main(String[] args) {
