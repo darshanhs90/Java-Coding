@@ -28,9 +28,25 @@ public class _0206ReverseLinkedList {
 		ln.next.next.next.next.next.next = new ListNode(7);
 		ln = reverseList(ln);
 		printElements(ln);
-		System.out.println();
 
 	}
 
-	
+	public static void printElements(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode reverseList(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode nextNode = head.next;
+		ListNode reverseNode = reverseList(head.next);
+		nextNode.next = head;
+		head.next = null;
+		return reverseNode;
+	}
+
 }

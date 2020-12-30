@@ -41,4 +41,32 @@ public class _0173BinarySearchTreeIterator {
 		System.out.println(iterator.hasNext()); // return false
 	}
 
+	static class BSTIterator {
+		Stack<TreeNode> stack;
+
+		public BSTIterator(TreeNode root) {
+			stack = new Stack<TreeNode>();
+			while (root != null) {
+				stack.push(root);
+				root = root.left;
+			}
+		}
+
+		public int next() {
+			TreeNode tn = stack.pop();
+			if (tn.right != null) {
+				TreeNode right = tn.right;
+				while (right != null) {
+					stack.push(right);
+					right = right.left;
+				}
+			}
+			return tn.val;
+		}
+
+		public boolean hasNext() {
+			return !stack.isEmpty();
+		}
+	}
+
 }

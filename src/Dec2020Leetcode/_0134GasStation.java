@@ -1,40 +1,24 @@
 package Dec2020Leetcode;
 
 public class _0134GasStation {
-	static public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-	}
-
+	// https://www.youtube.com/watch?v=xWgbFI_rXJs
 	public static void main(String[] args) {
-		TreeNode tn = new TreeNode(1);
-		tn.left = new TreeNode(2);
-		tn.right = new TreeNode(3);
-		System.out.println(sumNumbers(tn));
-
-		tn = new TreeNode(4);
-		tn.left = new TreeNode(9);
-		tn.right = new TreeNode(0);
-		tn.left.left = new TreeNode(5);
-		tn.left.right = new TreeNode(1);
-		System.out.println(sumNumbers(tn));
+		System.out.println(canCompleteCircuit(new int[] { 1, 2, 3, 4, 5 }, new int[] { 3, 4, 5, 1, 2 }));
+		System.out.println(canCompleteCircuit(new int[] { 2, 3, 4 }, new int[] { 3, 4, 3 }));
+		System.out.println(canCompleteCircuit(new int[] { 3, 1, 1 }, new int[] { 1, 2, 2 }));
 	}
 
-    public void solve(char[][] board) {
-        
-    }
+	public static int canCompleteCircuit(int[] gas, int[] cost) {
+		int index = 0, total = 0, tank = 0;
+		for (int i = 0; i < cost.length; i++) {
+			int consumed = gas[i] - cost[i];
+			tank += consumed;
+			if (tank < 0) {
+				index = i + 1;
+				tank = 0;
+			}
+			total += consumed;
+		}
+		return total < 0 ? -1 : index;
+	}
 }

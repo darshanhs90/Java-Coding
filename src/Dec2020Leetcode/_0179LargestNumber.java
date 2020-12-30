@@ -15,5 +15,31 @@ public class _0179LargestNumber {
 
 	}
 
-	
+	public static String largestNumber(int[] nums) {
+		String[] str = new String[nums.length];
+
+		for (int i = 0; i < nums.length; i++) {
+			str[i] = String.valueOf(nums[i]);
+		}
+
+		Arrays.sort(str, new Comparator<String>() {
+
+			@Override
+			public int compare(String a, String b) {
+				// TODO Auto-generated method stub
+				String str1 = a + b;
+				String str2 = b + a;
+				return str2.compareTo(str1);
+			}
+		});
+		if (str[0].equals("0"))
+			return "0";
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < str.length; i++) {
+			sb.append(str[i]);
+		}
+
+		return sb.toString();
+	}
 }

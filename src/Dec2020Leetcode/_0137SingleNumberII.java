@@ -8,6 +8,13 @@ public class _0137SingleNumberII {
 	}
 
 	public static int singleNumber(int[] nums) {
+		int seenOnce = 00, seenTwice = 00;
+		for (int i = 0; i < nums.length; i++) {
+			System.out.println(~seenTwice);
+			seenOnce = ~seenTwice & (seenOnce ^ nums[i]);
 
+			seenTwice = ~seenOnce & (seenTwice ^ nums[i]);
+		}
+		return seenOnce;
 	}
 }
