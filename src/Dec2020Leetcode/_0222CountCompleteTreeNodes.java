@@ -1,5 +1,8 @@
 package Dec2020Leetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0222CountCompleteTreeNodes {
 	static public class TreeNode {
 		int val;
@@ -30,5 +33,25 @@ public class _0222CountCompleteTreeNodes {
 		System.out.println(countNodes(tn));
 	}
 
-	
+	public static int countNodes(TreeNode root) {
+		if (root == null)
+			return 0;
+		int count = 0;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				count++;
+				if (tn.left != null)
+					q.offer(tn.left);
+
+				if (tn.right != null)
+					q.offer(tn.right);
+			}
+		}
+		return count;
+	}
+
 }

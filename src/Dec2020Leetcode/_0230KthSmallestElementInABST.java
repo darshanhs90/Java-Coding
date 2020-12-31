@@ -34,7 +34,29 @@ public class _0230KthSmallestElementInABST {
 		tn.left.right = new TreeNode(4);
 		tn.left.left.left = new TreeNode(1);
 		System.out.println(kthSmallest(tn, 3));
+
+		tn = new TreeNode(2);
+		tn.left = new TreeNode(1);
+		System.out.println(kthSmallest(tn, 1));
 	}
 
-	
+	public static int kthSmallest(TreeNode root, int k) {
+		int leftNodes = getCount(root.left);
+		if (leftNodes == k - 1)
+			return root.val;
+		if (leftNodes >= k) {
+			return kthSmallest(root.left, k);
+		} else {
+			return kthSmallest(root.right, k - leftNodes - 1);
+		}
+	}
+
+	public static int getCount(TreeNode root) {
+		if (root == null)
+			return 0;
+		int leftCount = getCount(root.left);
+		int rightCount = getCount(root.right);
+		return 1 + leftCount + rightCount;
+	}
+
 }

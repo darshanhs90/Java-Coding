@@ -29,7 +29,7 @@ public class _0220ContainsDuplicateIII {
 		System.out.println(rob(new int[] { 1 }));
 	}
 
-	public List<Integer> rightSideView(TreeNode root) {
-
-	}
+    public static boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
+        
+    }
 }

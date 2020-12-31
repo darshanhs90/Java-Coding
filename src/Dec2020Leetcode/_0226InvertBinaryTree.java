@@ -35,5 +35,23 @@ public class _0226InvertBinaryTree {
 		System.out.println();
 	}
 
-	
+	public static void preOrder(TreeNode root) {
+		if (root == null)
+			return;
+		preOrder(root.left);
+		System.out.print(root.val + "->");
+		preOrder(root.right);
+	}
+
+	public static TreeNode invertTree(TreeNode root) {
+		if (root == null)
+			return root;
+
+		TreeNode left = invertTree(root.left);
+		TreeNode right = invertTree(root.right);
+		root.left = right;
+		root.right = left;
+		return root;
+	}
+
 }
