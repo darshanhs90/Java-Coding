@@ -30,6 +30,26 @@ public class _0257BinaryTreePaths {
 		tn.left.right = new TreeNode(5);
 		tn.right = new TreeNode(3);
 		System.out.println(binaryTreePaths(tn));
+
+		tn = new TreeNode(1);
+		System.out.println(binaryTreePaths(tn));
+	}
+
+	public static List<String> binaryTreePaths(TreeNode root) {
+		List<String> output = new ArrayList<String>();
+		preOrder(root, "", output);
+		return output;
+	}
+
+	public static void preOrder(TreeNode root, String currString, List<String> output) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			output.add(currString + root.val);
+			return;
+		}
+		preOrder(root.left, currString + root.val + "->", output);
+		preOrder(root.right, currString + root.val + "->", output);
 	}
 
 }

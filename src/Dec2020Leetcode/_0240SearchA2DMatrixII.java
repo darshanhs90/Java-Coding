@@ -21,6 +21,19 @@ public class _0240SearchA2DMatrixII {
 
 	}
 
-	
+	public static boolean searchMatrix(int[][] matrix, int target) {
+		int row = 0, col = matrix[0].length - 1;
+		while (row >= 0 && row < matrix.length && col >= 0 && col < matrix[0].length) {
+
+			int val = matrix[row][col];
+			if (val == target)
+				return true;
+			if (val > target)
+				col--;
+			else
+				row++;
+		}
+		return false;
+	}
 
 }

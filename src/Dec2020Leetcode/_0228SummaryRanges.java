@@ -12,4 +12,31 @@ public class _0228SummaryRanges {
 		System.out.println(summaryRanges(new int[] { -2147483648, -2147483647, 2147483647 }));
 	}
 
+	public static List<String> summaryRanges(int[] nums) {
+		List<String> output = new ArrayList<String>();
+		if (nums == null || nums.length == 0)
+			return output;
+		int prev = nums[0];
+		int curr = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] == curr + 1) {
+				curr = nums[i];
+			} else {
+				if (prev == curr) {
+					output.add(prev + "");
+				} else {
+					output.add(prev + "->" + curr);
+				}
+				prev = nums[i];
+				curr = nums[i];
+			}
+		}
+
+		if (prev == curr) {
+			output.add(prev + "");
+		} else {
+			output.add(prev + "->" + curr);
+		}
+		return output;
+	}
 }
