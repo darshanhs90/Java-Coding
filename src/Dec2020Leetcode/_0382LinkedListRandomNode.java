@@ -1,5 +1,6 @@
 package Dec2020Leetcode;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class _0382LinkedListRandomNode {
@@ -33,6 +34,31 @@ public class _0382LinkedListRandomNode {
 		ListNode(int val, ListNode next) {
 			this.val = val;
 			this.next = next;
+		}
+	}
+
+	static class Solution {
+		HashMap<Integer, ListNode> map;
+		Random rand;
+
+		/**
+		 * @param head The linked list's head. Note that the head is guaranteed to be
+		 *             not null, so it contains at least one node.
+		 */
+		public Solution(ListNode head) {
+			map = new HashMap<Integer, ListNode>();
+			int count = 0;
+			rand = new Random();
+			while (head != null) {
+				map.put(count, head);
+				head = head.next;
+				count++;
+			}
+		}
+
+		/** Returns a random node's value. */
+		public int getRandom() {
+			return map.get(rand.nextInt(map.size())).val;
 		}
 	}
 
