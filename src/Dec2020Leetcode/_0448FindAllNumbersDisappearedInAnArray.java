@@ -10,5 +10,25 @@ public class _0448FindAllNumbersDisappearedInAnArray {
 		System.out.println(findDisappearedNumbers(new int[] { 1, 1 }));
 	}
 
-	
+	public static List<Integer> findDisappearedNumbers(int[] nums) {
+		List<Integer> output = new ArrayList<Integer>();
+		if(nums.length == 0)
+			return output;
+		for (int i = 0; i < nums.length; i++) {
+			int newIndex = Math.abs(nums[i]);
+			if (newIndex == nums.length) {
+				nums[0] = -1 * Math.abs(nums[0]);
+			} else {
+				nums[newIndex] = -1 * Math.abs(nums[newIndex]);
+			}
+		}
+
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] > 0)
+				output.add(i);
+		}
+		if (nums[0] > 0)
+			output.add(nums.length);
+		return output;
+	}
 }

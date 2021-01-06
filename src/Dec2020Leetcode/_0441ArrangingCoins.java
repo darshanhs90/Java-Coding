@@ -7,5 +7,19 @@ public class _0441ArrangingCoins {
 		System.out.println(arrangeCoins(8));
 	}
 
-	
+	public static int arrangeCoins(int n) {
+		int count = 0;
+		int index = 1;
+		while (n > 0) {
+			if (n - index >= 0) {
+				n = n - index;
+				index++;
+				count++;
+			}else {
+				n = 0;
+			}
+		}
+		return count;
+	}
+
 }

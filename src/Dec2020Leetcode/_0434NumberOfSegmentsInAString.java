@@ -10,5 +10,15 @@ public class _0434NumberOfSegmentsInAString {
 		System.out.println(countSegments(", , , ,        a, eaefa"));
 	}
 
-	
+	public static int countSegments(String s) {
+		s = s.trim();
+		String sArr[] = s.split(" ");
+		int count = 0;
+		for (int i = 0; i < sArr.length; i++) {
+			if (sArr[i].trim().length() > 0)
+				count++;
+		}
+		return count;
+	}
+
 }
