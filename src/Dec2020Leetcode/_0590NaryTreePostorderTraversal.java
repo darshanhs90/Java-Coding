@@ -39,5 +39,21 @@ public class _0590NaryTreePostorderTraversal {
 		System.out.println(postorder(node1));
 	}
 
-	
+	public static List<Integer> postorder(Node root) {
+		List<Integer> list = new ArrayList<Integer>();
+		postOrder(root, list);
+		return list;
+	}
+
+	public static void postOrder(Node root, List<Integer> list) {
+		if (root != null) {
+			if (root.children != null) {
+				for (Node n : root.children) {
+					postOrder(n, list);
+				}
+			}
+			list.add(root.val);
+		}
+	}
+
 }

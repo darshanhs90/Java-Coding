@@ -1,8 +1,5 @@
 package Dec2020Leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _0530MinimumAbsoluteDifferenceInBST {
 	static public class TreeNode {
 		int val;
@@ -30,5 +27,27 @@ public class _0530MinimumAbsoluteDifferenceInBST {
 		System.out.println(getMinimumDifference(tn));
 	}
 
-	
+	static Integer prev;
+	static int minDiff;
+
+	public static int getMinimumDifference(TreeNode root) {
+		prev = null;
+		minDiff = Integer.MAX_VALUE;
+		inorder(root);
+		return minDiff;
+	}
+
+	public static void inorder(TreeNode root) {
+		if (root != null) {
+			inorder(root.left);
+			if (prev == null) {
+				prev = root.val;
+			} else {
+				minDiff = Math.min(minDiff, Math.abs(prev - root.val));
+				prev = root.val;
+			}
+			inorder(root.right);
+		}
+	}
+
 }
