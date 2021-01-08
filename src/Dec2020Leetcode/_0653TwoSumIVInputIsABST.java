@@ -40,5 +40,23 @@ public class _0653TwoSumIVInputIsABST {
 		System.out.println(findTarget(tn, 3));
 	}
 
-	
+	public static boolean findTarget(TreeNode root, int k) {
+		HashSet<Integer> set = new HashSet<Integer>();
+		return preOrder(root, k, set);
+	}
+
+	public static boolean preOrder(TreeNode root, int k, HashSet<Integer> set) {
+		if (root == null)
+			return false;
+		boolean output = preOrder(root.left, k, set);
+		if (!output) {
+			output = set.contains(k - root.val);
+			set.add(root.val);
+		}
+		if (!output) {
+			output = preOrder(root.right, k, set);
+		}
+		return output;
+	}
+
 }

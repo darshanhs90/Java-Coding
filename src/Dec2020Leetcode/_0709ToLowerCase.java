@@ -8,5 +8,7 @@ public class _0709ToLowerCase {
 		System.out.println(toLowerCase("al&phaBET"));
 	}
 
-
+	public static String toLowerCase(String str) {
+		return str.toLowerCase();
+	}
 }

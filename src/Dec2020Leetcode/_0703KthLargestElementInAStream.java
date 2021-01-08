@@ -1,7 +1,6 @@
 package Dec2020Leetcode;
 
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.PriorityQueue;
 
 public class _0703KthLargestElementInAStream {
 
@@ -14,5 +13,26 @@ public class _0703KthLargestElementInAStream {
 		System.out.println(kthLargest.add(4)); // return 8
 	}
 
-	
+	static class KthLargest {
+		PriorityQueue<Integer> pq;
+		int k;
+
+		public KthLargest(int k, int[] nums) {
+			pq = new PriorityQueue<Integer>(k);
+			for (int i = 0; i < nums.length; i++) {
+				pq.offer(nums[i]);
+				if (pq.size() > k)
+					pq.poll();
+			}
+			this.k = k;
+		}
+
+		public int add(int val) {
+			pq.offer(val);
+			if (pq.size() > k)
+				pq.poll();
+			return pq.peek();
+		}
+	}
+
 }

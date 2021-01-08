@@ -34,6 +34,37 @@ public class _0606ConstructStringFromBinaryTree {
 		tn.left.right = new TreeNode(4);
 		System.out.println(tree2str(tn));
 	}
+	
+    public static String tree2str(TreeNode tn) {
+    	if(tn == null)
+    		return "";
+        StringBuilder sb =new StringBuilder();
+        tree2str(tn,sb);
+        return sb.toString();
+    }
+    
+	
+    public static void tree2str(TreeNode tn, StringBuilder sb) {
+        if(tn == null)
+        	return;
+        sb.append(tn.val);
+        if(tn.left!=null)
+        {
+        	sb.append("(");
+        	tree2str(tn.left, sb);
+            sb.append(")");
+        }
 
+        if(tn.right!=null)
+        {
+        	if(tn.left == null)
+        	{
+        		sb.append("()");
+        	}
+        	sb.append("(");
+        	tree2str(tn.right, sb);
+        	sb.append(")");
+        }
+    }
 	
 }
