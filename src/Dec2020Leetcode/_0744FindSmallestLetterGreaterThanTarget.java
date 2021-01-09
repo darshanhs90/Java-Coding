@@ -10,4 +10,25 @@ public class _0744FindSmallestLetterGreaterThanTarget {
 		System.out.println(nextGreatestLetter(new char[] { 'c', 'f', 'j' }, 'k'));
 	}
 
+	public static char nextGreatestLetter(char[] letters, char target) {
+		int diff = Integer.MAX_VALUE;
+		char out = ' ';
+		for (char c : letters) {
+			if (c != target) {
+				int currDiff = 0;
+				if (c < target) {
+					currDiff = (c + 26 - target) % 26;
+				} else {
+					currDiff = (c - target) % 26;
+				}
+				
+				if (currDiff < diff) {
+					diff = currDiff;
+					out = c;
+				}
+			}
+		}
+		return out;
+	}
+
 }
