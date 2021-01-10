@@ -1,7 +1,7 @@
 package Dec2020Leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class _0872LeafSimilarTrees {
 	static public class TreeNode {
@@ -51,5 +51,28 @@ public class _0872LeafSimilarTrees {
 		System.out.println(leafSimilar(tn1, tn2));
 	}
 
-	
+	public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
+		Queue<Integer> q1 = new LinkedList<Integer>();
+		Queue<Integer> q2 = new LinkedList<Integer>();
+		preOrder(root1, q1);
+		preOrder(root2, q2);
+		while (!q1.isEmpty() && !q2.isEmpty()) {
+			if (q1.peek() != q2.peek())
+				return false;
+			q1.poll();
+			q2.poll();
+		}
+		return q1.size() == q2.size();
+	}
+
+	public static void preOrder(TreeNode root, Queue<Integer> q) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			q.offer(root.val);
+		}
+		preOrder(root.left, q);
+		preOrder(root.right, q);
+	}
+
 }

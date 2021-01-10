@@ -9,5 +9,31 @@ public class _0896MonotonicArray {
 		System.out.println(isMonotonic(new int[] { 1, 1, 1 }));
 	}
 
+	enum Change {
+		Increasing, Decreasing, None
+	}
+
+	public static boolean isMonotonic(int[] A) {
+		Change c = Change.None;
+
+		for (int i = 0; i < A.length - 1; i++) {
+			if (c == Change.None) {
+				if (A[i + 1] > A[i]) {
+					c = Change.Increasing;
+				} else if (A[i + 1] < A[i]) {
+					c = Change.Decreasing;
+				}
+			} else if (c == Change.Increasing) {
+				if (A[i + 1] < A[i]) {
+					return false;
+				}
+			} else {
+				if (A[i + 1] > A[i]) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 
 }

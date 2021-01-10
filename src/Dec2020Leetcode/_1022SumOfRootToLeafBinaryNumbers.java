@@ -42,5 +42,25 @@ public class _1022SumOfRootToLeafBinaryNumbers {
 		System.out.println(sumRootToLeaf(tn));
 	}
 
-	
+	static int sum;
+
+	public static int sumRootToLeaf(TreeNode root) {
+		if (root == null)
+			return 0;
+		sum = 0;
+		preOrder(root, "");
+		return sum;
+	}
+
+	public static void preOrder(TreeNode root, String curr) {
+		if (root == null)
+			return;
+		curr += root.val;
+		if (root.left == null && root.right == null) {
+			sum += Integer.parseInt(curr, 2);
+		}
+		preOrder(root.left, curr);
+		preOrder(root.right, curr);
+	}
+
 }

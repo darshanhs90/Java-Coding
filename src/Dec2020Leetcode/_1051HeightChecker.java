@@ -10,4 +10,15 @@ public class _1051HeightChecker {
 		System.out.println(heightChecker(new int[] { 1, 2, 3, 4, 5 }));
 	}
 
+	public static int heightChecker(int[] heights) {
+		int[] newArray = heights.clone();
+		Arrays.sort(newArray);
+
+		int count = 0;
+		for (int i = 0; i < newArray.length; i++) {
+			if (newArray[i] != heights[i])
+				count++;
+		}
+		return count;
+	}
 }

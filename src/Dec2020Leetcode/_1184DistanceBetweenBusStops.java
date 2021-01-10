@@ -8,5 +8,7 @@ public class _1184DistanceBetweenBusStops {
 		System.out.println(distanceBetweenBusStops(new int[] { 7, 10, 1, 12, 11, 14, 5, 0 }, 7, 2));
 	}
 
-
+    public static int distanceBetweenBusStops(int[] distance, int start, int destination) {
+        
+    }
 }

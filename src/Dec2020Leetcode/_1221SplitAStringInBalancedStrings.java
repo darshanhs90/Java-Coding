@@ -8,5 +8,7 @@ public class _1221SplitAStringInBalancedStrings {
 		System.out.println(balancedStringSplit("RLRRRLLRLL"));
 	}
 
-
+    public static int balancedStringSplit(String s) {
+        
+    }
 }

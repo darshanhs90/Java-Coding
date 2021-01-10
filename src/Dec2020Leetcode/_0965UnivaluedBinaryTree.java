@@ -1,5 +1,7 @@
 package Dec2020Leetcode;
 
+import java.util.HashSet;
+
 public class _0965UnivaluedBinaryTree {
 	static public class TreeNode {
 		int val;
@@ -40,5 +42,20 @@ public class _0965UnivaluedBinaryTree {
 		System.out.println(isUnivalTree(tn));
 	}
 
-	
+	public static boolean isUnivalTree(TreeNode root) {
+		if (root == null)
+			return false;
+		HashSet<Integer> set = new HashSet<Integer>();
+		preOrder(root, set);
+		return set.size() == 1;
+	}
+
+	public static void preOrder(TreeNode root, HashSet<Integer> set) {
+		if (root == null || set.size() > 2)
+			return;
+		preOrder(root.left, set);
+		set.add(root.val);
+		preOrder(root.right, set);
+	}
+
 }
