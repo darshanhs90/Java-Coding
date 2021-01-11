@@ -60,7 +60,6 @@ public class _0993CousinsInBinaryTree {
 		if (root == null)
 			return false;
 		Queue<Relation> q = new LinkedList<Relation>();
-		int level = 0;
 		Relation rx = null, ry = null;
 		q.offer(new Relation(null, root, 0));
 		while (!q.isEmpty()) {

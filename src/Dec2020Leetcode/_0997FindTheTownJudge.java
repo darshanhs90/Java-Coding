@@ -1,9 +1,7 @@
 package Dec2020Leetcode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 
 public class _0997FindTheTownJudge {
 	public static void main(String[] args) {
@@ -16,7 +14,6 @@ public class _0997FindTheTownJudge {
 	}
 
 	public static int findJudge(int N, int[][] trust) {
-		List<Integer> judges = new ArrayList<Integer>();
 		HashMap<Integer, HashSet<Integer>> relation = new HashMap<Integer, HashSet<Integer>>();
 
 		for (int i = 0; i < trust.length; i++) {
