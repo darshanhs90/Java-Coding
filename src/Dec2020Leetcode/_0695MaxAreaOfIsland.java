@@ -1,6 +1,6 @@
 package Dec2020Leetcode;
 
-public class _0697MaxAreaOfIsland {
+public class _0695MaxAreaOfIsland {
 
 	public static void main(String[] args) {
 		System.out.println(maxAreaOfIsland(new int[][] { new int[] { 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 },
