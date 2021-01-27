@@ -10,7 +10,6 @@ public class _1465MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts {
 	}
 
 	public static int maxArea(int height, int width, int[] h, int[] v) {
-		int mod = 1000000007;
 		Arrays.sort(h);
 		Arrays.sort(v);
 		int maxHDiff = h[0];
@@ -25,6 +24,6 @@ public class _1465MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts {
 		}
 		maxVDiff = Math.max(maxVDiff, width - v[v.length - 1]);
 
-        return (int)(maxHDiff % (1e9 + 7) * maxVDiff % (1e9 + 7));
+		return (int) (maxHDiff % (1e9 + 7) * maxVDiff % (1e9 + 7));
 	}
 }

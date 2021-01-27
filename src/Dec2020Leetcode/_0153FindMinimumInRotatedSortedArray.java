@@ -11,8 +11,27 @@ public class _0153FindMinimumInRotatedSortedArray {
 		System.out.println(findMin(new int[] { 5, 1, 2, 3, 4 }));
 	}
 
-	public static int findMin(int[] nums) {
+	public static int findMin1(int[] nums) {
+		int min = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			min = Math.min(min, nums[i]);
+		}
+		return min;
+	}
 
+	public static int findMin(int[] nums) {
+		int left = 0, right = nums.length - 1;
+		if (nums[left] < nums[right])
+			return nums[left];
+		while (right - left > 1) {
+			int mid = (left + right) / 2;
+			if (nums[mid] > nums[left]) {
+				left = mid;
+			} else {
+				right = mid;
+			}
+		}
+		return nums[right];
 	}
 
 }

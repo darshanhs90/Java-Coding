@@ -1,0 +1,78 @@
+package Dec2020Leetcode;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class _0449SerializeAndDeserializeBST {
+
+	public static void main(String[] args) {
+		TreeNode tn = new TreeNode(2);
+		tn.left = new TreeNode(1);
+		tn.right = new TreeNode(3);
+		Codec c = new Codec();
+		printNodes(tn);
+		System.out.println();
+		printNodes(c.deserialize(c.serialize(tn)));
+	}
+
+	public static class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode(int x) {
+			val = x;
+		}
+	}
+
+	public static void printNodes(TreeNode tn) {
+		if (tn != null) {
+			printNodes(tn.left);
+			System.out.print(tn.val + "/");
+			printNodes(tn.right);
+		}
+	}
+
+	public static class Codec {
+
+		// Encodes a tree to a single string.
+		public String serialize(TreeNode root) {
+			StringBuilder sb = new StringBuilder();
+			serializeHelper(root, sb);
+			System.out.println(sb.toString());
+			return sb.toString();
+		}
+
+		public void serializeHelper(TreeNode root, StringBuilder sb) {
+			if (root == null) {
+				sb.append("#,");
+				return;
+			}
+			sb.append(root.val + ",");
+			serializeHelper(root.left, sb);
+			serializeHelper(root.right, sb);
+		}
+
+		// Decodes your encoded data to tree.
+		public TreeNode deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			String[] strArray = data.split(",");
+			Queue<String> q = new LinkedList(Arrays.asList(strArray));
+			return deserializeHelper(q);
+		}
+
+		public TreeNode deserializeHelper(Queue<String> q) {
+			if (q.isEmpty() || q.peek().equals("#")) {
+				if (!q.isEmpty())
+					q.poll();
+				return null;
+			}
+			TreeNode tn = new TreeNode(Integer.parseInt(q.poll()));
+			tn.left = deserializeHelper(q);
+			tn.right = deserializeHelper(q);
+			return tn;
+		}
+	}
+}
