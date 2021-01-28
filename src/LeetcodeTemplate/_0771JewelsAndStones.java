@@ -8,5 +8,7 @@ public class _0771JewelsAndStones {
 		System.out.println(numJewelsInStones("z", "ZZ"));
 	}
 
-	
+	public static int numJewelsInStones(String jewels, String stones) {
+
+	}
 }

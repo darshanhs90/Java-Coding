@@ -9,5 +9,8 @@ public class _0064MinimumSumPath {
 		System.out.println(minPathSum(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, }));
 	}
 
-	
+	public static int minPathSum(int[][] grid) {
+
+	}
+
 }

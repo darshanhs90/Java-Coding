@@ -12,5 +12,7 @@ public class _0350IntersectionOfTwoArraysII {
 		System.out.println(Arrays.toString(intersect(new int[] { 4, 9, 5 }, new int[] { 9, 4, 9, 8, 4 })));
 	}
 
-
+	public static int[] intersect(int[] nums1, int[] nums2) {
+	
+	}
 }

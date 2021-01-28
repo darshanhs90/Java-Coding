@@ -42,5 +42,8 @@ public class _1022SumOfRootToLeafBinaryNumbers {
 		System.out.println(sumRootToLeaf(tn));
 	}
 
-	
+	public static int sumRootToLeaf(TreeNode root) {
+		
+	}
+
 }

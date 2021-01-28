@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class _0057InsertInterval {
 	public static void main(String[] args) {
 		System.out.println(insert(new int[][] { new int[] { 1, 3 }, new int[] { 6, 9 }, }, new int[] { 2, 5 }));
@@ -21,5 +16,8 @@ public class _0057InsertInterval {
 
 	}
 
-	
+	public static int[][] insert(int[][] intervals, int[] newInterval) {
+
+	}
+
 }

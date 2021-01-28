@@ -46,5 +46,16 @@ public class _0024SwapNodesInPairs {
 		System.out.println();
 	}
 
-	
+	public static void printElements(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode swapPairs(ListNode head) {
+
+	}
+
 }

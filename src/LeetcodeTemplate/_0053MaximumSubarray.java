@@ -11,5 +11,8 @@ public class _0053MaximumSubarray {
 		System.out.println(maxSubArray(new int[] { -2, 1 }));
 	}
 
-	
+	public static int maxSubArray(int[] nums) {
+
+	}
+
 }

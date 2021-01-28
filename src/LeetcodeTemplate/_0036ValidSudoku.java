@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashSet;
-
 public class _0036ValidSudoku {
 
 	public static void main(String[] args) {
@@ -26,6 +24,8 @@ public class _0036ValidSudoku {
 				new char[] { '.', '.', '.', '.', '8', '.', '.', '7', '9' } }));
 	}
 
-	
+	public static boolean isValidSudoku(char[][] board) {
+
+	}
 
 }

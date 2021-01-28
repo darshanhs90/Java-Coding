@@ -11,5 +11,7 @@ public class _0091DecodeWays {
 		System.out.println(numDecodings("123123"));
 	}
 
+	public static int numDecodings(String s) {
 
+	}
 }

@@ -40,5 +40,8 @@ public class _0110BalancedBinaryTree {
 		System.out.println(isBalanced(null));
 	}
 
-	
+	public static boolean isBalanced(TreeNode root) {
+
+	}
+
 }

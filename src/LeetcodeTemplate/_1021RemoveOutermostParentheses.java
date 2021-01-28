@@ -8,4 +8,7 @@ public class _1021RemoveOutermostParentheses {
 		System.out.println(removeOuterParentheses("()()"));
 	}
 
+	public static String removeOuterParentheses(String S) {
+
+	}
 }

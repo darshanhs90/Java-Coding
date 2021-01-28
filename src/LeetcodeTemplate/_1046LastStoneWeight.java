@@ -1,8 +1,7 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
+import java.util.PriorityQueue;
 
 public class _1046LastStoneWeight {
 
@@ -10,5 +9,8 @@ public class _1046LastStoneWeight {
 		System.out.println(lastStoneWeight(new int[] { 2, 7, 4, 1, 8, 1 }));
 	}
 
+	public static int lastStoneWeight(int[] stones) {
+		
+	}
 
 }

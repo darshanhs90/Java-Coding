@@ -1,5 +1,7 @@
 package LeetcodeTemplate;
 
+import java.util.HashSet;
+
 public class _0965UnivaluedBinaryTree {
 	static public class TreeNode {
 		int val;
@@ -40,5 +42,8 @@ public class _0965UnivaluedBinaryTree {
 		System.out.println(isUnivalTree(tn));
 	}
 
-	
+	public static boolean isUnivalTree(TreeNode root) {
+		
+	}
+
 }

@@ -10,5 +10,7 @@ public class _0448FindAllNumbersDisappearedInAnArray {
 		System.out.println(findDisappearedNumbers(new int[] { 1, 1 }));
 	}
 
-	
+	public static List<Integer> findDisappearedNumbers(int[] nums) {
+		
+	}
 }

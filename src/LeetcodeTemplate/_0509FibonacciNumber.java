@@ -11,4 +11,7 @@ public class _0509FibonacciNumber {
 		System.out.println(fib(5));
 	}
 
+	public static int fib(int n) {
+		
+	}
 }

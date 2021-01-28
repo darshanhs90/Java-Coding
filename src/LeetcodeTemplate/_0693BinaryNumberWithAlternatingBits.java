@@ -10,4 +10,8 @@ public class _0693BinaryNumberWithAlternatingBits {
 		System.out.println(hasAlternatingBits(3));
 	}
 
+	public static boolean hasAlternatingBits(int n) {
+		
+	}
+
 }

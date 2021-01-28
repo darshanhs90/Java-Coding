@@ -9,6 +9,8 @@ public class _1170CompareStringsByFrequencyOfTheSmallestCharacter {
 				numSmallerByFrequency(new String[] { "bbb", "cc" }, new String[] { "a", "aa", "aaa", "aaaa" })));
 	}
 
-	
+	public static int[] numSmallerByFrequency(String[] queries, String[] words) {
+		
+	}
 
 }

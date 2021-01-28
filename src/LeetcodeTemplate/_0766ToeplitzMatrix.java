@@ -7,5 +7,7 @@ public class _0766ToeplitzMatrix {
 		System.out.println(isToeplitzMatrix(new int[][] { new int[] { 1, 2 }, new int[] { 2, 2 }, }));
 	}
 
-
+	public static boolean isToeplitzMatrix(int[][] matrix) {
+		
+	}
 }

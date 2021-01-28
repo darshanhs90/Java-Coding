@@ -9,5 +9,8 @@ public class _0075SortColors {
 		sortColors(new int[] { 1 });
 	}
 
-	
+	public static void sortColors(int[] nums) {
+s
+	}
+
 }

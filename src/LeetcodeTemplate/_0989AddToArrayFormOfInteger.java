@@ -11,5 +11,7 @@ public class _0989AddToArrayFormOfInteger {
 		System.out.println(addToArrayForm(new int[] { 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 }, 1));
 	}
 
-	
+	public static List<Integer> addToArrayForm(int[] A, int K) {
+		
+	}
 }

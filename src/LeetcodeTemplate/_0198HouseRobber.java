@@ -9,4 +9,8 @@ public class _0198HouseRobber {
 		System.out.println(rob(new int[] { 1 }));
 	}
 
+	public static int rob(int[] nums) {
+
+	}
+
 }

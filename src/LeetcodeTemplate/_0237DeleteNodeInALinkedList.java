@@ -19,5 +19,8 @@ public class _0237DeleteNodeInALinkedList {
 
 	}
 
-x
+	public void deleteNode(ListNode node) {
+
+	}
+
 }

@@ -8,5 +8,7 @@ public class _1556ThousandSeparator {
 		System.out.println(thousandSeparator(0));
 	}
 
+	public static String thousandSeparator(int n) {
 
+	}
 }

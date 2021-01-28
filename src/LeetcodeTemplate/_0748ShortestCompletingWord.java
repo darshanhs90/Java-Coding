@@ -1,6 +1,7 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class _0748ShortestCompletingWord {
 	public static void main(String[] args) {
@@ -14,5 +15,7 @@ public class _0748ShortestCompletingWord {
 				"public", "never", "wonder", "simple", "thought", "use" }));
 	}
 
-	
+	public static String shortestCompletingWord(String licensePlate, String[] words) {
+		
+	}
 }

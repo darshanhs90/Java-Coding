@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _0043MultiplyStrings {
 
 	public static void main(String[] args) {
@@ -11,5 +8,7 @@ public class _0043MultiplyStrings {
 		System.out.println(multiply("140", "721"));
 	}
 
-	
+	public static String multiply(String num1, String num2) {
+
+	}
 }

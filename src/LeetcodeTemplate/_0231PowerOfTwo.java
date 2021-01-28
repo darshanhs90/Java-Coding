@@ -10,4 +10,7 @@ public class _0231PowerOfTwo {
 		System.out.println(isPowerOfTwo(5));
 	}
 
+	public static boolean isPowerOfTwo(int n) {
+	}
+
 }

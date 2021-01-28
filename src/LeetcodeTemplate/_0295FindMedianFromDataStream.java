@@ -1,6 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.Comparator;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class _0295FindMedianFromDataStream {
@@ -14,5 +14,17 @@ public class _0295FindMedianFromDataStream {
 		System.out.println(mf.findMedian());// -> 2
 	}
 
-	
+	static class MedianFinder {
+
+		/** initialize your data structure here. */
+		public MedianFinder() {
+		}
+
+		public void addNum(int num) {
+		}
+
+		public double findMedian() {
+		}
+	}
+
 }

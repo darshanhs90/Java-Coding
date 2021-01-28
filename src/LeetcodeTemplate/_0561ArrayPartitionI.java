@@ -8,4 +8,6 @@ public class _0561ArrayPartitionI {
 		System.out.println(arrayPairSum(new int[] { 6, 2, 6, 5, 1, 2 }));
 	}
 
+	public static int arrayPairSum(int[] nums) {
+	}
 }

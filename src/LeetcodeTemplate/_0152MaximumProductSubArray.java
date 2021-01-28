@@ -8,6 +8,6 @@ public class _0152MaximumProductSubArray {
 	}
 
 	public static int maxProduct(int[] nums) {
-		
+
 	}
 }

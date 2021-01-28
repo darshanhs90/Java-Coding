@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0089GrayCode {
@@ -12,5 +11,7 @@ public class _0089GrayCode {
 		System.out.println(grayCode(3));
 	}
 
-	
+	public static List<Integer> grayCode(int n) {
+
+	}
 }

@@ -11,5 +11,7 @@ public class _0819MostCommonWord {
 		System.out.println(mostCommonWord("a, a, a, a, b,b,b,c, c", new String[] { "a" }));
 	}
 
-	
+	public static String mostCommonWord(String paragraph, String[] banned) {
+		
+	}
 }

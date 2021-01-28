@@ -8,4 +8,7 @@ public class _0292NimGame {
 		System.out.println(canWinNim(2));
 	}
 
+	public static boolean canWinNim(int n) {
+	}
+
 }

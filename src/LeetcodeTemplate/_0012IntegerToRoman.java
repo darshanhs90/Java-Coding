@@ -10,5 +10,8 @@ public class _0012IntegerToRoman {
 		System.out.println(intToRoman(1994));
 	}
 
-	
+	public static String intToRoman(int num) {
+		
+	}
+
 }

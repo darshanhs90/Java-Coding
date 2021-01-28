@@ -6,5 +6,7 @@ public class _0985SumOfEvenNumbersAfterQueries {
 				new int[][] { new int[] { 1, 0 }, new int[] { -3, 1 }, new int[] { -4, 0 }, new int[] { 2, 3 } }));
 	}
 
-	
+	public static int[] sumEvenAfterQueries(int[] A, int[][] queries) {
+
+	}
 }

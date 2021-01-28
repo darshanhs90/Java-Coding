@@ -1,6 +1,8 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.PriorityQueue;
 
 public class _0414ThirdMaximumNumber {
 
@@ -11,5 +13,8 @@ public class _0414ThirdMaximumNumber {
 		System.out.println(thirdMax(new int[] { 1, 2, 2, 5, 3, 5 }));
 	}
 
-	
+	public static int thirdMax(int[] nums) {
+		
+	}
+
 }

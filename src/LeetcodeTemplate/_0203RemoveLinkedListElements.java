@@ -87,6 +87,16 @@ public class _0203RemoveLinkedListElements {
 
 	}
 
-	
+	public static void printElements(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode removeElements(ListNode head, int val) {
+
+	}
 
 }

@@ -5,4 +5,7 @@ public class _0557ReverseWordsInAStringIII {
 		System.out.println(reverseWords("Let's take LeetCode contest"));
 	}
 
+	public static String reverseWords(String s) {
+	}
+
 }

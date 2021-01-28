@@ -6,5 +6,7 @@ public class _0747LargestNumberAtLeastTwiceOfOthers {
 		System.out.println(dominantIndex(new int[] { 1, 2, 3, 4 }));
 	}
 
-
+	public static int dominantIndex(int[] nums) {
+		
+	}
 }

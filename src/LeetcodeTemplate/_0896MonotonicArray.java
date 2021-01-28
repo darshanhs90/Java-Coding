@@ -9,5 +9,8 @@ public class _0896MonotonicArray {
 		System.out.println(isMonotonic(new int[] { 1, 1, 1 }));
 	}
 
+	public static boolean isMonotonic(int[] A) {
+		
+	}
 
 }

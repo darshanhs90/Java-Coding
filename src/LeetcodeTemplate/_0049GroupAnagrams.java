@@ -1,10 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class _0049GroupAnagrams {
 
@@ -14,5 +10,7 @@ public class _0049GroupAnagrams {
 		System.out.println(groupAnagrams(new String[] { "a" }));
 	}
 
-	
+	public static List<List<String>> groupAnagrams(String[] strs) {
+
+	}
 }

@@ -1,6 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class _1346CheckIfNAndItsDoubleExist {
 	public static void main(String[] args) {
@@ -11,5 +11,8 @@ public class _1346CheckIfNAndItsDoubleExist {
 		System.out.println(checkIfExist(new int[] { -2, 0, 10, -19, 4, 6, -8 }));
 	}
 
+	public static boolean checkIfExist(int[] arr) {
+
+	}
 
 }

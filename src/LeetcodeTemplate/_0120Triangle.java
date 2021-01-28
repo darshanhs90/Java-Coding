@@ -12,7 +12,15 @@ public class _0120Triangle {
 		out.add(new ArrayList<Integer>(Arrays.asList(6, 5, 7)));
 		out.add(new ArrayList<Integer>(Arrays.asList(4, 1, 8, 3)));
 		System.out.println(minimumTotal(out));
+
+		out = new ArrayList<List<Integer>>();
+		out.add(new ArrayList<Integer>(Arrays.asList(-10)));
+		System.out.println(minimumTotal(out));
+
 	}
 
-	
+	public static int minimumTotal(List<List<Integer>> triangle) {
+
+	}
+
 }

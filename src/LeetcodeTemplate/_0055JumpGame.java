@@ -7,5 +7,8 @@ public class _0055JumpGame {
 		System.out.println(canJump(new int[] { 3, 2, 2, 0, 4 }));
 	}
 
-	
+	public static boolean canJump(int[] nums) {
+
+	}
+
 }

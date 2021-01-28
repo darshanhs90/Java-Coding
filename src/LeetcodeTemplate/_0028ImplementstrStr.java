@@ -7,7 +7,11 @@ public class _0028ImplementstrStr {
 		System.out.println(strStr("aaaaa", "bba"));
 		System.out.println(strStr("", ""));
 		System.out.println(strStr("a", "a"));
+		System.out.println(strStr("mississippi", "issipi"));
 	}
 
-	
+	public static int strStr(String haystack, String needle) {
+
+	}
+
 }

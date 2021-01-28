@@ -10,4 +10,8 @@ public class _0004MedianOfTwoSortedArrays {
 		System.out.println(findMedianSortedArrays(new int[] { 2 }, new int[] {}));
 	}
 
+	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+	}
+
 }

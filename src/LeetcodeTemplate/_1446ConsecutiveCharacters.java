@@ -10,4 +10,7 @@ public class _1446ConsecutiveCharacters {
 		System.out.println(maxPower("cc"));
 	}
 
+	public static int maxPower(String s) {
+		
+	}
 }

@@ -7,5 +7,7 @@ public class _0072EditDistance {
 		System.out.println(minDistance("intention", "execution"));
 	}
 
-	
+	public static int minDistance(String word1, String word2) {
+
+	}
 }

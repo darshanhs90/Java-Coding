@@ -6,4 +6,8 @@ public class _0258AddDigits {
 		System.out.println(addDigits(38));
 	}
 
+	public static int addDigits(int num) {
+
+	}
+
 }

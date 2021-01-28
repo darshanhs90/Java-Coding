@@ -34,6 +34,8 @@ public class _0501FindModeInBinarySearchTree {
 		System.out.println(Arrays.toString(findMode(tn)));
 	}
 
-	
+	public static int[] findMode(TreeNode root) {
+
+	}
 
 }

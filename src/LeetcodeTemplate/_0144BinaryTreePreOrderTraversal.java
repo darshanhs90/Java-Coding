@@ -37,4 +37,8 @@ public class _0144BinaryTreePreOrderTraversal {
 		System.out.println(preorderTraversal(tn));
 	}
 
+	public static List<Integer> preorderTraversal(TreeNode root) {
+		
+	}
+
 }

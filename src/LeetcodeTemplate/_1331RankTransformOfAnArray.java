@@ -10,5 +10,7 @@ public class _1331RankTransformOfAnArray {
 		System.out.println(Arrays.toString(arrayRankTransform(new int[] { 37, 12, 28, 9, 100, 56, 80, 5, 12 })));
 	}
 
+	public static int[] arrayRankTransform(int[] arr) {
 
+	}
 }

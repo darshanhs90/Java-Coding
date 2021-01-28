@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0022GenerateParentheses {
@@ -10,5 +9,7 @@ public class _0022GenerateParentheses {
 		System.out.println(generateParenthesis(1));
 	}
 
-	
+	public static List<String> generateParenthesis(int n) {
+
+	}
 }

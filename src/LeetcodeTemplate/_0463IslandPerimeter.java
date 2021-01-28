@@ -10,5 +10,8 @@ public class _0463IslandPerimeter {
 		System.out.println(islandPerimeter(new int[][] { new int[] { 1, 0 } }));
 	}
 
-	
+	public static int islandPerimeter(int[][] grid) {
+		
+	}
+
 }

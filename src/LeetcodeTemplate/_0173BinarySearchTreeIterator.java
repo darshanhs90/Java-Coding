@@ -41,4 +41,15 @@ public class _0173BinarySearchTreeIterator {
 		System.out.println(iterator.hasNext()); // return false
 	}
 
+	static class BSTIterator {
+		public BSTIterator(TreeNode root) {
+		}
+
+		public int next() {
+		}
+
+		public boolean hasNext() {
+		}
+	}
+
 }

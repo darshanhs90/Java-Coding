@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0046Permutations {
@@ -11,5 +10,8 @@ public class _0046Permutations {
 		System.out.println(permute(new int[] { 1 }));
 	}
 
-	
+	public static List<List<Integer>> permute(int[] nums) {
+
+	}
+
 }

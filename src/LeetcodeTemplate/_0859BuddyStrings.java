@@ -10,5 +10,7 @@ public class _0859BuddyStrings {
 		System.out.println(buddyStrings("abcaa", "abcbb"));
 	}
 
-	
+	public static boolean buddyStrings(String A, String B) {
+		
+	}
 }

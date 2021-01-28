@@ -7,4 +7,7 @@ public class _1342NumberOfStepsToReduceANumberToZero {
 		System.out.println(numberOfSteps(123));
 	}
 
+	public static int numberOfSteps(int num) {
+
+	}
 }

@@ -6,4 +6,12 @@ public class _0278FirstBadVersion {
 		System.out.println(firstBadVersion(2126753390));
 	}
 
+	public static boolean isBadVersion(int n) {
+		return n > 2126753390/2;
+	}
+
+	public static int firstBadVersion(int n) {
+
+	}
+
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class _0017LetterCombinationsOfAPhoneNumber {
@@ -11,5 +9,7 @@ public class _0017LetterCombinationsOfAPhoneNumber {
 		System.out.println(letterCombinations("2"));
 	}
 
-	
+	public static List<String> letterCombinations(String digits) {
+
+	}
 }

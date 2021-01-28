@@ -7,5 +7,7 @@ public class _0125ValidPalindrome {
 		System.out.println(isPalindrome("race a car"));
 	}
 
-	
+	public static boolean isPalindrome(String s) {
+
+	}
 }

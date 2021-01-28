@@ -10,5 +10,8 @@ public class _1317ConvertIntegerToTheSumOfTwoNoZeroIntegers {
 		System.out.println(Arrays.toString(getNoZeroIntegers(1010)));
 	}
 
+	public static int[] getNoZeroIntegers(int n) {
+
+	}
 
 }

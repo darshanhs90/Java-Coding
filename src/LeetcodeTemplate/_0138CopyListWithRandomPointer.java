@@ -37,5 +37,16 @@ public class _0138CopyListWithRandomPointer {
 		printNodes(n1);
 	}
 
-	
+	public static void printNodes(Node head) {
+		while (head != null) {
+			Node randomVal = head.random != null ? head.random : null;
+			System.out.println(head + "->" + randomVal);
+			head = head.next;
+		}
+	}
+
+	public static Node copyRandomList(Node head) {
+		
+	}
+
 }

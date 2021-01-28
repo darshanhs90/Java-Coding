@@ -10,5 +10,7 @@ public class _0007ReverseInteger {
 		System.out.println(reverse(1534236469));
 	}
 
-	
+	public static int reverse(int x) {
+		
+	}
 }

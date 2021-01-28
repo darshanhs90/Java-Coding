@@ -26,12 +26,14 @@ public class _0112PathSum {
 		tn.right = new TreeNode(8);
 		tn.left.left = new TreeNode(11);
 		tn.left.left.left = new TreeNode(7);
-		tn.left.left.right = new TreeNode(21);
+		tn.left.left.right = new TreeNode(2);
 		tn.right.left = new TreeNode(13);
 		tn.right.right = new TreeNode(4);
 		tn.right.right.right = new TreeNode(1);
 		System.out.println(hasPathSum(tn, 22));
 	}
 
-	
+	public static boolean hasPathSum(TreeNode root, int sum) {
+
+	}
 }

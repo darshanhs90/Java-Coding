@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class _0039CombinationSum {
@@ -14,5 +12,8 @@ public class _0039CombinationSum {
 		System.out.println(combinationSum(new int[] { 1 }, 2));
 	}
 
-	
+	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+
+	}
+
 }

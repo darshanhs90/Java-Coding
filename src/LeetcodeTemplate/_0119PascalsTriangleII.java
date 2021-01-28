@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0119PascalsTriangleII {
@@ -10,5 +9,7 @@ public class _0119PascalsTriangleII {
 		System.out.println(getRow(1));
 	}
 
-	
+	public static List<Integer> getRow(int rowIndex) {
+
+	}
 }

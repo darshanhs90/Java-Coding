@@ -12,6 +12,8 @@ public class _0074SearchA2DMatrix {
 		System.out.println(searchMatrix(new int[][] {}, 0));
 	}
 
-	
+	public static boolean searchMatrix(int[][] matrix, int target) {
+
+	}
 
 }

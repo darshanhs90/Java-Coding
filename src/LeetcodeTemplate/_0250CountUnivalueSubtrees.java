@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _0250CountUnivalueSubtrees {
 
 	public static class TreeNode {
@@ -25,11 +22,17 @@ public class _0250CountUnivalueSubtrees {
 	}
 
 	public static void main(String[] args) {
-		TreeNode tn = new TreeNode(1);
-		tn.left = new TreeNode(2);
+		TreeNode tn = new TreeNode(5);
+		tn.left = new TreeNode(1);
+		tn.left.left = new TreeNode(5);
 		tn.left.right = new TreeNode(5);
-		tn.right = new TreeNode(3);
-		System.out.println(binaryTreePaths(tn));
+		tn.right = new TreeNode(5);
+		tn.right.right = new TreeNode(5);
+		System.out.println(countUnivalSubtrees(tn));
+	}
+
+	public static int countUnivalSubtrees(TreeNode root) {
+
 	}
 
 }

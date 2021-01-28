@@ -9,4 +9,8 @@ public class _1304FindNUniqueIntegersSumUpToZero {
 		System.out.println(Arrays.toString(sumZero(0)));
 	}
 
+	public static int[] sumZero(int n) {
+	
+	}
+
 }

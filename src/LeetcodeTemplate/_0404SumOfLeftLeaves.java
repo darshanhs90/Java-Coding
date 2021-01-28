@@ -27,9 +27,10 @@ public class _0404SumOfLeftLeaves {
 		tn.right = new TreeNode(20);
 		tn.right.left = new TreeNode(15);
 		tn.right.right = new TreeNode(7);
-
 		System.out.println(sumOfLeftLeaves(tn));
 	}
 
-	
+	public static int sumOfLeftLeaves(TreeNode root) {
+	}
+
 }

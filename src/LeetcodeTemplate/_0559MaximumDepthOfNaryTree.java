@@ -38,5 +38,6 @@ public class _0559MaximumDepthOfNaryTree {
 		System.out.println(maxDepth(n1));
 	}
 
-	
+	public static int maxDepth(Node root) {
+	}
 }

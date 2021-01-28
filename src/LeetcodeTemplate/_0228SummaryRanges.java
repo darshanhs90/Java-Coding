@@ -12,4 +12,7 @@ public class _0228SummaryRanges {
 		System.out.println(summaryRanges(new int[] { -2147483648, -2147483647, 2147483647 }));
 	}
 
+	public static List<String> summaryRanges(int[] nums) {
+		
+	}
 }

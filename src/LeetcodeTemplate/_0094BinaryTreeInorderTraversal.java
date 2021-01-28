@@ -30,5 +30,8 @@ public class _0094BinaryTreeInorderTraversal {
 		System.out.println(inorderTraversal(tn));
 	}
 
-	
+	public static List<Integer> inorderTraversal(TreeNode root) {
+		
+	}
+
 }

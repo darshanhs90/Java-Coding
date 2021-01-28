@@ -6,4 +6,7 @@ public class _0796RotateString {
 		System.out.println(rotateString("abcde", "abced"));
 	}
 
+	public static boolean rotateString(String A, String B) {
+	}
+
 }

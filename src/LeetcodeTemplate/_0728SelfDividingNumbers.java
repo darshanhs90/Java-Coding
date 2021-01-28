@@ -8,5 +8,8 @@ public class _0728SelfDividingNumbers {
 		System.out.println(selfDividingNumbers(1, 22));
 	}
 
+	public static List<Integer> selfDividingNumbers(int left, int right) {
+		
+	}
 
 }

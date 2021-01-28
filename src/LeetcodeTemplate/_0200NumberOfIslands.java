@@ -12,5 +12,8 @@ public class _0200NumberOfIslands {
 						new char[] { '0', '0', '1', '0', '0' }, new char[] { '0', '0', '0', '1', '1' } }));
 	}
 
-	
+	public static int numIslands(char[][] grid) {
+
+	}
+
 }

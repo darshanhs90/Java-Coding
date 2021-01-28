@@ -46,4 +46,15 @@ public class _0143ReorderList {
 
 	}
 
+	public static void reorderList(ListNode head) {
+		
+	}
+
+	public static void printNodes(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
 }

@@ -12,5 +12,7 @@ public class _0811SubdomainVisitCount {
 				new String[] { "900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org" }));
 	}
 
-	
+	public static List<String> subdomainVisits(String[] cpdomains) {
+		
+	}
 }

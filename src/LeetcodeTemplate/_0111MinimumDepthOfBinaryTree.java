@@ -29,5 +29,8 @@ public class _0111MinimumDepthOfBinaryTree {
 		System.out.println(minDepth(tn));
 	}
 
-	
+	public static int minDepth(TreeNode root) {
+		
+	}
+
 }

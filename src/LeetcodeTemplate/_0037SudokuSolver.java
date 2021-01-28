@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashSet;
-
 public class _0037SudokuSolver {
 
 	public static void main(String[] args) {
@@ -26,7 +24,8 @@ public class _0037SudokuSolver {
 				new char[] { '.', '.', '.', '.', '8', '.', '.', '7', '9' } });
 	}
 
-    public static void solveSudoku(char[][] board) {
-     x   
-    }
+	public static void solveSudoku(char[][] board) {
+s
+	}
+
 }

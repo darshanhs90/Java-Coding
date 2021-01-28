@@ -10,5 +10,7 @@ public class _0383RansomNote {
 		System.out.println(canConstruct("aa", "aab"));
 	}
 
-	
+	public static boolean canConstruct(String ransomNote, String magazine) {
+
+	}
 }

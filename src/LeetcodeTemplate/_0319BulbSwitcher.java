@@ -9,5 +9,7 @@ public class _0319BulbSwitcher {
 
 	}
 
-	
+	public static int bulbSwitch(int n) {
+	}
+
 }

@@ -47,7 +47,31 @@ public class _0234PalindromeLinkedList {
 		ln = new ListNode(1);
 		ln.next = new ListNode(1);
 		System.out.println(isPalindrome(ln));
+
+		ln = new ListNode(1);
+		ln.next = new ListNode(1);
+		ln.next.next = new ListNode(2);
+		ln.next.next.next = new ListNode(1);
+		System.out.println(isPalindrome(ln));
+		
+
+		ln = new ListNode(1);
+		ln.next = new ListNode(2);
+		ln.next.next = new ListNode(1);
+		System.out.println(isPalindrome(ln));
+		
 	}
 
+	public static void printNodes(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static boolean isPalindrome(ListNode head) {
 	
+	}
+
 }

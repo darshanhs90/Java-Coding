@@ -7,5 +7,7 @@ public class _1189MaximumNumberOfBalloons {
 		System.out.println(maxNumberOfBalloons("leetcode"));
 	}
 
-
+	public static int maxNumberOfBalloons(String text) {
+		
+	}
 }

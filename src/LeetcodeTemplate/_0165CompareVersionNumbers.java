@@ -13,4 +13,8 @@ public class _0165CompareVersionNumbers {
 		System.out.println(compareVersion("200", "100"));
 	}
 
+	public static int compareVersion(String version1, String version2) {
+
+	}
+
 }

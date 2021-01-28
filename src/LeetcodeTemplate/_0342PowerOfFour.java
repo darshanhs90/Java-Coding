@@ -7,4 +7,7 @@ public class _0342PowerOfFour {
 		System.out.println(isPowerOfFour(5));
 	}
 
+	public static boolean isPowerOfFour(int n) {
+	}
+
 }

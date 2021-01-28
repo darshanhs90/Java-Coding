@@ -16,5 +16,7 @@ public class _0033SearchInRotatedSortedArray {
 		System.out.println(search(new int[] { 5, 1, 3 }, 5) == 0);
 	}
 
-	
+	public static int search(int[] nums, int target) {
+
+	}
 }

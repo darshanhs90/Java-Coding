@@ -10,4 +10,8 @@ public class _0682BaseballGame {
 		System.out.println(calPoints(new String[] { "1" }));
 	}
 
+	public static int calPoints(String[] ops) {
+		
+	}
+
 }

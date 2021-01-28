@@ -10,4 +10,7 @@ public class _1002FindCommonCharacters {
 		System.out.println(commonChars(new String[] { "cool", "lock", "cook" }));
 	}
 
+	public static List<String> commonChars(String[] A) {
+		
+	}
 }

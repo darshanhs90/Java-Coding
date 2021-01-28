@@ -11,5 +11,8 @@ public class _0081SearchInRotatedSortedArrayII {
 		System.out.println(search(new int[] { 1, 3, 1, 1, 1, 1, 1 }, 3));
 	}
 
-	
+	public static boolean search(int[] nums, int target) {
+
+	}
+
 }

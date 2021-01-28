@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0113PathSumII {
@@ -37,5 +36,8 @@ public class _0113PathSumII {
 		System.out.println(pathSum(tn, 22));
 	}
 
-	
+	public static List<List<Integer>> pathSum(TreeNode root, int sum) {
+
+	}
+
 }

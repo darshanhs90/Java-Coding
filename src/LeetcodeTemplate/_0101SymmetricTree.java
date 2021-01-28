@@ -37,5 +37,8 @@ public class _0101SymmetricTree {
 		System.out.println(isSymmetric(tn));
 	}
 
-	
+	public static boolean isSymmetric(TreeNode root) {
+		
+	}
+
 }

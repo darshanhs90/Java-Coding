@@ -9,5 +9,8 @@ public class _0415AddStrings {
 		System.out.println(addStrings("408", "5"));
 	}
 
-	
+	public static String addStrings(String num1, String num2) {
+
+	}
+
 }

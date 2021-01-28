@@ -6,5 +6,7 @@ public class _0551StudentAttendanceRecordI {
 		System.out.println(checkRecord("PPALLL"));
 	}
 
+	public static boolean checkRecord(String s) {
+	}
 
 }

@@ -48,4 +48,16 @@ public class _0002AddTwoNumbers {
 		printElements(ln1);
 	}
 
+	public static void printElements(ListNode l1) {
+		while (l1 != null) {
+			System.out.print(l1.val + "->");
+			l1 = l1.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+
+	}
+
 }

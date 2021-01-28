@@ -10,5 +10,8 @@ public class _0434NumberOfSegmentsInAString {
 		System.out.println(countSegments(", , , ,        a, eaefa"));
 	}
 
-	
+	public static int countSegments(String s) {
+		
+	}
+
 }

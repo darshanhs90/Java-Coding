@@ -9,4 +9,7 @@ public class _0520DetectCapital {
 		System.out.println(detectCapitalUse("FlaG"));
 	}
 
+	public static boolean detectCapitalUse(String word) {
+		
+	}
 }

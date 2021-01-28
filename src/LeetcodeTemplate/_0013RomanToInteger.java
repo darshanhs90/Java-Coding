@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0013RomanToInteger {
 
 	public static void main(String[] args) {
@@ -12,5 +10,7 @@ public class _0013RomanToInteger {
 		System.out.println(romanToInt("MCMXCIV"));
 	}
 
-	
+	public static int romanToInt(String s) {
+		
+	}
 }

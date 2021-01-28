@@ -10,4 +10,8 @@ public class _0001TwoSum {
 		System.out.println(Arrays.toString(twoSum(new int[] { 3, 3 }, 6)));
 
 	}
+
+	public static int[] twoSum(int[] nums, int target) {
+
+	}
 }

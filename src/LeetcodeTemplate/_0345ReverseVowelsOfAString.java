@@ -7,4 +7,7 @@ public class _0345ReverseVowelsOfAString {
 		System.out.println(reverseVowels("leetcode"));
 	}
 
+	public static String reverseVowels(String s) {
+
+	}
 }

@@ -9,4 +9,12 @@ public class _0303RangeSumQueryImmutable {
 		System.out.println(numArray.sumRange(0, 5));
 	}
 
+	static class NumArray {
+		public NumArray(int[] nums) {
+		}
+
+		public int sumRange(int i, int j) {
+		}
+	}
+
 }

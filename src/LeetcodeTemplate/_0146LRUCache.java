@@ -1,19 +1,8 @@
 package LeetcodeTemplate;
 
+import java.util.HashMap;
+
 public class _0146LRUCache {
-
-	static class ListNode {
-		ListNode prev = null;
-		ListNode next = null;
-		int key;
-		int val;
-
-		public ListNode(int key, int val) {
-			this.key = key;
-			this.val = val;
-		}
-
-	}
 
 	public static void main(String[] args) {
 		LRUCache lRUCache = new LRUCache(2);
@@ -32,4 +21,15 @@ public class _0146LRUCache {
 		System.out.println(lRUCache.get(2)); // return 1 (found)
 	}
 
+	static class LRUCache {
+		public LRUCache(int capacity) {
+		}
+
+		public int get(int key) {
+		
+		}
+
+		public void put(int key, int value) {
+		}
+	}
 }

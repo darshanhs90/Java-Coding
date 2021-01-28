@@ -6,5 +6,7 @@ public class _0824GoatLatin {
 		System.out.println(toGoatLatin("The quick brown fox jumped over the lazy dog"));
 	}
 
-	
+	public static String toGoatLatin(String S) {
+		
+	}
 }

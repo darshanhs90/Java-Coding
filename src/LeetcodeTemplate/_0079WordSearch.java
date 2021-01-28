@@ -12,5 +12,7 @@ public class _0079WordSearch {
 		System.out.println(exist(new char[][] { new char[] { 'a' } }, "a"));
 	}
 
-	
+	public static boolean exist(char[][] board, String word) {
+		
+	}
 }

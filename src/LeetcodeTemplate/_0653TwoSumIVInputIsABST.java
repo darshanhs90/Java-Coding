@@ -40,5 +40,8 @@ public class _0653TwoSumIVInputIsABST {
 		System.out.println(findTarget(tn, 3));
 	}
 
-	
+	public static boolean findTarget(TreeNode root, int k) {
+		
+	}
+
 }

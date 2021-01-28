@@ -7,6 +7,11 @@ public class _0009PalindromeNumber {
 		System.out.println(isPalindrome(-121));
 		System.out.println(isPalindrome(10));
 		System.out.println(isPalindrome(-101));
+		System.out.println(isPalindrome(49));
+	}
+
+	public static boolean isPalindrome(int x) {
+
 	}
 
 }

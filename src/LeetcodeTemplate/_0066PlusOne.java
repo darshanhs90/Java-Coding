@@ -13,5 +13,7 @@ public class _0066PlusOne {
 		System.out.println(Arrays.toString(plusOne(new int[] { 9, 9 })));
 	}
 
-	
+	public static int[] plusOne(int[] digits) {
+
+	}
 }

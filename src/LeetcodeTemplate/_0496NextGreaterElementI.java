@@ -2,7 +2,6 @@ package LeetcodeTemplate;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Stack;
 
 public class _0496NextGreaterElementI {
 
@@ -11,5 +10,8 @@ public class _0496NextGreaterElementI {
 		System.out.println(Arrays.toString(nextGreaterElement(new int[] { 2, 4 }, new int[] { 1, 2, 3, 4 })));
 	}
 
-	
+	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
+		
+	}
+
 }

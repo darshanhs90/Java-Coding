@@ -1,5 +1,8 @@
 package LeetcodeTemplate;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0222CountCompleteTreeNodes {
 	static public class TreeNode {
 		int val;
@@ -30,5 +33,8 @@ public class _0222CountCompleteTreeNodes {
 		System.out.println(countNodes(tn));
 	}
 
+	public static int countNodes(TreeNode root) {
 	
+	}
+
 }

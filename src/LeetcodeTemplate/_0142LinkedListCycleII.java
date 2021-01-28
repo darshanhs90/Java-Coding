@@ -31,4 +31,8 @@ public class _0142LinkedListCycleII {
 		System.out.println(ln != null ? ln.val : "null");
 	}
 
+	public static ListNode detectCycle(ListNode head) {
+		
+	}
+
 }

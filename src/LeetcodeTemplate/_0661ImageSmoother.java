@@ -12,5 +12,8 @@ public class _0661ImageSmoother {
 		}
 	}
 
-	
+	public static int[][] imageSmoother(int[][] M) {
+		
+	}
+
 }

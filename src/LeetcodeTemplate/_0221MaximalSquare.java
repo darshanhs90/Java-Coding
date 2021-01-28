@@ -7,4 +7,7 @@ public class _0221MaximalSquare {
 						new char[] { '1', '1', '1', '1', '1' }, new char[] { '1', '0', '0', '1', '0' } }));
 	}
 
+	public static int maximalSquare(char[][] matrix) {
+		
+	}
 }

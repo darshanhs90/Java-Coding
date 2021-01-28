@@ -9,4 +9,7 @@ public class _0006ZigZagConversion {
 		System.out.println(convert("A", 1));
 	}
 
+	public static String convert(String s, int numRows) {
+
+	}
 }

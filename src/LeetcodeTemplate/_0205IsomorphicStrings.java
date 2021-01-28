@@ -10,4 +10,7 @@ public class _0205IsomorphicStrings {
 		System.out.println(isIsomorphic("paper", "title"));
 	}
 
+	public static boolean isIsomorphic(String s, String t) {
+		
+	}
 }

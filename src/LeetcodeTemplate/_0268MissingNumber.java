@@ -9,4 +9,7 @@ public class _0268MissingNumber {
 		System.out.println(missingNumber(new int[] { 0 }));
 	}
 
+	public static int missingNumber(int[] nums) {
+	
+	}
 }

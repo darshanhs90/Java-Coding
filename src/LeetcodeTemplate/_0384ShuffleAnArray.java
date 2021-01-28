@@ -16,6 +16,22 @@ public class _0384ShuffleAnArray {
 
 	}
 
-	
+	static class Solution {
+		
+		public Solution(int[] nums) {
+		}
+
+		/** Resets the array to its original configuration and return it. */
+		public int[] reset() {
+		}
+
+		/** Returns a random shuffling of the array. */
+		public int[] shuffle() {
+		}
+
+		public void swap(int left, int right, int[] nums) {
+		}
+
+	}
 
 }

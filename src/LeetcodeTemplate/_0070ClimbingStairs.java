@@ -9,5 +9,7 @@ public class _0070ClimbingStairs {
 		System.out.println(climbStairs(3));
 	}
 
+	public static int climbStairs(int n) {
 
+	}
 }

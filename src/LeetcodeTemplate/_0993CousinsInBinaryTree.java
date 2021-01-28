@@ -1,5 +1,8 @@
 package LeetcodeTemplate;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0993CousinsInBinaryTree {
 	static public class TreeNode {
 		int val;
@@ -40,6 +43,8 @@ public class _0993CousinsInBinaryTree {
 		tn.left.right = new TreeNode(4);
 		System.out.println(isCousins(tn, 2, 3));
 	}
+	public static boolean isCousins(TreeNode root, int x, int y) {
+		
+	}
 
-	
 }

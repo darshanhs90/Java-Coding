@@ -9,5 +9,7 @@ public class _0412FizzBuzz {
 		System.out.println(fizzBuzz(15));
 	}
 
-
+	public static List<String> fizzBuzz(int n) {
+		
+	}
 }

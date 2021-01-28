@@ -10,5 +10,7 @@ public class _0806NumberOfLinesToWriteString {
 				10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }, "bbbcccdddaaa")));
 	}
 
-
+	public static int[] numberOfLines(int[] widths, String S) {
+		
+	}
 }

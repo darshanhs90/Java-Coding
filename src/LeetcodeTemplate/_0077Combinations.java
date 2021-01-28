@@ -10,5 +10,7 @@ public class _0077Combinations {
 		System.out.println(combine(1, 1));
 	}
 
-	
+	public static List<List<Integer>> combine(int n, int k) {
+		
+	}
 }

@@ -11,5 +11,7 @@ public class _0034FindFirstAndLastPositionOfElementInSortedArray {
 		System.out.println(Arrays.toString(searchRange(new int[] { 1 }, 1)));
 	}
 
-	
+	public static int[] searchRange(int[] nums, int target) {
+
+	}
 }

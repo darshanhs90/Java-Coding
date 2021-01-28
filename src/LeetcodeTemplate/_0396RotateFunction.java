@@ -1,17 +1,12 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0396RotateFunction {
 
 	public static void main(String[] args) {
-		System.out.println(findTheDifference("abcd", "abcde"));
-		System.out.println(findTheDifference("", "y"));
-		System.out.println(findTheDifference("a", "aa"));
-		System.out.println(findTheDifference("ae", "aea"));
+		System.out.println(maxRotateFunction(new int[] { 4, 3, 2, 6 }));
 	}
 
-    public static int maxRotateFunction(int[] A) {
-        
-    }
+	public static int maxRotateFunction(int[] A) {
+		
+	}
 }

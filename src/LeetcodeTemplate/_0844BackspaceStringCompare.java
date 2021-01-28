@@ -10,5 +10,7 @@ public class _0844BackspaceStringCompare {
 		System.out.println(backspaceCompare("a#c", "b"));
 	}
 
-	
+	public static boolean backspaceCompare(String S, String T) {
+		
+	}
 }

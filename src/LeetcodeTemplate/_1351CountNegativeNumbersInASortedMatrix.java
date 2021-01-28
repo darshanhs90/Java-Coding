@@ -14,5 +14,8 @@ public class _1351CountNegativeNumbersInASortedMatrix {
 				new int[] { -3, -3, -3, -3, -3 } }));
 	}
 
-	
+	public static int countNegatives(int[][] grid) {
+		
+	}
+
 }

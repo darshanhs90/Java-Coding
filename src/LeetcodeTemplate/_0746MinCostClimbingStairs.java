@@ -6,5 +6,7 @@ public class _0746MinCostClimbingStairs {
 		System.out.println(minCostClimbingStairs(new int[] { 1, 100, 1, 1, 1, 100, 1, 1, 100, 1 }));
 	}
 
-
+	public static int minCostClimbingStairs(int[] cost) {
+		
+	}
 }

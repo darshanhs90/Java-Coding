@@ -3,7 +3,9 @@ package LeetcodeTemplate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class _0500KeyboardRow {
 
@@ -12,5 +14,6 @@ public class _0500KeyboardRow {
 		System.out.println(Arrays.toString(findWords(new String[] { "abdfs", "cccd", "a", "qwwewm" })));
 	}
 
-	
+	public static String[] findWords(String[] words) {
+	}
 }

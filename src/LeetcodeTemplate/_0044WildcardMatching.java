@@ -1,7 +1,7 @@
 package LeetcodeTemplate;
 
 public class _0044WildcardMatching {
-
+	// https://www.youtube.com/watch?v=3ZDZ-N0EPV0
 	public static void main(String[] args) {
 		System.out.println(isMatch("aa", "a"));
 		System.out.println(isMatch("aa", "*"));

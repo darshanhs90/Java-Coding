@@ -40,4 +40,8 @@ public class _0083RemoveDuplicatesFromSortedList {
 		}
 	}
 
+	public static ListNode deleteDuplicates(ListNode head) {
+		
+	}
+
 }

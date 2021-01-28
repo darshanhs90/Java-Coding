@@ -9,6 +9,10 @@ public class _0172FactorialTrailingZeroes {
 		System.out.println(trailingZeroes(10));
 		System.out.println(trailingZeroes(25));
 		System.out.println(trailingZeroes(26));
+		System.out.println(trailingZeroes(30));
 	}
 
+	public static int trailingZeroes(int n) {
+		
+	}
 }

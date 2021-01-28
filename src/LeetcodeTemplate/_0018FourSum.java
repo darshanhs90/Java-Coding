@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 public class _0018FourSum {
@@ -12,5 +9,8 @@ public class _0018FourSum {
 		System.out.println(fourSum(new int[] {}, 0));
 	}
 
-	
+	public static List<List<Integer>> fourSum(int[] nums, int target) {
+
+	}
+
 }

@@ -37,4 +37,7 @@ public class _0104MaximumDepthOfBinaryTree {
 		System.out.println(maxDepth(tn));
 	}
 
+	public static int maxDepth(TreeNode root) {
+		
+	}
 }

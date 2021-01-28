@@ -7,4 +7,7 @@ public class _0344ReverseString {
 		reverseString(new char[] { 'h', 'a', 'n', 'n', 'a', 'H' });
 	}
 
+	public static void reverseString(char[] s) {
+
+	}
 }

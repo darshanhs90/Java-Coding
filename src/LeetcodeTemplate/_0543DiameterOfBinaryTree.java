@@ -45,5 +45,8 @@ public class _0543DiameterOfBinaryTree {
 		System.out.println(diameterOfBinaryTree(tn));
 	}
 
+	public static int diameterOfBinaryTree(TreeNode root) {
+		
+	}
 
 }

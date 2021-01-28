@@ -44,4 +44,8 @@ public class _0100SameTree {
 		System.out.println(isSameTree(tn1, tn2));
 	}
 
+	public static boolean isSameTree(TreeNode p, TreeNode q) {
+		
+	}
+
 }

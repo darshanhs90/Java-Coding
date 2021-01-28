@@ -1,5 +1,7 @@
 package LeetcodeTemplate;
 
+import java.util.HashMap;
+
 public class _0159LongestSubstringWithAtMostTwoDistinctCharacters {
 
 	public static void main(String[] args) {
@@ -8,7 +10,7 @@ public class _0159LongestSubstringWithAtMostTwoDistinctCharacters {
 	}
 
 	public static int lengthOfLongestSubstringTwoDistinct(String s) {
-
+		
 	}
 
 }

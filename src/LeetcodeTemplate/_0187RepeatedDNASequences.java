@@ -1,7 +1,7 @@
 package LeetcodeTemplate;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 
 public class _0187RepeatedDNASequences {
@@ -12,6 +12,8 @@ public class _0187RepeatedDNASequences {
 		System.out.println(findRepeatedDnaSequences("AAAAAAAAAAA"));
 	}
 
+	public static List<String> findRepeatedDnaSequences(String s) {
 
+	}
 
 }

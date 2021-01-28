@@ -8,4 +8,7 @@ public class _0136SingleNumber {
 		System.out.println(singleNumber(new int[] { 1 }));
 	}
 
+	public static int singleNumber(int[] nums) {
+
+	}
 }

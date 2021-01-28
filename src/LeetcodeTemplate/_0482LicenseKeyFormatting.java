@@ -7,5 +7,7 @@ public class _0482LicenseKeyFormatting {
 		System.out.println(licenseKeyFormatting("2-5g-3-J", 2));
 	}
 
+	public static String licenseKeyFormatting(String S, int K) {
 
+	}
 }

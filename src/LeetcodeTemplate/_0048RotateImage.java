@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0048RotateImage {
 
 	public static void main(String[] args) {
@@ -11,7 +9,12 @@ public class _0048RotateImage {
 		rotate(new int[][] { new int[] { 1 } });
 		rotate(new int[][] { new int[] { 1 } });
 		rotate(new int[][] { new int[] { 1, 2 }, new int[] { 3, 4 } });
+		rotate(new int[][] { new int[] { 1, 2, 3, 4, 5 }, new int[] { 6, 7, 8, 9, 10 },
+				new int[] { 11, 12, 13, 14, 15 }, new int[] { 16, 17, 18, 19, 20 }, new int[] { 21, 22, 23, 24, 25 } });
 	}
 
-	
+	public static void rotate(int[][] matrix) {
+s
+	}
+
 }

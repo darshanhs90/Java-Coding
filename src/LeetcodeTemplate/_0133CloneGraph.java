@@ -42,5 +42,8 @@ public class _0133CloneGraph {
 		System.out.println(node);
 	}
 
+	public static Node cloneGraph(Node node) {
+	
+	}
 
 }

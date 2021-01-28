@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0054SpiralMatrix {
@@ -12,7 +11,12 @@ public class _0054SpiralMatrix {
 		System.out.println(spiralOrder(
 				new int[][] { new int[] { 1, 2, 3, 4 }, new int[] { 5, 6, 7, 8 }, new int[] { 9, 10, 11, 12 } }));
 
+		System.out.println(spiralOrder(new int[][] { new int[] { 2, 5, 8 }, new int[] { 4, 0, -1 } }));
+
 	}
 
-	
+	public static List<Integer> spiralOrder(int[][] matrix) {
+
+	}
+
 }

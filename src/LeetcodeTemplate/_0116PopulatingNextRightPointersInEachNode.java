@@ -33,4 +33,19 @@ public class _0116PopulatingNextRightPointersInEachNode {
 		printNodes(connect(tn));
 	}
 
+	public static void printNodes(Node n) {
+		if (n != null) {
+			printNodes(n.left);
+			printNodes(n.right);
+			if (n.next != null) {
+				System.out.println(n.val + "->" + n.next.val);
+			} else {
+				System.out.println(n.val + "->null");
+			}
+		}
+	}
+
+	public static Node connect(Node root) {
+
+	}
 }

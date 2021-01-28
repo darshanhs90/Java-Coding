@@ -8,6 +8,11 @@ public class _0507PerfectNumber {
 		System.out.println(checkPerfectNumber(496));
 		System.out.println(checkPerfectNumber(8128));
 		System.out.println(checkPerfectNumber(2));
+		System.out.println(checkPerfectNumber(120));
+	}
+
+	public static boolean checkPerfectNumber(int num) {
+		
 	}
 
 }

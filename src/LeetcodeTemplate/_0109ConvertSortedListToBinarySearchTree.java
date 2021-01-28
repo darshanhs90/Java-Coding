@@ -47,5 +47,16 @@ public class _0109ConvertSortedListToBinarySearchTree {
 		printNodes(sortedListToBST(ln));
 	}
 
-	
+	public static void printNodes(TreeNode tn) {
+		if (tn == null)
+			return;
+		printNodes(tn.left);
+		System.out.print(tn.val + "->");
+		printNodes(tn.right);
+	}
+
+	public static TreeNode sortedListToBST(ListNode head) {
+
+	}
+
 }

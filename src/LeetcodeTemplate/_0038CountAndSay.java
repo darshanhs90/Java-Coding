@@ -7,4 +7,8 @@ public class _0038CountAndSay {
 		System.out.println(countAndSay(4));
 	}
 
+	public static String countAndSay(int n) {
+
+	}
+
 }

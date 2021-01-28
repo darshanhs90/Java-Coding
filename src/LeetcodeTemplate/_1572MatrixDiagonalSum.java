@@ -8,5 +8,7 @@ public class _1572MatrixDiagonalSum {
 				new int[] { 1, 1, 1, 1 }, new int[] { 1, 1, 1, 1 } }));
 	}
 
-
+	public static int diagonalSum(int[][] mat) {
+		
+	}
 }

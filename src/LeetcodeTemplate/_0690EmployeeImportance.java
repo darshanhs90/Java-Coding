@@ -37,6 +37,8 @@ public class _0690EmployeeImportance {
 		System.out.println(getImportance(employees, 1));
 	}
 
-	
+	public static int getImportance(List<Employee> employees, int id) {
+		
+	}
 
 }

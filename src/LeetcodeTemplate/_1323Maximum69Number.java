@@ -6,4 +6,8 @@ public class _1323Maximum69Number {
 		System.out.println(maximum69Number(9996));
 		System.out.println(maximum69Number(9999));
 	}
+
+	public static int maximum69Number(int num) {
+
+	}
 }

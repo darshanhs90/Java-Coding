@@ -2,7 +2,6 @@ package LeetcodeTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class _1200MinimumAbsoluteDifference {
@@ -12,6 +11,7 @@ public class _1200MinimumAbsoluteDifference {
 		System.out.println(minimumAbsDifference(new int[] { 3, 8, -10, 23, 19, -4, -14, 27 }));
 	}
 
-
-
+	public static List<List<Integer>> minimumAbsDifference(int[] arr) {
+		
+	}
 }

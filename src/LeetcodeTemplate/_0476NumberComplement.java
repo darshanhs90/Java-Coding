@@ -7,4 +7,7 @@ public class _0476NumberComplement {
 		System.out.println(findComplement(1));
 	}
 
+	public static int findComplement(int num) {
+	}
+
 }

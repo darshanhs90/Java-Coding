@@ -6,4 +6,7 @@ public class _0724FindPivotIndex {
 		System.out.println(pivotIndex(new int[] { 1, 2, 3 }));
 	}
 
+	public static int pivotIndex(int[] nums) {
+		
+	}
 }

@@ -11,4 +11,8 @@ public class _0389FindTheDifference {
 		System.out.println(findTheDifference("ae", "aea"));
 	}
 
+	public static char findTheDifference(String s, String t) {
+		
+	}
+
 }

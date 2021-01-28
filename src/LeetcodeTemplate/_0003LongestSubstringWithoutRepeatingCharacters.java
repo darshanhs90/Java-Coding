@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0003LongestSubstringWithoutRepeatingCharacters {
 
 	public static void main(String[] args) {
@@ -15,5 +13,7 @@ public class _0003LongestSubstringWithoutRepeatingCharacters {
 		System.out.println(lengthOfLongestSubstring("abbab"));
 	}
 
-	
+	public static int lengthOfLongestSubstring(String s) {
+
+	}
 }

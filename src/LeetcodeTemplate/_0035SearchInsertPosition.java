@@ -10,5 +10,7 @@ public class _0035SearchInsertPosition {
 		System.out.println(searchInsert(new int[] { 1 }, 0));
 	}
 
-	
+	public static int searchInsert(int[] nums, int target) {
+
+	}
 }

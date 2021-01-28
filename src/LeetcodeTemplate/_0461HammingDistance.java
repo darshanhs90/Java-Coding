@@ -6,4 +6,7 @@ public class _0461HammingDistance {
 		System.out.println(hammingDistance(1, 4));
 	}
 
+	public static int hammingDistance(int x, int y) {
+		
+	}
 }

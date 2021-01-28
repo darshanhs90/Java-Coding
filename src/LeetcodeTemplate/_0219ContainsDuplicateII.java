@@ -1,8 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class _0219ContainsDuplicateII {
 
@@ -12,5 +10,7 @@ public class _0219ContainsDuplicateII {
 		System.out.println(containsNearbyDuplicate(new int[] { 1, 2, 3, 1, 2, 3 }, 2));
 	}
 
-	
+	public static boolean containsNearbyDuplicate(int[] nums, int k) {
+
+	}
 }

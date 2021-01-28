@@ -6,4 +6,7 @@ public class _0541ReverseStringII {
 		System.out.println(reverseStr("abcdefg", 2));
 	}
 
+	public static String reverseStr(String s, int k) {
+		
+	}
 }

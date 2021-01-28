@@ -11,5 +11,7 @@ public class _0014LongestCommonPrefix {
 		System.out.println(longestCommonPrefix(new String[] { "flower", "flower", "flower", "flower" }));
 	}
 
-	
+	public static String longestCommonPrefix(String[] strs) {
+
+	}
 }

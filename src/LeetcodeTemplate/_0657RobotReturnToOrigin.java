@@ -9,5 +9,8 @@ public class _0657RobotReturnToOrigin {
 		System.out.println(judgeCircle("LDRRLRUULR"));
 	}
 
+	public static boolean judgeCircle(String moves) {
+		
+	}
 
 }

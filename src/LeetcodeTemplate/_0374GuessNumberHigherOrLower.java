@@ -6,5 +6,12 @@ public class _0374GuessNumberHigherOrLower {
 		System.out.println(guessNumber(10));
 	}
 
+	static int guess(int num) {
+		return num;
+	}
+
+	public static int guessNumber(int n) {
 	
+	}
+
 }

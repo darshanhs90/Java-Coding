@@ -8,5 +8,7 @@ public class _0459RepeatedSubstringPattern {
 		System.out.println(repeatedSubstringPattern("abcabcabcabc"));
 	}
 
-	
+	public static boolean repeatedSubstringPattern(String s) {
+
+	}
 }

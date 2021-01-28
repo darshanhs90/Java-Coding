@@ -11,5 +11,7 @@ public class _0598RangeAdditionII {
 		System.out.println(maxCount(3, 3, new int[][] {}));
 	}
 
-	
+	public static int maxCount(int m, int n, int[][] ops) {
+		
+	}
 }

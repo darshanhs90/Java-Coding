@@ -40,5 +40,7 @@ public class _0160IntersectionOfTwoLinkedLists {
 		System.out.println(getIntersectionNode(ln1, ln2));
 	}
 
+	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
 	
+	}
 }

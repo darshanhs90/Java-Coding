@@ -10,4 +10,7 @@ public class _1051HeightChecker {
 		System.out.println(heightChecker(new int[] { 1, 2, 3, 4, 5 }));
 	}
 
+	public static int heightChecker(int[] heights) {
+
+	}
 }

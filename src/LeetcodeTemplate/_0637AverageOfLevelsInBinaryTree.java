@@ -1,7 +1,9 @@
 package LeetcodeTemplate;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0637AverageOfLevelsInBinaryTree {
 	static public class TreeNode {
@@ -32,5 +34,8 @@ public class _0637AverageOfLevelsInBinaryTree {
 		System.out.println(averageOfLevels(tn));
 	}
 
-	
+	public static List<Double> averageOfLevels(TreeNode root) {
+		
+	}
+
 }

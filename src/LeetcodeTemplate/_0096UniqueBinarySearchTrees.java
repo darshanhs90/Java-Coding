@@ -10,5 +10,8 @@ public class _0096UniqueBinarySearchTrees {
 		System.out.println(numTrees(5));
 	}
 
+	public static int numTrees(int n) {
+
+	}
 
 }

@@ -13,4 +13,16 @@ public class _0346MovingAverageFromDataStream {
 		System.out.println(ma.next(5));
 	}
 
+	static class MovingAverage {
+
+		/** Initialize your data structure here. */
+		public MovingAverage(int size) {
+			
+		}
+
+		public double next(int val) {
+
+		}
+	}
+
 }

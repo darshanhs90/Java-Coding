@@ -39,5 +39,8 @@ public class _0589NaryTreePreorderTraversal {
 		System.out.println(preorder(node1));
 	}
 
-	
+	public static List<Integer> preorder(Node root) {
+		
+	}
+
 }

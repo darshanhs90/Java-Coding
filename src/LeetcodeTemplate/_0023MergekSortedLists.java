@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class _0023MergekSortedLists {
 	static public class ListNode {
 		int val;
@@ -35,5 +32,16 @@ public class _0023MergekSortedLists {
 		System.out.println();
 	}
 
-	
+	public static void printNodes(ListNode ln) {
+		while (ln != null) {
+			System.out.print(ln.val + "->");
+			ln = ln.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode mergeKLists(ListNode[] lists) {
+
+	}
+
 }

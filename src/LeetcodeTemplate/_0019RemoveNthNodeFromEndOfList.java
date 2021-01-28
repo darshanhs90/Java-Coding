@@ -40,6 +40,17 @@ public class _0019RemoveNthNodeFromEndOfList {
 		System.out.println();
 	}
 
-	
+	public static void printElements(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+
+	}
+
+	public static ListNode removeNthFromEnd(ListNode head, int n) {
+
+	}
 
 }

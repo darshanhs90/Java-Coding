@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0095UniqueBinarySearchTreesII {
@@ -27,5 +26,8 @@ public class _0095UniqueBinarySearchTreesII {
 		System.out.println(generateTrees(3));
 	}
 
-	
+	public static List<TreeNode> generateTrees(int n) {
+
+	}
+
 }

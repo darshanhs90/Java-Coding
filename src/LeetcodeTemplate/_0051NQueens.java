@@ -12,5 +12,4 @@ public class _0051NQueens {
 	public static List<List<String>> solveNQueens(int n) {
 
 	}
-
 }

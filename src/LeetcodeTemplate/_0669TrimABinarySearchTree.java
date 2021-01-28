@@ -38,5 +38,16 @@ public class _0669TrimABinarySearchTree {
 		System.out.println();
 	}
 
-	
+	public static void preOrder(TreeNode root) {
+		if (root == null)
+			return;
+		preOrder(root.left);
+		System.out.print(root.val + "/");
+		preOrder(root.right);
+	}
+
+	public static TreeNode trimBST(TreeNode root, int low, int high) {
+		
+	}
+
 }

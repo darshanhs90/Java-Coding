@@ -7,5 +7,8 @@ public class _0441ArrangingCoins {
 		System.out.println(arrangeCoins(8));
 	}
 
-	
+	public static int arrangeCoins(int n) {
+		
+	}
+
 }

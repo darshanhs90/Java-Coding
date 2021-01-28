@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.PriorityQueue;
 
 public class _0703KthLargestElementInAStream {
 
@@ -14,5 +13,15 @@ public class _0703KthLargestElementInAStream {
 		System.out.println(kthLargest.add(4)); // return 8
 	}
 
-	
+	static class KthLargest {
+
+		public KthLargest(int k, int[] nums) {
+
+		}
+
+		public int add(int val) {
+
+		}
+	}
+
 }

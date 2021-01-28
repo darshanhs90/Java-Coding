@@ -1,6 +1,8 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class _0867TransposeMatrix {
 	public static void main(String[] args) {
@@ -15,4 +17,7 @@ public class _0867TransposeMatrix {
 		}
 	}
 
+	public static int[][] transpose(int[][] A) {
+		
+	}
 }

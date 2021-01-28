@@ -10,5 +10,8 @@ public class _0131PalindromePartitioning {
 		System.out.println(partition("aab"));
 	}
 
-	
+	public static List<List<String>> partition(String s) {
+		
+	}
+
 }

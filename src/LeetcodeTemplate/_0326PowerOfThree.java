@@ -7,6 +7,11 @@ public class _0326PowerOfThree {
 		System.out.println(isPowerOfThree(0));
 		System.out.println(isPowerOfThree(9));
 		System.out.println(isPowerOfThree(45));
+		System.out.println(isPowerOfThree(3));
+	}
+
+	public static boolean isPowerOfThree(int n) {
+		
 	}
 
 }

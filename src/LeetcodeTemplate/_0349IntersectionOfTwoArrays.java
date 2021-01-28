@@ -2,6 +2,7 @@ package LeetcodeTemplate;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class _0349IntersectionOfTwoArrays {
 
@@ -10,4 +11,7 @@ public class _0349IntersectionOfTwoArrays {
 		System.out.println(Arrays.toString(intersection(new int[] { 4, 9, 5 }, new int[] { 9, 4, 9, 8, 4 })));
 	}
 
+	public static int[] intersection(int[] nums1, int[] nums2) {
+
+	}
 }

@@ -25,7 +25,7 @@ public class _0092ReverseLinkedListII {
 		ln.next.next = new ListNode(3);
 		ln.next.next.next = new ListNode(4);
 		ln.next.next.next.next = new ListNode(5);
-		ln = reverseBetween(ln, 2, 4);
+		ln = reverseBetween(ln, 1, 4);
 		printNodes(ln);
 		System.out.println();
 
@@ -35,5 +35,15 @@ public class _0092ReverseLinkedListII {
 		printNodes(ln);
 	}
 
-	
+	public static void printNodes(ListNode head) {
+		while (head != null) {
+			System.out.print(head.val + "->");
+			head = head.next;
+		}
+		System.out.println();
+	}
+
+	public static ListNode reverseBetween(ListNode head, int m, int n) {
+		
+	}
 }

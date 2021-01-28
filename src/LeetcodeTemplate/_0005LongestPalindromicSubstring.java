@@ -7,6 +7,7 @@ public class _0005LongestPalindromicSubstring {
 		System.out.println(longestPalindrome("cbbd"));
 		System.out.println(longestPalindrome("a"));
 		System.out.println(longestPalindrome("ac"));
+		System.out.println(longestPalindrome("amalayalam"));
 	}
 
 	public static String longestPalindrome(String s) {

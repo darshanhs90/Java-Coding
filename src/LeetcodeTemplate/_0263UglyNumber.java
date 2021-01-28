@@ -10,4 +10,7 @@ public class _0263UglyNumber {
 		System.out.println(isUgly(1));
 	}
 
+	public static boolean isUgly(int num) {
+	
+	}
 }

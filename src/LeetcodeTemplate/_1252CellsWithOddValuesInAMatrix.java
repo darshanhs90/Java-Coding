@@ -6,5 +6,7 @@ public class _1252CellsWithOddValuesInAMatrix {
 		System.out.println(oddCells(2, 2, new int[][] { new int[] { 1, 1 }, new int[] { 0, 0 } }));
 	}
 
-
+	public static int oddCells(int n, int m, int[][] indices) {
+		
+	}
 }

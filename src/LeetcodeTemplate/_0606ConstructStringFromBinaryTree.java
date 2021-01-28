@@ -34,6 +34,9 @@ public class _0606ConstructStringFromBinaryTree {
 		tn.left.right = new TreeNode(4);
 		System.out.println(tree2str(tn));
 	}
-
+	
+    public static String tree2str(TreeNode tn) {
+    	
+    }
 	
 }

@@ -9,5 +9,8 @@ public class _0329LongestIncreasingPathInAMatrix {
 				new int[][] { new int[] { 3, 4, 5 }, new int[] { 3, 2, 6 }, new int[] { 2, 2, 1 } }));
 	}
 
-	
+	public static int longestIncreasingPath(int[][] matrix) {
+		
+	}
+
 }

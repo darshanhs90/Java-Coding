@@ -1,6 +1,8 @@
 package LeetcodeTemplate;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class _0299BullsAndCows {
 
@@ -11,5 +13,6 @@ public class _0299BullsAndCows {
 		System.out.println(getHint("1", "1"));
 	}
 
-	
+	public static String getHint(String secret, String guess) {
+	}
 }

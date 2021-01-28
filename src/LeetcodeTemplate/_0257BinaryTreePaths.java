@@ -30,6 +30,13 @@ public class _0257BinaryTreePaths {
 		tn.left.right = new TreeNode(5);
 		tn.right = new TreeNode(3);
 		System.out.println(binaryTreePaths(tn));
+
+		tn = new TreeNode(1);
+		System.out.println(binaryTreePaths(tn));
+	}
+
+	public static List<String> binaryTreePaths(TreeNode root) {
+
 	}
 
 }

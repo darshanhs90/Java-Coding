@@ -39,5 +39,8 @@ public class _0590NaryTreePostorderTraversal {
 		System.out.println(postorder(node1));
 	}
 
-	
+	public static List<Integer> postorder(Node root) {
+		
+	}
+
 }

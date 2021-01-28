@@ -10,5 +10,7 @@ public class _0492ConstructTheRectangle {
 		System.out.println(Arrays.toString(constructRectangle(122122)));
 	}
 
+	public static int[] constructRectangle(int area) {
+	}
 
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _1232CheckIfItIsAStraightLine {
 	public static void main(String[] args) {
 		System.out.println(checkStraightLine(new int[][] { new int[] { 1, 2 }, new int[] { 2, 3 }, new int[] { 3, 4 },
@@ -15,6 +13,6 @@ public class _1232CheckIfItIsAStraightLine {
 	}
 
 	public static boolean checkStraightLine(int[][] coordinates) {
-
+		
 	}
 }

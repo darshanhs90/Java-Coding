@@ -11,5 +11,7 @@ public class _0290WordPattern {
 		System.out.println(wordPattern("abba", "dog dog dog dog"));
 	}
 
-
+	public static boolean wordPattern(String pattern, String s) {
+		
+	}
 }

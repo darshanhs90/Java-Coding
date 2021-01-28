@@ -31,8 +31,18 @@ public class _0700SearchInABinarySearchTree {
 		System.out.println();
 		out = searchBST(tn, 5);
 		preOrder(out);
+	}
+
+	public static void preOrder(TreeNode root) {
+		if (root == null)
+			return;
+		preOrder(root.left);
+		System.out.print(root.val + "/");
+		preOrder(root.right);
+	}
+
+	public static TreeNode searchBST(TreeNode root, int val) {
 
 	}
 
-	
 }

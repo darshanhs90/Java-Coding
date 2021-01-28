@@ -8,5 +8,8 @@ public class _0202HappyNumber {
 		System.out.println(isHappy(19));
 	}
 
+	public static boolean isHappy(int n) {
+
+	}
 
 }
