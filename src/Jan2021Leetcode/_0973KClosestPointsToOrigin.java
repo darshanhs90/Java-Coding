@@ -1,5 +1,6 @@
 package Jan2021Leetcode;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -10,7 +11,30 @@ public class _0973KClosestPointsToOrigin {
 	}
 
 	public static int[][] kClosest(int[][] points, int K) {
-		
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(K, new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				double dist1 = Math.sqrt(o1[0] * o1[0] + o1[1] * o1[1]);
+				double dist2 = Math.sqrt(o2[0] * o2[0] + o2[1] * o2[1]);
+				return dist1 - dist2 < 0 ? 1 : -1;
+			}
+		});
+
+		for (int i = 0; i < points.length; i++) {
+			pq.offer(points[i]);
+			if (pq.size() > K)
+				pq.poll();
+		}
+
+		int[][] out = new int[K][2];
+		int index = 0;
+		while (!pq.isEmpty()) {
+			out[index] = pq.poll();
+			index++;
+		}
+		System.out.println(Arrays.deepToString(out));
+		return out;
 	}
 
 }
