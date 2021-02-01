@@ -10,7 +10,7 @@ public class _0273IntegerToEnglishWords {
 	}
 
 	public static String numberToWords(int num) {
-		
+
 	}
 
 }

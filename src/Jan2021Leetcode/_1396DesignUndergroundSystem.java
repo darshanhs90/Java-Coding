@@ -38,21 +38,57 @@ public class _1396DesignUndergroundSystem {
 		System.out.println(undergroundSystem.getAverageTime("Leyton", "Paradise")); // return 6.66667
 	}
 
+	static class UserJourney {
+		String startStationName;
+		int startTime;
+
+		public UserJourney(String startStationName, int startTime) {
+			this.startStationName = startStationName;
+			this.startTime = startTime;
+		}
+	}
+
 	static class UndergroundSystem {
-		
+		HashMap<String, HashMap<String, Integer>> timeMap;
+		HashMap<Integer, UserJourney> userMap;
+		HashMap<String, HashMap<String, Integer>> countMap;
+
 		public UndergroundSystem() {
-			
+			timeMap = new HashMap<String, HashMap<String, Integer>>();
+			userMap = new HashMap<Integer, UserJourney>();
+			countMap = new HashMap<String, HashMap<String, Integer>>();
 		}
 
 		public void checkIn(int id, String stationName, int t) {
+			userMap.put(id, new UserJourney(stationName, t));
 		}
 
-		public void checkOut(int id, String stationName, int t) {
-			
+		public void checkOut(int id, String endStation, int t) {
+			int timeElapsed = t - userMap.get(id).startTime;
+			String startStation = userMap.get(id).startStationName;
+
+			if (timeMap.containsKey(startStation)) {
+				HashMap<String, Integer> innerTotalMap = timeMap.get(startStation);
+				HashMap<String, Integer> innerCountMap = countMap.get(startStation);
+				if (innerTotalMap.containsKey(endStation)) {
+					innerTotalMap.put(endStation, innerTotalMap.get(endStation) + timeElapsed);
+					innerCountMap.put(endStation, innerCountMap.get(endStation) + 1);
+				} else {
+					innerTotalMap.put(endStation, timeElapsed);
+					innerCountMap.put(endStation, 1);
+				}
+			} else {
+				HashMap<String, Integer> innerTotalMap = new HashMap<String, Integer>();
+				HashMap<String, Integer> innerCountMap = new HashMap<String, Integer>();
+				innerTotalMap.put(endStation, timeElapsed);
+				innerCountMap.put(endStation, 1);
+				timeMap.put(startStation, innerTotalMap);
+				countMap.put(startStation, innerCountMap);
+			}
 		}
 
 		public double getAverageTime(String startStation, String endStation) {
-			
+			return timeMap.get(startStation).get(endStation) / (double) countMap.get(startStation).get(endStation);
 		}
 	}
 

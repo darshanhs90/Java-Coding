@@ -11,7 +11,50 @@ public class _0004MedianOfTwoSortedArrays {
 	}
 
 	public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+		int sum = nums1.length + nums2.length;
+		int leftIndex = 0, rightIndex = 0;
+		boolean hasTwoMedian = false;
+		if (sum % 2 == 0) {
+			leftIndex = sum / 2 - 1;
+			rightIndex = sum / 2;
+			hasTwoMedian = true;
+		} else {
+			leftIndex = sum / 2;
+			rightIndex = leftIndex;
+		}
 
+		int index = 0;
+		int leftStartIndex = 0;
+		int rightStartIndex = 0;
+		int leftVal = 0, rightVal = 0;
+		while (index < sum) {
+			int val = 0;
+			if (leftStartIndex < nums1.length && rightStartIndex < nums2.length) {
+				if (nums1[leftStartIndex] < nums2[rightStartIndex]) {
+					val = nums1[leftStartIndex];
+					leftStartIndex++;
+				} else {
+					val = nums2[rightStartIndex];
+					rightStartIndex++;
+				}
+			} else if (leftStartIndex < nums1.length) {
+				val = nums1[leftStartIndex];
+				leftStartIndex++;
+			} else {
+				val = nums2[rightStartIndex];
+				rightStartIndex++;
+			}
+
+			if (index == leftIndex) {
+				leftVal = val;
+			} else if (index == rightIndex) {
+				rightVal = val;
+				break;
+			}
+			index++;
+		}
+
+		return hasTwoMedian ? (leftVal + rightVal) / (double) 2 : leftVal;
 	}
 
 }
