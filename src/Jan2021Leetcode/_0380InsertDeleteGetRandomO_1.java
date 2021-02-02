@@ -20,8 +20,15 @@ public class _0380InsertDeleteGetRandomO_1 {
 	}
 
 	static class RandomizedSet {
+		List<Integer> numbers;
+		HashMap<Integer, Integer> map;
+		Random rand;
+
 		/** Initialize your data structure here. */
 		public RandomizedSet() {
+			rand = new Random();
+			map = new HashMap<Integer, Integer>();
+			numbers = new ArrayList<Integer>();
 		}
 
 		/**
@@ -29,6 +36,11 @@ public class _0380InsertDeleteGetRandomO_1 {
 		 * the specified element.
 		 */
 		public boolean insert(int val) {
+			if (map.containsKey(val))
+				return false;
+			map.put(val, numbers.size());
+			numbers.add(val);
+			return true;
 		}
 
 		/**
@@ -36,11 +48,22 @@ public class _0380InsertDeleteGetRandomO_1 {
 		 * element.
 		 */
 		public boolean remove(int val) {
-		
+			System.out.println(map);
+			if (map.containsKey(val)) {
+				int index = map.get(val);
+				int lastVal = numbers.get(numbers.size() - 1);
+				numbers.set(index, lastVal);
+				map.put(lastVal, index);
+				map.remove(val);
+				numbers.remove(numbers.size() - 1);
+				return true;
+			}
+			return false;
 		}
 
 		/** Get a random element from the set. */
 		public int getRandom() {
+			return numbers.get(rand.nextInt(numbers.size()));
 		}
 	}
 

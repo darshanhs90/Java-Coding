@@ -46,10 +46,45 @@ public class _0297SerializeAndDeserializeBinaryTree {
 
 		// Encodes a tree to a single string.
 		public String serialize(TreeNode root) {
+			if (root == null)
+				return "";
+			List<String> list = new ArrayList<String>();
+			serializeHelper(root, list);
+			return String.join(",", list);
+		}
+
+		public void serializeHelper(TreeNode root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+			list.add(String.valueOf(root.val));
+			serializeHelper(root.left, list);
+			serializeHelper(root.right, list);
 		}
 
 		// Decodes your encoded data to tree.
 		public TreeNode deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			Queue<String> q = new LinkedList<String>(Arrays.asList(data.split(",")));
+			return deserializeHelper(q);
+		}
+
+		public TreeNode deserializeHelper(Queue<String> q) {
+			if (q.isEmpty()) {
+				return null;
+			}
+
+			if (q.peek().equals("#")) {
+				q.poll();
+				return null;
+			}
+
+			TreeNode root = new TreeNode(Integer.parseInt(q.poll()));
+			root.left = deserializeHelper(q);
+			root.right = deserializeHelper(q);
+			return root;
 		}
 	}
 
