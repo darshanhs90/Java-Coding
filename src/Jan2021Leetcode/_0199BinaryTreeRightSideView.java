@@ -32,10 +32,33 @@ public class _0199BinaryTreeRightSideView {
 		tn.right = new TreeNode(3);
 		tn.right.right = new TreeNode(4);
 		System.out.println(rightSideView(tn));
-
 	}
 
 	public static List<Integer> rightSideView(TreeNode root) {
-	
+		List<Integer> output = new ArrayList<Integer>();
+		if (root == null)
+			return output;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean levelAdded = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (!levelAdded) {
+					output.add(tn.val);
+					levelAdded = true;
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+			}
+		}
+		return output;
 	}
 }

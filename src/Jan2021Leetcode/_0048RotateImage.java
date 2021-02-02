@@ -14,7 +14,35 @@ public class _0048RotateImage {
 	}
 
 	public static void rotate(int[][] matrix) {
-s
+		swapRows(matrix);
+		swapDiagonalElements(matrix);
+	}
+
+	public static void swapRows(int[][] matrix) {
+		int topRow = 0, bottomRow = matrix.length - 1;
+		int cols = matrix[0].length - 1;
+		while (topRow < bottomRow) {
+			for (int i = 0; i <= cols; i++) {
+				int temp = matrix[topRow][i];
+				matrix[topRow][i] = matrix[bottomRow][i];
+				matrix[bottomRow][i] = temp;
+			}
+			topRow++;
+			bottomRow--;
+		}
+	}
+
+	public static void swapDiagonalElements(int[][] matrix) {
+		int cols = matrix[0].length;
+		int col = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = col; j < cols; j++) {
+				int temp = matrix[i][j];
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = temp;
+			}
+			col++;
+		}
 	}
 
 }
