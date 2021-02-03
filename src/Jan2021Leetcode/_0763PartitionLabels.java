@@ -10,7 +10,24 @@ public class _0763PartitionLabels {
 		System.out.println(partitionLabels("abc"));
 	}
 
-	public static List<Integer> partitionLabels(String S) {
-		
+	public static List<Integer> partitionLabels(String s) {
+		List<Integer> list = new ArrayList<Integer>();
+		if (s == null || s.length() == 0)
+			return list;
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			map.put(s.charAt(i), i);
+		}
+
+		int currMax = -1;
+		int left = 0;
+		for (int i = 0; i < s.length(); i++) {
+			currMax = Math.max(currMax, map.get(s.charAt(i)));
+			if (i == currMax) {
+				list.add(i - left + 1);
+				left = i+1;
+			}
+		}
+		return list;
 	}
 }

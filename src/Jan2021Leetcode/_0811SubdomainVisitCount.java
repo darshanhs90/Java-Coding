@@ -13,6 +13,24 @@ public class _0811SubdomainVisitCount {
 	}
 
 	public static List<String> subdomainVisits(String[] cpdomains) {
-		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for (int i = 0; i < cpdomains.length; i++) {
+			String domain = cpdomains[i];
+			String[] domainSplit = domain.split(" ");
+			int val = Integer.parseInt(domainSplit[0]);
+			String[] domains = domainSplit[1].split("\\.");
+			String str = "";
+			for (int j = domains.length - 1; j >= 0; j--) {
+				str = domains[j]+str;
+				map.compute(str, (k, v) -> v == null ? val : val + v);
+				str = "." + str;
+			}
+		}
+
+		List<String> list = new ArrayList<String>();
+		for (Map.Entry<String, Integer> entry : map.entrySet()) {
+			list.add(entry.getValue() + " " + entry.getKey());
+		}
+		return list;
 	}
 }

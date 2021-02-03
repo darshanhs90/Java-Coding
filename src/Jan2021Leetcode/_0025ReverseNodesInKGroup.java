@@ -62,7 +62,6 @@ public class _0025ReverseNodesInKGroup {
 		ln = new ListNode(1);
 		ln = reverseKGroup(ln, 1);
 		printNodes(ln);
-
 	}
 
 	public static void printNodes(ListNode head) {
@@ -70,11 +69,58 @@ public class _0025ReverseNodesInKGroup {
 			System.out.print(head.val + "->");
 			head = head.next;
 		}
-		System.out.println();
+		System.out.println("****************");
 	}
 
 	// Iterative
 	public static ListNode reverseKGroup(ListNode head, int k) {
+		if (k <= 1)
+			return head;
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		op.next = head;
+		ListNode prev = null;
+		while (head != null) {
+			int count = 1;
+			ListNode leftPart = prev == null ? op : prev;
+			while (count < k && head.next != null) {
+				head = head.next;
+				count++;
+			}
 
+			if (count != k) {
+				return opPtr.next;
+			}
+
+			ListNode midPart = leftPart.next;
+			leftPart.next = null;
+
+			ListNode rightPart = head != null ? head.next : null;
+
+			if (head != null)
+				head.next = null;
+			midPart = reverseLL(midPart);
+
+			leftPart.next = midPart;
+			prev = null;
+			while (leftPart != null) {
+				prev = leftPart;
+				leftPart = leftPart.next;
+			}
+
+			prev.next = rightPart;
+			head = rightPart;
+		}
+		return opPtr.next;
+	}
+
+	public static ListNode reverseLL(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode nextNode = head.next;
+		ListNode reverseNode = reverseLL(head.next);
+		head.next = null;
+		nextNode.next = head;
+		return reverseNode;
 	}
 }

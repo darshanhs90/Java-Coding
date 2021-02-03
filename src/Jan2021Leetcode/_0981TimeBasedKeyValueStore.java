@@ -18,17 +18,33 @@ public class _0981TimeBasedKeyValueStore {
 	}
 
 	static class TimeMap {
+		HashMap<String, TreeMap<Integer, String>> map;
 
 		/** Initialize your data structure here. */
 		public TimeMap() {
+			this.map = new HashMap<String, TreeMap<Integer, String>>();
 		}
 
 		public void set(String key, String value, int timestamp) {
-
+			if (map.containsKey(key)) {
+				map.get(key).put(timestamp, value);
+			} else {
+				TreeMap<Integer, String> tempMap = new TreeMap<Integer, String>();
+				tempMap.put(timestamp, value);
+				map.put(key, tempMap);
+			}
 		}
 
 		public String get(String key, int timestamp) {
-			
+			if (!map.containsKey(key))
+				return "";
+
+			TreeMap<Integer, String> tempMap = map.get(key);
+			Integer floorKey = tempMap.floorKey(timestamp);
+			if(floorKey == null)
+				return "";
+			String value = tempMap.get(floorKey);
+			return value != null ? value : "";
 		}
 	}
 

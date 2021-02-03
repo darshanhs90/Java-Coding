@@ -16,7 +16,17 @@ public class _0322CoinChange {
 	}
 
 	public static int coinChange(int[] coins, int amount) {
-		
+		int[] dp = new int[amount + 1];
+		Arrays.fill(dp, amount + 1);
+		Arrays.sort(coins);
+		dp[0] = 0;
+		for (int i = 0; i < coins.length; i++) {
+			int coinValue = coins[i];
+			for (int j = coinValue; j < dp.length; j++) {
+				dp[j] = Math.min(dp[j], dp[j - coinValue] + 1);
+			}
+		}
+		return dp[amount] > amount ? -1 : dp[amount];
 	}
 
 }
