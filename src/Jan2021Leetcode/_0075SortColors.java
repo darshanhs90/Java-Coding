@@ -10,7 +10,24 @@ public class _0075SortColors {
 	}
 
 	public static void sortColors(int[] nums) {
-s
+		int noOfOnes = 0;
+		int index = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 0) {
+				nums[index] = 0;
+				index++;
+			} else if (nums[i] == 1)
+				noOfOnes++;
+		}
+		while (index < nums.length) {
+			if (noOfOnes > 0) {
+				nums[index] = 1;
+				noOfOnes--;
+			} else {
+				nums[index] = 2;
+			}
+			index++;
+		}
 	}
 
 }

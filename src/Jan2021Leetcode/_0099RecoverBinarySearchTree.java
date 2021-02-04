@@ -40,6 +40,6 @@ public class _0099RecoverBinarySearchTree {
 	}
 
 	public static void recoverTree(TreeNode root) {
-
+s
 	}
 }

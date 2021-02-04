@@ -42,6 +42,15 @@ public class _0098ValidateBinarySearchTree {
 	}
 
 	public static boolean isValidBST(TreeNode root) {
+		if (root == null)
+			return true;
+		return isValidBST(Long.MIN_VALUE, root, Long.MAX_VALUE);
+	}
 
+	public static boolean isValidBST(Long minValue, TreeNode root, Long maxValue) {
+		if (root == null)
+			return true;
+		return root.val > minValue && root.val < maxValue && isValidBST(minValue, root.left, (long) root.val)
+				&& isValidBST((long) root.val, root.right, maxValue);
 	}
 }

@@ -1,7 +1,5 @@
 package Jan2021Leetcode;
 
-import java.util.Arrays;
-
 public class _0289GameOfLife {
 
 	public static void main(String[] args) {
@@ -21,7 +19,42 @@ public class _0289GameOfLife {
 	// reproduction.
 
 	public static void gameOfLife(int[][] board) {
-		
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				updateBoard(i, j, board);
+			}
+		}
+
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] == -1)
+					board[i][j] = 0;
+				else if (board[i][j] == 2)
+					board[i][j] = 1;
+			}
+		}
+	}
+
+	public static void updateBoard(int x, int y, int[][] board) {
+		int dirs[][] = new int[][] { new int[] { -1, -1 }, new int[] { -1, 0 }, new int[] { -1, 1 },
+				new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { 1, -1 }, new int[] { 1, 0 }, new int[] { 1, 1 } };
+		int count = 0;
+		for (int i = 0; i < dirs.length; i++) {
+			int newX = dirs[i][0] + x;
+			int newY = dirs[i][1] + y;
+			if (newX >= 0 && newY >= 0 && newX < board.length && newY < board[0].length) {
+				count += board[newX][newY] == 0 || board[newX][newY] == 2 ? 0 : 1;
+			}
+		}
+
+		int currVal = board[x][y];
+		if (currVal == 0 && count == 3) {
+			board[x][y] = 2;
+		} else if (currVal == 1) {
+			if (count < 2 || count > 3) {
+				board[x][y] = -1;
+			}
+		}
 	}
 
 }
