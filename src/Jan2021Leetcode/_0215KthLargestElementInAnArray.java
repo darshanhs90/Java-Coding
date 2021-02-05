@@ -11,6 +11,20 @@ public class _0215KthLargestElementInAnArray {
 	}
 
 	public static int findKthLargest(int[] nums, int k) {
-		
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k, new Comparator<Integer>() {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				// TODO Auto-generated method stub
+				return o1 - o2;
+			}
+		});
+
+		for (int i = 0; i < nums.length; i++) {
+			pq.offer(nums[i]);
+			if (pq.size() > k)
+				pq.poll();
+		}
+		return pq.peek();
 	}
 }

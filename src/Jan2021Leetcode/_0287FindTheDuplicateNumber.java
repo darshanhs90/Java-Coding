@@ -1,7 +1,5 @@
 package Jan2021Leetcode;
 
-import java.util.HashSet;
-
 public class _0287FindTheDuplicateNumber {
 
 	public static void main(String[] args) {
@@ -13,5 +11,13 @@ public class _0287FindTheDuplicateNumber {
 
 	public static int findDuplicate(int[] nums) {
 
+		for (int i = 0; i < nums.length; i++) {
+			int index = Math.abs(nums[i]) - 1;
+			if (nums[index] < 0)
+				return index + 1;
+
+			nums[index] = -1 * Math.abs(nums[index]);
+		}
+		return -1;
 	}
 }
