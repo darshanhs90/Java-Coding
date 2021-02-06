@@ -10,6 +10,25 @@ public class _0128LongestConsecutiveSequence {
 	}
 
 	public static int longestConsecutive(int[] nums) {
-		
+		if (nums == null || nums.length == 0)
+			return 0;
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			set.add(nums[i]);
+		}
+
+		int max = 1;
+		for (int i = 0; i < nums.length; i++) {
+			if (!set.contains(nums[i] - 1)) {
+				int count = 0;
+				int start = nums[i];
+				while (set.contains(start)) {
+					start++;
+					count++;
+				}
+				max = Math.max(count, max);
+			}
+		}
+		return max;
 	}
 }

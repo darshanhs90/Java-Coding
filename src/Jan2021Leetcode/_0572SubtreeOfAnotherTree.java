@@ -1,8 +1,7 @@
 package Jan2021Leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class _0572SubtreeOfAnotherTree {
 	static public class TreeNode {
@@ -37,6 +36,35 @@ public class _0572SubtreeOfAnotherTree {
 	}
 
 	public static boolean isSubtree(TreeNode s, TreeNode t) {
-		
+		if (s == null && t == null)
+			return true;
+		else if (s == null || t == null)
+			return false;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(s);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (tn.val == t.val && isSameTree(tn, t))
+					return true;
+
+				if (tn.left != null)
+					q.offer(tn.left);
+
+				if (tn.right != null)
+					q.offer(tn.right);
+			}
+		}
+		return false;
 	}
+
+	public static boolean isSameTree(TreeNode s, TreeNode t) {
+		if (s == null && t == null)
+			return true;
+		else if (s == null || t == null)
+			return false;
+		return s.val == t.val && isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
+	}
+
 }

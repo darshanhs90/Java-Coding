@@ -3,7 +3,9 @@ package Jan2021Leetcode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0545BoundaryOfBinaryTree {
 
@@ -47,6 +49,89 @@ public class _0545BoundaryOfBinaryTree {
 	}
 
 	public static List<Integer> boundaryOfBinaryTree(TreeNode root) {
+		List<Integer> output = new ArrayList<Integer>();
+		if (root == null)
+			return output;
+		HashSet<TreeNode> visited = new HashSet<TreeNode>();
+		output.add(root.val);
+		visited.add(root);
+		leftBoundary(root.left, visited, output);
+		leaves(root, visited, output);
+		List<Integer> tempList = new ArrayList<Integer>();
+		rightBoundary(root.right, visited, tempList);
+		Collections.reverse(tempList);
+		output.addAll(tempList);
+		return output;
+	}
+
+	public static void leftBoundary(TreeNode root, HashSet<TreeNode> visited, List<Integer> list) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		if (root != null)
+			q.offer(root);
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (!added) {
+					if (!visited.contains(tn)) {
+						list.add(tn.val);
+						visited.add(tn);
+					}
+					added = true;
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+			}
+		}
+	}
+
+	public static void rightBoundary(TreeNode root, HashSet<TreeNode> visited, List<Integer> list) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		if (root != null)
+			q.offer(root);
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (!added) {
+					if (!visited.contains(tn)) {
+						list.add(tn.val);
+						visited.add(tn);
+					}
+					added = true;
+				}
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+			}
+		}
+	}
+
+	public static void leaves(TreeNode root, HashSet<TreeNode> visited, List<Integer> list) {
+		if (root == null)
+			return;
+		leaves(root.left, visited, list);
+		if (root.left == null && root.right == null) {
+			if (!visited.contains(root)) {
+				list.add(root.val);
+				visited.add(root);
+			}
+		}
+		leaves(root.right, visited, list);
 	}
 
 }

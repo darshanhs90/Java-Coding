@@ -1,7 +1,7 @@
 package Jan2021Leetcode;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class _0532KdiffPairsInAnArray {
 
@@ -14,7 +14,21 @@ public class _0532KdiffPairsInAnArray {
 	}
 
 	public static int findPairs(int[] nums, int k) {
-		
+		TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			map.compute(nums[i], (key, val) -> val == null ? 1 : val + 1);
+		}
+
+		int noOfPairs = 0;
+
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+
+			if (entry.getKey() + k == entry.getKey() && entry.getValue() > 1) {
+				noOfPairs++;
+			} else if (entry.getKey() + k != entry.getKey() && map.containsKey(entry.getKey() + k))
+				noOfPairs++;
+		}
+		return noOfPairs;
 	}
 
 }

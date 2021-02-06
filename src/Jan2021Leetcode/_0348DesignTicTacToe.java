@@ -42,10 +42,11 @@ public class _0348DesignTicTacToe {
 	}
 
 	static class TicTacToe {
+		int[][] matrix;
 
 		/** Initialize your data structure here. */
 		public TicTacToe(int n) {
-
+			matrix = new int[n][n];
 		}
 
 		/**
@@ -58,11 +59,70 @@ public class _0348DesignTicTacToe {
 		 *         Player 1 wins. 2: Player 2 wins.
 		 */
 		public int move(int row, int col, int player) {
-		
+			matrix[row][col] = player;
+			return checkWinner(matrix, row, col, player);
 		}
 
-		public int checkWinner(int[][] board, int player) {
-		
+		public int checkWinner(int[][] board, int row, int col, int player) {
+			boolean val = checkRow(board, row, player);
+
+			if (val)
+				return player;
+
+			val = checkCol(board, col, player);
+
+			if (val)
+				return player;
+
+			val = checkLeftToRightDiagonal(board, player);
+
+			if (val)
+				return player;
+
+			val = checkRightToLeftDiagonal(board, player);
+
+			if (val)
+				return player;
+
+			return 0;
+		}
+
+		public boolean checkRow(int[][] board, int row, int player) {
+			for (int i = 0; i < board.length; i++) {
+				if (board[row][i] != player)
+					return false;
+			}
+			return true;
+		}
+
+		public boolean checkCol(int[][] board, int col, int player) {
+			for (int i = 0; i < board.length; i++) {
+				if (board[i][col] != player)
+					return false;
+			}
+			return true;
+		}
+
+		public boolean checkLeftToRightDiagonal(int[][] board, int player) {
+			int row = 0, col = 0;
+			while (row < board.length && col < board[0].length) {
+				if (board[row][col] != player)
+					return false;
+				row++;
+				col++;
+			}
+			return true;
+		}
+
+		public boolean checkRightToLeftDiagonal(int[][] board, int player) {
+			int row = 0, col = board[0].length - 1;
+			while (row < board.length && col >= 0) {
+				if (board[row][col] != player)
+					return false;
+				row++;
+				col--;
+			}
+			return true;
 		}
 	}
 
