@@ -42,13 +42,31 @@ public class _0173BinarySearchTreeIterator {
 	}
 
 	static class BSTIterator {
+
+		Stack<TreeNode> stack;
+
 		public BSTIterator(TreeNode root) {
+			stack = new Stack<TreeNode>();
+			addLeftNodes(root);
+		}
+
+		public void addLeftNodes(TreeNode root) {
+			while (root != null) {
+				stack.push(root);
+				root = root.left;
+			}
 		}
 
 		public int next() {
+			TreeNode tn = stack.pop();
+			if (tn.right != null) {
+				addLeftNodes(tn.right);
+			}
+			return tn.val;
 		}
 
 		public boolean hasNext() {
+			return !stack.isEmpty();
 		}
 	}
 
