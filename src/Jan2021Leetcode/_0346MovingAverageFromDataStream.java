@@ -14,14 +14,22 @@ public class _0346MovingAverageFromDataStream {
 	}
 
 	static class MovingAverage {
+		int sum, size;
+		Queue<Integer> q;
 
 		/** Initialize your data structure here. */
 		public MovingAverage(int size) {
-			
+			q = new LinkedList<Integer>();
+			this.size = size;
 		}
 
 		public double next(int val) {
-
+			if (q.size() == size) {
+				sum -= q.poll();
+			}
+			q.offer(val);
+			sum += val;
+			return sum / (double) q.size();
 		}
 	}
 

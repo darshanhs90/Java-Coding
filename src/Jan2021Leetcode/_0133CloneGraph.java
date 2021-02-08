@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0133CloneGraph {
 	// Definition for a Node.
@@ -43,7 +45,49 @@ public class _0133CloneGraph {
 	}
 
 	public static Node cloneGraph(Node node) {
-	
+		if (node == null)
+			return node;
+
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		HashSet<Node> visited = new HashSet<Node>();
+		populateNodeMap(node, nodeMap, visited);
+
+		populateChildNodes(node, nodeMap);
+		return nodeMap.get(node);
 	}
 
+	public static void populateNodeMap(Node node, HashMap<Node, Node> nodeMap, HashSet<Node> visited) {
+		if (visited.contains(node))
+			return;
+
+		Node newNode = new Node(node.val);
+		nodeMap.put(node, newNode);
+		visited.add(node);
+		for (Node childNode : node.neighbors) {
+			populateNodeMap(childNode, nodeMap, visited);
+		}
+	}
+
+	public static void populateChildNodes(Node node, HashMap<Node, Node> nodeMap) {
+		Queue<Node> q = new LinkedList<Node>();
+		HashSet<Node> visited = new HashSet<Node>();
+		q.offer(node);
+		visited.add(node);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				Node n = q.poll();
+				Node newNode = nodeMap.get(n);
+				for (int j = 0; j < n.neighbors.size(); j++) {
+					Node oldNeighbor = n.neighbors.get(j);
+					Node newNeighbor = nodeMap.get(oldNeighbor);
+					newNode.neighbors.add(newNeighbor);
+					if (!visited.contains(oldNeighbor)) {
+						visited.add(oldNeighbor);
+						q.offer(oldNeighbor);
+					}
+				}
+			}
+		}
+	}
 }
