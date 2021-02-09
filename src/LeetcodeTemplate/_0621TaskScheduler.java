@@ -11,6 +11,6 @@ public class _0621TaskScheduler {
 	}
 
 	public static int leastInterval(char[] tasks, int n) {
-		
+
 	}
 }

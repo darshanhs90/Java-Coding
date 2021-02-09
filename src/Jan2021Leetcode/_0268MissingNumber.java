@@ -10,6 +10,14 @@ public class _0268MissingNumber {
 	}
 
 	public static int missingNumber(int[] nums) {
-	
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+		}
+
+		int reqdSum = nums.length * (nums.length + 1) / 2;
+		if (sum == reqdSum)
+			return 0;
+		return reqdSum - sum;
 	}
 }

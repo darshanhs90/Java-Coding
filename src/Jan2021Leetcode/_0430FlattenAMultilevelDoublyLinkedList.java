@@ -17,7 +17,34 @@ public class _0430FlattenAMultilevelDoublyLinkedList {
 	};
 
 	public Node flatten(Node head) {
-		
+		Queue<Node> q = new LinkedList<Node>();
+		dfs(head, q);
+
+		Node prev = null;
+		while (!q.isEmpty()) {
+			Node curr = q.poll();
+			curr.child = null;
+			if (prev != null) {
+				prev.next = curr;
+			}
+
+			curr.prev = prev;
+			prev = curr;
+		}
+
+		return head;
+	}
+
+	public void dfs(Node head, Queue<Node> q) {
+		if (head == null)
+			return;
+		q.offer(head);
+		if (head.child != null) {
+			dfs(head.child, q);
+		}
+		if (head.next != null) {
+			dfs(head.next, q);
+		}
 	}
 
 }

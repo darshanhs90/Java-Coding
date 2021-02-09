@@ -22,20 +22,33 @@ public class _1146SnapshotArray {
 	}
 
 	static class SnapshotArray {
-		
+
+		int[] arr;
+		int snap_id = 0;
+		HashMap<Integer, String> map;
 
 		public SnapshotArray(int length) {
-			
+			arr = new int[length];
+			map = new HashMap<Integer, String>();
 		}
 
 		public void set(int index, int val) {
+			arr[index] = val;
 		}
 
 		public int snap() {
+			map.put(snap_id, Arrays.toString(arr));
+			snap_id++;
+			return snap_id - 1;
 		}
 
 		public int get(int index, int snap_id) {
-			
+
+			String str = map.get(snap_id);
+			str = str.replace("[", "");
+			str = str.replace("]", "");
+			String[] split = str.split(",");
+			return Integer.parseInt(split[index].trim());
 		}
 	}
 
