@@ -1,10 +1,6 @@
 package Jan2021Leetcode;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class _0733FloodFill {
 	public static void main(String[] args) {
@@ -21,7 +17,21 @@ public class _0733FloodFill {
 	}
 
 	public static int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-		
+		if (image[sr][sc] == newColor)
+			return image;
+		dfs(sr, sc, image, image[sr][sc], newColor);
+		return image;
+	}
+
+	public static void dfs(int x, int y, int[][] image, int baseColor, int newColor) {
+		if (x < 0 || y < 0 || x > image.length - 1 || y > image[0].length - 1 || image[x][y] != baseColor)
+			return;
+
+		image[x][y] = newColor;
+		dfs(x - 1, y, image, baseColor, newColor);
+		dfs(x + 1, y, image, baseColor, newColor);
+		dfs(x, y - 1, image, baseColor, newColor);
+		dfs(x, y + 1, image, baseColor, newColor);
 	}
 
 }
