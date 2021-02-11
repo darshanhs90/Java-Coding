@@ -46,7 +46,49 @@ public class _0314BinaryTreeVerticalOrderTraversal {
 		System.out.println(verticalOrder(tn));
 	}
 
+	static class Node {
+		TreeNode tn;
+		int level;
+
+		public Node(TreeNode tn, int level) {
+			this.tn = tn;
+			this.level = level;
+		}
+	}
+
 	public static List<List<Integer>> verticalOrder(TreeNode root) {
-		
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		if (root == null)
+			return output;
+		TreeMap<Integer, List<Integer>> map = new TreeMap<Integer, List<Integer>>();
+		Queue<Node> q = new LinkedList<Node>();
+		q.offer(new Node(root, 0));
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				Node node = q.poll();
+				if (map.containsKey(node.level)) {
+					map.get(node.level).add(node.tn.val);
+				} else {
+					List<Integer> list = new ArrayList<Integer>();
+					list.add(node.tn.val);
+					map.put(node.level, list);
+				}
+
+				if (node.tn.left != null) {
+					q.offer(new Node(node.tn.left, node.level - 1));
+				}
+
+				if (node.tn.right != null) {
+					q.offer(new Node(node.tn.right, node.level + 1));
+				}
+			}
+		}
+
+		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+			output.add(entry.getValue());
+		}
+		return output;
 	}
 }
