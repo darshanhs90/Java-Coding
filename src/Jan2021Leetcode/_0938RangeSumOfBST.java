@@ -45,7 +45,22 @@ public class _0938RangeSumOfBST {
 
 	}
 
+	static int sum;
+
 	public static int rangeSumBST(TreeNode root, int low, int high) {
-		
+		sum = 0;
+		rangeSumBST(low, root, high);
+		return sum;
+	}
+
+	public static void rangeSumBST(int low, TreeNode root, int high) {
+		if (root == null)
+			return;
+
+		if (root.val >= low && root.val <= high) {
+			sum += root.val;
+		}
+		rangeSumBST(low, root.left, high);
+		rangeSumBST(low, root.right, high);
 	}
 }

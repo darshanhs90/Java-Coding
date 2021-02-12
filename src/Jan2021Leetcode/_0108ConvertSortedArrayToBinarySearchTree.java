@@ -33,7 +33,20 @@ public class _0108ConvertSortedArrayToBinarySearchTree {
 	}
 
 	public static TreeNode sortedArrayToBST(int[] nums) {
+		if (nums == null || nums.length == 0)
+			return null;
 
+		return bst(0, nums.length - 1, nums);
+	}
+
+	public static TreeNode bst(int left, int right, int[] nums) {
+		if (left < 0 || right > nums.length - 1 || left > right)
+			return null;
+		int mid = (left + right) / 2;
+		TreeNode tn = new TreeNode(nums[mid]);
+		tn.left = bst(left, mid - 1, nums);
+		tn.right = bst(mid + 1, right, nums);
+		return tn;
 	}
 
 }

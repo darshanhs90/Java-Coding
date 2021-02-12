@@ -33,7 +33,27 @@ public class _0112PathSum {
 		System.out.println(hasPathSum(tn, 22));
 	}
 
-	public static boolean hasPathSum(TreeNode root, int sum) {
+	static boolean hasSum;
 
+	public static boolean hasPathSum(TreeNode root, int sum) {
+		if (root == null)
+			return false;
+		hasSum = false;
+		hasSum(root, sum, 0);
+		return hasSum;
 	}
+
+	public static void hasSum(TreeNode root, int sum, int currSum) {
+		if (root == null || hasSum)
+			return;
+		if (root.left == null && root.right == null) {
+			if (currSum + root.val == sum) {
+				hasSum = true;
+			}
+			return;
+		}
+		hasSum(root.left, sum, currSum + root.val);
+		hasSum(root.right, sum, currSum + root.val);
+	}
+
 }
