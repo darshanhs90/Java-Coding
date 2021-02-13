@@ -1,7 +1,5 @@
 package Jan2021Leetcode;
 
-import java.util.Arrays;
-
 public class _0622CircularQueue {
 
 	public static void main(String[] args) {
@@ -18,28 +16,70 @@ public class _0622CircularQueue {
 	}
 
 	static class MyCircularQueue {
-		
+
+		Integer arr[];
+		int frontIndex, rearIndex;
+		int size;
 
 		public MyCircularQueue(int k) {
+			arr = new Integer[k];
+			if (k <= 0)
+				return;
+			frontIndex = 0;
+			rearIndex = 0;
+			size = 0;
 		}
 
 		public boolean enQueue(int value) {
+			if (isFull())
+				return false;
+			arr[rearIndex] = value;
+			rearIndex++;
+
+			if (rearIndex >= arr.length)
+				rearIndex = 0;
+
+			size++;
+			return true;
 		}
 
 		public boolean deQueue() {
+			if (isEmpty())
+				return false;
+			arr[frontIndex] = null;
+			frontIndex++;
+			if (frontIndex >= arr.length)
+				frontIndex = 0;
+			size--;
+			return true;
 		}
 
 		public int Front() {
+			if (isEmpty())
+				return -1;
+
+			return arr[frontIndex];
 		}
 
 		public int Rear() {
-			
+			if (isEmpty())
+				return -1;
+
+			int index = rearIndex;
+			index--;
+
+			if (index < 0)
+				index = arr.length - 1;
+			;
+			return arr[index];
 		}
 
 		public boolean isEmpty() {
+			return size == 0;
 		}
 
 		public boolean isFull() {
+			return size == arr.length;
 		}
 	}
 }

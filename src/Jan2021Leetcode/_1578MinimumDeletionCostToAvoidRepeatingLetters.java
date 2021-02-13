@@ -11,6 +11,21 @@ public class _1578MinimumDeletionCostToAvoidRepeatingLetters {
 	}
 
 	public static int minCost(String s, int[] cost) {
-		
+		int count = 0;
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			pq = new PriorityQueue<Integer>();
+			char c = s.charAt(i);
+			pq.offer(cost[i]);
+			while (i + 1 < s.length() && c == s.charAt(i + 1)) {
+				pq.offer(cost[i + 1]);
+				i++;
+			}
+
+			while (pq.size() > 1) {
+				count += pq.poll();
+			}
+		}
+		return count;
 	}
 }

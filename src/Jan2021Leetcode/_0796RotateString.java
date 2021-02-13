@@ -7,6 +7,9 @@ public class _0796RotateString {
 	}
 
 	public static boolean rotateString(String A, String B) {
+		if(A.length() != B.length())
+			return false;
+		return (A + A).indexOf(B) > -1;
 	}
 
 }

@@ -1,7 +1,6 @@
 package Jan2021Leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 public class _1381DesignAStackWithIncrementOperation {
 	public static void main(String[] args) {
@@ -21,18 +20,39 @@ public class _1381DesignAStackWithIncrementOperation {
 	}
 
 	static class CustomStack {
-		
+		Stack<Integer> stack;
+		int size;
+
 		public CustomStack(int maxSize) {
+			stack = new Stack<Integer>();
+			size = maxSize;
 		}
 
 		public void push(int x) {
+			if (stack.size() < size)
+				stack.push(x);
 		}
 
 		public int pop() {
+			if (stack.isEmpty())
+				return -1;
+			return stack.pop();
 		}
 
 		public void increment(int k, int val) {
-			
+
+			Stack<Integer> temp = new Stack<Integer>();
+			while (!stack.isEmpty()) {
+				temp.push(stack.pop());
+			}
+
+			while (!temp.isEmpty()) {
+				if (k > 0)
+					stack.push(temp.pop() + val);
+				else
+					stack.push(temp.pop());
+				k--;
+			}
 		}
 	}
 
