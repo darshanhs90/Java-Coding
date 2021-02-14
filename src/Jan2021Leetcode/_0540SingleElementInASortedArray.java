@@ -8,6 +8,10 @@ public class _0540SingleElementInASortedArray {
 	}
 
 	public static int singleNonDuplicate(int[] nums) {
-		
+		int val =nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			val = val ^ nums[i];
+		}
+		return val;
 	}
 }

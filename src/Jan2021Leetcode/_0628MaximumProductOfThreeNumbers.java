@@ -14,6 +14,14 @@ public class _0628MaximumProductOfThreeNumbers {
 	}
 
 	public static int maximumProduct(int[] nums) {
-		
+		if (nums.length < 3)
+			return 0;
+		Arrays.sort(nums);
+
+		int length = nums.length;
+		int val1 = nums[0] * nums[1] * nums[length - 1];
+		int val2 = nums[length - 1] * nums[length - 2] * nums[length - 3];
+
+		return Math.max(val1, val2);
 	}
 }

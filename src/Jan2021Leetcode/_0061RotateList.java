@@ -1,5 +1,7 @@
 package Jan2021Leetcode;
 
+import Dec2020Leetcode._0061RotateList.ListNode;
+
 public class _0061RotateList {
 	static public class ListNode {
 		int val;
@@ -51,7 +53,38 @@ public class _0061RotateList {
 	}
 
 	public static ListNode rotateRight(ListNode head, int k) {
+		if (head == null || head.next == null || k == 0)
+			return head;
+		int length = getLength(head);
+		k = length - (k % length);
 
+		if (k == length)
+			return head;
+
+		ListNode headPtr1 = head;
+		ListNode headPtr2 = head;
+		int count = 1;
+		while (count < k) {
+			headPtr1 = headPtr1.next;
+			count++;
+		}
+		ListNode nextNode = headPtr1.next;
+		ListNode nextNodePtr = nextNode;
+		headPtr1.next = null;
+
+		if (nextNode != null) {
+			while (nextNode != null && nextNode.next != null) {
+				nextNode = nextNode.next;
+			}
+			nextNode.next = headPtr2;
+		}
+		return nextNodePtr;
+	}
+
+	public static int getLength(ListNode head) {
+		if (head == null)
+			return 0;
+		return 1 + getLength(head.next);
 	}
 
 }
