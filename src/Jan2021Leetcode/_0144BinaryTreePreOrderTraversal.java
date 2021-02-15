@@ -38,7 +38,17 @@ public class _0144BinaryTreePreOrderTraversal {
 	}
 
 	public static List<Integer> preorderTraversal(TreeNode root) {
-		
+		List<Integer> output = new ArrayList<Integer>();
+		preOrder(root, output);
+		return output;
+	}
+
+	public static void preOrder(TreeNode root, List<Integer> output) {
+		if (root == null)
+			return;
+		output.add(root.val);
+		preOrder(root.left, output);
+		preOrder(root.right, output);
 	}
 
 }

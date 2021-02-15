@@ -32,7 +32,34 @@ public class _0142LinkedListCycleII {
 	}
 
 	public static ListNode detectCycle(ListNode head) {
+
+		ListNode cycleNode = getCycleNode(head);
 		
+		if (cycleNode == null)
+			return null;
+
+		ListNode slow = head;
+		while (slow != cycleNode) {
+			slow = slow.next;
+			cycleNode = cycleNode.next;
+		}
+
+		return slow;
+	}
+
+	public static ListNode getCycleNode(ListNode head) {
+		if (head == null || head.next == null)
+			return null;
+		ListNode slow = head;
+		ListNode fast = head;
+
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+			if (slow == fast)
+				return slow;
+		}
+		return null;
 	}
 
 }

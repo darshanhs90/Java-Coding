@@ -1,5 +1,6 @@
 package Jan2021Leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _0113PathSumII {
@@ -37,7 +38,29 @@ public class _0113PathSumII {
 	}
 
 	public static List<List<Integer>> pathSum(TreeNode root, int sum) {
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		if (root == null)
+			return output;
+		pathSum(root, sum, 0, new ArrayList<Integer>(), output);
+		return output;
+	}
 
+	public static void pathSum(TreeNode root, int sum, int currSum, List<Integer> list, List<List<Integer>> output) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			if (currSum + root.val == sum) {
+				list.add(root.val);
+				output.add(new ArrayList<Integer>(list));
+				list.remove(list.size() - 1);
+			}
+			return;
+		}
+
+		list.add(root.val);
+		pathSum(root.left, sum, currSum + root.val, list, output);
+		pathSum(root.right, sum, currSum + root.val, list, output);
+		list.remove(list.size() - 1);
 	}
 
 }
