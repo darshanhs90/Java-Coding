@@ -1,5 +1,8 @@
 package Jan2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class _0090SubsetsII {
@@ -10,6 +13,27 @@ public class _0090SubsetsII {
 	}
 
 	public static List<List<Integer>> subsetsWithDup(int[] nums) {
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		Arrays.sort(nums);
+		subsets(0, nums, new ArrayList<Integer>(), output, new HashSet<List<Integer>>());
+		return output;
+	}
 
+	public static void subsets(int index, int[] nums, List<Integer> list, List<List<Integer>> output,
+			HashSet<List<Integer>> visitedList) {
+
+		if (!visitedList.contains(list)) {
+			visitedList.add(list);
+			output.add(new ArrayList<Integer>(list));
+		}
+
+		if (index >= nums.length)
+			return;
+
+		for (int i = index; i < nums.length; i++) {
+			list.add(nums[i]);
+			subsets(i + 1, nums, list, output, visitedList);
+			list.remove(list.size() - 1);
+		}
 	}
 }
