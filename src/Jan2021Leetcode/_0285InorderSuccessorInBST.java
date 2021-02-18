@@ -1,7 +1,5 @@
 package Jan2021Leetcode;
 
-import java.util.HashMap;
-
 public class _0285InorderSuccessorInBST {
 	static public class TreeNode {
 		int val;
@@ -29,7 +27,28 @@ public class _0285InorderSuccessorInBST {
 		System.out.println(inorderSuccessor(tn, tn.left.left.left));
 	}
 
+	static boolean nodeFound;
+	static TreeNode out;
+
 	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+		nodeFound = false;
+		out = null;
+		inOrder(root, p);
+		return out;
+	}
+
+	public static void inOrder(TreeNode root, TreeNode p) {
+		if (root == null)
+			return;
+		inOrder(root.left, p);
+		if (nodeFound) {
+			out = root;
+			nodeFound = false;
+			return;
+		} else if (root == p) {
+			nodeFound = true;
+		}
+		inOrder(root.right, p);
 	}
 
 }
