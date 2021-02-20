@@ -38,17 +38,33 @@ public class _0382LinkedListRandomNode {
 	}
 
 	static class Solution {
-		
+
 		/**
 		 * @param head The linked list's head. Note that the head is guaranteed to be
 		 *             not null, so it contains at least one node.
 		 */
+		Random rand;
+		HashMap<Integer, ListNode> map;
+
 		public Solution(ListNode head) {
-		
+			map = new HashMap<Integer, ListNode>();
+			populateMap(head, map);
+			rand = new Random();
 		}
 
 		/** Returns a random node's value. */
 		public int getRandom() {
+			int val = rand.nextInt(map.size());
+			return map.get(val).val;
+		}
+
+		public void populateMap(ListNode ln, HashMap<Integer, ListNode> map) {
+			int count = 0;
+			while (ln != null) {
+				map.put(count, ln);
+				count++;
+				ln = ln.next;
+			}
 		}
 	}
 

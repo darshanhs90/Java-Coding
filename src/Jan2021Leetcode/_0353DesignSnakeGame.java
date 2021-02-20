@@ -65,7 +65,13 @@ public class _0353DesignSnakeGame {
 	}
 
 	static class SnakeGame {
-		
+		int score;
+		Deque<Pair> q;
+		int width, height;
+		int foodIndex;
+		int[][] food;
+		int currX, currY;
+
 		/**
 		 * Initialize your data structure here.
 		 * 
@@ -75,6 +81,15 @@ public class _0353DesignSnakeGame {
 		 *               first food is positioned at [1,1], the second is at [1,0].
 		 */
 		public SnakeGame(int width, int height, int[][] food) {
+			q = new LinkedList<Pair>();
+			q.offer(new Pair(0, 0));
+			score = 0;
+			this.height = height;
+			this.width = width;
+			foodIndex = 0;
+			this.food = food;
+			currX = 0;
+			currY = 0;
 		}
 
 		/**
@@ -85,9 +100,84 @@ public class _0353DesignSnakeGame {
 		 *         when snake crosses the screen boundary or bites its body.
 		 */
 		public int move(String direction) {
-		
+			if (direction.equals("U")) {
+				if (currX - 1 < 0) {
+					return -1;
+				} else if (containsObject(q, currX - 1, currY)) {
+					return -1;
+				} else {
+					if (foodIndex < food.length && food[foodIndex][0] == currX - 1 && food[foodIndex][1] == currY) {
+						score += 1;
+						foodIndex += 1;
+					} else {
+						q.poll();
+					}
+					q.offer(new Pair(currX - 1, currY));
+					currX -= 1;
+				}
+			} else if (direction.equals("D")) {
+				if (currX + 1 >= height) {
+					return -1;
+				} else if (containsObject(q, currX + 1, currY)) {
+					return -1;
+				} else {
+					if (foodIndex < food.length && food[foodIndex][0] == currX + 1 && food[foodIndex][1] == currY) {
+						score += 1;
+						foodIndex += 1;
+					} else {
+						q.poll();
+					}
+					q.offer(new Pair(currX + 1, currY));
+					currX += 1;
+				}
+
+			} else if (direction.equals("L")) {
+				if (currY - 1 < 0) {
+					return -1;
+				} else if (containsObject(q, currX, currY - 1)) {
+					return -1;
+				} else {
+					if (foodIndex < food.length && food[foodIndex][0] == currX && food[foodIndex][1] == currY - 1) {
+						score += 1;
+						foodIndex += 1;
+					} else {
+						q.poll();
+					}
+					q.offer(new Pair(currX, currY - 1));
+					currY -= 1;
+				}
+
+			} else { // R
+				if (currY + 1 >= width) {
+					return -1;
+				} else if (containsObject(q, currX, currY + 1)) {
+					return -1;
+				} else {
+					if (foodIndex < food.length && food[foodIndex][0] == currX && food[foodIndex][1] == currY + 1) {
+						score += 1;
+						foodIndex += 1;
+					} else {
+						q.poll();
+					}
+					q.offer(new Pair(currX, currY + 1));
+					currY += 1;
+				}
+			}
+			return score;
 		}
 
+		public static boolean containsObject(Queue<Pair> q, int x, int y) {
+			Iterator<Pair> iter = q.iterator();
+			while (iter.hasNext()) {
+				Pair p = iter.next();
+				if (p.x == x && p.y == y) {
+					if (q.peek() == p)
+						return false;
+					return true;
+				}
+			}
+			return false;
+		}
 	}
 
 }

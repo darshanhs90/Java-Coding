@@ -15,7 +15,18 @@ public class _0422ValidWordSquare {
 	}
 
 	public static boolean validWordSquare(List<String> words) {
-		
+		if (words == null || words.size() == 0)
+			return true;
+
+		for (int i = 0; i < words.size(); i++) {
+			String word = words.get(i);
+			for (int j = 0; j < word.length(); j++) {
+
+				if (j >= words.size() || words.get(j).length() <= i || words.get(i).charAt(j) != words.get(j).charAt(i))
+					return false;
+			}
+		}
+		return true;
 	}
 
 }
