@@ -34,8 +34,35 @@ public class _0501FindModeInBinarySearchTree {
 		System.out.println(Arrays.toString(findMode(tn)));
 	}
 
-	public static int[] findMode(TreeNode root) {
+	static int maxCount;
 
+	public static int[] findMode(TreeNode root) {
+		if (root == null)
+			return new int[] {};
+		maxCount = 0;
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		preOrder(root, map);
+		List<Integer> list = new ArrayList<Integer>();
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			if (entry.getValue() == maxCount)
+				list.add(entry.getKey());
+		}
+
+		int[] out = new int[list.size()];
+		for (int i = 0; i < out.length; i++) {
+			out[i] = list.get(i);
+		}
+		return out;
+	}
+
+	public static void preOrder(TreeNode root, HashMap<Integer, Integer> map) {
+		if (root == null)
+			return;
+		preOrder(root.left, map);
+
+		map.compute(root.val, (k, v) -> v == null ? 1 : v + 1);
+		maxCount = Math.max(maxCount, map.get(root.val));
+		preOrder(root.right, map);
 	}
 
 }

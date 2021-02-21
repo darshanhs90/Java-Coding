@@ -40,7 +40,19 @@ public class _0589NaryTreePreorderTraversal {
 	}
 
 	public static List<Integer> preorder(Node root) {
-		
+		List<Integer> list = new ArrayList<Integer>();
+		preOrder(root, list);
+		return list;
+	}
+
+	public static void preOrder(Node root, List<Integer> list) {
+		if (root != null) {
+			list.add(root.val);
+			if (root.children != null)
+				for (Node n : root.children) {
+					preOrder(n, list);
+				}
+		}
 	}
 
 }
