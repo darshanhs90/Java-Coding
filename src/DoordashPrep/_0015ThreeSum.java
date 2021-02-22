@@ -15,7 +15,36 @@ public class _0015ThreeSum {
 	}
 
 	public static List<List<Integer>> threeSum(int[] nums) {
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		if (nums == null || nums.length < 3)
+			return output;
+		Arrays.sort(nums);
+		HashSet<List<Integer>> set = new HashSet<List<Integer>>();
+		for (int i = 0; i < nums.length - 2; i++) {
+			int left = i + 1;
+			int right = nums.length - 1;
+			while (left < right) {
+				int sum = nums[i] + nums[left] + nums[right];
+				if (sum == 0) {
+					List<Integer> lst = new ArrayList<Integer>();
+					lst.add(nums[i]);
+					lst.add(nums[left]);
+					lst.add(nums[right]);
 
+					if (!set.contains(lst)) {
+						output.add(lst);
+						set.add(lst);
+					}
+					left++;
+					right--;
+				} else if (sum > 0) {
+					right--;
+				} else {
+					left++;
+				}
+			}
+		}
+		return output;
 	}
 
 }

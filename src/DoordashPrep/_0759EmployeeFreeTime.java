@@ -59,7 +59,50 @@ public class _0759EmployeeFreeTime {
 	};
 
 	public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
-		
+		List<Interval> allIntervals = new ArrayList<Interval>();
+		if (schedule == null || schedule.size() == 0)
+			return allIntervals;
+
+		for (List<Interval> intervals : schedule) {
+			allIntervals.addAll(intervals);
+		}
+
+		Collections.sort(allIntervals, new Comparator<Interval>() {
+
+			@Override
+			public int compare(Interval i1, Interval i2) {
+				return i1.start - i2.start;
+			}
+		});
+
+		List<Interval> mergedIntervals = new ArrayList<Interval>();
+		Interval interval = allIntervals.get(0);
+		int prevStart = interval.start;
+		int prevEnd = interval.end;
+
+		for (int i = 1; i < allIntervals.size(); i++) {
+			Interval currInterval = allIntervals.get(i);
+			int currStart = currInterval.start;
+			int currEnd = currInterval.end;
+
+			if (currStart >= prevStart && currStart <= prevEnd) {
+				prevEnd = Math.max(currEnd, prevEnd);
+			} else {
+				mergedIntervals.add(new Interval(prevStart, prevEnd));
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+		mergedIntervals.add(new Interval(prevStart, prevEnd));
+
+		List<Interval> freeTime = new ArrayList<Interval>();
+		prevEnd = mergedIntervals.get(0).end;
+		for (int i = 1; i < mergedIntervals.size(); i++) {
+			Interval currInterval = mergedIntervals.get(i);
+			freeTime.add(new Interval(prevEnd, currInterval.start));
+			prevEnd = currInterval.end;
+		}
+		return freeTime;
 	}
 
 }
