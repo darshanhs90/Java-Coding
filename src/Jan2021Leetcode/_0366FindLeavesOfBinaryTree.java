@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 public class _0366FindLeavesOfBinaryTree {
@@ -36,9 +35,9 @@ public class _0366FindLeavesOfBinaryTree {
 		tn.left.right = new TreeNode(5);
 		System.out.println(findLeaves(tn));
 	}
-
+	
 	public static List<List<Integer>> findLeaves(TreeNode root) {
-		
+
 	}
 
 }

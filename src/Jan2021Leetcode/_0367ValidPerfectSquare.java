@@ -8,7 +8,8 @@ public class _0367ValidPerfectSquare {
 	}
 
 	public static boolean isPerfectSquare(int num) {
-
+		double val = Math.sqrt(num);
+		return Math.ceil(val) == (int) val;
 	}
 
 }

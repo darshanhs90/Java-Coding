@@ -38,7 +38,21 @@ public class _0690EmployeeImportance {
 	}
 
 	public static int getImportance(List<Employee> employees, int id) {
-		
+		HashMap<Integer, Employee> map = new HashMap<Integer, Employee>();
+		for (Employee e : employees) {
+			map.put(e.id, e);
+		}
+		return getImportance(id, map);
+	}
+
+	public static int getImportance(int id, HashMap<Integer, Employee> map) {
+		int sum = map.get(id).importance;
+		List<Integer> subordinates = map.get(id).subordinates;
+
+		for (Integer sub : subordinates) {
+			sum += getImportance(sub, map);
+		}
+		return sum;
 	}
 
 }
