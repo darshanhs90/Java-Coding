@@ -44,7 +44,31 @@ public class _0023MergekSortedLists {
 	}
 
 	public static ListNode mergeKLists(ListNode[] lists) {
-		
+		if (lists == null || lists.length == 0)
+			return null;
+		PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(new Comparator<ListNode>() {
+
+			@Override
+			public int compare(ListNode o1, ListNode o2) {
+				return o1.val - o2.val;
+			}
+		});
+
+		ListNode output = new ListNode();
+		ListNode outputPtr = output;
+		for (ListNode ln : lists) {
+			if (ln != null)
+				pq.offer(ln);
+		}
+
+		while (!pq.isEmpty()) {
+			ListNode poll = pq.poll();
+			output.next = poll;
+			output = output.next;
+			if (poll.next != null)
+				pq.offer(poll.next);
+		}
+		return outputPtr.next;
 	}
 
 }

@@ -23,7 +23,42 @@ public class _0057InsertInterval {
 	}
 
 	public static int[][] insert(int[][] intervals, int[] newInterval) {
-		
+		List<int[]> output = new ArrayList<int[]>(Arrays.asList(intervals));
+		output.add(newInterval);
+
+		Collections.sort(output, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		List<int[]> newOut = new ArrayList<int[]>();
+		int prevStart = output.get(0)[0];
+		int prevEnd = output.get(0)[1];
+
+		for (int i = 1; i < output.size(); i++) {
+			int[] curr = output.get(i);
+			int currStart = curr[0];
+			int currEnd = curr[1];
+			if (currStart >= prevStart && currStart <= prevEnd) {
+				prevEnd = Math.max(prevEnd, currEnd);
+			} else {
+				newOut.add(new int[] { prevStart, prevEnd });
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+
+		newOut.add(new int[] { prevStart, prevEnd });
+
+		int[][] outArr = new int[newOut.size()][2];
+		for (int i = 0; i < outArr.length; i++) {
+			outArr[i] = newOut.get(i);
+		}
+		return outArr;
 	}
 
 }
