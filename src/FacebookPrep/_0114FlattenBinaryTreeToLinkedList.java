@@ -38,8 +38,30 @@ public class _0114FlattenBinaryTreeToLinkedList {
 		printNodes(tn);
 	}
 
+	public static void printNodes(TreeNode root) {
+		if (root == null)
+			return;
+		System.out.print(root.val + "->");
+		printNodes(root.right);
+	}
+
 	public static void flatten(TreeNode root) {
-		
+		if (root == null)
+			return;
+		flatten(root.left);
+		flatten(root.right);
+		TreeNode left = root.left;
+		TreeNode leftPtr = left;
+		TreeNode right = root.right;
+		if (root.left != null) {
+			while (left != null && left.right != null) {
+				left = left.right;
+			}
+
+			left.right = right;
+			root.right = leftPtr;
+			root.left = null;
+		}
 	}
 
 }

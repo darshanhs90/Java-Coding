@@ -1,5 +1,7 @@
 package FacebookPrep;
 
+import java.util.Stack;
+
 public class _0173BinarySearchTreeIterator {
 	static public class TreeNode {
 		int val;
@@ -40,18 +42,33 @@ public class _0173BinarySearchTreeIterator {
 	}
 
 	static class BSTIterator {
+		Stack<TreeNode> stack;
 
 		public BSTIterator(TreeNode root) {
+			if (root == null)
+				return;
+			stack = new Stack<TreeNode>();
+			addLeftNodes(root);
+		}
 
+		public void addLeftNodes(TreeNode root) {
+			while (root != null) {
+				stack.push(root);
+				root = root.left;
+			}
 		}
 
 		public int next() {
-
+			if (!stack.isEmpty()) {
+				TreeNode tn = stack.pop();
+				addLeftNodes(tn.right);
+				return tn.val;
+			}
+			return -1;
 		}
 
 		public boolean hasNext() {
-
+			return !stack.isEmpty();
 		}
 	}
-
 }

@@ -12,12 +12,27 @@ public class _0139WordBreak {
 		System.out.println(wordBreak("applepenapple", new ArrayList<String>(Arrays.asList("apple", "pen"))));
 		System.out.println(
 				wordBreak("catsandog", new ArrayList<String>(Arrays.asList("cats", "dog", "sand", "and", "cat"))));
-		System.out.println(
-				wordBreak("a", new ArrayList<String>(Arrays.asList("a"))));
+		System.out.println(wordBreak("a", new ArrayList<String>(Arrays.asList("a"))));
 	}
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
-		
+		if (s == null || s.length() == 0 || wordDict == null || wordDict.size() == 0)
+			return false;
+
+		HashSet<String> set = new HashSet<String>(wordDict);
+		boolean dp[] = new boolean[s.length() + 1];
+		dp[0] = true;
+
+		for (int i = 0; i < dp.length; i++) {
+			for (int j = 0; j < i; j++) {
+				String str = s.substring(j, i);
+				if (dp[j] && set.contains(str)) {
+					dp[i] = true;
+					break;
+				}
+			}
+		}
+		return dp[s.length()];
 	}
 
 }
