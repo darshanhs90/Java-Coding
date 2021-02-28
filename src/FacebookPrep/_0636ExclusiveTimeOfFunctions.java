@@ -25,7 +25,29 @@ public class _0636ExclusiveTimeOfFunctions {
 	}
 
 	public static int[] exclusiveTime(int n, List<String> logs) {
-		
+		int[] out = new int[n];
+		String strArr[] = logs.get(0).split(":");
+		int prevTime = Integer.parseInt(strArr[2]);
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(Integer.parseInt(strArr[0]));
+		for (int i = 1; i < logs.size(); i++) {
+			String str = logs.get(i);
+			String splitArr[] = str.split(":");
+			int currIndex = Integer.parseInt(splitArr[0]);
+			int currTime = Integer.parseInt(splitArr[2]);
+			String action = splitArr[1];
+			if (action.equals("start")) {
+				if (!stack.isEmpty()) {
+					out[stack.peek()] += currTime - prevTime;
+				}
+				stack.push(currIndex);
+				prevTime = currTime;
+			} else {
+				out[stack.pop()] += currTime - prevTime + 1;
+				prevTime = currTime + 1;
+			}
+		}
+		return out;
 	}
 
 }

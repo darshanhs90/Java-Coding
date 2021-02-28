@@ -38,5 +38,46 @@ public class _0449SerializeAndDeserializeBST {
 
 	public static class Codec {
 
+		// Encodes a tree to a single string.
+		public String serialize(TreeNode root) {
+			if (root == null)
+				return "";
+			List<String> list = new ArrayList<String>();
+			serializeHelper(root, list);
+			return String.join(",", list);
+		}
+
+		public void serializeHelper(TreeNode root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+			list.add(root.val + "");
+			serializeHelper(root.left, list);
+			serializeHelper(root.right, list);
+		}
+
+		// Decodes your encoded data to tree.
+		public TreeNode deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			Queue<String> q = new LinkedList<String>(Arrays.asList(data.split(",")));
+			return deserializeHelper(q);
+		}
+
+		public TreeNode deserializeHelper(Queue<String> q) {
+			if (q.isEmpty())
+				return null;
+
+			String val = q.poll();
+			if (val.equals("#"))
+				return null;
+
+			TreeNode tn = new TreeNode(Integer.parseInt(val));
+			tn.left = deserializeHelper(q);
+			tn.right = deserializeHelper(q);
+			return tn;
+		}
+
 	}
 }
