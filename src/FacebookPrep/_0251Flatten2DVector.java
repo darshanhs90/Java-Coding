@@ -21,7 +21,44 @@ public class _0251Flatten2DVector {
 	}
 
 	static class Vector2D {
-		
+		int outerIndex;
+		int innerIndex;
+		Integer nextVal;
+		int[][] arr;
+
+		public Vector2D(int[][] v) {
+			outerIndex = 0;
+			innerIndex = 0;
+			nextVal = null;
+			this.arr = v;
+			populateNextValue();
+		}
+
+		public void populateNextValue() {
+			if (outerIndex == arr.length) {
+				nextVal = null;
+				return;
+			}
+			if (innerIndex == arr[outerIndex].length) {
+				outerIndex++;
+				innerIndex = 0;
+				populateNextValue();
+				return;
+			}
+
+			nextVal = arr[outerIndex][innerIndex];
+			innerIndex++;
+		}
+
+		public int next() {
+			int currVal = nextVal;
+			populateNextValue();
+			return currVal;
+		}
+
+		public boolean hasNext() {
+			return nextVal != null;
+		}
 	}
 
 }

@@ -2,9 +2,7 @@ package FacebookPrep;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class _0239SlidingWindowMaximum {
 
@@ -19,6 +17,42 @@ public class _0239SlidingWindowMaximum {
 
 	public static int[] maxSlidingWindow(int[] nums, int k) {
 
+		int[] leftMax = new int[nums.length];
+		int[] rightMax = new int[nums.length];
+
+		for (int i = 0; i < nums.length;) {
+			int rightIndex = i + k - 1 < nums.length ? i + k - 1 : nums.length - 1;
+
+			leftMax[i] = nums[i];
+			i++;
+			while (i <= rightIndex) {
+				leftMax[i] = Math.max(leftMax[i - 1], nums[i]);
+				i++;
+			}
+		}
+
+		for (int i = 0; i < nums.length;) {
+			int leftIndex = i;
+			int rightIndex = i + k - 1 < nums.length ? i + k - 1 : nums.length - 1;
+
+			rightMax[rightIndex] = nums[rightIndex];
+			int index = rightIndex - 1;
+			while (index >= leftIndex) {
+				rightMax[index] = Math.max(rightMax[index + 1], nums[index]);
+				index--;
+			}
+			i += k;
+		}
+
+		List<Integer> list = new ArrayList<Integer>();
+		for (int i = 0; i < rightMax.length - k + 1; i++) {
+			list.add(Math.max(rightMax[i], leftMax[i + k - 1]));
+		}
+		int[] out = new int[list.size()];
+		for (int i = 0; i < out.length; i++) {
+			out[i] = list.get(i);
+		}
+		return out;
 	}
 
 }

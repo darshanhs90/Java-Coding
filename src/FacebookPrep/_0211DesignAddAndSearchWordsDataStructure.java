@@ -33,19 +33,84 @@ public class _0211DesignAddAndSearchWordsDataStructure {
 	}
 
 	static class WordDictionary {
-
+		Trie trie;
 
 		/** Initialize your data structure here. */
 		public WordDictionary() {
-
+			trie = new Trie();
 		}
 
 		public void addWord(String word) {
-
+			trie.insertNode(word);
 		}
 
 		public boolean search(String word) {
+			return trie.search(word);
+		}
+	}
 
+	static class Trie {
+		TrieNode root;
+
+		public Trie() {
+			this.root = new TrieNode(' ');
+		}
+
+		public void insertNode(String str) {
+			TrieNode tn = this.root;
+			for (int i = 0; i < str.length(); i++) {
+				char c = str.charAt(i);
+
+				if (tn.childrens[c - 'a'] == null) {
+					tn.childrens[c - 'a'] = new TrieNode(c);
+				}
+				tn = tn.childrens[c - 'a'];
+			}
+			tn.isWord = true;
+		}
+
+		public boolean search(String str) {
+			TrieNode tn = this.root;
+			Queue<TrieNode> q = new LinkedList<TrieNode>();
+			q.offer(tn);
+			for (int i = 0; i < str.length(); i++) {
+				char c = str.charAt(i);
+				int size = q.size();
+				if (size == 0)
+					return false;
+				for (int j = 0; j < size; j++) {
+					TrieNode tn1 = q.poll();
+					if (c == '.') {
+						if (tn1.childrens != null) {
+							for (int k = 0; k < tn1.childrens.length; k++) {
+								if (tn1.childrens[k] != null)
+									q.offer(tn1.childrens[k]);
+							}
+						}
+					} else {
+						if (tn1.childrens[c - 'a'] != null) {
+							q.offer(tn1.childrens[c - 'a']);
+						}
+					}
+				}
+			}
+			while (!q.isEmpty()) {
+				if (q.poll().isWord)
+					return true;
+			}
+			return false;
+		}
+
+	}
+
+	static class TrieNode {
+		char val;
+		boolean isWord;
+		TrieNode[] childrens;
+
+		public TrieNode(char val) {
+			this.val = val;
+			this.childrens = new TrieNode[26];
 		}
 	}
 

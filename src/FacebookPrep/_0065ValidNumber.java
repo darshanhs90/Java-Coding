@@ -31,6 +31,31 @@ public class _0065ValidNumber {
 	}
 
 	public static boolean isNumber(String s) {
-		
+		boolean numberBefore = false;
+		boolean numberAfter = false;
+		boolean dotFound = false;
+		boolean eFound = false;
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (Character.isDigit(c)) {
+				numberBefore = true;
+				numberAfter = true;
+			} else if (c == '+' || c == '-') {
+				if (i != 0 && s.charAt(i - 1) != 'e')
+					return false;
+			} else if (c == 'e' || c == 'E') {
+				if (eFound || !numberBefore)
+					return false;
+				eFound = true;
+				numberAfter = false;
+			} else if (c == '.') {
+				if (dotFound || eFound)
+					return false;
+				dotFound = true;
+			} else {
+				return false;
+			}
+		}
+		return numberAfter && numberBefore;
 	}
 }

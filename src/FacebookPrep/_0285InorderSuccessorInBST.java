@@ -27,8 +27,26 @@ public class _0285InorderSuccessorInBST {
 		System.out.println(inorderSuccessor(tn, tn.left.left.left));
 	}
 
+	static TreeNode nextNode;
+	static boolean nodeFound;
+
 	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-		
+		nodeFound = false;
+		nextNode = null;
+		inOrder(root, p);
+		return nextNode;
+	}
+
+	public static void inOrder(TreeNode root, TreeNode p) {
+		if (root == null || nextNode != null)
+			return;
+		inOrder(root.left, p);
+		if (nodeFound && nextNode == null) {
+			nextNode = root;
+		} else if (root == p) {
+			nodeFound = true;
+		}
+		inOrder(root.right, p);
 	}
 
 }
