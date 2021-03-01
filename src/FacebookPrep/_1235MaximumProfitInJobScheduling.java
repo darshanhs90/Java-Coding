@@ -1,8 +1,5 @@
 package FacebookPrep;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class _1235MaximumProfitInJobScheduling {
 	public static void main(String[] args) {
 		System.out.println(
@@ -13,7 +10,6 @@ public class _1235MaximumProfitInJobScheduling {
 	}
 
 	public static int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
-		
-	}
 
+	}
 }
