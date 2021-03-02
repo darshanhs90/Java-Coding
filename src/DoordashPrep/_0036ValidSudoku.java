@@ -1,7 +1,5 @@
 package DoordashPrep;
 
-import java.util.HashSet;
-
 public class _0036ValidSudoku {
 
 	public static void main(String[] args) {
@@ -27,62 +25,7 @@ public class _0036ValidSudoku {
 	}
 
 	public static boolean isValidSudoku(char[][] board) {
-		for (int i = 0; i < 9; i++) {
-			if (!checkRow(i, board))
-				return false;
 
-			if (!checkCol(i, board))
-				return false;
-		}
-
-		for (int i = 0; i < 9; i += 3) {
-			for (int j = 0; j < 9; j += 3) {
-				if (!checkBox(i, j, board))
-					return false;
-			}
-		}
-		return true;
-	}
-
-	public static boolean checkBox(int row, int col, char[][] board) {
-		HashSet<Character> set = new HashSet<Character>();
-		for (int i = row; i < row + 3; i++) {
-			for (int j = col; j < col + 3; j++) {
-				char c = board[i][j];
-				if (c != '.') {
-					if (set.contains(c))
-						return false;
-					set.add(c);
-				}
-			}
-		}
-		return true;
-	}
-
-	public static boolean checkCol(int col, char[][] board) {
-		HashSet<Character> set = new HashSet<Character>();
-		for (int i = 0; i < 9; i++) {
-			char c = board[i][col];
-			if (c != '.') {
-				if (set.contains(c))
-					return false;
-				set.add(c);
-			}
-		}
-		return true;
-	}
-
-	public static boolean checkRow(int row, char[][] board) {
-		HashSet<Character> set = new HashSet<Character>();
-		for (int i = 0; i < 9; i++) {
-			char c = board[row][i];
-			if (c != '.') {
-				if (set.contains(c))
-					return false;
-				set.add(c);
-			}
-		}
-		return true;
 	}
 
 }
