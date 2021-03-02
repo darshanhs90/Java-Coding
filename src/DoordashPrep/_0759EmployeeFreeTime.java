@@ -1,6 +1,8 @@
 package DoordashPrep;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class _0759EmployeeFreeTime {
@@ -57,7 +59,48 @@ public class _0759EmployeeFreeTime {
 	};
 
 	public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
+		List<Interval> allIntervals = new ArrayList<Interval>();
+		if (schedule == null || schedule.size() == 0)
+			return allIntervals;
 
+		for (List<Interval> intervals : schedule) {
+			allIntervals.addAll(intervals);
+		}
+
+		Collections.sort(allIntervals, new Comparator<Interval>() {
+			@Override
+			public int compare(Interval i1, Interval i2) {
+				return i1.start - i2.start;
+			}
+		});
+
+		List<Interval> mergedIntervals = new ArrayList<Interval>();
+		int prevStart = allIntervals.get(0).start;
+		int prevEnd = allIntervals.get(0).end;
+
+		for (int i = 1; i < allIntervals.size(); i++) {
+			Interval currInterval = allIntervals.get(i);
+			int currStart = currInterval.start;
+			int currEnd = currInterval.end;
+
+			if (currStart >= prevStart && currStart <= prevEnd) {
+
+				prevEnd = Math.max(currEnd, prevEnd);
+			} else {
+				mergedIntervals.add(new Interval(prevStart, prevEnd));
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+		mergedIntervals.add(new Interval(prevStart, prevEnd));
+
+		List<Interval> freeTime = new ArrayList<Interval>();
+		for (int i = 0; i < mergedIntervals.size() - 1; i++) {
+			Interval currInterval = mergedIntervals.get(i);
+			Interval nextInterval = mergedIntervals.get(i + 1);
+			freeTime.add(new Interval(currInterval.end, nextInterval.start));
+		}
+		return freeTime;
 	}
 
 }

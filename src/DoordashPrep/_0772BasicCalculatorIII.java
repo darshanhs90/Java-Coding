@@ -1,5 +1,9 @@
 package DoordashPrep;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class _0772BasicCalculatorIII {
 
 	public static void main(String[] args) {
@@ -11,6 +15,52 @@ public class _0772BasicCalculatorIII {
 	}
 
 	public static int calculate(String s) {
+		if (s == null || s.length() == 0)
+			return 0;
+		Queue<Character> q = new LinkedList<Character>();
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) != ' ')
+				q.offer(s.charAt(i));
+		}
+		q.offer('+');
+		return calculate(q);
+	}
 
+	public static int calculate(Queue<Character> q) {
+		char prevSign = '+';
+		int prevNum = 0;
+		Stack<Integer> stack = new Stack<Integer>();
+		while (!q.isEmpty()) {
+			char c = q.poll();
+			if (Character.isDigit(c)) {
+				String str = c + "";
+				while (!q.isEmpty() && Character.isDigit(q.peek())) {
+					str += q.poll();
+				}
+				prevNum = Integer.parseInt(str);
+			} else if (c == '(') {
+				prevNum = calculate(q);
+			} else {
+				if (prevSign == '+') {
+					stack.push(+1 * prevNum);
+				} else if (prevSign == '-') {
+					stack.push(-1 * prevNum);
+				} else if (prevSign == '*') {
+					stack.push(stack.pop() * prevNum);
+				} else if (prevSign == '/') {
+					stack.push(stack.pop() / prevNum);
+				}
+
+				prevSign = c;
+				prevNum = 0;
+				if (c == ')')
+					break;
+			}
+		}
+		int val = 0;
+		while (!stack.isEmpty()) {
+			val += stack.pop();
+		}
+		return val;
 	}
 }

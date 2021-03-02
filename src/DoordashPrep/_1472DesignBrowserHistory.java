@@ -1,5 +1,7 @@
 package DoordashPrep;
 
+import java.util.Stack;
+
 public class _1472DesignBrowserHistory {
 	public static void main(String[] args) {
 		BrowserHistory browserHistory = new BrowserHistory("leetcode.com");
@@ -23,6 +25,37 @@ public class _1472DesignBrowserHistory {
 	}
 
 	static class BrowserHistory {
+		Stack<String> forwardStack, backwardStack;
+		String currUrl;
 
+		public BrowserHistory(String homepage) {
+			this.forwardStack = new Stack<String>();
+			this.backwardStack = new Stack<String>();
+			this.currUrl = homepage;
+		}
+
+		public void visit(String url) {
+			this.backwardStack.push(this.currUrl);
+			this.currUrl = url;
+			this.forwardStack.clear();
+		}
+
+		public String back(int steps) {
+			while (!backwardStack.isEmpty() && steps > 0) {
+				this.forwardStack.push(this.currUrl);
+				this.currUrl = backwardStack.pop();
+				steps--;
+			}
+			return this.currUrl;
+		}
+
+		public String forward(int steps) {
+			while (!forwardStack.isEmpty() && steps > 0) {
+				this.backwardStack.push(this.currUrl);
+				this.currUrl = forwardStack.pop();
+				steps--;
+			}
+			return this.currUrl;
+		}
 	}
 }

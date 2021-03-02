@@ -1,5 +1,8 @@
 package DoordashPrep;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _0986IntervalListIntersections {
 	public static void main(String[] args) {
 		System.out.println(intervalIntersection(
@@ -22,6 +25,31 @@ public class _0986IntervalListIntersections {
 	}
 
 	public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
+		List<int[]> output = new ArrayList<int[]>();
+		int firstIndex = 0, secondIndex = 0;
+		while (firstIndex < firstList.length && secondIndex < secondList.length) {
+			int x1 = firstList[firstIndex][0];
+			int y1 = firstList[firstIndex][1];
+			int x2 = secondList[secondIndex][0];
+			int y2 = secondList[secondIndex][1];
 
+			int low = Math.max(x1, x2);
+			int high = Math.min(y1, y2);
+			if (low <= high) {
+				output.add(new int[] { low, high });
+			}
+
+			if (y1 < y2) {
+				firstIndex++;
+			} else {
+				secondIndex++;
+			}
+		}
+
+		int[][] out = new int[output.size()][2];
+		for (int i = 0; i < out.length; i++) {
+			out[i] = output.get(i);
+		}
+		return out;
 	}
 }

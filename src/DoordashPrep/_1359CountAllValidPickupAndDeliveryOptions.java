@@ -8,7 +8,12 @@ public class _1359CountAllValidPickupAndDeliveryOptions {
 	}
 
 	public static int countOrders(int n) {
-
+		long val = 1;
+		long mod = (long) 1e9 + 7;
+		for (int i = 1; i <= n; i++) {
+			val = val * i * (2 * i - 1) % mod;
+		}
+		return (int) val;
 	}
 
 }
