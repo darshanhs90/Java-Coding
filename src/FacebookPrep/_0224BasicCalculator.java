@@ -11,8 +11,11 @@ public class _0224BasicCalculator {
 	}
 
 	public static int calculate(String s) {
+		if (s == null || s.length() == 0)
+			return 0;
 		Stack<Integer> stack = new Stack<Integer>();
-		int res = 0, sign = +1;
+		int res = 0;
+		int sign = +1;
 		for (int i = 0; i < s.length(); i++) {
 			char c = s.charAt(i);
 			if (Character.isDigit(c)) {
@@ -29,12 +32,10 @@ public class _0224BasicCalculator {
 			} else if (c == '(') {
 				stack.push(res);
 				stack.push(sign);
-				res = 0;
 				sign = +1;
+				res = 0;
 			} else if (c == ')') {
-				int prevSign = stack.pop();
-				int prevRes = stack.pop();
-				res = prevRes + prevSign * res;
+				res = res * stack.pop() + stack.pop();
 			}
 		}
 		return res;
