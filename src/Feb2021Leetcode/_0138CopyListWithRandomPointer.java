@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class _0138CopyListWithRandomPointer {
 	static public class Node {
 		int val;
@@ -44,7 +47,34 @@ public class _0138CopyListWithRandomPointer {
 	}
 
 	public static Node copyRandomList(Node head) {
-		
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		Node output = new Node(10);
+		Node outputPtr = output;
+		populateMap(head, output, nodeMap);
+		populateRandomPointers(nodeMap);
+		return outputPtr.next;
+	}
+
+	public static void populateMap(Node head, Node output, HashMap<Node, Node> nodeMap) {
+		nodeMap.put(null, null);
+		while (head != null) {
+			Node newNode = new Node(head.val);
+			output.next = newNode;
+			output = output.next;
+			nodeMap.put(head, newNode);
+			head = head.next;
+		}
+	}
+
+	public static void populateRandomPointers(HashMap<Node, Node> nodeMap) {
+		for (Map.Entry<Node, Node> entry : nodeMap.entrySet()) {
+			Node mainNode = entry.getKey();
+			Node copyNode = entry.getValue();
+			if (mainNode == null)
+				continue;
+			Node randomNode = nodeMap.get(mainNode.random);
+			copyNode.random = randomNode;
+		}
 	}
 
 }

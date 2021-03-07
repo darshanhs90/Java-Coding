@@ -1,5 +1,11 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class _0057InsertInterval {
 	public static void main(String[] args) {
 		System.out.println(insert(new int[][] { new int[] { 1, 3 }, new int[] { 6, 9 }, }, new int[] { 2, 5 }));
@@ -17,7 +23,45 @@ public class _0057InsertInterval {
 	}
 
 	public static int[][] insert(int[][] intervals, int[] newInterval) {
+		List<int[]> allIntervals = new ArrayList<int[]>(Arrays.asList(intervals));
+		allIntervals.add(newInterval);
+		return merge(allIntervals);
+	}
 
+	public static int[][] merge(List<int[]> intervals) {
+		List<int[]> mergedIntervals = new ArrayList<int[]>();
+		Collections.sort(intervals, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		int prevStart = intervals.get(0)[0];
+		int prevEnd = intervals.get(0)[1];
+
+		for (int i = 1; i < intervals.size(); i++) {
+
+			int currStart = intervals.get(i)[0];
+			int currEnd = intervals.get(i)[1];
+			if (currStart >= prevStart && currStart <= prevEnd) {
+				prevEnd = Math.max(prevEnd, currEnd);
+			} else {
+				mergedIntervals.add(new int[] { prevStart, prevEnd });
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+		mergedIntervals.add(new int[] { prevStart, prevEnd });
+
+		int[][] out = new int[mergedIntervals.size()][2];
+
+		for (int i = 0; i < out.length; i++) {
+			out[i] = mergedIntervals.get(i);
+		}
+		return out;
 	}
 
 }
