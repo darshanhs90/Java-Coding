@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class _0252MeetingRooms {
 
 	public static void main(String[] args) {
@@ -10,7 +13,26 @@ public class _0252MeetingRooms {
 	}
 
 	public static boolean canAttendMeetings(int[][] intervals) {
-		
+		if (intervals == null || intervals.length == 0)
+			return true;
+		Arrays.sort(intervals, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+		int currMax = intervals[0][1];
+		for (int i = 1; i < intervals.length; i++) {
+			int currStart = intervals[i][0];
+			int currEnd = intervals[i][1];
+
+			if (currStart < currMax)
+				return false;
+			currMax = currEnd;
+		}
+		return true;
 	}
 
 }

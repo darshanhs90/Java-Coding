@@ -11,7 +11,24 @@ public class _0277FindCelebrity {
 	}
 
 	public static int findCelebrity(int n) {
-		
+		for (int i = 0; i <= n; i++) {
+			if (isCelebrity(i, n))
+				return i;
+		}
+		return -1;
+	}
+
+	public static boolean isCelebrity(int person, int n) {
+		for (int i = 0; i <= n; i++) {
+			if (i != person) {
+				if (!knows(person, i) && knows(i, person)) {
+					continue;
+				} else {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 }

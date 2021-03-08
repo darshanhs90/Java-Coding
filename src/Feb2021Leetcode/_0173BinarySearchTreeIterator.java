@@ -1,5 +1,7 @@
 package Feb2021Leetcode;
 
+import java.util.Stack;
+
 public class _0173BinarySearchTreeIterator {
 	static public class TreeNode {
 		int val;
@@ -40,6 +42,28 @@ public class _0173BinarySearchTreeIterator {
 	}
 
 	static class BSTIterator {
-		
+		Stack<TreeNode> stack;
+
+		public BSTIterator(TreeNode root) {
+			stack = new Stack<TreeNode>();
+			populateStack(root);
+		}
+
+		private void populateStack(TreeNode root) {
+			while (root != null) {
+				stack.push(root);
+				root = root.left;
+			}
+		}
+
+		public int next() {
+			TreeNode tn = stack.pop();
+			populateStack(tn.right);
+			return tn.val;
+		}
+
+		public boolean hasNext() {
+			return !stack.isEmpty();
+		}
 	}
 }

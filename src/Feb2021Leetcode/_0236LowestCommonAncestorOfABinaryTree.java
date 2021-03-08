@@ -1,5 +1,10 @@
 package Feb2021Leetcode;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0236LowestCommonAncestorOfABinaryTree {
 
 	static public class TreeNode {
@@ -29,7 +34,45 @@ public class _0236LowestCommonAncestorOfABinaryTree {
 	}
 
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		
+		if (root == null || p == null || q == null)
+			return null;
+		if (p == q)
+			return p;
+
+		HashMap<TreeNode, TreeNode> parentMap = new HashMap<TreeNode, TreeNode>();
+		parentMap.put(root, null);
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.offer(root);
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = queue.poll();
+
+				if (tn.left != null) {
+					parentMap.put(tn.left, tn);
+					queue.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					parentMap.put(tn.right, tn);
+					queue.offer(tn.right);
+				}
+			}
+		}
+
+		HashSet<TreeNode> nodes = new HashSet<TreeNode>();
+		while (p != null) {
+			nodes.add(p);
+			p = parentMap.get(p);
+		}
+
+		while (q != null) {
+			if (nodes.contains(q))
+				return q;
+			q = parentMap.get(q);
+		}
+		return null;
 	}
 
 }

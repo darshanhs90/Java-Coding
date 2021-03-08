@@ -1,5 +1,10 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+
 public class _0139WordBreak {
 
 	public static void main(String[] args) {
@@ -11,7 +16,20 @@ public class _0139WordBreak {
 	}
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
-		
+		HashSet<String> set = new HashSet<String>(wordDict);
+		boolean[] dp = new boolean[s.length() + 1];
+		dp[0] = true;
+
+		for (int i = 1; i < dp.length; i++) {
+			for (int j = 0; j < i; j++) {
+				String subString = s.substring(j, i);
+				if (dp[j] && set.contains(subString)) {
+					dp[i] = true;
+					break;
+				}
+			}
+		}
+		return dp[s.length()];
 	}
 
 }

@@ -1,5 +1,11 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
 public class _0297SerializeAndDeserializeBinaryTree {
 	static public class TreeNode {
 		int val;
@@ -38,6 +44,48 @@ public class _0297SerializeAndDeserializeBinaryTree {
 
 	public static class Codec {
 
+		// Encodes a tree to a single string.
+		public String serialize(TreeNode root) {
+			List<String> list = new ArrayList<String>();
+			if (root == null)
+				return "";
+			serializeHelper(root, list);
+			return String.join(",", list);
+		}
+
+		public void serializeHelper(TreeNode root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+			list.add(root.val + "");
+			serializeHelper(root.left, list);
+			serializeHelper(root.right, list);
+		}
+
+		// Decodes your encoded data to tree.
+		public TreeNode deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+
+			Queue<String> q = new LinkedList<String>(Arrays.asList(data.split(",")));
+			return deserializeHelper(q);
+		}
+
+		// Decodes your encoded data to tree.
+		public TreeNode deserializeHelper(Queue<String> q) {
+			if (q.isEmpty())
+				return null;
+			if (q.peek().equals("#")) {
+				q.poll();
+				return null;
+			}
+
+			TreeNode tn = new TreeNode(Integer.parseInt(q.poll()));
+			tn.left = deserializeHelper(q);
+			tn.right = deserializeHelper(q);
+			return tn;
+		}
 	}
 
 }
