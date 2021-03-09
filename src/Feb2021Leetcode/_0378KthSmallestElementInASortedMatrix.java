@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 public class _0378KthSmallestElementInASortedMatrix {
 
 	public static void main(String[] args) {
@@ -8,7 +11,15 @@ public class _0378KthSmallestElementInASortedMatrix {
 	}
 
 	public static int kthSmallest(int[][] matrix, int k) {
-
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>(Collections.reverseOrder());
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[0].length; j++) {
+				pq.offer(matrix[i][j]);
+				if (pq.size() > k)
+					pq.poll();
+			}
+		}
+		return pq.peek();
 	}
 
 }

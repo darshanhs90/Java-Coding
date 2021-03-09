@@ -1,5 +1,10 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
+
 public class _0380InsertDeleteGetRandomO_1 {
 
 	public static void main(String[] args) {
@@ -15,7 +20,51 @@ public class _0380InsertDeleteGetRandomO_1 {
 	}
 
 	static class RandomizedSet {
+		List<Integer> list;
+		HashMap<Integer, Integer> map;
+		Random rand;
 
+		/** Initialize your data structure here. */
+		public RandomizedSet() {
+			list = new ArrayList<Integer>();
+			map = new HashMap<Integer, Integer>();
+			rand = new Random();
+		}
+
+		/**
+		 * Inserts a value to the set. Returns true if the set did not already contain
+		 * the specified element.
+		 */
+		public boolean insert(int val) {
+			if (map.containsKey(val))
+				return false;
+			map.put(val, list.size());
+			list.add(val);
+			return true;
+		}
+
+		/**
+		 * Removes a value from the set. Returns true if the set contained the specified
+		 * element.
+		 */
+		public boolean remove(int val) {
+			if (!map.containsKey(val))
+				return false;
+			System.out.println(map);
+
+			int index = map.get(val);
+			int lastElement = list.get(list.size() - 1);
+			list.set(index, lastElement);
+			map.put(lastElement, index);
+			map.remove(val);
+			list.remove(list.size() - 1);
+			return true;
+		}
+
+		/** Get a random element from the set. */
+		public int getRandom() {
+			return list.get(rand.nextInt(list.size()));
+		}
 	}
 
 }
