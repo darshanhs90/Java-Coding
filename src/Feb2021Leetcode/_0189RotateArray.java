@@ -10,6 +10,7 @@ public class _0189RotateArray {
 	}
 
 	public static void rotate(int[] nums, int k) {
+		s
 	}
 
 }

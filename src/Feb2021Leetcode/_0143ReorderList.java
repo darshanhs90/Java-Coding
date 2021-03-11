@@ -47,7 +47,7 @@ public class _0143ReorderList {
 	}
 
 	public static void reorderList(ListNode head) {
-		
+		s
 	}
 
 	public static void printNodes(ListNode head) {
