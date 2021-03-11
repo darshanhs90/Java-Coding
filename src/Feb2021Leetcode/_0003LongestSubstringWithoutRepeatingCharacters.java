@@ -1,7 +1,5 @@
 package Feb2021Leetcode;
 
-import java.util.HashMap;
-
 public class _0003LongestSubstringWithoutRepeatingCharacters {
 
 	public static void main(String[] args) {
@@ -16,17 +14,6 @@ public class _0003LongestSubstringWithoutRepeatingCharacters {
 	}
 
 	public static int lengthOfLongestSubstring(String s) {
-		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-		int left = 0;
-		int maxLength = 0;
-		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
-			if (map.containsKey(c)) {
-				left = Math.max(left, map.get(c) + 1);
-			}
-			map.put(c, i);
-			maxLength = Math.max(maxLength, i - left + 1);
-		}
-		return maxLength;
+
 	}
 }

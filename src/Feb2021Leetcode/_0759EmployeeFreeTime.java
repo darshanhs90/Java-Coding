@@ -3,6 +3,8 @@ package Feb2021Leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+import Jan2021Leetcode._0759EmployeeFreeTime.Interval;
+
 public class _0759EmployeeFreeTime {
 
 	public static void main(String[] args) {
@@ -59,5 +61,4 @@ public class _0759EmployeeFreeTime {
 	public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
 
 	}
-
 }

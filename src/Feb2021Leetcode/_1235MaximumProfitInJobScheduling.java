@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class _1235MaximumProfitInJobScheduling {
 	public static void main(String[] args) {
 		System.out.println(
@@ -9,17 +12,8 @@ public class _1235MaximumProfitInJobScheduling {
 		System.out.println(jobScheduling(new int[] { 1, 1, 1 }, new int[] { 2, 3, 4 }, new int[] { 5, 6, 4 }));
 	}
 
-	static class Interval {
-		int startTime, endTime, profit;
-
-		public Interval(int startTime, int endTime, int profit) {
-			this.startTime = startTime;
-			this.endTime = endTime;
-			this.profit = profit;
-		}
-	}
-
 	public static int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
-
+		
 	}
+
 }

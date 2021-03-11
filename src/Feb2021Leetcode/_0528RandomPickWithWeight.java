@@ -1,5 +1,9 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class _0528RandomPickWithWeight {
 	public static void main(String[] args) {
 		Solution solution = new Solution(new int[] { 1 });
@@ -15,7 +19,12 @@ public class _0528RandomPickWithWeight {
 	}
 
 	static class Solution {
+		public Solution(int[] w) {
+		}
 
+		public int pickIndex() {
+
+		}
 	}
 
 }

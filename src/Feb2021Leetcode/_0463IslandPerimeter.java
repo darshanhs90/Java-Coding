@@ -10,49 +10,8 @@ public class _0463IslandPerimeter {
 		System.out.println(islandPerimeter(new int[][] { new int[] { 1, 0 } }));
 	}
 
-	static int count;
-
 	public static int islandPerimeter(int[][] grid) {
-		if (grid == null || grid.length == 0)
-			return 0;
-		count = 0;
-		boolean[][] visited = new boolean[grid.length][grid[0].length];
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid[0].length; j++) {
-				if (grid[i][j] == 1) {
-					dfs(i, j, grid, visited);
-					return count;
-				}
-			}
-		}
-		return 0;
+		
 	}
 
-	public static void dfs(int x, int y, int[][] grid, boolean[][] visited) {
-		if (visited[x][y])
-			return;
-		int currCount = 4;
-		visited[x][y] = true;
-		if (x - 1 >= 0 && grid[x - 1][y] == 1) {
-			currCount--;
-			dfs(x - 1, y, grid, visited);
-		}
-
-		if (y - 1 >= 0 && grid[x][y - 1] == 1) {
-			currCount--;
-			dfs(x, y - 1, grid, visited);
-		}
-
-		if (x + 1 < grid.length && grid[x + 1][y] == 1) {
-			currCount--;
-			dfs(x + 1, y, grid, visited);
-		}
-
-		if (y + 1 < grid[0].length && grid[x][y + 1] == 1) {
-			currCount--;
-			dfs(x, y + 1, grid, visited);
-		}
-
-		count += currCount;
-	}
 }

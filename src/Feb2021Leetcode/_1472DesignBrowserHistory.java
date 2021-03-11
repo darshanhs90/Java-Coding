@@ -1,5 +1,7 @@
 package Feb2021Leetcode;
 
+import java.util.Stack;
+
 public class _1472DesignBrowserHistory {
 	public static void main(String[] args) {
 		BrowserHistory browserHistory = new BrowserHistory("leetcode.com");
@@ -23,6 +25,6 @@ public class _1472DesignBrowserHistory {
 	}
 
 	static class BrowserHistory {
-
+		
 	}
 }

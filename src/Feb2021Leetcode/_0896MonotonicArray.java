@@ -9,28 +9,8 @@ public class _0896MonotonicArray {
 		System.out.println(isMonotonic(new int[] { 1, 1, 1 }));
 	}
 
-	static enum Order {
-		Increasing, Decreasing, NotDefined
-	}
-
 	public static boolean isMonotonic(int[] A) {
-		Order currOrder = Order.NotDefined;
-		for (int i = 1; i < A.length; i++) {
-			if (A[i] > A[i - 1]) {
-				if (currOrder != Order.Decreasing) {
-					currOrder = Order.Increasing;
-				} else {
-					return false;
-				}
-			} else if (A[i] < A[i - 1]) {
-				if (currOrder != Order.Increasing) {
-					currOrder = Order.Decreasing;
-				} else {
-					return false;
-				}
-			}
-		}
-		return true;
+		
 	}
 
 }

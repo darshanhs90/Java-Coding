@@ -1,10 +1,12 @@
 package Feb2021Leetcode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class _0305NumberOfIslandsII {
 
@@ -20,77 +22,8 @@ public class _0305NumberOfIslandsII {
 
 	}
 
-	static class Pair {
-		int x, y;
-
-		public Pair(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-	}
-
 	public static List<Integer> numIslands2(int m, int n, int[][] positions) {
-		int islandNum = 0;
-		HashMap<Integer, HashSet<Pair>> islandToPointMap = new HashMap<Integer, HashSet<Pair>>();
-		HashMap<String, Integer> pointToIslandMap = new HashMap<String, Integer>();
-		List<Integer> output = new ArrayList<Integer>();
-
-		int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
-
-		for (int i = 0; i < positions.length; i++) {
-			int currX = positions[i][0];
-			int currY = positions[i][1];
-
-			if (pointToIslandMap.containsKey(currX + "/" + currY)) {
-				output.add(islandToPointMap.size());
-				continue;
-			}
-
-			HashSet<Integer> overLapIslands = new HashSet<Integer>();
-
-			for (int j = 0; j < dirs.length; j++) {
-				int newX = currX + dirs[j][0];
-				int newY = currY + dirs[j][1];
-
-				if (currX >= 0 && currY >= 0 && currX < m && currY < n
-						&& pointToIslandMap.containsKey(newX + "/" + newY)) {
-					overLapIslands.add(pointToIslandMap.get(newX + "/" + newY));
-				}
-			}
-
-			if (overLapIslands.size() == 0) {
-				HashSet<Pair> set = new HashSet<Pair>();
-				set.add(new Pair(currX, currY));
-				islandToPointMap.put(islandNum, set);
-				pointToIslandMap.put(currX + "/" + currY, islandNum);
-				islandNum++;
-			} else if (overLapIslands.size() == 1) {
-				int currIslandNum = overLapIslands.iterator().next();
-				islandToPointMap.get(currIslandNum).add(new Pair(currX, currY));
-				pointToIslandMap.put(currX + "/" + currY, currIslandNum);
-			} else {
-				Iterator<Integer> iter = overLapIslands.iterator();
-				int baseIslandNum = iter.next();
-
-				while (iter.hasNext()) {
-					int currIslandNum = iter.next();
-					Iterator<Pair> pairIter = islandToPointMap.get(currIslandNum).iterator();
-
-					while (pairIter.hasNext()) {
-						Pair pair = pairIter.next();
-
-						islandToPointMap.get(baseIslandNum).add(pair);
-						pointToIslandMap.put(pair.x + "/" + pair.y, baseIslandNum);
-					}
-					islandToPointMap.remove(currIslandNum);
-				}
-
-				islandToPointMap.get(baseIslandNum).add(new Pair(currX, currY));
-				pointToIslandMap.put(currX + "/" + currY, baseIslandNum);
-			}
-			output.add(islandToPointMap.size());
-		}
-		return output;
+	
 	}
 
 }

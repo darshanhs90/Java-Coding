@@ -1,5 +1,11 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+
 public class _0642DesignSearchAutocompleteSystem {
 
 	public static void main(String[] args) {
@@ -21,17 +27,14 @@ public class _0642DesignSearchAutocompleteSystem {
 		System.out.println(acs.input('i'));
 	}
 
-	static class WordPair {
-		String str;
-		Integer count;
-
-		public WordPair(String str, Integer count) {
-			this.str = str;
-			this.count = count;
-		}
-	}
-
 	static class AutocompleteSystem {
+	
+		public AutocompleteSystem(String[] sentences, int[] times) {
+			
+		}
 
+		public List<String> input(char c) {
+			
+		}
 	}
 }
