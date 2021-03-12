@@ -14,6 +14,20 @@ public class _1428LeftmostColumnWithAtLeastAOne {
 	};
 
 	public static int leftMostColumnWithOne(BinaryMatrix binaryMatrix) {
-		
+		List<Integer> list = binaryMatrix.dimensions();
+		int row = list.get(0);
+		int col = list.get(1);
+
+		int currRow = 0;
+		int currCol = col - 1;
+		while (currRow < row && currCol >= 0) {
+			if (binaryMatrix.get(currRow, currCol) == 1) {
+				currCol--;
+			} else {
+				currRow++;
+			}
+		}
+
+		return currCol == col-1 ? -1: currCol+1;
 	}
 }

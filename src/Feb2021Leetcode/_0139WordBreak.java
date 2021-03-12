@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class _0139WordBreak {
 
@@ -16,7 +15,20 @@ public class _0139WordBreak {
 	}
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
+		boolean dp[] = new boolean[s.length() + 1];
+		HashSet<String> set = new HashSet<String>(wordDict);
+		dp[0] = true;
 
+		for (int i = 1; i < dp.length; i++) {
+			for (int j = 0; j < i; j++) {
+				String str = s.substring(j, i);
+				if (dp[j] && wordDict.contains(str)) {
+					dp[i] = true;
+					break;
+				}
+			}
+		}
+		return dp[s.length()];
 	}
 
 }
