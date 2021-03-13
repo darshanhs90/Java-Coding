@@ -18,8 +18,51 @@ public class _0289GameOfLife {
 	// Any dead cell with exactly three live neighbors becomes a live cell, as if by
 	// reproduction.
 
+	// 1 0
+	// 1 1 2
+	// 0 3 0
 	public static void gameOfLife(int[][] board) {
-		s
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				int count = getCount(i, j, board);
+				if (board[i][j] == 1) {
+					if (count < 2 || count > 3) {
+						board[i][j] = 2;
+					}
+				} else {
+					if (count == 3) {
+						board[i][j] = 3;
+					}
+				}
+			}
+		}
+
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] == 2) {
+					board[i][j] = 0;
+				} else if (board[i][j] == 3) {
+					board[i][j] = 1;
+				}
+			}
+		}
+	}
+
+	public static int getCount(int x, int y, int[][] board) {
+		int[][] dirs = new int[][] { new int[] { -1, -1 }, new int[] { -1, 0 }, new int[] { -1, 1 },
+				new int[] { 0, -1 }, new int[] { 0, 1 }, new int[] { 1, -1 }, new int[] { 1, 0 }, new int[] { 1, 1 }, };
+		int count = 0;
+
+		for (int i = 0; i < dirs.length; i++) {
+			int newX = x + dirs[i][0];
+			int newY = y + dirs[i][1];
+			if (newX >= 0 && newY >= 0 && newX < board.length && newY < board[0].length) {
+				if (board[newX][newY] == 1 || board[newX][newY] == 2)
+					count++;
+			}
+		}
+
+		return count;
 	}
 
 }
