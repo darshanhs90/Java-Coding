@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _0426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 
 	public static void main(String[] args) {
@@ -44,9 +47,32 @@ public class _0426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 		}
 	};
 
-
 	public static Node treeToDoublyList(Node root) {
-		
+		if (root == null)
+			return root;
+		List<Node> list = new ArrayList<Node>();
+		inOrder(root, list);
+
+		Node head = list.get(0);
+		Node tail = list.get(list.size() - 1);
+		Node prev = head;
+		for (int i = 1; i < list.size(); i++) {
+			Node curr = list.get(i);
+			prev.right = curr;
+			curr.left = prev;
+			prev = curr;
+		}
+
+		tail.right = head;
+		head.left = tail;
+		return head;
 	}
 
+	public static void inOrder(Node root, List<Node> list) {
+		if (root == null)
+			return;
+		inOrder(root.left, list);
+		list.add(root);
+		inOrder(root.right, list);
+	}
 }

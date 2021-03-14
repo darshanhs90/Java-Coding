@@ -11,6 +11,19 @@ public class _0621TaskScheduler {
 	}
 
 	public static int leastInterval(char[] tasks, int n) {
+		int[] arr = new int[26];
+		for (int i = 0; i < tasks.length; i++) {
+			arr[tasks[i] - 'A']++;
+		}
 
+		Arrays.sort(arr);
+		int maxFreq = arr[arr.length - 1];
+		int idleTime = (maxFreq - 1) * n;
+
+		for (int i = arr.length - 2; i >= 0 && idleTime > 0; i--) {
+			idleTime -= Math.min(maxFreq - 1, arr[i]);
+		}
+		idleTime = Math.max(idleTime, 0);
+		return idleTime + tasks.length;
 	}
 }

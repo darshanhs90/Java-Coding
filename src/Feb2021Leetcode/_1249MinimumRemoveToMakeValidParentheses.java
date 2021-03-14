@@ -1,5 +1,7 @@
 package Feb2021Leetcode;
 
+import java.util.Stack;
+
 public class _1249MinimumRemoveToMakeValidParentheses {
 	public static void main(String[] args) {
 		System.out.println(minRemoveToMakeValid("lee(t(c)o)de)"));
@@ -9,7 +11,44 @@ public class _1249MinimumRemoveToMakeValidParentheses {
 	}
 
 	public static String minRemoveToMakeValid(String s) {
-		
+		if (s == null || s.length() == 0)
+			return s;
+		Stack<Character> stack = new Stack<Character>();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c == '(') {
+				sb.append(c);
+				stack.push(c);
+			} else if (c == ')') {
+				if (!stack.isEmpty()) {
+					stack.pop();
+					sb.append(c);
+				}
+			} else {
+				sb.append(c);
+			}
+		}
+		stack = new Stack<Character>();
+		s = sb.toString();
+		sb = new StringBuilder();
+
+		for (int i = s.length() - 1; i >= 0; i--) {
+			char c = s.charAt(i);
+			if (c == ')') {
+				sb.append(c);
+				stack.push(c);
+			} else if (c == '(') {
+				if (!stack.isEmpty()) {
+					stack.pop();
+					sb.append(c);
+				}
+			} else {
+				sb.append(c);
+			}
+		}
+
+		return sb.reverse().toString();
 	}
 
 }

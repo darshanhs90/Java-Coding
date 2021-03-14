@@ -19,6 +19,56 @@ public class _0210CourseScheduleII {
 	}
 
 	public static int[] findOrder(int numCourses, int[][] prerequisites) {
-	
+		HashMap<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+		for (int i = 0; i < numCourses; i++) {
+			map.put(i, new ArrayList<Integer>());
+		}
+
+		for (int i = 0; i < prerequisites.length; i++) {
+			int source = prerequisites[i][0];
+			int dest = prerequisites[i][1];
+			map.get(source).add(dest);
+		}
+
+		Queue<Integer> q = new LinkedList<Integer>();
+		HashSet<Integer> visited = new HashSet<Integer>();
+		List<Integer> out = new ArrayList<Integer>();
+
+		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+			if (entry.getValue().size() == 0) {
+				q.offer(entry.getKey());
+				visited.add(entry.getKey());
+			}
+		}
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				Integer val = q.poll();
+				out.add(val);
+
+				for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+					if (entry.getValue().contains(val)) {
+						entry.getValue().remove(val);
+					}
+				}
+
+			}
+			for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+				if (entry.getValue().size() == 0 && !visited.contains(entry.getKey())) {
+					q.offer(entry.getKey());
+					visited.add(entry.getKey());
+				}
+			}
+		}
+
+		if (out.size() != numCourses)
+			return new int[] {};
+
+		int[] output = new int[out.size()];
+		for (int i = 0; i < output.length; i++) {
+			output[i] = out.get(i);
+		}
+		return output;
 	}
 }
