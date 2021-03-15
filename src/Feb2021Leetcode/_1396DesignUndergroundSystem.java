@@ -38,21 +38,60 @@ public class _1396DesignUndergroundSystem {
 		System.out.println(undergroundSystem.getAverageTime("Leyton", "Paradise")); // return 6.66667
 	}
 
+	static class Pair {
+		String startStationName;
+		int startTime;
+
+		public Pair(String startStationName, int startTime) {
+			this.startStationName = startStationName;
+			this.startTime = startTime;
+		}
+	}
+
 	static class UndergroundSystem {
-		
+
+		HashMap<String, HashMap<String, Integer>> stationTimeMap;
+		HashMap<String, HashMap<String, Integer>> stationCountMap;
+		HashMap<Integer, Pair> userIdMap;
+
 		public UndergroundSystem() {
-			
+			stationTimeMap = new HashMap<String, HashMap<String, Integer>>();
+			stationCountMap = new HashMap<String, HashMap<String, Integer>>();
+			userIdMap = new HashMap<Integer, Pair>();
 		}
 
 		public void checkIn(int id, String stationName, int t) {
+			userIdMap.put(id, new Pair(stationName, t));
 		}
 
 		public void checkOut(int id, String stationName, int t) {
-			
+			Pair pair = userIdMap.get(id);
+			int time = t - pair.startTime;
+			String srcStationName = pair.startStationName;
+			String dstStationName = stationName;
+
+			if (!stationTimeMap.containsKey(srcStationName)) {
+				stationTimeMap.put(srcStationName, new HashMap<String, Integer>());
+				stationCountMap.put(srcStationName, new HashMap<String, Integer>());
+
+			}
+			HashMap<String, Integer> map1 = stationTimeMap.get(srcStationName);
+			HashMap<String, Integer> map2 = stationCountMap.get(srcStationName);
+
+			if (map1.containsKey(dstStationName)) {
+				map1.put(dstStationName, map1.get(dstStationName) + time);
+				map2.put(dstStationName, map2.get(dstStationName) + 1);
+
+			} else {
+				map1.put(dstStationName, time);
+				map2.put(dstStationName, 1);
+			}
 		}
 
 		public double getAverageTime(String startStation, String endStation) {
-			
+			int time = stationTimeMap.get(startStation).get(endStation);
+			int count = stationCountMap.get(startStation).get(endStation);
+			return time / (double) count;
 		}
 	}
 

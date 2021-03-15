@@ -15,15 +15,41 @@ public class _0251Flatten2DVector {
 	}
 
 	static class Vector2D {
+		int outerIndex, innerIndex;
+		Integer nextVal;
+		int[][] v;
+
 		public Vector2D(int[][] v) {
-	
+			outerIndex = 0;
+			innerIndex = 0;
+			this.v = v;
+			populateNextVal();
+		}
+
+		public void populateNextVal() {
+			if (outerIndex == v.length) {
+				nextVal = null;
+				return;
+			} else {
+				if (innerIndex == v[outerIndex].length) {
+					outerIndex += 1;
+					innerIndex = 0;
+					populateNextVal();
+					return;
+				}
+				nextVal = v[outerIndex][innerIndex];
+				innerIndex++;
+			}
 		}
 
 		public int next() {
-	
+			int next = nextVal;
+			populateNextVal();
+			return next;
 		}
 
 		public boolean hasNext() {
+			return nextVal != null;
 		}
 	}
 
