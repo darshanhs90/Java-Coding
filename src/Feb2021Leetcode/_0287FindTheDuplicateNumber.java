@@ -12,6 +12,13 @@ public class _0287FindTheDuplicateNumber {
 	}
 
 	public static int findDuplicate(int[] nums) {
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			if (set.contains(nums[i]))
+				return nums[i];
+			set.add(nums[i]);
+		}
 
+		return 0;
 	}
 }
