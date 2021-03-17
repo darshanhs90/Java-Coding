@@ -1,6 +1,7 @@
 package Feb2021Leetcode;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class _1353MaximumNumberOfEventsThatCanBeAttended {
@@ -19,6 +20,33 @@ public class _1353MaximumNumberOfEventsThatCanBeAttended {
 	}
 
 	public static int maxEvents(int[][] events) {
-		
+		Arrays.sort(events, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		int index = 0;
+		int noOfEvents = 0;
+		for (int i = 1; i <= 10000; i++) {
+			while (index < events.length && events[index][0] == i) {
+				pq.offer(events[index][1]);
+				index++;
+			}
+
+			while (!pq.isEmpty() && pq.peek() < i) {
+				pq.poll();
+			}
+
+			if (!pq.isEmpty()) {
+				noOfEvents++;
+				pq.poll();
+			}
+		}
+		return noOfEvents;
 	}
 }

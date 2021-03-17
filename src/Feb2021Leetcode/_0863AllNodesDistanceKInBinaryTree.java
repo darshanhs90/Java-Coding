@@ -29,11 +29,58 @@ public class _0863AllNodesDistanceKInBinaryTree {
 
 		tn.right.left = new TreeNode(0);
 		tn.right.right = new TreeNode(8);
-		System.out.println(distanceK(tn, tn.left, 3));
+		System.out.println(distanceK(tn, tn.left, 2));
 	}
 
 	public static List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
-		
+		List<Integer> out = new ArrayList<Integer>();
+		if (root == null)
+			return out;
+		HashMap<TreeNode, TreeNode> parentMap = new HashMap<TreeNode, TreeNode>();
+		parentMap.put(root, null);
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+
+				if (tn.left != null) {
+					parentMap.put(tn.left, tn);
+					q.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					parentMap.put(tn.right, tn);
+					q.offer(tn.right);
+				}
+			}
+		}
+		HashSet<TreeNode> visited = new HashSet<TreeNode>();
+		while (K >= 1 && target != null) {
+			addChildNodes(target, K, out, visited);
+			target = parentMap.get(target);
+			K--;
+		}
+		if (target != null && !out.contains(target.val))
+			out.add(target.val);
+		return out;
+	}
+
+	public static void addChildNodes(TreeNode root, int K, List<Integer> list, HashSet<TreeNode> visited) {
+		if (visited.contains(root) || K < 0)
+			return;
+		if (K == 0) {
+			list.add(root.val);
+			return;
+		}
+
+		visited.add(root);
+		if (root.left != null)
+			addChildNodes(root.left, K - 1, list, visited);
+
+		if (root.right != null)
+			addChildNodes(root.right, K - 1, list, visited);
 	}
 
 }
