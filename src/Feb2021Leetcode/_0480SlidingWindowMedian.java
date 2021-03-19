@@ -13,7 +13,28 @@ public class _0480SlidingWindowMedian {
 	}
 
 	public static double[] medianSlidingWindow(int[] nums, int k) {
-		
+		List<Long> output = new ArrayList<Long>();
+		double[] out = new double[nums.length - k+1];
+		int left = 0, right = 0;
+		int index = 0;
+		while (right < nums.length) {
+
+			output.add((long)nums[right]);
+			if (output.size() == k) {
+				Collections.sort(output);
+				if (k % 2 == 0) {
+					long val = output.get(k / 2 - 1) + output.get(k / 2);
+					out[index] = val / (double) 2;
+				} else {
+					out[index] = output.get(k / 2);
+				}
+				index++;
+				output.remove(Long.valueOf(nums[left]));
+				left++;
+			}
+			right++;
+		}
+		return out;
 	}
 
 }

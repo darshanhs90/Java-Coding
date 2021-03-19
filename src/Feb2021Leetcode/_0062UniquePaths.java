@@ -1,5 +1,7 @@
 package Feb2021Leetcode;
 
+import java.util.Arrays;
+
 public class _0062UniquePaths {
 
 	public static void main(String[] args) {
@@ -9,7 +11,20 @@ public class _0062UniquePaths {
 		System.out.println(uniquePaths(3, 3));
 	}
 
-	public static int uniquePathsRecursive(int m, int n) {
+	public static int uniquePaths(int m, int n) {
 
+		int[][] out = new int[m][n];
+		Arrays.fill(out[0], 1);
+		for (int i = 0; i < m; i++) {
+			out[i][0] = 1;
+		}
+
+		for (int i = 1; i < out.length; i++) {
+			for (int j = 1; j < out[0].length; j++) {
+				out[i][j] += out[i - 1][j] + out[i][j - 1];
+			}
+		}
+
+		return out[m - 1][n - 1];
 	}
 }

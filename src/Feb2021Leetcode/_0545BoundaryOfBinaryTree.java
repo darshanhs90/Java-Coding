@@ -3,7 +3,9 @@ package Feb2021Leetcode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0545BoundaryOfBinaryTree {
 
@@ -47,6 +49,104 @@ public class _0545BoundaryOfBinaryTree {
 	}
 
 	public static List<Integer> boundaryOfBinaryTree(TreeNode root) {
+		List<Integer> output = new ArrayList<Integer>();
+		if (root == null)
+			return output;
+		HashSet<TreeNode> set = new HashSet<TreeNode>();
+		output.add(root.val);
+		set.add(root);
+		if (root.left != null)
+			output.addAll(addLeftNodes(root.left, set));
+		output.addAll(addLeafNodes(root, set));
+		if (root.right != null)
+			output.addAll(addRightNodes(root.right, set));
+		return output;
+	}
+
+	public static List<Integer> addLeafNodes(TreeNode root, HashSet<TreeNode> visited) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		List<Integer> output = new ArrayList<Integer>();
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (tn.left == null && tn.right == null) {
+					if (!visited.contains(tn)) {
+						output.add(tn.val);
+					}
+					visited.add(tn);
+				}
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+			}
+		}
+		return output;
+	}
+
+	public static List<Integer> addRightNodes(TreeNode root, HashSet<TreeNode> visited) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		List<Integer> output = new ArrayList<Integer>();
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (!added) {
+					if (!visited.contains(tn)) {
+						output.add(tn.val);
+					}
+					visited.add(tn);
+					added = true;
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+
+			}
+		}
+		Collections.reverse(output);
+		return output;
+	}
+
+	public static List<Integer> addLeftNodes(TreeNode root, HashSet<TreeNode> visited) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		List<Integer> output = new ArrayList<Integer>();
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (!added) {
+					if (!visited.contains(tn)) {
+						output.add(tn.val);
+					}
+					visited.add(tn);
+					added = true;
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+			}
+		}
+		return output;
 	}
 
 }

@@ -16,9 +16,11 @@ public class _0359LoggerRateLimiter {
 	}
 
 	static class Logger {
-		
+		HashMap<String, Integer> messageMap;
+
 		/** Initialize your data structure here. */
 		public Logger() {
+			messageMap = new HashMap<String, Integer>();
 		}
 
 		/**
@@ -27,6 +29,16 @@ public class _0359LoggerRateLimiter {
 		 * be printed. The timestamp is in seconds granularity.
 		 */
 		public boolean shouldPrintMessage(int timestamp, String message) {
+			if (!messageMap.containsKey(message)) {
+				messageMap.put(message, timestamp);
+				return true;
+			}
+
+			if (-messageMap.get(message) + timestamp >= 10) {
+				messageMap.put(message, timestamp);
+				return true;
+			}
+			return false;
 		}
 	}
 

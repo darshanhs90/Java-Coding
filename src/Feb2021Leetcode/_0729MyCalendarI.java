@@ -1,8 +1,6 @@
 package Feb2021Leetcode;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class _0729MyCalendarI {
@@ -14,16 +12,28 @@ public class _0729MyCalendarI {
 	}
 
 	static class MyCalendar {
+		List<int[]> out;
 
 		public MyCalendar() {
+			out = new ArrayList<int[]>();
 		}
 
 		public boolean book(int start, int end) {
-			
-		}
 
-		public boolean overLaps(List<int[]> list, int start, int end) {
-			
+			for (int i = 0; i < out.size(); i++) {
+				int currStart = out.get(i)[0];
+				int currEnd = out.get(i)[1];
+
+				if (start>=currStart && start<currEnd)
+					return false;
+				
+				if (end>currStart && end<=currEnd)
+					return false;
+
+			}
+
+			out.add(new int[] { start, end });
+			return true;
 		}
 	}
 
