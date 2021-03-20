@@ -1,5 +1,8 @@
 package Feb2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _0151ReverseWordsInAString {
 	static public class TreeNode {
 		int val;
@@ -29,6 +32,14 @@ public class _0151ReverseWordsInAString {
 	}
 
 	public static String reverseWords(String s) {
-		
+		s = s.trim();
+		String[] str = s.split(" ");
+		List<String> lst = new ArrayList<String>();
+		for (int i = str.length - 1; i >= 0; i--) {
+			String word = str[i].trim();
+			if (word.length() > 0)
+				lst.add(word);
+		}
+		return String.join(" ", lst);
 	}
 }

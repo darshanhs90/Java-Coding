@@ -77,7 +77,27 @@ public class _0086PartitionList {
 	}
 
 	public static ListNode partition(ListNode head, int x) {
-		
+		ListNode lessThan = new ListNode();
+		ListNode lessThanPtr = lessThan;
+
+		ListNode moreThan = new ListNode();
+		ListNode moreThanPtr = moreThan;
+
+		while (head != null) {
+			if (head.val < x) {
+				lessThan.next = head;
+				lessThan = lessThan.next;
+			} else {
+				moreThan.next = head;
+				moreThan = moreThan.next;
+			}
+			head = head.next;
+		}
+
+		moreThan.next = null;
+
+		lessThan.next = moreThanPtr.next;
+		return lessThanPtr.next;
 	}
 
 }

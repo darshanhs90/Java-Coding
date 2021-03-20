@@ -20,19 +20,39 @@ public class _1244DesignALeaderboard {
 	}
 
 	static class Leaderboard {
+		HashMap<Integer, Integer> map;
 
 		public Leaderboard() {
+			map = new HashMap<Integer, Integer>();
 		}
 
 		public void addScore(int playerId, int score) {
+			if (map.containsKey(playerId)) {
+				map.put(playerId, map.get(playerId) + score);
+			} else {
+				map.put(playerId, score);
+			}
 		}
 
 		public int top(int K) {
-			
+			PriorityQueue<Integer> pq = new PriorityQueue<Integer>(K);
+
+			System.out.println(map);
+
+			int sum = 0;
+			for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+				sum += entry.getValue();
+				pq.offer(entry.getValue());
+				if (pq.size() > K) {
+					sum -= pq.poll();
+				}
+			}
+			return sum;
 		}
 
 		public void reset(int playerId) {
-
+			if (map.containsKey(playerId))
+				map.remove(playerId);
 		}
 	}
 

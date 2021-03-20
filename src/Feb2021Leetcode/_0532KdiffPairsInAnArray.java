@@ -14,7 +14,18 @@ public class _0532KdiffPairsInAnArray {
 	}
 
 	public static int findPairs(int[] nums, int k) {
-		
+		if (nums == null || nums.length < 2)
+			return 0;
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			map.compute(nums[i], (kev, val) -> val == null ? 1 : val + 1);
+		}
+		int count = 0;
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			if (map.containsKey(entry.getKey() + k) && k != 0 || k == 0 && entry.getValue() > 1)
+				count++;
+		}
+		return count;
 	}
 
 }
