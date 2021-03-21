@@ -20,25 +20,49 @@ public class _0716MaxStack {
 	}
 
 	static class MaxStack {
+		Stack<Integer> stack, maxStack;
 
 		/** initialize your data structure here. */
 		public MaxStack() {
+			stack = new Stack<Integer>();
+			maxStack = new Stack<Integer>();
 		}
 
 		public void push(int x) {
+			if (stack.isEmpty()) {
+				stack.push(x);
+				maxStack.push(x);
+			} else {
+				stack.push(x);
+				maxStack.push(Math.max(maxStack.peek(), x));
+			}
 		}
 
 		public int pop() {
+			maxStack.pop();
+			return stack.pop();
 		}
 
 		public int top() {
+			return stack.peek();
 		}
 
 		public int peekMax() {
+			return maxStack.peek();
 		}
 
 		public int popMax() {
+			int max = maxStack.peek();
+			Stack<Integer> buffer = new Stack<Integer>();
+			while (top() != max) {
+				buffer.push(pop());
+			}
+			pop();
 
+			while (!buffer.isEmpty()) {
+				push(buffer.pop());
+			}
+			return max;
 		}
 	}
 }

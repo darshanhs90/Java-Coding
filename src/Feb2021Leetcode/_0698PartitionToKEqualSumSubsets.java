@@ -1,8 +1,6 @@
 package Feb2021Leetcode;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class _0698PartitionToKEqualSumSubsets {
 
@@ -12,7 +10,35 @@ public class _0698PartitionToKEqualSumSubsets {
 	}
 
 	public static boolean canPartitionKSubsets(int[] nums, int k) {
-		
+		int sum = 0;
+		HashSet<Integer> visited = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+		}
+		if (sum % k != 0)
+			return false;
+		return dfs(sum / k, nums, 0, k, visited);
+	}
+
+	public static boolean dfs(int requiredSum, int[] nums, int currSum, int k, HashSet<Integer> visited) {
+		if (currSum > requiredSum)
+			return false;
+		if (currSum == requiredSum) {
+			k--;
+			currSum = 0;
+		}
+		if (k == 0)
+			return true;
+
+		boolean out = false;
+		for (int i = 0; i < nums.length; i++) {
+			if (!visited.contains(i)) {
+				visited.add(i);
+				out = out || dfs(requiredSum, nums, currSum + nums[i], k, visited);
+				visited.remove(i);
+			}
+		}
+		return out;
 	}
 
 }
