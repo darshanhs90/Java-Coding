@@ -7,7 +7,7 @@ public class _0280WiggleSort {
 	}
 
 	public static void wiggleSort(int[] nums) {
-
+s
 	}
 
 }
