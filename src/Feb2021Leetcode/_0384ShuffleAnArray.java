@@ -13,25 +13,39 @@ public class _0384ShuffleAnArray {
 		System.out.println(Arrays.toString(solution.reset())); // Resets the array back to its original configuration
 																// [1,2,3]. Return [1, 2, 3]
 		System.out.println(Arrays.toString(solution.shuffle())); // Returns the random shuffling of array [1,2,3].
-
 	}
 
 	static class Solution {
-		
+		int[] originalArr;
+		Random rand;
+
 		public Solution(int[] nums) {
+			this.originalArr = nums;
+			rand = new Random();
 		}
 
 		/** Resets the array to its original configuration and return it. */
 		public int[] reset() {
+			return this.originalArr;
 		}
 
 		/** Returns a random shuffling of the array. */
 		public int[] shuffle() {
+			int[] arr = Arrays.copyOf(this.originalArr, this.originalArr.length);
+
+			for (int i = 0; i < arr.length; i++) {
+				int newIndex = rand.nextInt(arr.length);
+				swap(newIndex, i, arr);
+			}
+
+			return arr;
 		}
 
 		public void swap(int left, int right, int[] nums) {
+			int temp = nums[left];
+			nums[left] = nums[right];
+			nums[right] = temp;
 		}
-
 	}
 
 }
