@@ -11,7 +11,7 @@ public class _0028ImplementstrStr {
 	}
 
 	public static int strStr(String haystack, String needle) {
-
+		return haystack.indexOf(needle);
 	}
 
 }

@@ -19,6 +19,44 @@ public class _1229MeetingScheduler {
 	}
 
 	public static List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
-		
+		Arrays.sort(slots1, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		Arrays.sort(slots2, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+		int index1 = 0, index2 = 0;
+		while (index1 < slots1.length && index2 < slots2.length) {
+			int start1 = slots1[index1][0];
+			int end1 = slots1[index1][1];
+
+			int start2 = slots2[index2][0];
+			int end2 = slots2[index2][1];
+
+			int low = Math.max(start1, start2);
+			int high = Math.min(end1, end2);
+
+			if (high - low >= duration) {
+				return new ArrayList<Integer>(Arrays.asList(low, low + duration));
+			}
+
+			if (end1 < end2) {
+				index1++;
+			} else {
+				index2++;
+			}
+		}
+		return new ArrayList<Integer>();
 	}
 }

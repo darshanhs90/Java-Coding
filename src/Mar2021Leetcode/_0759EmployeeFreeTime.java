@@ -1,9 +1,9 @@
 package Mar2021Leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-
-import Jan2021Leetcode._0759EmployeeFreeTime.Interval;
 
 public class _0759EmployeeFreeTime {
 
@@ -59,6 +59,48 @@ public class _0759EmployeeFreeTime {
 	};
 
 	public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
+		List<Interval> allIntervals = new ArrayList<Interval>();
+		for (List<Interval> list : schedule) {
+			allIntervals.addAll(list);
+		}
 
+		Collections.sort(allIntervals, new Comparator<Interval>() {
+
+			@Override
+			public int compare(Interval o1, Interval o2) {
+				// TODO Auto-generated method stub
+				return o1.start - o2.start;
+			}
+		});
+
+		if (allIntervals.size() == 0)
+			return allIntervals;
+
+		List<Interval> mergedInterval = new ArrayList<Interval>();
+		int prevStart = allIntervals.get(0).start;
+		int prevEnd = allIntervals.get(0).end;
+
+		for (int i = 1; i < allIntervals.size(); i++) {
+			int currStart = allIntervals.get(i).start;
+			int currEnd = allIntervals.get(i).end;
+
+			if (currStart >= prevStart && currStart <= prevEnd) {
+				prevEnd = Math.max(prevEnd, currEnd);
+			} else {
+				mergedInterval.add(new Interval(prevStart, prevEnd));
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+		mergedInterval.add(new Interval(prevStart, prevEnd));
+
+		List<Interval> output = new ArrayList<Interval>();
+		for (int i = 0; i < mergedInterval.size() - 1; i++) {
+			Interval interval1 = mergedInterval.get(i);
+			Interval interval2 = mergedInterval.get(i + 1);
+			output.add(new Interval(interval1.end, interval2.start));
+		}
+
+		return output;
 	}
 }

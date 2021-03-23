@@ -21,15 +21,80 @@ public class _0146LRUCache {
 		System.out.println(lRUCache.get(2)); // return 1 (found)
 	}
 
+	static class Node {
+		int key, value;
+		Node prev, next;
+
+		public Node(int key, int value) {
+			this.key = key;
+			this.value = value;
+		}
+	}
+
 	static class LRUCache {
+		HashMap<Integer, Node> nodeMap;
+		int capacity;
+		Node dummyHead, dummyTail;
+
 		public LRUCache(int capacity) {
+			this.capacity = capacity;
+			this.nodeMap = new HashMap<Integer, Node>();
+			dummyHead = new Node(-1, -1);
+			dummyTail = new Node(-1, -1);
+			dummyHead.next = dummyTail;
+			dummyTail.prev = dummyHead;
 		}
 
 		public int get(int key) {
-		
+			if (!nodeMap.containsKey(key))
+				return -1;
+
+			Node node = nodeMap.get(key);
+			moveNodeToHead(node);
+			return node.value;
 		}
 
 		public void put(int key, int value) {
+			if (nodeMap.containsKey(key)) {
+				Node node = nodeMap.get(key);
+				node.value = value;
+				moveNodeToHead(node);
+			} else {
+				if (nodeMap.size() < this.capacity) {
+					addNode(key, value);
+				} else {
+					deleteNode(dummyTail.prev);
+					addNode(key, value);
+				}
+			}
+		}
+
+		private void moveNodeToHead(Node node) {
+			deleteNode(node);
+			addNode(node.key, node.value);
+		}
+
+		private void deleteNode(Node node) {
+			Node prev = node.prev;
+			Node next = node.next;
+			nodeMap.remove(node.key);
+
+			prev.next = next;
+			next.prev = prev;
+		}
+
+		private void addNode(int key, int value) {
+			Node node = new Node(key, value);
+			Node prev = dummyHead;
+			Node next = dummyHead.next;
+
+			prev.next = node;
+			node.next = next;
+
+			node.prev = prev;
+			next.prev = node;
+
+			nodeMap.put(key, node);
 		}
 	}
 }

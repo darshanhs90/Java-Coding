@@ -1,7 +1,7 @@
 package Mar2021Leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class _0362DesignHitCounter {
 
@@ -32,9 +32,11 @@ public class _0362DesignHitCounter {
 	}
 
 	static class HitCounter {
-		
+		TreeMap<Integer, Integer> map;
+
 		/** Initialize your data structure here. */
 		public HitCounter() {
+			map = new TreeMap<Integer, Integer>();
 		}
 
 		/**
@@ -43,6 +45,7 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public void hit(int timestamp) {
+			map.compute(timestamp, (k, v) -> v == null ? 1 : v + 1);
 		}
 
 		/**
@@ -51,6 +54,15 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public int getHits(int timestamp) {
+
+			int count = 0;
+			for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+				if (entry.getKey() > timestamp - 300 && entry.getKey() <= timestamp) {
+					count+=  entry.getValue();
+				} else if (entry.getKey() > timestamp)
+					break;
+			}
+			return count;
 		}
 	}
 

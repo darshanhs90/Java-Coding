@@ -1,9 +1,7 @@
 package Mar2021Leetcode;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class _1010PairsOfSongsWithTotalDurationsDivisibleBy60 {
 
@@ -13,6 +11,25 @@ public class _1010PairsOfSongsWithTotalDurationsDivisibleBy60 {
 	}
 
 	public static int numPairsDivisibleBy60(int[] time) {
-		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < time.length; i++) {
+			int currTime = time[i] % 60;
+			map.compute(currTime, (k, v) -> v == null ? 1 : v + 1);
+		}
+		int count = 0;
+		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+			int currTime = entry.getKey();
+			int value = entry.getValue();
+
+			if (currTime == 0 || currTime == 30) {
+				count += value * (value - 1) / 2;
+			} else {
+				if (map.containsKey(60 - currTime)) {
+					count += value * map.get(60 - currTime);
+					map.put(60 - currTime, 0);
+				}
+			}
+		}
+		return count;
 	}
 }
