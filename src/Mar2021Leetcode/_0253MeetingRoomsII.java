@@ -14,7 +14,25 @@ public class _0253MeetingRoomsII {
 	}
 
 	public static int minMeetingRooms(int[][] intervals) {
-	
+		Arrays.sort(intervals, new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		for (int i = 0; i < intervals.length; i++) {
+			if (!pq.isEmpty()) {
+				if (pq.peek() <= intervals[i][0]) {
+					pq.poll();
+				}
+			}
+			pq.offer(intervals[i][1]);
+		}
+		return pq.size();
 	}
 
 }

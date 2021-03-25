@@ -7,11 +7,20 @@ public class _0278FirstBadVersion {
 	}
 
 	public static boolean isBadVersion(int n) {
-		return n > 2126753390/2;
+		return n > 2126753390 / 2;
 	}
 
 	public static int firstBadVersion(int n) {
-
+		int left = 0, right = n;
+		while (left < right) {
+			int mid = left + (right - left) / 2;
+			if (isBadVersion(mid)) {
+				right = mid;
+			} else {
+				left = mid + 1;
+			}
+		}
+		return left;
 	}
 
 }
