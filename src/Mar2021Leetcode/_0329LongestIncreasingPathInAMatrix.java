@@ -1,5 +1,7 @@
 package Mar2021Leetcode;
 
+import java.util.Arrays;
+
 public class _0329LongestIncreasingPathInAMatrix {
 
 	public static void main(String[] args) {
@@ -10,7 +12,42 @@ public class _0329LongestIncreasingPathInAMatrix {
 	}
 
 	public static int longestIncreasingPath(int[][] matrix) {
-		
+		if (matrix == null || matrix.length == 0)
+			return 0;
+		int[][] cache = new int[matrix.length][matrix[0].length];
+		for (int i = 0; i < cache.length; i++) {
+			Arrays.fill(cache[i], -1);
+		}
+
+		int maxLength = 0;
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix[0].length; j++) {
+				maxLength = Math.max(maxLength, dfs(i, j, matrix[i][j], matrix, cache));
+			}
+		}
+		return maxLength;
+	}
+
+	public static int dfs(int x, int y, int currVal, int[][] matrix, int[][] cache) {
+		if (cache[x][y] != -1)
+			return cache[x][y];
+
+		int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
+
+		int maxLen = 1;
+
+		for (int i = 0; i < dirs.length; i++) {
+			int newX = x + dirs[i][0];
+			int newY = y + dirs[i][1];
+
+			if (newX < 0 || newY < 0 || newX >= matrix.length || newY >= matrix[0].length
+					|| matrix[newX][newY] <= currVal)
+				continue;
+
+			maxLen = Math.max(maxLen, 1 + dfs(newX, newY, matrix[newX][newY], matrix, cache));
+		}
+		cache[x][y] = maxLen;
+		return maxLen;
 	}
 
 }

@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class _0355DesignTwitter {
 
@@ -38,13 +37,38 @@ public class _0355DesignTwitter {
 		System.out.println(twitter.getNewsFeed(1));
 	}
 
+	static class Tweet {
+		int tweetID;
+		int uid;
+
+		public Tweet(int tweetID, int uid) {
+			this.tweetID = tweetID;
+			this.uid = uid;
+		}
+	}
+
 	static class Twitter {
+		HashMap<Integer, HashSet<Integer>> userFollowersMap;
+		HashMap<Integer, HashSet<Tweet>> userTweetsMap;
+		int uid;
+
 		/** Initialize your data structure here. */
 		public Twitter() {
+			this.userFollowersMap = new HashMap<Integer, HashSet<Integer>>();
+			this.userTweetsMap = new HashMap<Integer, HashSet<Tweet>>();
+			this.uid = 0;
+
 		}
 
 		/** Compose a new tweet. */
 		public void postTweet(int userId, int tweetId) {
+			if (!this.userFollowersMap.containsKey(userId)) {
+				this.userFollowersMap.put(userId, new HashSet<Integer>());
+				this.userTweetsMap.put(userId, new HashSet<Tweet>());
+			}
+			this.userFollowersMap.get(userId).add(userId);
+			Tweet tweet = new Tweet(tweetId, uid++);
+			this.userTweetsMap.get(userId).add(tweet);
 		}
 
 		/**
@@ -53,6 +77,30 @@ public class _0355DesignTwitter {
 		 * herself. Tweets must be ordered from most recent to least recent.
 		 */
 		public List<Integer> getNewsFeed(int userId) {
+			if (!this.userFollowersMap.containsKey(userId))
+				return new ArrayList<Integer>();
+
+			List<Tweet> tweets = new ArrayList<Tweet>();
+
+			Iterator<Integer> followers = this.userFollowersMap.get(userId).iterator();
+
+			while (followers.hasNext()) {
+				tweets.addAll(userTweetsMap.get(followers.next()));
+			}
+
+			Collections.sort(tweets, new Comparator<Tweet>() {
+				@Override
+				public int compare(Tweet o1, Tweet o2) {
+					// TODO Auto-generated method stub
+					return o2.uid - o1.uid;
+				}
+			});
+
+			List<Integer> out = new ArrayList<Integer>();
+			for (int i = 0; i < Math.min(tweets.size(), 10); i++) {
+				out.add(tweets.get(i).tweetID);
+			}
+			return out;
 		}
 
 		/**
@@ -60,6 +108,19 @@ public class _0355DesignTwitter {
 		 * no-op.
 		 */
 		public void follow(int followerId, int followeeId) {
+			if (!this.userFollowersMap.containsKey(followerId)) {
+				this.userFollowersMap.put(followerId, new HashSet<Integer>());
+				this.userTweetsMap.put(followerId, new HashSet<Tweet>());
+			}
+
+			this.userFollowersMap.get(followerId).add(followerId);
+			if (!this.userFollowersMap.containsKey(followeeId)) {
+				this.userFollowersMap.put(followeeId, new HashSet<Integer>());
+				this.userTweetsMap.put(followeeId, new HashSet<Tweet>());
+			}
+
+			this.userFollowersMap.get(followeeId).add(followeeId);
+			this.userFollowersMap.get(followerId).add(followeeId);
 		}
 
 		/**
@@ -67,6 +128,15 @@ public class _0355DesignTwitter {
 		 * no-op.
 		 */
 		public void unfollow(int followerId, int followeeId) {
+			if (!this.userFollowersMap.containsKey(followerId) || !this.userFollowersMap.containsKey(followeeId)) {
+				return;
+			}
+
+			if (followerId == followeeId || !this.userFollowersMap.get(followerId).contains(followeeId)) {
+				return;
+			}
+
+			this.userFollowersMap.get(followerId).remove(followeeId);
 		}
 	}
 

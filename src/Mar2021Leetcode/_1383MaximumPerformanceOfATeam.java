@@ -12,7 +12,31 @@ public class _1383MaximumPerformanceOfATeam {
 	}
 
 	public static int maxPerformance(int n, int[] speed, int[] efficiency, int k) {
-		
+		int[][] perf = new int[n][2];
+		for (int i = 0; i < perf.length; i++) {
+			perf[i] = new int[] { speed[i], efficiency[i] };
+		}
+
+		Arrays.sort(perf, new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o2[1] - o1[1];
+			}
+		});
+
+		long max = 0, sum = 0;
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		for (int i = 0; i < perf.length; i++) {
+			sum += perf[i][0];
+			pq.offer(perf[i][0]);
+			if (pq.size() > k) {
+				sum -= pq.poll();
+			}
+
+			max = Math.max(max, sum * perf[i][1]);
+		}
+		return (int) (max % (long) (1e9 + 7));
 	}
 
 }
