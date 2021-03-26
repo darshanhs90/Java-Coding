@@ -14,7 +14,44 @@ public class _0438FindAllAnagramsInAString {
 	}
 
 	public static List<Integer> findAnagrams(String s, String p) {
-	
+		HashMap<Character, Integer> pMap = new HashMap<Character, Integer>();
+		for (int i = 0; i < p.length(); i++) {
+			pMap.compute(p.charAt(i), (k, v) -> v == null ? 1 : v + 1);
+		}
+		List<Integer> list = new ArrayList<Integer>();
+		int left = 0, right = 0;
+		HashMap<Character, Integer> sMap = new HashMap<Character, Integer>();
+		while (right < s.length()) {
+			char c = s.charAt(right);
+			sMap.compute(c, (k, v) -> v == null ? 1 : v + 1);
+			if (right >= p.length()) {
+				char c1 = s.charAt(left);
+				sMap.put(c1, sMap.get(c1) - 1);
+
+				if (sMap.get(c1) == 0)
+					sMap.remove(c1);
+				left++;
+			}
+
+			if (isMapEqual(sMap, pMap)) {
+				list.add(left);
+			}
+			right++;
+		}
+		return list;
+	}
+
+	public static boolean isMapEqual(HashMap<Character, Integer> sMap, HashMap<Character, Integer> pMap) {
+		if (sMap.size() != pMap.size())
+			return false;
+
+		for (Map.Entry<Character, Integer> entry : pMap.entrySet()) {
+			if (!sMap.containsKey(entry.getKey()))
+				return false;
+			if (sMap.get(entry.getKey()).intValue() != entry.getValue().intValue())
+				return false;
+		}
+		return true;
 	}
 
 }

@@ -36,7 +36,28 @@ public class _0257BinaryTreePaths {
 	}
 
 	public static List<String> binaryTreePaths(TreeNode root) {
+		List<String> output = new ArrayList<String>();
+		if (root == null)
+			return output;
+		dfs(root, "", output);
+		return output;
+	}
 
+	public static void dfs(TreeNode root, String str, List<String> output) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			if (str.length() == 0) {
+				output.add(root.val + "");
+			} else {
+				output.add(str + "->" + root.val);
+			}
+			return;
+		}
+
+		str = str.length() == 0 ? root.val + "" : str + "->" + root.val;
+		dfs(root.left, str, output);
+		dfs(root.right, str, output);
 	}
 
 }
