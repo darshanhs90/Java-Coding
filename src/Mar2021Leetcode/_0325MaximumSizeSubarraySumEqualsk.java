@@ -10,7 +10,23 @@ public class _0325MaximumSizeSubarraySumEqualsk {
 	}
 
 	public static int maxSubArrayLen(int[] nums, int k) {
-s
+		if (nums == null || nums.length == 0)
+			return 0;
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		map.put(0, -1);
+		int sum = 0;
+		int maxSum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+			if (map.containsKey(sum - k)) {
+				maxSum = Math.max(maxSum, i - map.get(sum - k));
+			}
+
+			if (!map.containsKey(sum)) {
+				map.put(sum, i);
+			}
+		}
+		return maxSum;
 	}
 
 }
