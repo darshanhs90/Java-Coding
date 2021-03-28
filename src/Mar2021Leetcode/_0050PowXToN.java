@@ -8,4 +8,20 @@ public class _0050PowXToN {
 		System.out.println(myPow(2.0, -2));
 	}
 
+	public static double myPow(double x, int n) {
+		if (x == 1)
+			return x;
+		long N = n;
+		if (n < 0) {
+			x = 1 / x;
+			N = -N;
+		}
+
+		double res = 1;
+		for (int i = 0; i < N; i++) {
+			res = res * x;
+		}
+		return res;
+	}
+
 }

@@ -42,7 +42,36 @@ public class _0958CheckCompletenessOfABinaryTree {
 	}
 
 	public static boolean isCompleteTree(TreeNode root) {
-		
+		if (root == null)
+			return true;
+		boolean isNullFound = false;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+
+				if (tn.left != null) {
+					if (isNullFound)
+						return false;
+					q.offer(tn.left);
+				} else {
+					isNullFound = true;
+				}
+
+				if (tn.right != null) {
+					if (isNullFound)
+						return false;
+					q.offer(tn.right);
+				} else {
+					isNullFound = true;
+				}
+			}
+		}
+
+		return true;
 	}
 
 }

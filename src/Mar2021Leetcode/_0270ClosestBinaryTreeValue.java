@@ -26,11 +26,32 @@ public class _0270ClosestBinaryTreeValue {
 		tn.right = new TreeNode(5);
 		tn.left.left = new TreeNode(1);
 		tn.left.right = new TreeNode(3);
-		System.out.println(closestValue(tn, 3.714286));
+		System.out.println(closestValue(tn, 3.214286));
 	}
 
+	static double diff;
+	static int closestValue;
+
 	public static int closestValue(TreeNode root, double target) {
-	
+		diff = Long.MAX_VALUE;
+		dfs(root, target);
+		return closestValue;
+	}
+
+	public static void dfs(TreeNode root, double target) {
+		if (root == null)
+			return;
+
+		if (Math.abs(root.val - target) < Math.abs(diff)) {
+			diff = Math.abs(root.val - target);
+			closestValue = root.val;
+		}
+
+		if (root.val > target) {
+			dfs(root.left, target);
+		} else {
+			dfs(root.right, target);
+		}
 	}
 
 }

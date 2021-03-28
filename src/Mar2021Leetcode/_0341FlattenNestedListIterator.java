@@ -30,21 +30,48 @@ public class _0341FlattenNestedListIterator {
 	}
 
 	public class NestedIterator implements Iterator<Integer> {
+		int outerIndex = 0;
+		List<NestedInteger> nestedList;
+		List<Integer> innerList;
+
 		public NestedIterator(List<NestedInteger> nestedList) {
-			
+			this.nestedList = nestedList;
+			innerList = new ArrayList<Integer>();
+			outerIndex = 0;
+			populateList();
+		}
+
+		public void populateList() {
+			if (outerIndex == nestedList.size())
+				return;
+			addToList(nestedList.get(outerIndex));
+			outerIndex++;
+			if (innerList.size() == 0)
+				populateList();
+		}
+
+		public void addToList(NestedInteger ni) {
+			if (ni.isInteger()) {
+				innerList.add(ni.getInteger());
+			} else {
+				List<NestedInteger> list = ni.getList();
+				for (NestedInteger nestedInt : list) {
+					addToList(nestedInt);
+				}
+			}
 		}
 
 		@Override
 		public Integer next() {
-		
-		}
-
-		public List<Integer> getList(NestedInteger nestedInteger) {
-			
+			Integer val = innerList.remove(0);
+			if (innerList.size() == 0)
+				populateList();
+			return val;
 		}
 
 		@Override
 		public boolean hasNext() {
+			return !innerList.isEmpty();
 		}
 	}
 }

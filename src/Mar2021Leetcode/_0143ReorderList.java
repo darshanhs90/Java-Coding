@@ -47,7 +47,57 @@ public class _0143ReorderList {
 	}
 
 	public static void reorderList(ListNode head) {
-		s
+		if (head == null || head.next == null)
+			return;
+		ListNode headPtr = head;
+
+		ListNode slow = head;
+		ListNode fast = head;
+		ListNode prev = null;
+
+		while (fast != null) {
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next;
+			if (fast != null)
+				fast = fast.next;
+		}
+
+		ListNode secondPart = prev.next;
+		prev.next = null;
+
+		secondPart = reverseLL(secondPart);
+
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+
+		while (headPtr != null || secondPart != null) {
+			if (headPtr != null) {
+				op.next = headPtr;
+				headPtr = headPtr.next;
+				op = op.next;
+			}
+
+			if (secondPart != null) {
+				op.next = secondPart;
+				secondPart = secondPart.next;
+				op = op.next;
+			}
+		}
+
+		head = opPtr.next;
+		printNodes(head);
+
+	}
+
+	public static ListNode reverseLL(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode nextNode = head.next;
+		ListNode reverseNode = reverseLL(nextNode);
+		nextNode.next = head;
+		head.next = null;
+		return reverseNode;
 	}
 
 	public static void printNodes(ListNode head) {
