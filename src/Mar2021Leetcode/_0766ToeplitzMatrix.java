@@ -8,6 +8,34 @@ public class _0766ToeplitzMatrix {
 	}
 
 	public static boolean isToeplitzMatrix(int[][] matrix) {
-		
+		if (matrix == null || matrix.length == 0)
+			return true;
+
+		int rows = matrix.length;
+		int cols = matrix[0].length;
+
+		for (int i = rows - 1; i >= 0; i--) {
+			if (!sameValueDiagonal(i, 0, matrix))
+				return false;
+		}
+
+		for (int i = 1; i < cols; i++) {
+			if (!sameValueDiagonal(0, i, matrix))
+				return false;
+		}
+
+		return true;
+	}
+
+	public static boolean sameValueDiagonal(int currRow, int currCol, int[][] matrix) {
+		int currVal = matrix[currRow][currCol];
+
+		while (currRow < matrix.length && currCol < matrix[0].length) {
+			if (matrix[currRow][currCol] != currVal)
+				return false;
+			currRow++;
+			currCol++;
+		}
+		return true;
 	}
 }

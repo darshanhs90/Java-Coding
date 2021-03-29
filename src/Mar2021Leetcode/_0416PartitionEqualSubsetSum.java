@@ -1,9 +1,5 @@
 package Mar2021Leetcode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 public class _0416PartitionEqualSubsetSum {
 
 	public static void main(String[] args) {
@@ -13,7 +9,30 @@ public class _0416PartitionEqualSubsetSum {
 	}
 
 	public static boolean canPartition(int[] nums) {
-	
+		int totalSum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			totalSum += nums[i];
+		}
+
+		if (totalSum % 2 != 0)
+			return false;
+
+		return canPartition(0, null, nums, totalSum / 2);
+	}
+
+	public static boolean canPartition(int index, Integer currSum, int[] nums, int requiredSum) {
+		if (currSum != null) {
+			if (currSum == requiredSum)
+				return true;
+			if (currSum > requiredSum)
+				return false;
+		}
+		currSum = currSum == null ? 0 : currSum;
+		boolean canPartition = false;
+		for (int i = index; i < nums.length; i++) {
+			canPartition = canPartition || canPartition(i + 1, currSum + nums[i], nums, requiredSum);
+		}
+		return canPartition;
 	}
 
 }
