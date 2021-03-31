@@ -12,6 +12,21 @@ public class _0266PalindromePermutation {
 	}
 
 	public static boolean canPermutePalindrome(String s) {
-	
+		if (s == null || s.length() < 2)
+			return true;
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			map.compute(s.charAt(i), (k, v) -> v == null ? 1 : v + 1);
+		}
+
+		int singleElementCount = 0;
+		for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+			if (entry.getValue() % 2 != 0) {
+				if (singleElementCount == 1)
+					return false;
+				singleElementCount++;
+			}
+		}
+		return true;
 	}
 }

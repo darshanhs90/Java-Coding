@@ -9,8 +9,21 @@ public class _0011ContainerWithMostWater {
 		System.out.println(maxArea(new int[] { 1, 2, 1 }));
 	}
 
-	public static int maxArea(int[] height) {
-		
+	public static int maxArea(int[] nums) {
+		if (nums == null || nums.length < 2)
+			return 0;
+
+		int left = 0, right = nums.length - 1;
+		int max = 0;
+		while (left < right) {
+			max = Math.max(max, (right - left) * Math.min(nums[left], nums[right]));
+			if (nums[left] < nums[right]) {
+				left++;
+			} else {
+				right--;
+			}
+		}
+		return max;
 	}
 
 }
