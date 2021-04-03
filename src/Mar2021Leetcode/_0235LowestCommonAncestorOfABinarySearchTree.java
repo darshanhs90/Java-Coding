@@ -34,7 +34,46 @@ public class _0235LowestCommonAncestorOfABinarySearchTree {
 	}
 
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-	
+		if (root == null)
+			return root;
+		else if (p == q)
+			return p;
+
+		HashMap<TreeNode, TreeNode> parentMap = new HashMap<TreeNode, TreeNode>();
+		parentMap.put(root, null);
+		Queue<TreeNode> qu = new LinkedList<TreeNode>();
+		qu.offer(root);
+
+		while (!qu.isEmpty()) {
+			int size = qu.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = qu.poll();
+
+				if (tn.left != null) {
+					qu.offer(tn.left);
+					parentMap.put(tn.left, tn);
+				}
+
+				if (tn.right != null) {
+					qu.offer(tn.right);
+					parentMap.put(tn.right, tn);
+				}
+			}
+		}
+
+		HashSet<TreeNode> ancestors = new HashSet<TreeNode>();
+		while (p != null) {
+			ancestors.add(p);
+			p = parentMap.get(p);
+		}
+
+		while (q != null) {
+			if (ancestors.contains(q))
+				return q;
+			q = parentMap.get(q);
+		}
+
+		return null;
 	}
 
 }

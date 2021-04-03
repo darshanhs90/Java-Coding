@@ -43,6 +43,54 @@ public class _0399EvaluateDivision {
 	}
 
 	public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-		
+		HashMap<String, HashMap<String, Double>> adjList = new HashMap<String, HashMap<String, Double>>();
+
+		for (int i = 0; i < values.length; i++) {
+			List<String> lst = equations.get(i);
+			double val = values[i];
+
+			String src = lst.get(0);
+			String dst = lst.get(1);
+
+			if (!adjList.containsKey(src)) {
+				adjList.put(src, new HashMap<String, Double>());
+			}
+			adjList.get(src).put(dst, val);
+
+			if (!adjList.containsKey(dst)) {
+				adjList.put(dst, new HashMap<String, Double>());
+			}
+
+			adjList.get(dst).put(src, 1 / val);
+		}
+
+		double[] out = new double[queries.size()];
+
+		for (int i = 0; i < queries.size(); i++) {
+			List<String> query = queries.get(i);
+			out[i] = dfs(query.get(0), query.get(1), adjList, new HashSet<String>());
+		}
+		return out;
+	}
+
+	public static double dfs(String src, String dst, HashMap<String, HashMap<String, Double>> adjList,
+			HashSet<String> visited) {
+		if (visited.contains(src) || !adjList.containsKey(src) || !adjList.containsKey(dst))
+			return -1.0;
+
+		if (adjList.get(src).containsKey(dst)) {
+			return adjList.get(src).get(dst);
+		}
+
+		visited.add(src);
+		HashMap<String, Double> map = adjList.get(src);
+		for (Map.Entry<String, Double> entry : map.entrySet()) {
+			double val = dfs(entry.getKey(), dst, adjList, visited);
+			if (val != -1.0) {
+				return val * entry.getValue();
+			}
+		}
+		visited.remove(src);
+		return -1.0;
 	}
 }

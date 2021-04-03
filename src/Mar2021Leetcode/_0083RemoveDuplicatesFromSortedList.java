@@ -41,7 +41,22 @@ public class _0083RemoveDuplicatesFromSortedList {
 	}
 
 	public static ListNode deleteDuplicates(ListNode head) {
-		
+		if (head == null || head.next == null)
+			return head;
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		int prevVal = -1000;
+		while (head != null) {
+			if (head.val != prevVal) {
+				op.next = head;
+				op = op.next;
+				prevVal = head.val;
+			}
+			head = head.next;
+		}
+		op.next = null;
+
+		return opPtr.next;
 	}
 
 }
