@@ -45,7 +45,27 @@ public class _0328OddEvenLinkedList {
 	}
 
 	public static ListNode oddEvenList(ListNode head) {
-		
+		ListNode oddNode = new ListNode();
+		ListNode oddNodePtr = oddNode;
+
+		ListNode evenNode = new ListNode();
+		ListNode evenNodePtr = evenNode;
+
+		int count = 0;
+		while (head != null) {
+			if (count % 2 == 0) {
+				evenNode.next = head;
+				evenNode = evenNode.next;
+			} else {
+				oddNode.next = head;
+				oddNode = oddNode.next;
+			}
+			count++;
+			head = head.next;
+		}
+		oddNode.next = null;
+		evenNode.next = oddNodePtr.next;
+		return evenNodePtr.next;
 	}
 
 }

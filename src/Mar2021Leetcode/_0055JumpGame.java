@@ -8,7 +8,16 @@ public class _0055JumpGame {
 	}
 
 	public static boolean canJump(int[] nums) {
+		if (nums == null || nums.length < 2)
+			return true;
+		int currReach = nums.length - 1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (nums[i] + i >= currReach) {
+				currReach = i;
+			}
+		}
 
+		return currReach == 0;
 	}
 
 }

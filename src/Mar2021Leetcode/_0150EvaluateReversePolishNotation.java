@@ -12,6 +12,32 @@ public class _0150EvaluateReversePolishNotation {
 	}
 
 	public static int evalRPN(String[] tokens) {
-		
+		Stack<Integer> stack = new Stack<Integer>();
+		for (int i = 0; i < tokens.length; i++) {
+			String str = tokens[i];
+			if (str.equals("+") || str.equals("-") || str.equals("/") || str.equals("*")) {
+				int val1 = stack.pop();
+				int val2 = stack.pop();
+
+				switch (str) {
+				case "+":
+					stack.push(val1 + val2);
+					break;
+				case "-":
+					stack.push(val2 - val1);
+					break;
+				case "*":
+					stack.push(val1 * val2);
+					break;
+				case "/":
+					stack.push(val2 / val1);
+					break;
+				}
+			} else {
+				stack.push(Integer.parseInt(str));
+			}
+		}
+
+		return stack.peek();
 	}
 }

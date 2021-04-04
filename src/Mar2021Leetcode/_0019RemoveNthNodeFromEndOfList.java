@@ -50,7 +50,29 @@ public class _0019RemoveNthNodeFromEndOfList {
 	}
 
 	public static ListNode removeNthFromEnd(ListNode head, int n) {
+		if (head == null)
+			return head;
 
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		op.next = head;
+
+		ListNode slow = head;
+		ListNode fast = head;
+		while (n > 0 && fast != null) {
+			fast = fast.next;
+			n--;
+		}
+
+		ListNode prev = op;
+		while (fast != null) {
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next;
+		}
+
+		prev.next = prev.next.next;
+
+		return opPtr.next;
 	}
-
 }
