@@ -10,14 +10,7 @@ public class _0158ReadNCharactersGivenRead4IICallMultipleTimes {
 		abstract int read4(char[] buf4);
 	}
 
-	public class Solution extends Reader4 {
-
-		@Override
-		int read4(char[] buf4) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-
+	public static class Solution extends Reader4 {
 		/**
 		 * @param buf Destination buffer
 		 * @param n   Number of characters to read
@@ -26,6 +19,5 @@ public class _0158ReadNCharactersGivenRead4IICallMultipleTimes {
 		public int read(char[] buf, int n) {
 
 		}
-
 	}
 }
