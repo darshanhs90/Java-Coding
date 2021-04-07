@@ -1,5 +1,7 @@
 package SnapPrep;
 
+import java.util.HashSet;
+
 public class _0079WordSearch {
 
 	public static void main(String[] args) {
@@ -12,8 +14,39 @@ public class _0079WordSearch {
 		System.out.println(exist(new char[][] { new char[] { 'a' } }, "a"));
 	}
 
-	public static boolean exist(char[][] board, String word) {
+	static boolean solved;
 
+	public static boolean exist(char[][] board, String word) {
+		if (board == null || board.length == 0 || word == null)
+			return false;
+		solved = false;
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board[0].length; j++) {
+				if (board[i][j] == word.charAt(0)) {
+					dfs(i, j, 0, board, word, new HashSet<String>());
+					if (solved)
+						return true;
+				}
+			}
+		}
+		return solved;
+	}
+
+	public static void dfs(int x, int y, int index, char[][] board, String word, HashSet<String> visited) {
+		if (index == word.length()) {
+			solved = true;
+			return;
+		}
+
+		if (x < 0 || y < 0 || x >= board.length || y >= board[0].length || visited.contains(x + "/" + y)
+				|| board[x][y] != word.charAt(index))
+			return;
+		visited.add(x + "/" + y);
+		dfs(x - 1, y, index + 1, board, word, visited);
+		dfs(x + 1, y, index + 1, board, word, visited);
+		dfs(x, y - 1, index + 1, board, word, visited);
+		dfs(x, y + 1, index + 1, board, word, visited);
+		visited.remove(x + "/" + y);
 	}
 
 }
