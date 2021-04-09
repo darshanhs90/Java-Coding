@@ -8,6 +8,6 @@ public class _0344ReverseString {
 	}
 
 	public static void reverseString(char[] s) {
-
+s
 	}
 }

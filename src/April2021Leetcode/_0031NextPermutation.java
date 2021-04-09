@@ -11,7 +11,7 @@ public class _0031NextPermutation {
 	}
 
 	public static void nextPermutation(int[] nums) {
-
+s
 	}
 
 }

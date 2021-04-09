@@ -20,7 +20,7 @@ public class _0237DeleteNodeInALinkedList {
 	}
 
 	public void deleteNode(ListNode node) {
-
+s
 	}
 
 }

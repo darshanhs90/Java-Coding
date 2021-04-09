@@ -11,6 +11,6 @@ public class _0130SurroundedRegions {
 	}
 
 	public static void solve(char[][] board) {
-		
+		s
 	}
 }

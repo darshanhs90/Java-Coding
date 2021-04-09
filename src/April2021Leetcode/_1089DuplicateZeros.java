@@ -1,7 +1,5 @@
 package April2021Leetcode;
 
-import java.util.Arrays;
-
 public class _1089DuplicateZeros {
 	public static void main(String[] args) {
 		duplicateZeros(new int[] { 1, 0, 2, 3, 0, 4, 5, 0 });
@@ -10,6 +8,6 @@ public class _1089DuplicateZeros {
 	}
 
 	public static void duplicateZeros(int[] arr) {
-		
+		s
 	}
 }
