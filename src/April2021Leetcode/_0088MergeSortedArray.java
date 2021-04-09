@@ -7,6 +7,26 @@ public class _0088MergeSortedArray {
 	}
 
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {
-		s
+		int outIndex = nums1.length - 1;
+		int mIndex = m - 1;
+		int nIndex = n - 1;
+		while (outIndex >= 0) {
+			if (mIndex >= 0 && nIndex >= 0) {
+				if (nums1[mIndex] > nums2[nIndex]) {
+					nums1[outIndex] = nums1[mIndex];
+					mIndex--;
+				} else {
+					nums1[outIndex] = nums2[nIndex];
+					nIndex--;
+				}
+			} else if (mIndex >= 0) {
+				nums1[outIndex] = nums1[mIndex];
+				mIndex--;
+			} else {
+				nums1[outIndex] = nums2[nIndex];
+				nIndex--;
+			}
+			outIndex--;
+		}
 	}
 }

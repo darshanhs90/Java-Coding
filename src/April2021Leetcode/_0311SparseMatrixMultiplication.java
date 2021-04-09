@@ -8,6 +8,19 @@ public class _0311SparseMatrixMultiplication {
 	}
 
 	public static int[][] multiply(int[][] A, int[][] B) {
-	
+		int outRow = A.length;
+		int outCol = B[0].length;
+		int commonCount = A[0].length;
+
+		int[][] out = new int[outRow][outCol];
+
+		for (int i = 0; i < outRow; i++) {
+			for (int j = 0; j < outCol; j++) {
+				for (int k = 0; k < commonCount; k++) {
+					out[i][j] += A[i][k] * B[k][j];
+				}
+			}
+		}
+		return out;
 	}
 }
