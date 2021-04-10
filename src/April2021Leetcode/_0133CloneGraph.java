@@ -3,8 +3,8 @@ package April2021Leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class _0133CloneGraph {
 	// Definition for a Node.
@@ -43,7 +43,34 @@ public class _0133CloneGraph {
 	}
 
 	public static Node cloneGraph(Node node) {
-	
+		if (node == null)
+			return node;
+
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		populateNodeMap(node, nodeMap);
+		populateChildrens(nodeMap);
+		return nodeMap.get(node);
+	}
+
+	public static void populateNodeMap(Node node, HashMap<Node, Node> nodeMap) {
+		if (node == null || nodeMap.containsKey(node))
+			return;
+
+		Node newNode = new Node(node.val);
+		nodeMap.put(node, newNode);
+		for (Node child : node.neighbors) {
+			populateNodeMap(child, nodeMap);
+		}
+	}
+
+	public static void populateChildrens(HashMap<Node, Node> nodeMap) {
+		for (Map.Entry<Node, Node> entry : nodeMap.entrySet()) {
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+			for (Node child : oldNode.neighbors) {
+				newNode.neighbors.add(nodeMap.get(child));
+			}
+		}
 	}
 
 }

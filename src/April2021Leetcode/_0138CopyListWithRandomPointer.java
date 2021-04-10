@@ -1,6 +1,7 @@
 package April2021Leetcode;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class _0138CopyListWithRandomPointer {
 	static public class Node {
@@ -46,7 +47,32 @@ public class _0138CopyListWithRandomPointer {
 	}
 
 	public static Node copyRandomList(Node head) {
-		
+		if (head == null)
+			return head;
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		nodeMap.put(null, null);
+		populateNodeMap(head, nodeMap);
+		populateNodePointers(nodeMap);
+		return nodeMap.get(head);
+	}
+
+	public static void populateNodeMap(Node head, HashMap<Node, Node> nodeMap) {
+		while (head != null) {
+			Node newNode = new Node(head.val);
+			nodeMap.put(head, newNode);
+			head = head.next;
+		}
+	}
+
+	public static void populateNodePointers(HashMap<Node, Node> nodeMap) {
+		for (Map.Entry<Node, Node> entry : nodeMap.entrySet()) {
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+			if (oldNode != null) {
+				newNode.next = nodeMap.get(oldNode.next);
+				newNode.random = nodeMap.get(oldNode.random);
+			}
+		}
 	}
 
 }

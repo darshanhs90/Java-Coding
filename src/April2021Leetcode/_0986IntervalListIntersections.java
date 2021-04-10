@@ -1,7 +1,6 @@
 package April2021Leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class _0986IntervalListIntersections {
@@ -26,6 +25,32 @@ public class _0986IntervalListIntersections {
 	}
 
 	public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-		
+		List<int[]> output = new ArrayList<int[]>();
+		int firstIndex = 0, secondIndex = 0;
+		while (firstIndex < firstList.length && secondIndex < secondList.length) {
+			int start1 = firstList[firstIndex][0];
+			int end1 = firstList[firstIndex][1];
+
+			int start2 = secondList[secondIndex][0];
+			int end2 = secondList[secondIndex][1];
+
+			int low = Math.max(start1, start2);
+			int high = Math.min(end1, end2);
+			if (low <= high) {
+				output.add(new int[] { low, high });
+			}
+
+			if (end1 < end2) {
+				firstIndex++;
+			} else {
+				secondIndex++;
+			}
+		}
+
+		int[][] out = new int[output.size()][2];
+		for (int i = 0; i < out.length; i++) {
+			out[i] = output.get(i);
+		}
+		return out;
 	}
 }
