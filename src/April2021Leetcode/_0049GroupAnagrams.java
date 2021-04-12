@@ -1,6 +1,10 @@
 package April2021Leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class _0049GroupAnagrams {
 
@@ -11,6 +15,26 @@ public class _0049GroupAnagrams {
 	}
 
 	public static List<List<String>> groupAnagrams(String[] strs) {
+		List<List<String>> output = new ArrayList<List<String>>();
+		if (strs == null || strs.length == 0) {
+			return new ArrayList<List<String>>();
+		}
+		HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+		for (int i = 0; i < strs.length; i++) {
+			String str = strs[i];
+			char[] cArr = str.toCharArray();
+			Arrays.sort(cArr);
+			String sortedString = new String(cArr);
+			if (!map.containsKey(sortedString)) {
+				map.put(sortedString, new ArrayList<String>());
+			}
 
+			map.get(sortedString).add(str);
+		}
+
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			output.add(entry.getValue());
+		}
+		return output;
 	}
 }

@@ -41,7 +41,19 @@ public class _0230KthSmallestElementInABST {
 	}
 
 	public static int kthSmallest(TreeNode root, int k) {
+		int leftNodes = getNodes(root.left);
+		if (leftNodes == k - 1)
+			return root.val;
+		else if (leftNodes >= k)
+			return kthSmallest(root.left, k);
+		else
+			return kthSmallest(root.right, k - leftNodes - 1);
+	}
 
+	public static int getNodes(TreeNode root) {
+		if (root == null)
+			return 0;
+		return 1 + getNodes(root.left) + getNodes(root.right);
 	}
 
 }

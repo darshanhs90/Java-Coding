@@ -15,15 +15,27 @@ public class _0295FindMedianFromDataStream {
 	}
 
 	static class MedianFinder {
+		PriorityQueue<Integer> maxHeap, minHeap;
 
 		/** initialize your data structure here. */
 		public MedianFinder() {
+			maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+			minHeap = new PriorityQueue<Integer>();
 		}
 
 		public void addNum(int num) {
+			maxHeap.offer(num);
+			minHeap.offer(maxHeap.poll());
+			if (minHeap.size() > maxHeap.size()) {
+				maxHeap.offer(minHeap.poll());
+			}
 		}
 
 		public double findMedian() {
+			if (minHeap.size() == maxHeap.size()) {
+				return (maxHeap.peek() + minHeap.peek()) / (double) 2;
+			}
+			return maxHeap.peek();
 		}
 	}
 
