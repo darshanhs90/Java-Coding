@@ -22,7 +22,18 @@ public class _0240SearchA2DMatrixII {
 	}
 
 	public static boolean searchMatrix(int[][] matrix, int target) {
-		
+		if (matrix == null || matrix.length == 0)
+			return false;
+		int currRow = 0, currCol = matrix[0].length - 1;
+		while (currRow < matrix.length && currCol >= 0) {
+			if (matrix[currRow][currCol] == target)
+				return true;
+			if (matrix[currRow][currCol] > target)
+				currCol--;
+			else
+				currRow++;
+		}
+		return false;
 	}
 
 }

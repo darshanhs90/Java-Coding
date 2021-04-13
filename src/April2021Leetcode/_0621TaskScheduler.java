@@ -1,7 +1,5 @@
 package April2021Leetcode;
 
-import java.util.Arrays;
-
 public class _0621TaskScheduler {
 
 	public static void main(String[] args) {

@@ -31,7 +31,17 @@ public class _0094BinaryTreeInorderTraversal {
 	}
 
 	public static List<Integer> inorderTraversal(TreeNode root) {
-		
+		List<Integer> list = new ArrayList<Integer>();
+		inOrder(root, list);
+		return list;
+	}
+
+	public static void inOrder(TreeNode root, List<Integer> list) {
+		if (root == null)
+			return;
+		inOrder(root.left, list);
+		list.add(root.val);
+		inOrder(root.right, list);
 	}
 
 }
