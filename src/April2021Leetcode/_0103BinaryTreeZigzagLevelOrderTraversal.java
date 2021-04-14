@@ -1,6 +1,7 @@
 package April2021Leetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -42,7 +43,33 @@ public class _0103BinaryTreeZigzagLevelOrderTraversal {
 	}
 
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		if (root == null)
+			return output;
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		boolean flip = false;
+		while (!q.isEmpty()) {
+			List<Integer> list = new ArrayList<Integer>();
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				list.add(tn.val);
+				if (tn.left != null) {
+					q.offer(tn.left);
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+				}
+			}
+			if (flip) {
+				Collections.reverse(list);
+			}
+			output.add(list);
+			flip = !flip;
+		}
+		return output;
 	}
 
 }

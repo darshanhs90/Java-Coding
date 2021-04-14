@@ -96,7 +96,19 @@ public class _0203RemoveLinkedListElements {
 	}
 
 	public static ListNode removeElements(ListNode head, int val) {
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
 
+		while (head != null) {
+			if (head.val != val) {
+				op.next = head;
+				op = op.next;
+			}
+			head = head.next;
+		}
+
+		op.next = null;
+		return opPtr.next;
 	}
 
 }

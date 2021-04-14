@@ -43,6 +43,22 @@ public class _0399EvaluateDivision {
 	}
 
 	public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+		HashMap<String, HashMap<String, Double>> map = new HashMap<String, HashMap<String, Double>>();
+		
+		for (int i = 0; i < equations.size(); i++) {
+			String src = equations.get(i).get(0);
+			String dst = equations.get(i).get(1);
+			
+			double value = values[i];
+			
+			
+			
+			
+			
+			
+		}
+		
+		
 		
 	}
 }

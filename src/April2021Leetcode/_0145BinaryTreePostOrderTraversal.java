@@ -38,7 +38,19 @@ public class _0145BinaryTreePostOrderTraversal {
 	}
 
 	public static List<Integer> postorderTraversal(TreeNode root) {
-	
+		List<Integer> output = new ArrayList<Integer>();
+		if (root == null)
+			return output;
+		postOrder(root, output);
+		return output;
+	}
+
+	public static void postOrder(TreeNode root, List<Integer> list) {
+		if (root == null)
+			return;
+		postOrder(root.left, list);
+		postOrder(root.right, list);
+		list.add(root.val);
 	}
 
 }
