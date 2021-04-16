@@ -1,44 +1,57 @@
 package April2021Leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.Arrays;
 
 public class _0689MaximumSumOf3NonOverlappingSubarrays {
-	static class Employee {
-		public int id;
-		public int importance;
-		public List<Integer> subordinates;
-	};
 
 	public static void main(String[] args) {
-		Employee emp1 = new Employee();
-		emp1.id = 1;
-		emp1.importance = 5;
-		emp1.subordinates = new ArrayList<Integer>();
-		emp1.subordinates.add(2);
-		emp1.subordinates.add(3);
-
-		Employee emp2 = new Employee();
-		emp2.id = 2;
-		emp2.importance = 3;
-		emp2.subordinates = new ArrayList<Integer>();
-
-		Employee emp3 = new Employee();
-		emp3.id = 3;
-		emp3.importance = 3;
-		emp3.subordinates = new ArrayList<Integer>();
-
-		List<Employee> employees = new ArrayList<Employee>();
-		employees.add(emp1);
-		employees.add(emp2);
-		employees.add(emp3);
-
-		System.out.println(getImportance(employees, 1));
+		System.out.println(Arrays.toString(maxSumOfThreeSubarrays(new int[] { 1, 2, 1, 2, 6, 7, 5, 1 }, 2)));
 	}
 
-	public static int getImportance(List<Employee> employees, int id) {
-		
+	public static int[] maxSumOfThreeSubarrays(int[] nums, int k) {
+		int[] sdSum = new int[nums.length];
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+			if (i >= k) {
+				sum -= nums[i-k];
+			}
+			sdSum[i] = sum;
+		}
+
+		int leftMax[] = new int[nums.length];
+		int rightMax[] = new int[nums.length];
+		int currMaxIdx = 0;
+		for (int i = 0; i < rightMax.length; i++) {
+			if (sdSum[i] > sdSum[currMaxIdx]) {
+				currMaxIdx = i;
+			}
+			leftMax[i] = currMaxIdx;
+		}
+
+		currMaxIdx = nums.length - 1;
+		for (int i = nums.length - 1; i >= 0; i--) {
+			if (sdSum[i] >= sdSum[currMaxIdx]) {
+				currMaxIdx = i;
+			}
+			rightMax[i] = currMaxIdx;
+		}
+		int currMax = -1;
+		int[] res = new int[3];
+		for (int mid = 2 * k - 1; mid < nums.length - k; mid++) {
+			int leftSum = sdSum[leftMax[mid - k]];
+			int midSum = sdSum[mid];
+			int rightSum = sdSum[rightMax[mid + k]];
+			if (leftSum + rightSum + midSum > currMax) {
+				currMax = leftSum + rightSum + midSum;
+				res[0] = leftMax[mid - k] - k + 1;
+				res[1] = mid - k + 1;
+				res[2] = rightMax[mid + k] - k + 1;
+			}
+
+		}
+
+		return res;
 	}
 
 }

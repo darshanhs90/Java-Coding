@@ -1,16 +1,38 @@
 package April2021Leetcode;
 
-import java.util.HashMap;
-
 public class _0158ReadNCharactersGivenRead4IICallMultipleTimes {
 
-	public static void main(String[] args) {
-		System.out.println(lengthOfLongestSubstringTwoDistinct("eceba"));
-		System.out.println(lengthOfLongestSubstringTwoDistinct("ccaabbb"));
+	class Reader4 {
+		int read4(char[] buf4) {
+			return 0;
+		}
 	}
 
-	public static int lengthOfLongestSubstringTwoDistinct(String s) {
-		
+	public class Solution extends Reader4 {
+		/**
+		 * @param buf Destination buffer
+		 * @param n   Number of characters to read
+		 * @return The number of actual characters read
+		 */
+		int prevIndex = 0;
+		char[] prevBuf = new char[4];
+		int prevSize = 0;
+
+		public int read(char[] buf, int n) {
+			int counter = 0;
+			while (counter < n) {
+				if (prevIndex < prevSize) {
+					buf[counter++] = prevBuf[prevIndex++];
+				} else {
+					prevIndex = 0;
+					prevSize = read4(prevBuf);
+					if (prevSize == 0)
+						break;
+					buf[counter++] = prevBuf[prevIndex++];
+				}
+			}
+			return counter;
+		}
 	}
 
 }

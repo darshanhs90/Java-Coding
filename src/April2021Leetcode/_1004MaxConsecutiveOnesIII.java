@@ -1,16 +1,24 @@
 package April2021Leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class _1004MaxConsecutiveOnesIII {
 	public static void main(String[] args) {
-		System.out.println(commonChars(new String[] { "bella", "label", "roller" }));
-		System.out.println(commonChars(new String[] { "cool", "lock", "cook" }));
+		System.out.println(longestOnes(new int[] { 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 }, 2));
+		System.out.println(longestOnes(new int[] { 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1 }, 3));
 	}
 
-	public static List<String> commonChars(String[] A) {
-		
+	public static int longestOnes(int[] nums, int k) {
+		int left = 0, right = 0;
+		for (right = 0; right < nums.length; right++) {
+			if (nums[right] == 0) {
+				k--;
+			}
+
+			if (k < 0) {
+				if (nums[left] == 0)
+					k++;
+				left++;
+			}
+		}
+		return right - left;
 	}
 }
