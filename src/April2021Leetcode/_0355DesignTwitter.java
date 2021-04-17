@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 public class _0355DesignTwitter {
 
@@ -38,13 +37,35 @@ public class _0355DesignTwitter {
 		System.out.println(twitter.getNewsFeed(1));
 	}
 
+	static class Tweet {
+		int tweetId, id;
+
+		public Tweet(int id, int tweetId) {
+			this.id = id;
+			this.tweetId = tweetId;
+		}
+	}
+
 	static class Twitter {
+		HashMap<Integer, HashSet<Integer>> userFollowerMap;
+		HashMap<Integer, HashSet<Tweet>> userTweetMap;
+		int timeStamp = 0;
+
 		/** Initialize your data structure here. */
 		public Twitter() {
+			userFollowerMap = new HashMap<Integer, HashSet<Integer>>();
+			userTweetMap = new HashMap<Integer, HashSet<Tweet>>();
 		}
 
 		/** Compose a new tweet. */
 		public void postTweet(int userId, int tweetId) {
+			if (!userFollowerMap.containsKey(userId)) {
+				userFollowerMap.put(userId, new HashSet<Integer>());
+				userFollowerMap.get(userId).add(userId);
+				userTweetMap.put(userId, new HashSet<Tweet>());
+			}
+			Tweet tweet = new Tweet(timeStamp++, tweetId);
+			userTweetMap.get(userId).add(tweet);
 		}
 
 		/**
@@ -53,6 +74,28 @@ public class _0355DesignTwitter {
 		 * herself. Tweets must be ordered from most recent to least recent.
 		 */
 		public List<Integer> getNewsFeed(int userId) {
+
+			if (!userFollowerMap.containsKey(userId))
+				return new ArrayList<Integer>();
+			List<Tweet> tweets = new ArrayList<Tweet>();
+			Iterator<Integer> iter = userFollowerMap.get(userId).iterator();
+			while (iter.hasNext()) {
+				tweets.addAll(userTweetMap.get(iter.next()));
+			}
+			Collections.sort(tweets, new Comparator<Tweet>() {
+
+				@Override
+				public int compare(Tweet o1, Tweet o2) {
+					// TODO Auto-generated method stub
+					return o2.id - o1.id;
+				}
+			});
+
+			List<Integer> list = new ArrayList<Integer>();
+			for (int i = 0; i < Math.min(10, tweets.size()); i++) {
+				list.add(tweets.get(i).tweetId);
+			}
+			return list;
 		}
 
 		/**
@@ -60,6 +103,19 @@ public class _0355DesignTwitter {
 		 * no-op.
 		 */
 		public void follow(int followerId, int followeeId) {
+			if (!userFollowerMap.containsKey(followerId)) {
+				userFollowerMap.put(followerId, new HashSet<Integer>());
+				userFollowerMap.get(followerId).add(followerId);
+				userTweetMap.put(followerId, new HashSet<Tweet>());
+			}
+
+			if (!userFollowerMap.containsKey(followeeId)) {
+				userFollowerMap.put(followeeId, new HashSet<Integer>());
+				userFollowerMap.get(followeeId).add(followeeId);
+				userTweetMap.put(followeeId, new HashSet<Tweet>());
+			}
+
+			userFollowerMap.get(followerId).add(followeeId);
 		}
 
 		/**
@@ -67,6 +123,12 @@ public class _0355DesignTwitter {
 		 * no-op.
 		 */
 		public void unfollow(int followerId, int followeeId) {
+			if (followerId == followeeId)
+				return;
+
+			if (!userFollowerMap.containsKey(followerId) || !userFollowerMap.get(followerId).contains(followeeId))
+				return;
+			userFollowerMap.get(followerId).remove(Integer.valueOf(followeeId));
 		}
 	}
 

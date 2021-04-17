@@ -1,7 +1,6 @@
 package April2021Leetcode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.TreeMap;
 
 public class _0362DesignHitCounter {
 
@@ -32,9 +31,11 @@ public class _0362DesignHitCounter {
 	}
 
 	static class HitCounter {
-		
+		TreeMap<Integer, Integer> map;
+
 		/** Initialize your data structure here. */
 		public HitCounter() {
+			map = new TreeMap<Integer, Integer>();
 		}
 
 		/**
@@ -43,6 +44,7 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public void hit(int timestamp) {
+			map.compute(timestamp, (k, v) -> v == null ? 1 : v + 1);
 		}
 
 		/**
@@ -51,6 +53,16 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public int getHits(int timestamp) {
+			Integer currTimeStamp = map.floorKey(timestamp);
+			int count = 0;
+			while (currTimeStamp!= null && timestamp - currTimeStamp < 300) {
+				if (map.containsKey(currTimeStamp)) {
+					count += map.get(currTimeStamp);
+				}
+				currTimeStamp -= 1;
+				currTimeStamp = map.floorKey(currTimeStamp);
+			}
+			return count;
 		}
 	}
 
