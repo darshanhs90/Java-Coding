@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.PriorityQueue;
-
 public class _0703KthLargestElementInAStream {
 
 	public static void main(String[] args) {

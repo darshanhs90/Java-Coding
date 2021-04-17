@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class _0496NextGreaterElementI {
 
@@ -11,7 +10,7 @@ public class _0496NextGreaterElementI {
 	}
 
 	public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
-		
+
 	}
 
 }

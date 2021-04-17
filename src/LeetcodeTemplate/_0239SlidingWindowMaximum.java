@@ -1,10 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
 
 public class _0239SlidingWindowMaximum {
 
@@ -18,7 +14,7 @@ public class _0239SlidingWindowMaximum {
 	}
 
 	public static int[] maxSlidingWindow(int[] nums, int k) {
-		
+
 	}
 
 }

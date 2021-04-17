@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class _0472ConcatenatedWords {
@@ -14,7 +11,7 @@ public class _0472ConcatenatedWords {
 	}
 
 	public static List<String> findAllConcatenatedWordsInADict(String[] words) {
-		
+
 	}
 
 }

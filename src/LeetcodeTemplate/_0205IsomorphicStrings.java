@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0205IsomorphicStrings {
 
 	public static void main(String[] args) {
@@ -11,6 +9,6 @@ public class _0205IsomorphicStrings {
 	}
 
 	public static boolean isIsomorphic(String s, String t) {
-		
+
 	}
 }

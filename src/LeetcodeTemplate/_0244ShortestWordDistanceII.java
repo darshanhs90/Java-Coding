@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class _0244ShortestWordDistanceII {
 
 	public static void main(String[] args) {
@@ -13,13 +9,13 @@ public class _0244ShortestWordDistanceII {
 	}
 
 	static class WordDistance {
-	
+
 		public WordDistance(String[] words) {
-	
+
 		}
 
 		public int shortest(String word1, String word2) {
-		
+
 		}
 	}
 

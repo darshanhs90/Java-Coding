@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class _0739DailyTemperatures {
 
@@ -10,6 +9,6 @@ public class _0739DailyTemperatures {
 	}
 
 	public static int[] dailyTemperatures(int[] T) {
-		
+
 	}
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0383RansomNote {
 
 	public static void main(String[] args) {

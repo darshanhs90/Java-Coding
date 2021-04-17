@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _02593SumSmaller {
 
 	public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class _02593SumSmaller {
 	}
 
 	public static int threeSumSmaller(int[] nums, int target) {
-		
+
 	}
 
 }

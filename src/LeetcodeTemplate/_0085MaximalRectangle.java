@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0085MaximalRectangle {
 
 	public static void main(String[] args) {
@@ -21,7 +19,7 @@ public class _0085MaximalRectangle {
 	}
 
 	public static int maximalRectangle(char[][] matrix) {
-		
+
 	}
 
 }

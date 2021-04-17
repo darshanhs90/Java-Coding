@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0449SerializeAndDeserializeBST {
 
 	public static void main(String[] args) {
@@ -42,7 +38,7 @@ public class _0449SerializeAndDeserializeBST {
 
 		// Decodes your encoded data to tree.
 		public TreeNode deserialize(String data) {
-		
+
 		}
 	}
 }

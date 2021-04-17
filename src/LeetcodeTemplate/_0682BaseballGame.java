@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0682BaseballGame {
 
 	public static void main(String[] args) {
@@ -11,7 +9,7 @@ public class _0682BaseballGame {
 	}
 
 	public static int calPoints(String[] ops) {
-		
+
 	}
 
 }

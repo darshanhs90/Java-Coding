@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashSet;
 
 public class _0645SetMismatch {
 
@@ -12,6 +11,6 @@ public class _0645SetMismatch {
 	}
 
 	public static int[] findErrorNums(int[] nums) {
-		
+
 	}
 }

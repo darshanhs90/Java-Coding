@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0934ShortestBridge {
 
 	public static void main(String[] args) {
@@ -15,7 +12,7 @@ public class _0934ShortestBridge {
 	}
 
 	public static int shortestBridge(int[][] A) {
-		
+
 	}
 
 }

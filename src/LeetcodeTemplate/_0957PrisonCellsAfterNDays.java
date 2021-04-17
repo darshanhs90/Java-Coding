@@ -1,8 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 
 public class _0957PrisonCellsAfterNDays {
 
@@ -12,6 +10,6 @@ public class _0957PrisonCellsAfterNDays {
 	}
 
 	public static int[] prisonAfterNDays(int[] cells, int N) {
-		
+
 	}
 }

@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
-
 public class _1353MaximumNumberOfEventsThatCanBeAttended {
 
 	public static void main(String[] args) {
@@ -19,6 +16,6 @@ public class _1353MaximumNumberOfEventsThatCanBeAttended {
 	}
 
 	public static int maxEvents(int[][] events) {
-		
+
 	}
 }

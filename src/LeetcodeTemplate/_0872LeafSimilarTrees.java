@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0872LeafSimilarTrees {
 	static public class TreeNode {
 		int val;
@@ -52,7 +49,7 @@ public class _0872LeafSimilarTrees {
 	}
 
 	public static boolean leafSimilar(TreeNode root1, TreeNode root2) {
-		
+
 	}
 
 }

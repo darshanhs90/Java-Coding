@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0622CircularQueue {
 
 	public static void main(String[] args) {
@@ -18,7 +16,6 @@ public class _0622CircularQueue {
 	}
 
 	static class MyCircularQueue {
-		
 
 		public MyCircularQueue(int k) {
 		}
@@ -33,7 +30,7 @@ public class _0622CircularQueue {
 		}
 
 		public int Rear() {
-			
+
 		}
 
 		public boolean isEmpty() {

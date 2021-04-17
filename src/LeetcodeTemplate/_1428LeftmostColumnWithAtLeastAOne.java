@@ -14,6 +14,6 @@ public class _1428LeftmostColumnWithAtLeastAOne {
 	};
 
 	public static int leftMostColumnWithOne(BinaryMatrix binaryMatrix) {
-		
+
 	}
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0389FindTheDifference {
 
 	public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class _0389FindTheDifference {
 	}
 
 	public static char findTheDifference(String s, String t) {
-		
+
 	}
 
 }

@@ -1,9 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class _0199BinaryTreeRightSideView {
 	static public class TreeNode {
@@ -36,6 +33,6 @@ public class _0199BinaryTreeRightSideView {
 	}
 
 	public static List<Integer> rightSideView(TreeNode root) {
-	
+
 	}
 }

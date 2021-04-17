@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashSet;
-
 public class _0653TwoSumIVInputIsABST {
 	static public class TreeNode {
 		int val;
@@ -41,7 +39,7 @@ public class _0653TwoSumIVInputIsABST {
 	}
 
 	public static boolean findTarget(TreeNode root, int k) {
-		
+
 	}
 
 }

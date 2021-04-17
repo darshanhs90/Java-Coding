@@ -1,11 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0752OpenTheLock {
 	public static void main(String[] args) {
 		System.out.println(openLock(new String[] { "0201", "0101", "0102", "1212", "2002" }, "0202"));
@@ -16,6 +10,6 @@ public class _0752OpenTheLock {
 	}
 
 	public static int openLock(String[] deadends, String target) {
-		
+
 	}
 }

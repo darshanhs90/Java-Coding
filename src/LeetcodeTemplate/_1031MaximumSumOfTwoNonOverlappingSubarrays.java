@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _1031MaximumSumOfTwoNonOverlappingSubarrays {
 	public static void main(String[] args) {
 		System.out.println(maxSumTwoNoOverlap(new int[] { 0, 6, 5, 2, 2, 5, 1, 9, 4 }, 1, 2));
@@ -11,7 +9,7 @@ public class _1031MaximumSumOfTwoNonOverlappingSubarrays {
 	}
 
 	public static int maxSumTwoNoOverlap(int[] A, int L, int M) {
-		
+
 	}
 
 }

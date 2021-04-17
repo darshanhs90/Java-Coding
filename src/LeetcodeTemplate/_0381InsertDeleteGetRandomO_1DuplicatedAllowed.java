@@ -1,11 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-
 public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 
 	public static void main(String[] args) {
@@ -85,7 +79,7 @@ public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 		 * the specified element.
 		 */
 		public boolean remove(int val) {
-			
+
 		}
 
 		/** Get a random element from the collection. */

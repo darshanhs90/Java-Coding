@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0716MaxStack {
 	public static void main(String[] args) {
 		MaxStack stk = new MaxStack();

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0138CopyListWithRandomPointer {
 	static public class Node {
 		int val;
@@ -46,7 +44,7 @@ public class _0138CopyListWithRandomPointer {
 	}
 
 	public static Node copyRandomList(Node head) {
-		
+
 	}
 
 }

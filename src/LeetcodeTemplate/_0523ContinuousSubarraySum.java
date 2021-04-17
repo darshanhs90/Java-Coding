@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0523ContinuousSubarraySum {
 
 	public static void main(String[] args) {
@@ -13,6 +11,6 @@ public class _0523ContinuousSubarraySum {
 	}
 
 	public static boolean checkSubarraySum(int[] nums, int k) {
-		
+
 	}
 }

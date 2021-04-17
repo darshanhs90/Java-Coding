@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-
 public class _0323NumberOfConnectedComponentsInAnUndirectedGraph {
 
 	public static void main(String[] args) {
@@ -16,7 +12,7 @@ public class _0323NumberOfConnectedComponentsInAnUndirectedGraph {
 	}
 
 	public static int countComponents(int n, int[][] edges) {
-		
+
 	}
 
 }

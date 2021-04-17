@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0232ImplementQueueUsingStacks {
 
 	public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class _0232ImplementQueueUsingStacks {
 	}
 
 	static class MyQueue {
-		
+
 		/** Initialize your data structure here. */
 		public MyQueue() {
 		}

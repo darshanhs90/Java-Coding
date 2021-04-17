@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0145BinaryTreePostOrderTraversal {
@@ -38,7 +37,7 @@ public class _0145BinaryTreePostOrderTraversal {
 	}
 
 	public static List<Integer> postorderTraversal(TreeNode root) {
-	
+
 	}
 
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0647PalindromicSubstrings {
 
 	public static void main(String[] args) {
@@ -10,6 +8,6 @@ public class _0647PalindromicSubstrings {
 	}
 
 	public static int countSubstrings(String s) {
-		
+
 	}
 }

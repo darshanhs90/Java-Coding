@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class _0378KthSmallestElementInASortedMatrix {
 
 	public static void main(String[] args) {
@@ -22,7 +19,7 @@ public class _0378KthSmallestElementInASortedMatrix {
 	}
 
 	public static int kthSmallest(int[][] matrix, int k) {
-		
+
 	}
 
 }

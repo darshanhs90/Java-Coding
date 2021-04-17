@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Collections;
-import java.util.PriorityQueue;
-
 public class _0295FindMedianFromDataStream {
 
 	public static void main(String[] args) {

@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0353DesignSnakeGame {
 
 	public static void main(String[] args) {
@@ -65,7 +60,7 @@ public class _0353DesignSnakeGame {
 	}
 
 	static class SnakeGame {
-		
+
 		/**
 		 * Initialize your data structure here.
 		 * 
@@ -85,7 +80,7 @@ public class _0353DesignSnakeGame {
 		 *         when snake crosses the screen boundary or bites its body.
 		 */
 		public int move(String direction) {
-		
+
 		}
 
 	}

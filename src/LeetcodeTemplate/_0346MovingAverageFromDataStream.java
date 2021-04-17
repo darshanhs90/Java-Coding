@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0346MovingAverageFromDataStream {
 
 	public static void main(String[] args) {
@@ -17,7 +14,7 @@ public class _0346MovingAverageFromDataStream {
 
 		/** Initialize your data structure here. */
 		public MovingAverage(int size) {
-			
+
 		}
 
 		public double next(int val) {

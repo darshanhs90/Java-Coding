@@ -10,6 +10,6 @@ public class _1089DuplicateZeros {
 	}
 
 	public static void duplicateZeros(int[] arr) {
-		
+		s
 	}
 }

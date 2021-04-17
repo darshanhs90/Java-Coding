@@ -2,7 +2,6 @@ package LeetcodeTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 public class _1239MaximumLengthOfAConcatenatedStringWithUniqueCharacters {
@@ -13,7 +12,7 @@ public class _1239MaximumLengthOfAConcatenatedStringWithUniqueCharacters {
 	}
 
 	public static int maxLength(List<String> arr) {
-	
+
 	}
 
 }

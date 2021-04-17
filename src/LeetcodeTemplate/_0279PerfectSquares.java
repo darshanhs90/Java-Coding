@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0279PerfectSquares {
 
 	public static void main(String[] args) {

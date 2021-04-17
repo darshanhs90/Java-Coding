@@ -1,10 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class _0373FindKPairsWithSmallestSums {
 
@@ -16,7 +12,7 @@ public class _0373FindKPairsWithSmallestSums {
 	}
 
 	public static List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-		
+
 	}
 
 }

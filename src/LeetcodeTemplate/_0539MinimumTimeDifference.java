@@ -2,9 +2,7 @@ package LeetcodeTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
-import java.util.TreeSet;
 
 public class _0539MinimumTimeDifference {
 
@@ -14,6 +12,6 @@ public class _0539MinimumTimeDifference {
 	}
 
 	public static int findMinDifference(List<String> timePoints) {
-		
+
 	}
 }

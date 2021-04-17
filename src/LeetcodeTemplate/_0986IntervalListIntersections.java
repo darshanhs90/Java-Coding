@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class _0986IntervalListIntersections {
 	public static void main(String[] args) {
 		System.out.println(intervalIntersection(
@@ -26,6 +22,6 @@ public class _0986IntervalListIntersections {
 	}
 
 	public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-		
+
 	}
 }

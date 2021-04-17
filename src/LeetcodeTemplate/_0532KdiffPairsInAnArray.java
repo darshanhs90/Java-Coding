@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class _0532KdiffPairsInAnArray {
 
 	public static void main(String[] args) {
@@ -14,7 +11,7 @@ public class _0532KdiffPairsInAnArray {
 	}
 
 	public static int findPairs(int[] nums, int k) {
-		
+
 	}
 
 }

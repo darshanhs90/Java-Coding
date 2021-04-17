@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0146LRUCache {
 
 	public static void main(String[] args) {
@@ -26,7 +24,7 @@ public class _0146LRUCache {
 		}
 
 		public int get(int key) {
-		
+
 		}
 
 		public void put(int key, int value) {

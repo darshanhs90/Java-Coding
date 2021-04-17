@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0236LowestCommonAncestorOfABinaryTree {
 
 	static public class TreeNode {
@@ -34,7 +29,7 @@ public class _0236LowestCommonAncestorOfABinaryTree {
 	}
 
 	public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-		
+
 	}
 
 }

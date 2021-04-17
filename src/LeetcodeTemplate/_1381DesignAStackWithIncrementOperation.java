@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _1381DesignAStackWithIncrementOperation {
 	public static void main(String[] args) {
 		CustomStack customStack = new CustomStack(3); // Stack is Empty []
@@ -21,7 +18,7 @@ public class _1381DesignAStackWithIncrementOperation {
 	}
 
 	static class CustomStack {
-		
+
 		public CustomStack(int maxSize) {
 		}
 
@@ -32,7 +29,7 @@ public class _1381DesignAStackWithIncrementOperation {
 		}
 
 		public void increment(int k, int val) {
-			
+
 		}
 	}
 

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0304RangeSumQuery2DImmutable {
 	// https://www.youtube.com/watch?v=PwDqpOMwg6U
 	public static void main(String[] args) {

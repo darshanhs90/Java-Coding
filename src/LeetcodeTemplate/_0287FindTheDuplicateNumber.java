@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashSet;
-
 public class _0287FindTheDuplicateNumber {
 
 	public static void main(String[] args) {

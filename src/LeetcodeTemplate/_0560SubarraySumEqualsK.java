@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0560SubarraySumEqualsK {
 
 	public static void main(String[] args) {

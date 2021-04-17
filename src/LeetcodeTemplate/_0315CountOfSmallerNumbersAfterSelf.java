@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class _0315CountOfSmallerNumbersAfterSelf {
@@ -21,7 +20,7 @@ public class _0315CountOfSmallerNumbersAfterSelf {
 	}
 
 	public static List<Integer> countSmaller(int[] nums) {
-		
+
 	}
 
 }

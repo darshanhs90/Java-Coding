@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0722RemoveComments {
@@ -14,7 +13,7 @@ public class _0722RemoveComments {
 	}
 
 	public static List<String> removeComments(String[] source) {
-		
+
 	}
 
 }

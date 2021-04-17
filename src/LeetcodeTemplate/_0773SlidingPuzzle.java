@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0773SlidingPuzzle {
 	public static void main(String[] args) {
 		System.out.println(slidingPuzzle(new int[][] { new int[] { 1, 2, 3 }, new int[] { 4, 0, 5 } }));
@@ -14,6 +9,6 @@ public class _0773SlidingPuzzle {
 	}
 
 	public static int slidingPuzzle(int[][] board) {
-		
+
 	}
 }

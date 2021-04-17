@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class _0131PalindromePartitioning {
@@ -11,7 +9,7 @@ public class _0131PalindromePartitioning {
 	}
 
 	public static List<List<String>> partition(String s) {
-		
+
 	}
 
 }

@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Random;
-
 public class _0382LinkedListRandomNode {
 
 	public static void main(String[] args) {
@@ -38,13 +35,13 @@ public class _0382LinkedListRandomNode {
 	}
 
 	static class Solution {
-		
+
 		/**
 		 * @param head The linked list's head. Note that the head is guaranteed to be
 		 *             not null, so it contains at least one node.
 		 */
 		public Solution(ListNode head) {
-		
+
 		}
 
 		/** Returns a random node's value. */

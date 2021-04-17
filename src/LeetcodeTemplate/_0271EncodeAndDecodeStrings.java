@@ -9,8 +9,8 @@ public class _0271EncodeAndDecodeStrings {
 	public static void main(String[] args) {
 
 		Codec codec = new Codec();
-		System.out
-				.println(codec.decode(codec.encode(new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "sss", "f")))));
+		System.out.println(
+				codec.decode(codec.encode(new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "sss", "f")))));
 
 	}
 

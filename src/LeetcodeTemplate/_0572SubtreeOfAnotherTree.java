@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class _0572SubtreeOfAnotherTree {
 	static public class TreeNode {
 		int val;
@@ -37,6 +33,6 @@ public class _0572SubtreeOfAnotherTree {
 	}
 
 	public static boolean isSubtree(TreeNode s, TreeNode t) {
-		
+
 	}
 }

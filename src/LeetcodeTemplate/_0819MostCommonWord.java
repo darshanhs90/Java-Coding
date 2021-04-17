@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
 public class _0819MostCommonWord {
 	public static void main(String[] args) {
 		System.out.println(
@@ -12,6 +8,6 @@ public class _0819MostCommonWord {
 	}
 
 	public static String mostCommonWord(String paragraph, String[] banned) {
-		
+
 	}
 }

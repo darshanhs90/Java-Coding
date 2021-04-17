@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class _1002FindCommonCharacters {
@@ -11,6 +9,6 @@ public class _1002FindCommonCharacters {
 	}
 
 	public static List<String> commonChars(String[] A) {
-		
+
 	}
 }

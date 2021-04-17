@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Iterator;
-import java.util.TreeSet;
-
 public class _0671SecondMinimumNodeInABinaryTree {
 	static public class TreeNode {
 		int val;
@@ -44,7 +41,7 @@ public class _0671SecondMinimumNodeInABinaryTree {
 	}
 
 	public static int findSecondMinimumValue(TreeNode root) {
-		
+
 	}
 
 }

@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0412FizzBuzz {
@@ -10,6 +9,6 @@ public class _0412FizzBuzz {
 	}
 
 	public static List<String> fizzBuzz(int n) {
-		
+
 	}
 }

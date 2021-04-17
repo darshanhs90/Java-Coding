@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
-
 public class _0380InsertDeleteGetRandomO_1 {
 
 	public static void main(String[] args) {
@@ -36,7 +31,7 @@ public class _0380InsertDeleteGetRandomO_1 {
 		 * element.
 		 */
 		public boolean remove(int val) {
-		
+
 		}
 
 		/** Get a random element from the set. */

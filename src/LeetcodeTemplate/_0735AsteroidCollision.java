@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.Stack;
 
 public class _0735AsteroidCollision {
 	public static void main(String[] args) {
@@ -12,6 +11,6 @@ public class _0735AsteroidCollision {
 	}
 
 	public static int[] asteroidCollision(int[] asteroids) {
-		
+
 	}
 }

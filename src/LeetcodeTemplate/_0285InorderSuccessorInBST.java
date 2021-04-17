@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0285InorderSuccessorInBST {
 	static public class TreeNode {
 		int val;

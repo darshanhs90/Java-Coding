@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class _0748ShortestCompletingWord {
 	public static void main(String[] args) {
 		System.out.println(shortestCompletingWord("1s3 PSt", new String[] { "step", "steps", "stripe", "stepple" }));
@@ -16,6 +13,6 @@ public class _0748ShortestCompletingWord {
 	}
 
 	public static String shortestCompletingWord(String licensePlate, String[] words) {
-		
+
 	}
 }

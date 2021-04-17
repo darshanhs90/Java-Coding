@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0844BackspaceStringCompare {
 	public static void main(String[] args) {
 		System.out.println(backspaceCompare("ab#c", "ad#c"));
@@ -11,6 +9,6 @@ public class _0844BackspaceStringCompare {
 	}
 
 	public static boolean backspaceCompare(String S, String T) {
-		
+
 	}
 }

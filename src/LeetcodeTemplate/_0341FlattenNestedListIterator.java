@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,16 +30,16 @@ public class _0341FlattenNestedListIterator {
 
 	public class NestedIterator implements Iterator<Integer> {
 		public NestedIterator(List<NestedInteger> nestedList) {
-			
+
 		}
 
 		@Override
 		public Integer next() {
-		
+
 		}
 
 		public List<Integer> getList(NestedInteger nestedInteger) {
-			
+
 		}
 
 		@Override

@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class _0299BullsAndCows {
 
 	public static void main(String[] args) {

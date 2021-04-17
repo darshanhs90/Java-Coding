@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class _0384ShuffleAnArray {
 
@@ -17,7 +16,7 @@ public class _0384ShuffleAnArray {
 	}
 
 	static class Solution {
-		
+
 		public Solution(int[] nums) {
 		}
 

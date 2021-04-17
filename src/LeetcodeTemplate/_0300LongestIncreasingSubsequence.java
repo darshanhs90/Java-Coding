@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0300LongestIncreasingSubsequence {
 	// https://www.youtube.com/watch?v=CE2b_-XfVDk
 	public static void main(String[] args) {
@@ -11,7 +9,7 @@ public class _0300LongestIncreasingSubsequence {
 	}
 
 	public static int lengthOfLIS(int[] nums) {
-		
+
 	}
 
 }

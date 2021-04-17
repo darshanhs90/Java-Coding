@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.PriorityQueue;
-
 public class _0857MinimumCostToHireKWorkers {
 	public static void main(String[] args) {
 		System.out.println(mincostToHireWorkers(new int[] { 10, 20, 5 }, new int[] { 70, 50, 30 }, 2));
@@ -10,7 +7,7 @@ public class _0857MinimumCostToHireKWorkers {
 	}
 
 	public static double mincostToHireWorkers(int[] quality, int[] wage, int K) {
-		
+
 	}
 
 }

@@ -1,9 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class _0529Minesweeper {
 	public static void main(String[] args) {
@@ -28,7 +25,7 @@ public class _0529Minesweeper {
 	}
 
 	public static char[][] updateBoard(char[][] board, int[] click) {
-		
+
 	}
 
 }

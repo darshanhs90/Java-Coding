@@ -1,9 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 public class _0350IntersectionOfTwoArraysII {
 
@@ -13,6 +10,6 @@ public class _0350IntersectionOfTwoArraysII {
 	}
 
 	public static int[] intersect(int[] nums1, int[] nums2) {
-	
+
 	}
 }

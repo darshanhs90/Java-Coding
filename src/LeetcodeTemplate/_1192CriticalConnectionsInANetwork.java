@@ -2,8 +2,6 @@ package LeetcodeTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class _1192CriticalConnectionsInANetwork {
@@ -15,8 +13,7 @@ public class _1192CriticalConnectionsInANetwork {
 	}
 
 	public static List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
-		
+
 	}
-	
 
 }

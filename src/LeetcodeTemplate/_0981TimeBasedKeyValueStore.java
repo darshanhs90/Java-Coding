@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.TreeMap;
-
 public class _0981TimeBasedKeyValueStore {
 
 	public static void main(String[] args) {
@@ -28,7 +25,7 @@ public class _0981TimeBasedKeyValueStore {
 		}
 
 		public String get(String key, int timestamp) {
-			
+
 		}
 	}
 

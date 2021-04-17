@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _1027LongestArithmeticSubsequence {
 	public static void main(String[] args) {
 		System.out.println(longestArithSeqLength(new int[] { 3, 6, 9, 12 }));

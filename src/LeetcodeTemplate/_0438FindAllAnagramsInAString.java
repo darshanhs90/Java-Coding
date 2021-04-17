@@ -1,9 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class _0438FindAllAnagramsInAString {
 
@@ -14,7 +11,7 @@ public class _0438FindAllAnagramsInAString {
 	}
 
 	public static List<Integer> findAnagrams(String s, String p) {
-	
+
 	}
 
 }

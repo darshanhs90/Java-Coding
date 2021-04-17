@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class _0395LongestSubstringWithAtLeastKRepeatingCharacters {
 
 	public static void main(String[] args) {
@@ -11,6 +8,6 @@ public class _0395LongestSubstringWithAtLeastKRepeatingCharacters {
 	}
 
 	public static int longestSubstring(String s, int k) {
-		
+
 	}
 }

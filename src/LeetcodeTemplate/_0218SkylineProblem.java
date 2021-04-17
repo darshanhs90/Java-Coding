@@ -1,11 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.PriorityQueue;
 
 public class _0218SkylineProblem {
 	// https://www.youtube.com/watch?v=GSBLe8cKu0s
@@ -21,6 +16,6 @@ public class _0218SkylineProblem {
 	}
 
 	public static List<List<Integer>> getSkyline(int[][] buildings) {
-	
+
 	}
 }

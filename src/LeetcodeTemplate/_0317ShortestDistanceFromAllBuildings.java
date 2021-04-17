@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0317ShortestDistanceFromAllBuildings {
 
 	public static void main(String[] args) {
@@ -11,7 +8,7 @@ public class _0317ShortestDistanceFromAllBuildings {
 	}
 
 	public static int shortestDistance(int[][] grid) {
-	
+
 	}
 
 }

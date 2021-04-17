@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class _1331RankTransformOfAnArray {
 	public static void main(String[] args) {

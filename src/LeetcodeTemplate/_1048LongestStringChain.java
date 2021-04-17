@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
-
 public class _1048LongestStringChain {
 
 	public static void main(String[] args) {
@@ -14,7 +9,7 @@ public class _1048LongestStringChain {
 	}
 
 	public static int longestStrChain(String[] words) {
-		
+
 	}
 
 }

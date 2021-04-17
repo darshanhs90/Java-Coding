@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0728SelfDividingNumbers {
@@ -9,7 +8,7 @@ public class _0728SelfDividingNumbers {
 	}
 
 	public static List<Integer> selfDividingNumbers(int left, int right) {
-		
+
 	}
 
 }

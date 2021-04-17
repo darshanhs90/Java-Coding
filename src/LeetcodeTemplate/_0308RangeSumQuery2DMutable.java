@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0308RangeSumQuery2DMutable {
 	// https://www.youtube.com/watch?v=GURRzAKL1lY
 	public static void main(String[] args) {
@@ -14,7 +12,7 @@ public class _0308RangeSumQuery2DMutable {
 	}
 
 	static class NumMatrix {
-	
+
 		public NumMatrix(int[][] matrix) {
 		}
 

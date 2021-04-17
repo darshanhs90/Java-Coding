@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0907SumOfSubarrayMinimums {
 	public static void main(String[] args) {
 		System.out.println(sumSubarrayMins(new int[] { 3, 1, 2, 4 }));
@@ -10,6 +8,6 @@ public class _0907SumOfSubarrayMinimums {
 	}
 
 	public static int sumSubarrayMins(int[] A) {
-		
+
 	}
 }

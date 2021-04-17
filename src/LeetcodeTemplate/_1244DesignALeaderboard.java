@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-
 public class _1244DesignALeaderboard {
 	public static void main(String[] args) {
 		Leaderboard leaderboard = new Leaderboard();
@@ -28,7 +24,7 @@ public class _1244DesignALeaderboard {
 		}
 
 		public int top(int K) {
-			
+
 		}
 
 		public void reset(int playerId) {

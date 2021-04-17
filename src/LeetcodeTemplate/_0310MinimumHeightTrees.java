@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class _0310MinimumHeightTrees {
 
 	public static void main(String[] args) {
@@ -14,5 +11,4 @@ public class _0310MinimumHeightTrees {
 		System.out.println(findMinHeightTrees(2, new int[][] { new int[] { 0, 1 } }));
 	}
 
-	
 }

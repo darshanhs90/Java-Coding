@@ -1,7 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class _0690EmployeeImportance {
@@ -38,7 +37,7 @@ public class _0690EmployeeImportance {
 	}
 
 	public static int getImportance(List<Employee> employees, int id) {
-		
+
 	}
 
 }

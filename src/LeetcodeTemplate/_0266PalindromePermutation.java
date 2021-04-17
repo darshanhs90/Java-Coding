@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class _0266PalindromePermutation {
 
 	public static void main(String[] args) {
@@ -12,6 +9,6 @@ public class _0266PalindromePermutation {
 	}
 
 	public static boolean canPermutePalindrome(String s) {
-	
+
 	}
 }

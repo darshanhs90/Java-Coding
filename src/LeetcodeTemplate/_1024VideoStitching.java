@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class _1024VideoStitching {
 	// https://www.youtube.com/watch?v=Gg64QXc9K0s
 	public static void main(String[] args) {
@@ -20,7 +17,7 @@ public class _1024VideoStitching {
 	}
 
 	public static int videoStitching(int[][] clips, int T) {
-		
+
 	}
 
 }

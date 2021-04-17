@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _1293ShortestPathInAGridWithObstaclesElimination {
 	public static void main(String[] args) {
 		System.out.println(shortestPath(new int[][] { new int[] { 0, 0, 0 }, new int[] { 1, 1, 0 },
@@ -14,7 +10,7 @@ public class _1293ShortestPathInAGridWithObstaclesElimination {
 	}
 
 	public static int shortestPath(int[][] grid, int k) {
-		
+
 	}
 
 }

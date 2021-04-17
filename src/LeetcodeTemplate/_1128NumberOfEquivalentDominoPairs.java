@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class _1128NumberOfEquivalentDominoPairs {
 	public static void main(String[] args) {
 		System.out.println(numEquivDominoPairs(
@@ -16,7 +13,7 @@ public class _1128NumberOfEquivalentDominoPairs {
 	}
 
 	public static int numEquivDominoPairs(int[][] dominoes) {
-		
+
 	}
 
 }

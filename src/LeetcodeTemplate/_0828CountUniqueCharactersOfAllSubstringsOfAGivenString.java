@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class _0828CountUniqueCharactersOfAllSubstringsOfAGivenString {
 
 	public static void main(String[] args) {
@@ -13,7 +9,7 @@ public class _0828CountUniqueCharactersOfAllSubstringsOfAGivenString {
 	}
 
 	public static int uniqueLetterString(String s) {
-		
+
 	}
 
 }

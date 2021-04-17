@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0362DesignHitCounter {
 
 	public static void main(String[] args) {
@@ -32,7 +29,7 @@ public class _0362DesignHitCounter {
 	}
 
 	static class HitCounter {
-		
+
 		/** Initialize your data structure here. */
 		public HitCounter() {
 		}

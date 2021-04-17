@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0155MinStack {
 
 	public static void main(String[] args) {

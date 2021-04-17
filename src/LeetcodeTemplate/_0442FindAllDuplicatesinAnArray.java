@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class _0442FindAllDuplicatesinAnArray {
@@ -11,7 +9,7 @@ public class _0442FindAllDuplicatesinAnArray {
 	}
 
 	public static List<Integer> findDuplicates(int[] nums) {
-		
+
 	}
 
 }

@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class _0729MyCalendarI {
@@ -19,11 +16,11 @@ public class _0729MyCalendarI {
 		}
 
 		public boolean book(int start, int end) {
-			
+
 		}
 
 		public boolean overLaps(List<int[]> list, int start, int end) {
-			
+
 		}
 	}
 

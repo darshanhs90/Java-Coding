@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.PriorityQueue;
-
 public class _1578MinimumDeletionCostToAvoidRepeatingLetters {
 	public static void main(String[] args) {
 		System.out.println(minCost("abaac", new int[] { 1, 2, 3, 4, 5 }));
@@ -11,6 +9,6 @@ public class _1578MinimumDeletionCostToAvoidRepeatingLetters {
 	}
 
 	public static int minCost(String s, int[] cost) {
-		
+
 	}
 }

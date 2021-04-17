@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0274HIndex {
 
 	public static void main(String[] args) {

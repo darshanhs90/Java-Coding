@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0173BinarySearchTreeIterator {
 	static public class TreeNode {
 		int val;

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Stack;
-
 public class _0331VerifyPreorderSerializationOfABinaryTree {
 
 	public static void main(String[] args) {
@@ -10,7 +8,5 @@ public class _0331VerifyPreorderSerializationOfABinaryTree {
 		System.out.println(isValidSerialization("9,#,#,1"));
 
 	}
-
-	
 
 }

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0443StringCompression {
 
 	public static void main(String[] args) {
@@ -9,7 +7,7 @@ public class _0443StringCompression {
 	}
 
 	public static int compress(char[] chars) {
-		
+
 	}
 
 }

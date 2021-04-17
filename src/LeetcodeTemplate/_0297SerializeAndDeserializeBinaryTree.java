@@ -1,11 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 public class _0297SerializeAndDeserializeBinaryTree {
 	static public class TreeNode {
 		int val;

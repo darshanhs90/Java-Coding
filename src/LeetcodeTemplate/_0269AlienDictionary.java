@@ -1,12 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-
 public class _0269AlienDictionary {
 
 	public static void main(String[] args) {
@@ -19,6 +12,6 @@ public class _0269AlienDictionary {
 	}
 
 	public static String alienOrder(String[] words) {
-	
+
 	}
 }

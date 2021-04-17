@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _1465MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts {
 	public static void main(String[] args) {
 		System.out.println(maxArea(5, 4, new int[] { 1, 2, 4 }, new int[] { 1, 3 }));
@@ -10,6 +8,6 @@ public class _1465MaximumAreaOfAPieceOfCakeAfterHorizontalAndVerticalCuts {
 	}
 
 	public static int maxArea(int height, int width, int[] h, int[] v) {
-		
+
 	}
 }

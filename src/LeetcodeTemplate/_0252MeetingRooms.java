@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 public class _0252MeetingRooms {
 
 	public static void main(String[] args) {
@@ -13,7 +10,7 @@ public class _0252MeetingRooms {
 	}
 
 	public static boolean canAttendMeetings(int[][] intervals) {
-		
+
 	}
 
 }

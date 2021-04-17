@@ -1,11 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.TreeMap;
 
 public class _0314BinaryTreeVerticalOrderTraversal {
 
@@ -47,6 +42,6 @@ public class _0314BinaryTreeVerticalOrderTraversal {
 	}
 
 	public static List<List<Integer>> verticalOrder(TreeNode root) {
-		
+
 	}
 }

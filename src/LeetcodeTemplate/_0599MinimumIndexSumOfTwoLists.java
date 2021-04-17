@@ -1,10 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
 
 public class _0599MinimumIndexSumOfTwoLists {
 
@@ -29,7 +25,7 @@ public class _0599MinimumIndexSumOfTwoLists {
 	}
 
 	public static String[] findRestaurant(String[] list1, String[] list2) {
-		
+
 	}
 
 }

@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0077Combinations {
@@ -11,6 +10,6 @@ public class _0077Combinations {
 	}
 
 	public static List<List<Integer>> combine(int n, int k) {
-		
+
 	}
 }

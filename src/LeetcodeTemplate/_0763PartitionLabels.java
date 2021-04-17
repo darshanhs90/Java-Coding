@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class _0763PartitionLabels {
@@ -11,6 +9,6 @@ public class _0763PartitionLabels {
 	}
 
 	public static List<Integer> partitionLabels(String S) {
-		
+
 	}
 }

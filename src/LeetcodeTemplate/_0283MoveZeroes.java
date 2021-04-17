@@ -7,7 +7,7 @@ public class _0283MoveZeroes {
 	}
 
 	public static void moveZeroes(int[] nums) {
-
+s
 	}
 
 }

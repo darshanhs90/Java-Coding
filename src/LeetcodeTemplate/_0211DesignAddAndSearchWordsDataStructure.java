@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class _0211DesignAddAndSearchWordsDataStructure {
 
 	public static void main(String[] args) {

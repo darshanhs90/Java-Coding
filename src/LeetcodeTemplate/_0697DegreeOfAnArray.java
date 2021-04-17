@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 public class _0697DegreeOfAnArray {
 
 	public static void main(String[] args) {
@@ -14,6 +10,6 @@ public class _0697DegreeOfAnArray {
 	}
 
 	public static int findShortestSubArray(int[] nums) {
-		
+
 	}
 }

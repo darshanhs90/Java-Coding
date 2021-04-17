@@ -1,8 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 public class _1146SnapshotArray {
 	public static void main(String[] args) {
 		SnapshotArray snapshotArr = new SnapshotArray(3); // set the length to be 3
@@ -22,10 +19,9 @@ public class _1146SnapshotArray {
 	}
 
 	static class SnapshotArray {
-		
 
 		public SnapshotArray(int length) {
-			
+
 		}
 
 		public void set(int index, int val) {
@@ -35,7 +31,7 @@ public class _1146SnapshotArray {
 		}
 
 		public int get(int index, int snap_id) {
-			
+
 		}
 	}
 

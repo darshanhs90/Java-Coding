@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0135Candy {
 
 	public static void main(String[] args) {
@@ -10,6 +8,6 @@ public class _0135Candy {
 	}
 
 	public static int candy(int[] ratings) {
-	
+
 	}
 }

@@ -1,6 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class _0228SummaryRanges {
@@ -13,6 +12,6 @@ public class _0228SummaryRanges {
 	}
 
 	public static List<String> summaryRanges(int[] nums) {
-		
+
 	}
 }

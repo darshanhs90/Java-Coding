@@ -1,10 +1,6 @@
 package LeetcodeTemplate;
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
 
 public class _0347TopKFrequentElements {
 
@@ -14,7 +10,7 @@ public class _0347TopKFrequentElements {
 	}
 
 	public static int[] topKFrequent(int[] nums, int k) {
-	
+
 	}
 
 }

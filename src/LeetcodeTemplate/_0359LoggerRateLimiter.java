@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0359LoggerRateLimiter {
 
 	public static void main(String[] args) {
@@ -16,7 +14,7 @@ public class _0359LoggerRateLimiter {
 	}
 
 	static class Logger {
-		
+
 		/** Initialize your data structure here. */
 		public Logger() {
 		}

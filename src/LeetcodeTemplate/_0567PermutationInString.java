@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0567PermutationInString {
 	public static void main(String[] args) {
 		System.out.println(checkInclusion("ab", "eidbaooo"));

@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashMap;
-
 public class _0403FrogJump {
 
 	public static void main(String[] args) {
@@ -10,7 +8,7 @@ public class _0403FrogJump {
 	}
 
 	public static boolean canCross(int[] stones) {
-		
+
 	}
 
 }

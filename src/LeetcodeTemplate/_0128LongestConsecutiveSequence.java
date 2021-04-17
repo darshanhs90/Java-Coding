@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.HashSet;
-
 public class _0128LongestConsecutiveSequence {
 
 	public static void main(String[] args) {
@@ -10,6 +8,6 @@ public class _0128LongestConsecutiveSequence {
 	}
 
 	public static int longestConsecutive(int[] nums) {
-		
+
 	}
 }

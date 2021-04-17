@@ -1,9 +1,6 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class _0103BinaryTreeZigzagLevelOrderTraversal {
 	public static class TreeNode {
@@ -42,7 +39,7 @@ public class _0103BinaryTreeZigzagLevelOrderTraversal {
 	}
 
 	public static List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-		
+
 	}
 
 }

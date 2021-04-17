@@ -1,10 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public class _1326MinimumNumberOfTapsToOpenToWaterAGarden {
 	// https://www.youtube.com/watch?v=Gg64QXc9K0s
 	public static void main(String[] args) {
@@ -16,7 +11,7 @@ public class _1326MinimumNumberOfTapsToOpenToWaterAGarden {
 	}
 
 	public static int minTaps(int n, int[] ranges) {
-		
+
 	}
 
 }

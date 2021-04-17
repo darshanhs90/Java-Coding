@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Arrays;
-
 public class _0628MaximumProductOfThreeNumbers {
 
 	public static void main(String[] args) {
@@ -14,6 +12,6 @@ public class _0628MaximumProductOfThreeNumbers {
 	}
 
 	public static int maximumProduct(int[] nums) {
-		
+
 	}
 }

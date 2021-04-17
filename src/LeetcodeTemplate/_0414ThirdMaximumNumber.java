@@ -1,9 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.PriorityQueue;
-
 public class _0414ThirdMaximumNumber {
 
 	public static void main(String[] args) {
@@ -14,7 +10,7 @@ public class _0414ThirdMaximumNumber {
 	}
 
 	public static int thirdMax(int[] nums) {
-		
+
 	}
 
 }
