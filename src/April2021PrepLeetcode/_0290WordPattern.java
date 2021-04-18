@@ -1,5 +1,7 @@
 package April2021PrepLeetcode;
 
+import java.util.HashMap;
+
 public class _0290WordPattern {
 
 	public static void main(String[] args) {
@@ -10,6 +12,23 @@ public class _0290WordPattern {
 	}
 
 	public static boolean wordPattern(String pattern, String s) {
+		String strArr[] = s.split(" ");
+		if (strArr.length != pattern.length())
+			return false;
+		HashMap<Character, String> patternMap = new HashMap<Character, String>();
+		HashMap<String, Character> stringMap = new HashMap<String, Character>();
+		for (int i = 0; i < strArr.length; i++) {
+			char c = pattern.charAt(i);
+			String str = strArr[i];
+			if (patternMap.containsKey(c) && !patternMap.get(c).equals(str))
+				return false;
 
+			if (stringMap.containsKey(str) && stringMap.get(str) != c)
+				return false;
+
+			patternMap.put(c, str);
+			stringMap.put(str, c);
+		}
+		return true;
 	}
 }

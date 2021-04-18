@@ -1,5 +1,7 @@
 package April2021PrepLeetcode;
 
+import java.util.HashSet;
+
 public class _0379DesignPhoneDirectory {
 
 	public static void main(String[] args) {
@@ -29,7 +31,52 @@ public class _0379DesignPhoneDirectory {
 	}
 
 	static class PhoneDirectory {
+		int index, maxNumbers;
+		HashSet<Integer> releasedNumbers;
 
+		/**
+		 * Initialize your data structure here
+		 * 
+		 * @param maxNumbers - The maximum numbers that can be stored in the phone
+		 *                   directory.
+		 */
+		public PhoneDirectory(int maxNumbers) {
+			this.index = 0;
+			this.maxNumbers = maxNumbers;
+			this.releasedNumbers = new HashSet<Integer>();
+		}
+
+		/**
+		 * Provide a number which is not assigned to anyone.
+		 * 
+		 * @return - Return an available number. Return -1 if none is available.
+		 */
+		public int get() {
+			if (index < maxNumbers) {
+				return index++;
+			} else if (!releasedNumbers.isEmpty()) {
+				int number = releasedNumbers.iterator().next();
+				releasedNumbers.remove(number);
+				return number;
+			}
+			return -1;
+		}
+
+		/** Check if a number is available or not. */
+		public boolean check(int number) {
+			if (number >= index && number < maxNumbers)
+				return true;
+			if (releasedNumbers.contains(number))
+				return true;
+			return false;
+		}
+
+		/** Recycle or release a number. */
+		public void release(int number) {
+			if (number >= index)
+				return;
+			releasedNumbers.add(number);
+		}
 	}
 
 }
