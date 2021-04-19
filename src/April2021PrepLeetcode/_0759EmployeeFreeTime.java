@@ -1,6 +1,8 @@
 package April2021PrepLeetcode;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class _0759EmployeeFreeTime {
@@ -57,6 +59,45 @@ public class _0759EmployeeFreeTime {
 	};
 
 	public static List<Interval> employeeFreeTime(List<List<Interval>> schedule) {
+		List<Interval> allIntervals = new ArrayList<Interval>();
+		if (schedule == null || schedule.size() == 0)
+			return allIntervals;
+		for (List<Interval> lst : schedule) {
+			allIntervals.addAll(lst);
+		}
 
+		Collections.sort(allIntervals, new Comparator<Interval>() {
+
+			@Override
+			public int compare(Interval o1, Interval o2) {
+				// TODO Auto-generated method stub
+				return o1.start - o2.start;
+			}
+		});
+
+		List<Interval> mergedIntervals = new ArrayList<Interval>();
+		Integer prevStart = allIntervals.get(0).start;
+		Integer prevEnd = allIntervals.get(0).end;
+
+		for (int i = 1; i < allIntervals.size(); i++) {
+			Integer currStart = allIntervals.get(i).start;
+			Integer currEnd = allIntervals.get(i).end;
+
+			if (currStart >= prevStart && currStart <= prevEnd) {
+				prevEnd = Math.max(prevEnd, currEnd);
+			} else {
+				mergedIntervals.add(new Interval(prevStart, prevEnd));
+				prevStart = currStart;
+				prevEnd = currEnd;
+			}
+		}
+		mergedIntervals.add(new Interval(prevStart, prevEnd));
+		List<Interval> freeTime = new ArrayList<Interval>();
+		for (int i = 0; i < mergedIntervals.size() - 1; i++) {
+			Interval interval1 = mergedIntervals.get(i);
+			Interval interval2 = mergedIntervals.get(i + 1);
+			freeTime.add(new Interval(interval1.end, interval2.start));
+		}
+		return freeTime;
 	}
 }

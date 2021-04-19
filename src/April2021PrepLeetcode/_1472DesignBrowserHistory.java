@@ -25,6 +25,37 @@ public class _1472DesignBrowserHistory {
 	}
 
 	static class BrowserHistory {
-		
+		Stack<String> fwStack, bwStack;
+		String currUrl;
+
+		public BrowserHistory(String homepage) {
+			this.currUrl = homepage;
+			this.fwStack = new Stack<String>();
+			this.bwStack = new Stack<String>();
+		}
+
+		public void visit(String url) {
+			this.bwStack.push(this.currUrl);
+			this.currUrl = url;
+			this.fwStack.clear();
+		}
+
+		public String back(int steps) {
+			while (!this.bwStack.isEmpty() && steps > 0) {
+				this.fwStack.push(this.currUrl);
+				this.currUrl = this.bwStack.pop();
+				steps--;
+			}
+			return this.currUrl;
+		}
+
+		public String forward(int steps) {
+			while (!this.fwStack.isEmpty() && steps > 0) {
+				this.bwStack.push(this.currUrl);
+				this.currUrl = this.fwStack.pop();
+				steps--;
+			}
+			return this.currUrl;
+		}
 	}
 }

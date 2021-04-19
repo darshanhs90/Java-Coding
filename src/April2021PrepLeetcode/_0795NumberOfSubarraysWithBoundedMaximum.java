@@ -6,7 +6,20 @@ public class _0795NumberOfSubarraysWithBoundedMaximum {
 	}
 
 	public static int numSubarrayBoundedMax(int[] A, int L, int R) {
+		return count(A, R) - count(A, L - 1);
+	}
 
+	public static int count(int[] A, int limit) {
+		int count = 0, currCount = 0;
+		for (int i = 0; i < A.length; i++) {
+			if (A[i] <= limit) {
+				currCount++;
+			} else {
+				currCount = 0;
+			}
+			count += currCount;
+		}
+		return count;
 	}
 
 }
