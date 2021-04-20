@@ -2,7 +2,6 @@ package April2021PrepLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 public class _0140WordBreakII {
@@ -18,31 +17,7 @@ public class _0140WordBreakII {
 	}
 
 	public static List<String> wordBreak(String s, List<String> wordDict) {
-		List<String> output = new ArrayList<String>();
-		if (s == null || s.length() == 0)
-			return output;
-		HashSet<String> wordSet = new HashSet<String>(wordDict);
-		dfs(0, s, wordSet, new ArrayList<String>(), output);
-		return output;
-	}
 
-	public static void dfs(int index, String s, HashSet<String> wordSet, List<String> tempList, List<String> output) {
-		if (index == s.length()) {
-			String str = String.join(" ", tempList);
-			output.add(str);
-			return;
-		}
-
-		String str = "";
-		for (int i = index; i < s.length(); i++) {
-			str += s.charAt(i);
-
-			if (wordSet.contains(str)) {
-				tempList.add(str);
-				dfs(i + 1, s, wordSet, tempList, output);
-				tempList.remove(tempList.size() - 1);
-			}
-		}
 	}
 
 }

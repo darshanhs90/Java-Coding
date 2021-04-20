@@ -1,7 +1,5 @@
 package April2021PrepLeetcode;
 
-import java.util.TreeMap;
-
 public class _0362DesignHitCounter {
 
 	public static void main(String[] args) {
@@ -31,11 +29,9 @@ public class _0362DesignHitCounter {
 	}
 
 	static class HitCounter {
-		TreeMap<Integer, Integer> map;
 
 		/** Initialize your data structure here. */
 		public HitCounter() {
-			map = new TreeMap<Integer, Integer>();
 		}
 
 		/**
@@ -44,7 +40,6 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public void hit(int timestamp) {
-			map.compute(timestamp, (k, v) -> v == null ? 1 : v + 1);
 		}
 
 		/**
@@ -53,15 +48,6 @@ public class _0362DesignHitCounter {
 		 * @param timestamp - The current timestamp (in seconds granularity).
 		 */
 		public int getHits(int timestamp) {
-			int count = 0;
-			Integer key = map.floorKey(timestamp);
-			while (key != null && timestamp - key < 300) {
-				count += map.get(key);
-				key -= 1;
-				key = map.floorKey(key);
-			}
-
-			return count;
 		}
 	}
 
