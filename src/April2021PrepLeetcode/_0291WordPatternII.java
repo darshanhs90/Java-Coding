@@ -13,45 +13,41 @@ public class _0291WordPatternII {
 	}
 
 	public static boolean wordPatternMatch(String pattern, String s) {
-		HashMap<Character, String> patternMap = new HashMap<Character, String>();
-		HashMap<String, Character> stringMap = new HashMap<String, Character>();
-		return dfs(0, 0, pattern, s, patternMap, stringMap);
+		HashMap<Character, String> pMap = new HashMap<Character, String>();
+		HashMap<String, Character> sMap = new HashMap<String, Character>();
+		return canMatch(0, 0, pattern, s, pMap, sMap);
 	}
 
-	public static boolean dfs(int patternIndex, int stringIndex, String pattern, String s,
-			HashMap<Character, String> patternMap, HashMap<String, Character> stringMap) {
-		if (patternIndex == pattern.length() && stringIndex == s.length())
+	public static boolean canMatch(int pIndex, int sIndex, String pattern, String s, HashMap<Character, String> pMap,
+			HashMap<String, Character> sMap) {
+		if (pIndex == pattern.length() && sIndex == s.length())
 			return true;
-
-		if (patternIndex >= pattern.length() || stringIndex >= s.length())
+		if (pIndex >= pattern.length() || sIndex >= s.length())
 			return false;
 
-		char c = pattern.charAt(patternIndex);
+		char c = pattern.charAt(pIndex);
 
 		String str = "";
-
-		for (int i = stringIndex; i < s.length(); i++) {
+		for (int i = sIndex; i < s.length(); i++) {
 			str += s.charAt(i);
-
-			if (patternMap.containsKey(c)) {
-				if (!patternMap.get(c).equals(str))
+			if (pMap.containsKey(c)) {
+				if (!pMap.get(c).equals(str))
 					continue;
 
-				if (stringMap.containsKey(str) && stringMap.get(str) != c)
+				if (sMap.get(str) != c)
 					continue;
 
-				return dfs(patternIndex + 1, i + 1, pattern, s, patternMap, stringMap);
+				return canMatch(pIndex + 1, i + 1, pattern, s, pMap, sMap);
 			} else {
-				if (stringMap.containsKey(str))
+				if (sMap.containsKey(str))
 					continue;
 
-				patternMap.put(c, str);
-				stringMap.put(str, c);
-				if (dfs(patternIndex + 1, i + 1, pattern, s, patternMap, stringMap)) {
+				pMap.put(c, str);
+				sMap.put(str, c);
+				if (canMatch(pIndex + 1, i + 1, pattern, s, pMap, sMap))
 					return true;
-				}
-				patternMap.remove(c);
-				stringMap.remove(str);
+				pMap.remove(c);
+				sMap.remove(str);
 			}
 		}
 		return false;

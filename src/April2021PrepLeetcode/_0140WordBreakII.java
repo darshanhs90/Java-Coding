@@ -18,8 +18,10 @@ public class _0140WordBreakII {
 	}
 
 	public static List<String> wordBreak(String s, List<String> wordDict) {
-		HashSet<String> wordSet = new HashSet<String>(wordDict);
 		List<String> output = new ArrayList<String>();
+		if (s == null || s.length() == 0)
+			return output;
+		HashSet<String> wordSet = new HashSet<String>(wordDict);
 		dfs(0, s, wordSet, new ArrayList<String>(), output);
 		return output;
 	}
@@ -34,6 +36,7 @@ public class _0140WordBreakII {
 		String str = "";
 		for (int i = index; i < s.length(); i++) {
 			str += s.charAt(i);
+
 			if (wordSet.contains(str)) {
 				tempList.add(str);
 				dfs(i + 1, s, wordSet, tempList, output);

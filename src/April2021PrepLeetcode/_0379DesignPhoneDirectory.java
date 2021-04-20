@@ -31,7 +31,7 @@ public class _0379DesignPhoneDirectory {
 	}
 
 	static class PhoneDirectory {
-		int index, maxNumbers;
+		int maxNumbers, currNumber;
 		HashSet<Integer> releasedNumbers;
 
 		/**
@@ -41,8 +41,8 @@ public class _0379DesignPhoneDirectory {
 		 *                   directory.
 		 */
 		public PhoneDirectory(int maxNumbers) {
-			this.index = 0;
 			this.maxNumbers = maxNumbers;
+			currNumber = 0;
 			this.releasedNumbers = new HashSet<Integer>();
 		}
 
@@ -52,8 +52,8 @@ public class _0379DesignPhoneDirectory {
 		 * @return - Return an available number. Return -1 if none is available.
 		 */
 		public int get() {
-			if (index < maxNumbers) {
-				return index++;
+			if (currNumber < maxNumbers) {
+				return currNumber++;
 			} else if (!releasedNumbers.isEmpty()) {
 				int number = releasedNumbers.iterator().next();
 				releasedNumbers.remove(number);
@@ -64,18 +64,19 @@ public class _0379DesignPhoneDirectory {
 
 		/** Check if a number is available or not. */
 		public boolean check(int number) {
-			if (number >= index && number < maxNumbers)
+			if (number >= currNumber && number < maxNumbers)
 				return true;
-			if (releasedNumbers.contains(number))
+			else if (releasedNumbers.contains(number))
 				return true;
 			return false;
 		}
 
 		/** Recycle or release a number. */
 		public void release(int number) {
-			if (number >= index)
+			if (number >= currNumber)
 				return;
-			releasedNumbers.add(number);
+			if (!releasedNumbers.contains(number))
+				releasedNumbers.add(number);
 		}
 	}
 
