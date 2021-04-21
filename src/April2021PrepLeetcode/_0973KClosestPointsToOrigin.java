@@ -1,5 +1,8 @@
 package April2021PrepLeetcode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class _0973KClosestPointsToOrigin {
 	public static void main(String[] args) {
 		System.out.println(kClosest(new int[][] { new int[] { 1, 3 }, new int[] { -2, 2 } }, 1));
@@ -7,7 +10,27 @@ public class _0973KClosestPointsToOrigin {
 	}
 
 	public static int[][] kClosest(int[][] points, int K) {
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(K, new Comparator<int[]>() {
 
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				double diff1 = Math.sqrt(o1[0] * o1[0] + o1[1] * o1[1]);
+				double diff2 = Math.sqrt(o2[0] * o2[0] + o2[1] * o2[1]);
+				return diff1 - diff2 < 0 ? 1 : -1;
+			}
+		});
+
+		for (int i = 0; i < points.length; i++) {
+			pq.offer(points[i]);
+			if (pq.size() > K)
+				pq.poll();
+		}
+
+		int[][] out = new int[K][2];
+		for (int i = 0; i < out.length; i++) {
+			out[i] = pq.poll();
+		}
+		return out;
 	}
 
 }
