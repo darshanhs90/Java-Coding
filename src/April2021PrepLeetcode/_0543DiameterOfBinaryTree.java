@@ -45,8 +45,24 @@ public class _0543DiameterOfBinaryTree {
 		System.out.println(diameterOfBinaryTree(tn));
 	}
 
+	static int maxDiameter;
+
 	public static int diameterOfBinaryTree(TreeNode root) {
-		
+		if (root == null)
+			return 0;
+		maxDiameter = 0;
+		maxDiameter(root);
+		return maxDiameter;
+	}
+
+	public static int maxDiameter(TreeNode root) {
+		if (root == null)
+			return 0;
+
+		int leftDiameter = maxDiameter(root.left);
+		int rightDiameter = maxDiameter(root.right);
+		maxDiameter = Math.max(maxDiameter, leftDiameter + rightDiameter);
+		return 1 + Math.max(leftDiameter, rightDiameter);
 	}
 
 }

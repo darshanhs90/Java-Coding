@@ -7,7 +7,26 @@ public class _0042TrappingRainWater {
 		System.out.println(trap(new int[] { 4, 2, 0, 3, 2, 5 }));
 	}
 
-	public static int trap(int[] height) {
+	public static int trap(int[] nums) {
+		if (nums == null || nums.length < 2)
+			return 0;
+		int leftMax[] = new int[nums.length];
+		int rightMax[] = new int[nums.length];
 
+		leftMax[0] = nums[0];
+		for (int i = 1; i < rightMax.length; i++) {
+			leftMax[i] = Math.max(leftMax[i - 1], nums[i]);
+		}
+
+		rightMax[nums.length - 1] = nums[nums.length - 1];
+		for (int i = nums.length - 2; i >= 0; i--) {
+			rightMax[i] = Math.max(rightMax[i + 1], nums[i]);
+		}
+
+		int res = 0;
+		for (int i = 0; i < nums.length; i++) {
+			res += Math.min(leftMax[i], rightMax[i]) - nums[i];
+		}
+		return res;
 	}
 }

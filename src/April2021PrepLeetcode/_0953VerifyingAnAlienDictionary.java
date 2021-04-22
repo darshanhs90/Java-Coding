@@ -1,5 +1,7 @@
 package April2021PrepLeetcode;
 
+import java.util.HashMap;
+
 public class _0953VerifyingAnAlienDictionary {
 
 	public static void main(String[] args) {
@@ -9,6 +11,29 @@ public class _0953VerifyingAnAlienDictionary {
 	}
 
 	public static boolean isAlienSorted(String[] words, String order) {
+		HashMap<Character, Integer> orderMap = new HashMap<Character, Integer>();
+		for (int i = 0; i < order.length(); i++) {
+			orderMap.put(order.charAt(i), i);
+		}
 
+		for (int i = 0; i < words.length - 1; i++) {
+			String word1 = words[i];
+			String word2 = words[i + 1];
+
+			if (word1.length() > word2.length() && word1.startsWith(word2))
+				return false;
+
+			for (int j = 0; j < Math.min(word1.length(), word2.length()); j++) {
+				char c1 = word1.charAt(j);
+				char c2 = word2.charAt(j);
+
+				if (c1 != c2) {
+					if (orderMap.get(c1) > orderMap.get(c2))
+						return false;
+					break;
+				}
+			}
+		}
+		return true;
 	}
 }

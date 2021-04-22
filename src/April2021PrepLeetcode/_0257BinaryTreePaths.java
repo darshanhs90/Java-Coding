@@ -1,5 +1,6 @@
 package April2021PrepLeetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _0257BinaryTreePaths {
@@ -35,7 +36,31 @@ public class _0257BinaryTreePaths {
 	}
 
 	public static List<String> binaryTreePaths(TreeNode root) {
+		List<String> output = new ArrayList<String>();
+		if (root == null)
+			return output;
 
+		binaryPaths(root, "", output);
+		return output;
+	}
+
+	public static void binaryPaths(TreeNode root, String str, List<String> output) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+
+			if (str.length() == 0) {
+				str += root.val;
+			} else {
+				str += "->" + root.val;
+			}
+			output.add(str);
+			return;
+		}
+
+		String newString = str.length() == 0 ? root.val + "" : str + "->" + root.val;
+		binaryPaths(root.left, newString, output);
+		binaryPaths(root.right, newString, output);
 	}
 
 }
