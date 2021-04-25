@@ -1,5 +1,6 @@
 package April2021PrepLeetcode;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,21 +30,52 @@ public class _0341FlattenNestedListIterator {
 	}
 
 	public class NestedIterator implements Iterator<Integer> {
-		public NestedIterator(List<NestedInteger> nestedList) {
 
+		List<NestedInteger> nestedList;
+		int outerIndex;
+		List<Integer> list;
+
+		public NestedIterator(List<NestedInteger> nestedList) {
+			this.nestedList = nestedList;
+			this.outerIndex = 0;
+			this.list = new ArrayList<Integer>();
+			populateList();
+		}
+
+		public void populateList() {
+			if (outerIndex == nestedList.size())
+				return;
+			populateList(nestedList.get(outerIndex++));
+			if (list.size() == 0)
+				populateList();
+		}
+		
+		public void populateList(NestedInteger ni) {
+			if(ni.isInteger())
+			{
+				list.add(ni.getInteger());
+			}
+			else {
+				List<NestedInteger> list = ni.getList();
+				for(NestedInteger child: list)
+				{
+					populateList(child);
+				}
+			}
 		}
 
 		@Override
 		public Integer next() {
+			int val = list.remove(0);
+			if (list.size() == 0)
+				populateList();
 
-		}
-
-		public List<Integer> getList(NestedInteger nestedInteger) {
-
+			return val;
 		}
 
 		@Override
 		public boolean hasNext() {
+			return list.size() != 0;
 		}
 	}
 }

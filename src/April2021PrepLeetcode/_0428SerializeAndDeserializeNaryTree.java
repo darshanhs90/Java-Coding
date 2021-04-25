@@ -2,7 +2,9 @@ package April2021PrepLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0428SerializeAndDeserializeNaryTree {
 
@@ -83,10 +85,51 @@ public class _0428SerializeAndDeserializeNaryTree {
 	static class Codec {
 		// Encodes a tree to a single string.
 		public String serialize(Node root) {
+			if (root == null)
+				return "";
+			List<String> list = new ArrayList<String>();
+			serializeHelper(root, list);
+			return String.join(",", list);
+		}
+
+		public void serializeHelper(Node root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+
+			list.add(root.val + "");
+			if (root.children == null) {
+				list.add("0");
+			} else {
+				list.add(root.children.size() + "");
+				for (int i = 0; i < root.children.size(); i++) {
+					serializeHelper(root.children.get(i), list);
+				}
+			}
 		}
 
 		// Decodes your encoded data to tree.
 		public Node deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			return deserHelper(new LinkedList<String>(Arrays.asList(data.split(","))));
+		}
+
+		public Node deserHelper(Queue<String> q) {
+			if (q.isEmpty())
+				return null;
+			if (q.peek().equals("#")) {
+				q.poll();
+				return null;
+			}
+
+			Node node = new Node(Integer.parseInt(q.poll()), new ArrayList<Node>());
+			int noOfChildrens = Integer.parseInt(q.poll());
+			for (int i = 0; i < noOfChildrens; i++) {
+				node.children.add(deserHelper(q));
+			}
+			return node;
 		}
 	}
 

@@ -1,5 +1,8 @@
 package April2021PrepLeetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0117PopulatingNextRightPointersInEachNodeII {
 	public static class Node {
 		public int val;
@@ -46,7 +49,28 @@ public class _0117PopulatingNextRightPointersInEachNodeII {
 	}
 
 	public static Node connect(Node root) {
+		if (root == null)
+			return root;
 
+		Queue<Node> q = new LinkedList<Node>();
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			Node prev = null;
+			for (int i = 0; i < size; i++) {
+				Node curr = q.poll();
+
+				if (curr.right != null)
+					q.offer(curr.right);
+				if (curr.left != null)
+					q.offer(curr.left);
+
+				curr.next = prev;
+				prev = curr;
+
+			}
+		}
+		return root;
 	}
 
 }

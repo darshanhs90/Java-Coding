@@ -34,6 +34,20 @@ public class _0112PathSum {
 	}
 
 	public static boolean hasPathSum(TreeNode root, int sum) {
+		if (root == null)
+			return false;
+		return dfs(0, root, sum);
+	}
 
+	public static boolean dfs(int currSum, TreeNode root, int sum) {
+		if (root == null)
+			return false;
+		if (root.left == null && root.right == null) {
+			if ((currSum + root.val) == sum)
+				return true;
+			return false;
+		}
+
+		return dfs(currSum + root.val, root.left, sum) || dfs(currSum + root.val, root.right, sum);
 	}
 }

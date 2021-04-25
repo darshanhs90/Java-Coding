@@ -2,7 +2,10 @@ package April2021PrepLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 public class _0399EvaluateDivision {
 
@@ -40,6 +43,56 @@ public class _0399EvaluateDivision {
 	}
 
 	public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
+		HashMap<String, HashMap<String, Double>> map = new HashMap<String, HashMap<String, Double>>();
 
+		for (int i = 0; i < values.length; i++) {
+			List<String> equation = equations.get(i);
+			String src = equation.get(0);
+			String dst = equation.get(1);
+
+			double val = values[i];
+
+			if (!map.containsKey(src)) {
+				map.put(src, new HashMap<String, Double>());
+			}
+
+			if (!map.containsKey(dst)) {
+				map.put(dst, new HashMap<String, Double>());
+			}
+
+			map.get(src).put(dst, val);
+			map.get(dst).put(src, 1 / val);
+		}
+
+		double[] output = new double[queries.size()];
+		for (int i = 0; i < output.length; i++) {
+			List<String> query = queries.get(i);
+			String src = query.get(0);
+			String dst = query.get(1);
+			output[i] = calcValue(src, dst, map, new HashSet<String>());
+		}
+		return output;
+	}
+
+	public static double calcValue(String src, String dst, HashMap<String, HashMap<String, Double>> map,
+			HashSet<String> visited) {
+		if (!map.containsKey(src))
+			return -1.0;
+
+		if (map.get(src).containsKey(dst))
+			return map.get(src).get(dst);
+		visited.add(src);
+		HashMap<String, Double> map1 = map.get(src);
+		for (Map.Entry<String, Double> entry : map1.entrySet()) {
+			String newSrc = entry.getKey();
+			if (!visited.contains(newSrc)) {
+				double currVal = calcValue(newSrc, dst, map, visited);
+				if (currVal != -1.0) {
+					return currVal * entry.getValue();
+				}
+			}
+		}
+		visited.remove(src);
+		return -1.0;
 	}
 }
