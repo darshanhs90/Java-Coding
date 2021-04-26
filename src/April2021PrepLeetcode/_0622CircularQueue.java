@@ -17,16 +17,24 @@ public class _0622CircularQueue {
 
 	static class MyCircularQueue {
 
+		int[] arr;
+		int firstIndex,lastIndex;
 		public MyCircularQueue(int k) {
+			arr = new int[k];
+			firstIndex =-1;
+			lastIndex=-1;
 		}
 
 		public boolean enQueue(int value) {
+
 		}
 
 		public boolean deQueue() {
+
 		}
 
 		public int Front() {
+
 		}
 
 		public int Rear() {
@@ -34,9 +42,11 @@ public class _0622CircularQueue {
 		}
 
 		public boolean isEmpty() {
+
 		}
 
 		public boolean isFull() {
+
 		}
 	}
 }

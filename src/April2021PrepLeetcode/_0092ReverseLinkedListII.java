@@ -44,6 +44,53 @@ public class _0092ReverseLinkedListII {
 	}
 
 	public static ListNode reverseBetween(ListNode head, int m, int n) {
-		
+		if (m == n)
+			return head;
+
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		op.next = head;
+
+		// find left part
+		int count = 1;
+		ListNode leftPointer = op;
+		while (count < m) {
+			leftPointer = head;
+			head = head.next;
+			count++;
+		}
+
+		leftPointer.next = null;
+		ListNode leftNode = head;
+
+		while (count < n) {
+			head = head.next;
+			count++;
+		}
+
+		ListNode rightPart = head.next;
+		head.next = null;
+		ListNode reverseNode = reverseLL(leftNode);
+
+		leftPointer.next = reverseNode;
+
+		ListNode ln = leftPointer;
+		while (ln != null && ln.next != null) {
+			ln = ln.next;
+		}
+		ln.next = rightPart;
+
+		return opPtr.next;
+	}
+
+	public static ListNode reverseLL(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode next = head.next;
+		ListNode reverse = reverseLL(head.next);
+		next.next = head;
+		head.next = null;
+		return reverse;
 	}
 }

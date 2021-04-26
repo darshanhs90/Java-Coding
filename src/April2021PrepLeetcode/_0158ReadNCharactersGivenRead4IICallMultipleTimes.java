@@ -23,8 +23,25 @@ public class _0158ReadNCharactersGivenRead4IICallMultipleTimes {
 		 * @param n   Number of characters to read
 		 * @return The number of actual characters read
 		 */
-		public int read(char[] buf, int n) {
 
+		char[] prevBuf = new char[4];
+		int prevBufChars = 0;
+		int prevBufIndex = 0;
+
+
+		public int read(char[] buf, int n) {
+			int index = 0;
+			while (index < n) {
+				if (prevBufIndex >= prevBufChars) {
+					prevBufChars = read4(prevBuf);
+					prevBufIndex = 0;
+					if(prevBufChars == 0)
+						return index;
+				} else {
+					buf[index++] = prevBuf[prevBufIndex++];
+				}
+			}
+			return index;
 		}
 
 	}
