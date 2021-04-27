@@ -14,7 +14,7 @@ public class _0689MaximumSumOf3NonOverlappingSubarrays {
 		for (int i = 0; i < nums.length; i++) {
 			sum += nums[i];
 			if (i >= k) {
-				sum -= nums[i-k];
+				sum -= nums[i - k];
 			}
 			sdSum[i] = sum;
 		}
@@ -36,9 +36,14 @@ public class _0689MaximumSumOf3NonOverlappingSubarrays {
 			}
 			rightMax[i] = currMaxIdx;
 		}
+
+		System.out.println(Arrays.toString(sdSum));
+		System.out.println(Arrays.toString(leftMax));
+		System.out.println(Arrays.toString(rightMax));
+
 		int currMax = -1;
 		int[] res = new int[3];
-		for (int mid = 2 * k - 1; mid < nums.length - k; mid++) {
+		for (int mid = 2 * k - 1; mid <= nums.length - k-1; mid++) {
 			int leftSum = sdSum[leftMax[mid - k]];
 			int midSum = sdSum[mid];
 			int rightSum = sdSum[rightMax[mid + k]];
