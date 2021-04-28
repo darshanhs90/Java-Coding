@@ -7,6 +7,6 @@ public class _0398RandomPickIndex {
 	}
 
 	static class Solution {
-
+s
 	}
 }

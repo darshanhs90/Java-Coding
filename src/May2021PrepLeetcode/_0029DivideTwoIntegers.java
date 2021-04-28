@@ -11,7 +11,32 @@ public class _0029DivideTwoIntegers {
 	}
 
 	public static int divide(int dividend, int divisor) {
-		
+		boolean isDividendNeg = false;
+		boolean isDivisorNeg = false;
+
+		if (dividend == Integer.MIN_VALUE && divisor == -1) {
+			return Integer.MAX_VALUE;
+		}
+
+		if (dividend < 0) {
+			isDividendNeg = true;
+			dividend = -dividend;
+		}
+
+		if (divisor < 0) {
+			isDivisorNeg = true;
+			divisor = -divisor;
+		}
+
+		int count = 0;
+		while (dividend - divisor >= 0) {
+			dividend = dividend - divisor;
+			count++;
+		}
+
+		if ((isDividendNeg && isDivisorNeg) || (!isDividendNeg && !isDivisorNeg))
+			return count;
+		return -count;
 	}
 
 }

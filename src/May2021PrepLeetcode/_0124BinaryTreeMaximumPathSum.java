@@ -42,7 +42,21 @@ public class _0124BinaryTreeMaximumPathSum {
 	static long maxSum;
 
 	public static int maxPathSum(TreeNode root) {
-		
+		if (root == null)
+			return 0;
+		maxSum = Long.MIN_VALUE;
+		maxPathSumHelper(root);
+		return (int) maxSum;
+	}
+
+	public static int maxPathSumHelper(TreeNode root) {
+		if (root == null)
+			return 0;
+		int leftSum = Math.max(maxPathSumHelper(root.left), 0);
+		int rightSum = Math.max(maxPathSumHelper(root.right), 0);
+
+		maxSum = Math.max(maxSum, root.val + leftSum + rightSum);
+		return Math.max(leftSum, rightSum) + root.val;
 	}
 
 }
