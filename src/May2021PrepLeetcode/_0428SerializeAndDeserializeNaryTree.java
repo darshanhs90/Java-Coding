@@ -83,7 +83,55 @@ public class _0428SerializeAndDeserializeNaryTree {
 	};
 
 	static class Codec {
-		
+		// Encodes a tree to a single string.
+		public String serialize(Node root) {
+			if (root == null)
+				return "";
+			List<String> list = new ArrayList<String>();
+			serHelper(root, list);
+			return String.join(",", list);
+		}
+
+		public void serHelper(Node root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+
+			list.add(root.val + "");
+
+			int noOfChildrens = root.children == null ? 0 : root.children.size();
+			list.add(noOfChildrens + "");
+			if (root.children != null)
+				for (Node child : root.children) {
+					serHelper(child, list);
+				}
+		}
+
+		// Decodes your encoded data to tree.
+		public Node deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			return deserHelper(new LinkedList<String>(Arrays.asList(data.split(","))));
+		}
+
+		public Node deserHelper(Queue<String> q) {
+			if (q.isEmpty())
+				return null;
+
+			if (q.peek().equals("#")) {
+				q.poll();
+				return null;
+			}
+
+			Node node = new Node(Integer.parseInt(q.poll()), new ArrayList<Node>());
+			int noOfchildrens = Integer.parseInt(q.poll());
+
+			for (int i = 0; i < noOfchildrens; i++) {
+				node.children.add(deserHelper(q));
+			}
+			return node;
+		}
 	}
 
 }

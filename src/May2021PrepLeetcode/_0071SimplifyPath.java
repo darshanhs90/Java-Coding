@@ -15,6 +15,26 @@ public class _0071SimplifyPath {
 	}
 
 	public static String simplifyPath(String path) {
-		
+		Stack<String> stack = new Stack<String>();
+		String[] str = path.split("/");
+		for (int i = 0; i < str.length; i++) {
+			String currString = str[i];
+			if (currString.length() == 0)
+				continue;
+			if (currString.equals(".")) {
+				// no op
+			} else if (currString.equals("..")) {
+				if (!stack.isEmpty())
+					stack.pop();
+			} else {
+				stack.push(currString);
+			}
+		}
+		List<String> list = new ArrayList<String>();
+		while (!stack.isEmpty()) {
+			list.add(stack.pop());
+		}
+		Collections.reverse(list);
+		return "/" + String.join("/", list);
 	}
 }

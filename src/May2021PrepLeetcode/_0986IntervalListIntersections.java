@@ -24,7 +24,33 @@ public class _0986IntervalListIntersections {
 
 	}
 
-	public static int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-		
+	public static int[][] intervalIntersection(int[][] a, int[][] b) {
+		int index1 = 0, index2 = 0;
+		List<int[]> out = new ArrayList<int[]>();
+		while (index1 < a.length && index2 < b.length) {
+
+			int start1 = a[index1][0];
+			int end1 = a[index1][1];
+			int start2 = b[index2][0];
+			int end2 = b[index2][1];
+
+			int low = Math.max(start1, start2);
+			int high = Math.min(end1, end2);
+
+			if (low <= high) {
+				out.add(new int[] { low, high });
+			}
+
+			if (start1 < start2)
+				index1++;
+			else
+				index2++;
+		}
+
+		int[][] output = new int[out.size()][2];
+		for (int i = 0; i < output.length; i++) {
+			output[i] = out.get(i);
+		}
+		return output;
 	}
 }

@@ -47,7 +47,33 @@ public class _0138CopyListWithRandomPointer {
 	}
 
 	public static Node copyRandomList(Node node) {
-		
+		if (node == null)
+			return node;
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		populateNodeMap(node, nodeMap);
+		nodeMap.put(null, null);
+		populatePointers(nodeMap);
+		return nodeMap.get(node);
+	}
+
+	public static void populatePointers(HashMap<Node, Node> nodeMap) {
+		for (Map.Entry<Node, Node> entry : nodeMap.entrySet()) {
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+			if (oldNode == null)
+				continue;
+
+			newNode.next = nodeMap.get(oldNode.next);
+			newNode.random = nodeMap.get(oldNode.random);
+		}
+	}
+
+	public static void populateNodeMap(Node node, HashMap<Node, Node> nodeMap) {
+		while (node != null) {
+			Node newNode = new Node(node.val);
+			nodeMap.put(node, newNode);
+			node = node.next;
+		}
 	}
 
 }

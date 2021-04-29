@@ -11,6 +11,27 @@ public class _1570DotProductOfTwoSparseVectors {
 	}
 
 	static class SparseVector {
+		HashMap<Integer, Integer> map;
 
+		SparseVector(int[] nums) {
+			map = new HashMap<Integer, Integer>();
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] != 0)
+					map.put(i, nums[i]);
+			}
+		}
+
+		// Return the dotProduct of two sparse vectors
+		public int dotProduct(SparseVector vec) {
+			HashMap<Integer, Integer> vecMap = vec.map;
+
+			int count = 0;
+			for (Map.Entry<Integer, Integer> entry : vecMap.entrySet()) {
+				if (map.containsKey(entry.getKey())) {
+					count += map.get(entry.getKey()) * entry.getValue();
+				}
+			}
+			return count;
+		}
 	}
 }
