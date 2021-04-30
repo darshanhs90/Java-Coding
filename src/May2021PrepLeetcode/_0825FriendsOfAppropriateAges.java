@@ -11,7 +11,29 @@ public class _0825FriendsOfAppropriateAges {
 	}
 
 	public static int numFriendRequests(int[] ages) {
-		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = 0; i < ages.length; i++) {
+			map.compute(ages[i], (k, v) -> v == null ? 1 : v + 1);
+		}
+
+		int count = 0;
+		for (int ageA = 1; ageA <= 120; ageA++) {
+			for (int ageB = 1; ageB <= 120; ageB++) {
+				if (ageB <= 0.5 * ageA + 7)
+					continue;
+				if (ageB > ageA)
+					continue;
+				if (ageB > 100 && ageA < 100)
+					continue;
+
+				if (map.containsKey(ageA) && map.containsKey(ageB)) {
+					count += map.get(ageA) * map.get(ageB);
+					if (ageA == ageB)
+						count -= map.get(ageA);
+				}
+			}
+		}
+		return count;
 	}
 
 }
