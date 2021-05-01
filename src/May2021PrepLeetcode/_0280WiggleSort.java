@@ -9,7 +9,26 @@ public class _0280WiggleSort {
 	}
 
 	public static void wiggleSort(int[] nums) {
-	s
+		boolean less = true;
+		for (int i = 0; i < nums.length - 1; i++) {
+			if (less) {
+				if (nums[i] > nums[i + 1]) {
+					swap(i, i + 1, nums);
+				}
+			} else {
+				if (nums[i] < nums[i + 1]) {
+					swap(i, i + 1, nums);
+				}
+			}
+			less = !less;
+		}
+		System.out.println(Arrays.toString(nums));
+	}
+
+	public static void swap(int x, int y, int[] nums) {
+		int temp = nums[x];
+		nums[x] = nums[y];
+		nums[y] = temp;
 	}
 
 }

@@ -8,7 +8,13 @@ public class _0055JumpGame {
 	}
 
 	public static boolean canJump(int[] nums) {
-		
+		int maxReach = nums.length - 1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (i + nums[i] >= maxReach) {
+				maxReach = i;
+			}
+		}
+		return maxReach == 0;
 	}
 
 }

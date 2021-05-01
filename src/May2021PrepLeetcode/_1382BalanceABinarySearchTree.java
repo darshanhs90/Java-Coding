@@ -43,7 +43,31 @@ public class _1382BalanceABinarySearchTree {
 	}
 
 	public static TreeNode balanceBST(TreeNode root) {
-		
+		if (root == null)
+			return root;
+		List<Integer> list = new ArrayList<Integer>();
+		inOrder(root, list);
+		return buildTree(0, list.size() - 1, list);
+	}
+
+	public static TreeNode buildTree(int left, int right, List<Integer> list) {
+		if (left > right || left < 0 || right >= list.size())
+			return null;
+
+		int mid = (left + right) / 2;
+		TreeNode tn = new TreeNode(list.get(mid));
+		tn.left = buildTree(left, mid - 1, list);
+		tn.right = buildTree(mid + 1, right, list);
+		return tn;
+	}
+
+	public static void inOrder(TreeNode root, List<Integer> list) {
+		if (root == null)
+			return;
+
+		inOrder(root.left, list);
+		list.add(root.val);
+		inOrder(root.right, list);
 	}
 
 }

@@ -21,7 +21,59 @@ public class _0305NumberOfIslandsII {
 	}
 
 	public static List<Integer> numIslands2(int m, int n, int[][] positions) {
-		
+		HashMap<Integer, List<int[]>> islandToPointsMap = new HashMap<Integer, List<int[]>>();
+		HashMap<String, Integer> pointToIslandMap = new HashMap<String, Integer>();
+		int currIslandNum = 0;
+		int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
+		List<Integer> output = new ArrayList<Integer>();
+		for (int i = 0; i < positions.length; i++) {
+			int x = positions[i][0];
+			int y = positions[i][1];
+
+			if (pointToIslandMap.containsKey(x + "/" + y)) {
+				output.add(islandToPointsMap.size());
+				continue;
+			}
+
+			HashSet<Integer> overLappingIslands = new HashSet<Integer>();
+			for (int j = 0; j < dirs.length; j++) {
+				int newX = x + dirs[j][0];
+				int newY = y + dirs[j][1];
+				if (newX < 0 || newY < 0 || newX >= m || newY >= n)
+					continue;
+				if (!pointToIslandMap.containsKey(newX + "/" + newY))
+					continue;
+				overLappingIslands.add(pointToIslandMap.get(newX + "/" + newY));
+			}
+
+			if (overLappingIslands.size() == 0) {
+				islandToPointsMap.put(currIslandNum, new ArrayList<int[]>());
+				islandToPointsMap.get(currIslandNum).add(new int[] { x, y });
+				pointToIslandMap.put(x + "/" + y, currIslandNum);
+				currIslandNum++;
+			} else if (overLappingIslands.size() == 1) {
+				int baseIslandNum = overLappingIslands.iterator().next();
+				islandToPointsMap.get(baseIslandNum).add(new int[] { x, y });
+				pointToIslandMap.put(x + "/" + y, baseIslandNum);
+			} else {
+				Iterator<Integer> iter = overLappingIslands.iterator();
+				int baseIslandNum = iter.next();
+
+				while (iter.hasNext()) {
+					int currIsland = iter.next();
+					List<int[]> list = islandToPointsMap.get(currIsland);
+					for (int[] arr : list) {
+						pointToIslandMap.put(arr[0] + "/" + arr[1], baseIslandNum);
+						islandToPointsMap.get(baseIslandNum).add(new int[] { arr[0], arr[1] });
+					}
+					islandToPointsMap.remove(currIsland);
+				}
+				islandToPointsMap.get(baseIslandNum).add(new int[] { x, y });
+				pointToIslandMap.put(x + "/" + y, baseIslandNum);
+			}
+			output.add(islandToPointsMap.size());
+		}
+		return output;
 	}
 
 }

@@ -31,7 +31,24 @@ public class _0285InorderSuccessorInBST {
 	static TreeNode next;
 
 	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-		
+		nodeFound = false;
+		next = null;
+		helper(root, p);
+		return next;
+	}
+
+	public static void helper(TreeNode root, TreeNode p) {
+		if (root == null || next != null)
+			return;
+
+		helper(root.left, p);
+		if (nodeFound && next == null) {
+			next = root;
+			return;
+		} else if (root == p) {
+			nodeFound = true;
+		}
+		helper(root.right, p);
 	}
 
 }

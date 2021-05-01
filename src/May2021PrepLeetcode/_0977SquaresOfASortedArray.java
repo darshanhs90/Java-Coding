@@ -1,10 +1,6 @@
 package May2021PrepLeetcode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class _0977SquaresOfASortedArray {
 	public static void main(String[] args) {
@@ -13,6 +9,19 @@ public class _0977SquaresOfASortedArray {
 	}
 
 	public static int[] sortedSquares(int[] nums) {
-		
+		int[] out = new int[nums.length];
+		int left = 0, right = nums.length - 1;
+		int index = nums.length - 1;
+		while (index >= 0) {
+			if (nums[left] * nums[left] > nums[right] * nums[right]) {
+				out[index] = nums[left] * nums[left];
+				left++;
+			} else {
+				out[index] = nums[right] * nums[right];
+				right--;
+			}
+			index--;
+		}
+		return out;
 	}
 }
