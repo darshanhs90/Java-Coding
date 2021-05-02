@@ -11,6 +11,20 @@ public class _0077Combinations {
 	}
 
 	public static List<List<Integer>> combine(int n, int k) {
-	
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		dfs(1, n, k, new ArrayList<Integer>(), output);
+		return output;
+	}
+
+	public static void dfs(int start, int end, int k, List<Integer> list, List<List<Integer>> output) {
+		if (list.size() == k) {
+			output.add(new ArrayList<Integer>(list));
+			return;
+		}
+		for (int i = start; i <= end; i++) {
+			list.add(i);
+			dfs(i + 1, end, k, list, output);
+			list.remove(list.size() - 1);
+		}
 	}
 }

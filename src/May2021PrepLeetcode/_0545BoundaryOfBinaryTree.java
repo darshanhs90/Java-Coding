@@ -2,7 +2,6 @@ package May2021PrepLeetcode;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -49,7 +48,86 @@ public class _0545BoundaryOfBinaryTree {
 	}
 
 	public static List<Integer> boundaryOfBinaryTree(TreeNode root) {
-		
+		List<Integer> output = new ArrayList<Integer>();
+		if (root == null)
+			return output;
+		output.add(root.val);
+		addLeftNodes(root.left, output);
+		addLeftLeafNodes(root.left, output);
+		addRightLeafNodes(root.right, output);
+		addRightNodes(root.right, output);
+		return output;
+	}
+
+	public static void addRightNodes(TreeNode root, List<Integer> list) {
+		List<Integer> tempList = new ArrayList<Integer>();
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		if (root == null)
+			return;
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (added == false) {
+					if (!(tn.left == null && tn.right == null))
+						tempList.add(tn.val);
+					added = true;
+				}
+
+				if (tn.right != null)
+					q.offer(tn.right);
+
+				if (tn.left != null)
+					q.offer(tn.left);
+			}
+		}
+		Collections.reverse(tempList);
+		list.addAll(tempList);
+	}
+
+	public static void addRightLeafNodes(TreeNode root, List<Integer> list) {
+		if (root == null)
+			return;
+		addLeftLeafNodes(root.left, list);
+		if (root.left == null && root.right == null)
+			list.add(root.val);
+		addLeftLeafNodes(root.right, list);
+	}
+
+	public static void addLeftLeafNodes(TreeNode root, List<Integer> list) {
+		if (root == null)
+			return;
+		addLeftLeafNodes(root.left, list);
+		if (root.left == null && root.right == null)
+			list.add(root.val);
+		addLeftLeafNodes(root.right, list);
+	}
+
+	public static void addLeftNodes(TreeNode root, List<Integer> list) {
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		if (root == null)
+			return;
+		q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			boolean added = false;
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (added == false) {
+					if (!(tn.left == null && tn.right == null))
+						list.add(tn.val);
+					added = true;
+				}
+
+				if (tn.left != null)
+					q.offer(tn.left);
+
+				if (tn.right != null)
+					q.offer(tn.right);
+			}
+		}
 	}
 
 }

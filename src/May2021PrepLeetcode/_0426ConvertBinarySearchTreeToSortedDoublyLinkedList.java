@@ -48,7 +48,31 @@ public class _0426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 	};
 
 	public static Node treeToDoublyList(Node root) {
-		
+		if (root == null)
+			return root;
+
+		List<Node> list = new ArrayList<Node>();
+		inOrder(root, list);
+
+		for (int i = 0; i < list.size() - 1; i++) {
+			Node prev = list.get(i);
+			Node curr = list.get(i + 1);
+			prev.right = curr;
+			curr.left = prev;
+		}
+		Node startNode = list.get(0);
+		Node lastNode = list.get(list.size() - 1);
+		lastNode.right = startNode;
+		startNode.left = lastNode;
+		return startNode;
+	}
+
+	public static void inOrder(Node root, List<Node> list) {
+		if (root == null)
+			return;
+		inOrder(root.left, list);
+		list.add(root);
+		inOrder(root.right, list);
 	}
 
 }

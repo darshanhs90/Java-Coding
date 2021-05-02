@@ -34,6 +34,24 @@ public class _0106ConstructBinaryTreeFromInorderAndPostorderTraversal {
 	}
 
 	public static TreeNode buildTree(int[] inorder, int[] postorder) {
+		return helper(inorder.length - 1, 0, postorder.length - 1, inorder, postorder);
+	}
 
+	public static TreeNode helper(int inStart, int inEnd, int postStart, int[] inorder, int[] postorder) {
+		if (inEnd > inStart || postStart < 0)
+			return null;
+
+		int inIndex = -1;
+		for (int i = inEnd; i <= inStart; i++) {
+			if (postorder[postStart] == inorder[i]) {
+				inIndex = i;
+				break;
+			}
+		}
+
+		TreeNode tn = new TreeNode(postorder[postStart]);
+		tn.right = helper(inStart, inIndex + 1, postStart - 1, inorder, postorder);
+		tn.left = helper(inIndex - 1,inEnd, postStart - inStart + inIndex - 1, inorder, postorder);
+		return tn;
 	}
 }

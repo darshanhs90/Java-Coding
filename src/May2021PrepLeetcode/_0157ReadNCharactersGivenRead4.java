@@ -24,7 +24,20 @@ public class _0157ReadNCharactersGivenRead4 {
 		 * @return The number of actual characters read
 		 */
 		public int read(char[] buf, int n) {
+			int noOfCharsRead = 0;
+			char[] buf4 = new char[4];
+			while (noOfCharsRead < n) {
+				int noOfCharsReturned = read4(buf4);
+				if (noOfCharsReturned == 0)
+					break;
+				for (int i = 0; i < noOfCharsReturned; i++) {
+					buf[noOfCharsRead++] = buf4[i];
+					if (noOfCharsRead == n)
+						return n;
+				}
 
+			}
+			return noOfCharsRead;
 		}
 
 	}
