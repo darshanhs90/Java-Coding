@@ -6,6 +6,7 @@ public class _0689MaximumSumOf3NonOverlappingSubarrays {
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(maxSumOfThreeSubarrays(new int[] { 1, 2, 1, 2, 6, 7, 5, 1 }, 2)));
+		System.out.println(Arrays.toString(maxSumOfThreeSubarrays(new int[] { 1, 2, 1, 2, 1, 2, 1, 2, 1 }, 2)));
 	}
 
 	public static int[] maxSumOfThreeSubarrays(int[] nums, int k) {
@@ -39,7 +40,6 @@ public class _0689MaximumSumOf3NonOverlappingSubarrays {
 			}
 			rightMax[i] = currMaxIndex;
 		}
-
 		int[] res = new int[3];
 		int n = nums.length;
 		int currMax = 0;

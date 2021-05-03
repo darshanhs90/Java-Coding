@@ -55,7 +55,31 @@ public class _0024SwapNodesInPairs {
 	}
 
 	public static ListNode swapPairs(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		while (head != null && head.next != null) {
+			ListNode currNode = head;
+			ListNode nextNode = head.next;
 
+			ListNode nextPtr = head.next.next;
+
+			if (nextNode != null) {
+				op.next = nextNode;
+				op = op.next;
+			}
+			op.next = currNode;
+			op = op.next;
+
+			head = nextPtr;
+		}
+		if (head != null)
+			op.next = head;
+		else {
+			op.next = null;
+		}
+		return opPtr.next;
 	}
 
 }

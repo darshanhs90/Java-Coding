@@ -26,67 +26,67 @@ public class _0336PalindromePairs {
 		return output;
 	}
 
-	static class TrieNode {
-		TrieNode[] childrens;
-		int index;
-		List<Integer> palIndex;
-
-		public TrieNode() {
-			this.childrens = new TrieNode[26];
-			this.index = -1;
-			this.palIndex = new ArrayList<Integer>();
-		}
-	}
-
 	static class Trie {
 		TrieNode root;
 
 		public Trie() {
-			root = new TrieNode();
+			this.root = new TrieNode();
 		}
 
 		public void addWord(String word, int index) {
-			TrieNode tn = root;
+			TrieNode tn = this.root;
 			for (int i = word.length() - 1; i >= 0; i--) {
-				if (isPalindrome(word.substring(0, i))) {
+				String subString = word.substring(0, i);
+				if (isPalindrome(subString)) {
 					tn.palIndex.add(index);
 				}
 
 				char c = word.charAt(i);
-
 				if (tn.childrens[c - 'a'] == null) {
 					tn.childrens[c - 'a'] = new TrieNode();
 				}
 				tn = tn.childrens[c - 'a'];
 			}
-			tn.index = index;
+			tn.pos = index;
 			tn.palIndex.add(index);
 		}
 
 		public void searchWord(String word, int index, List<List<Integer>> output) {
-			TrieNode tn = root;
+			TrieNode tn = this.root;
 			for (int i = 0; i < word.length(); i++) {
-				char c = word.charAt(i);
 
-				if (tn.index != -1 && tn.index != index && isPalindrome(word.substring(i, word.length()))) {
-					output.add(new ArrayList<Integer>(Arrays.asList(index, tn.index)));
+				if (tn.pos != -1 && tn.pos != index && isPalindrome(word.substring(i, word.length() - 1))) {
+					output.add(new ArrayList<Integer>(Arrays.asList(index, tn.pos)));
 				}
 
+				char c = word.charAt(i);
 				if (tn.childrens[c - 'a'] == null)
 					return;
 				tn = tn.childrens[c - 'a'];
 			}
 
 			List<Integer> list = tn.palIndex;
-			for (Integer num : list) {
-				if (num != index) {
-					output.add(new ArrayList<Integer>(Arrays.asList(index, num)));
+			for (Integer newIndex : list) {
+				if (newIndex != index) {
+					output.add(new ArrayList<Integer>(Arrays.asList(index, newIndex)));
 				}
 			}
 		}
 
 		public boolean isPalindrome(String str) {
 			return new StringBuilder(str).reverse().toString().equals(str);
+		}
+	}
+
+	static class TrieNode {
+		TrieNode[] childrens;
+		int pos;
+		List<Integer> palIndex;
+
+		public TrieNode() {
+			this.childrens = new TrieNode[26];
+			this.pos = -1;
+			this.palIndex = new ArrayList<Integer>();
 		}
 	}
 
