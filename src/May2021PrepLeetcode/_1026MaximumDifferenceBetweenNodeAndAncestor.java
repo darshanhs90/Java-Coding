@@ -40,27 +40,7 @@ public class _1026MaximumDifferenceBetweenNodeAndAncestor {
 		}
 	}
 
-	static int maxDiff;
-
 	public static int maxAncestorDiff(TreeNode root) {
-		maxDiff = Integer.MIN_VALUE;
-		if (root == null)
-			return 0;
-
-		maxDiffHelper(root.val, root.val, root);
-		return maxDiff;
-	}
-
-	public static void maxDiffHelper(int maxDiffCurr, int minDiffCurr, TreeNode root) {
-		if (root == null)
-			return;
-
-		maxDiff = Math.max(maxDiff, Math.max(Math.abs(maxDiffCurr - root.val), Math.abs(minDiffCurr - root.val)));
-
-		maxDiffCurr = Math.max(maxDiffCurr, root.val);
-		minDiffCurr = Math.min(minDiffCurr, root.val);
-
-		maxDiffHelper(maxDiffCurr, minDiffCurr, root.left);
-		maxDiffHelper(maxDiffCurr, minDiffCurr, root.right);
+	
 	}
 }
