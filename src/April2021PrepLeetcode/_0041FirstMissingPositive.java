@@ -12,19 +12,20 @@ public class _0041FirstMissingPositive {
 	public static int firstMissingPositive(int[] nums) {
 		if (nums == null || nums.length == 0)
 			return 1;
-		boolean hasOnes = false;
+		boolean hasOne = false;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] == 1) {
-				hasOnes = true;
+				hasOne = true;
 				break;
 			}
 		}
-		if (!hasOnes)
+		if (!hasOne)
 			return 1;
 
 		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] <= 0 || nums[i] > nums.length)
+			if (nums[i] <= 0 || nums[i] > nums.length) {
 				nums[i] = 1;
+			}
 		}
 
 		for (int i = 0; i < nums.length; i++) {

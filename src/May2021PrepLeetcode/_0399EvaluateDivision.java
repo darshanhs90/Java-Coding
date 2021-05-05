@@ -2,10 +2,7 @@ package May2021PrepLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 public class _0399EvaluateDivision {
 
@@ -43,50 +40,6 @@ public class _0399EvaluateDivision {
 	}
 
 	public static double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
-		HashMap<String, HashMap<String, Double>> map = new HashMap<String, HashMap<String, Double>>();
 
-		for (int i = 0; i < equations.size(); i++) {
-			String src = equations.get(i).get(0);
-			String dst = equations.get(i).get(1);
-			double value = values[i];
-
-			if (!map.containsKey(src)) {
-				map.put(src, new HashMap<String, Double>());
-			}
-
-			if (!map.containsKey(dst)) {
-				map.put(dst, new HashMap<String, Double>());
-			}
-
-			map.get(src).put(dst, value);
-			map.get(dst).put(src, 1 / value);
-		}
-
-		double[] out = new double[queries.size()];
-		for (int i = 0; i < out.length; i++) {
-			String src = queries.get(i).get(0);
-			String dst = queries.get(i).get(1);
-			out[i] = dfs(src, dst, map, new HashSet<String>());
-		}
-		return out;
-	}
-
-	public static double dfs(String src, String dst, HashMap<String, HashMap<String, Double>> map,
-			HashSet<String> visited) {
-		if (!map.containsKey(src) || visited.contains(src))
-			return -1;
-		if (map.get(src).containsKey(dst))
-			return map.get(src).get(dst);
-		visited.add(src);
-		HashMap<String, Double> tempMap = map.get(src);
-
-		for (Map.Entry<String, Double> entry : tempMap.entrySet()) {
-			double val = dfs(entry.getKey(), dst, map, visited);
-			if (val != -1) {
-				return val * entry.getValue();
-			}
-		}
-		visited.remove(src);
-		return -1;
 	}
 }

@@ -12,7 +12,6 @@ public class _0041FirstMissingPositive {
 	public static int firstMissingPositive(int[] nums) {
 		if (nums == null || nums.length == 0)
 			return 1;
-
 		boolean hasOne = false;
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] == 1) {
@@ -20,7 +19,6 @@ public class _0041FirstMissingPositive {
 				break;
 			}
 		}
-
 		if (!hasOne)
 			return 1;
 

@@ -1,21 +1,19 @@
 package May2021PrepLeetcode;
 
+import java.util.TreeMap;
+
 public class _0000TaxBracketsSalary {
 	// https://leetcode.com/discuss/interview-question/1170063/Facebook-Phone-Interview
 	public static void main(String[] args) {
-		System.out.println(isValidOrder(new String[] { "P1", "P2", "D1", "D2" }));// true
-		System.out.println(isValidOrder(new String[] { "P1", "D2", "D1", "P2" }));// false
-		System.out.println(isValidOrder(new String[] { "P1", "D2" }));// false
-		System.out.println(isValidOrder(new String[] { "P1", "P2" }));// false
-		System.out.println(isValidOrder(new String[] { "P1", "D1", "D1" }));// false
-		System.out.println(isValidOrder(new String[] {}));// true
-		System.out.println(isValidOrder(new String[] { "P1", "P1", "D1" }));// False
-		System.out.println(isValidOrder(new String[] { "P1", "P1", "D1", "D1" }));// False
-		System.out.println(isValidOrder(new String[] { "P1", "D1", "P1" }));// False
-		System.out.println(isValidOrder(new String[] { "P1", "D1", "P1", "D1" }));// False
+		System.out.println(calculateTaxes(55000) == 12000);
 	}
 
-	public static boolean isValidOrder(String[] strList) {
-
+	public static float calculateTaxes(int income) {
+		TreeMap<Integer, Double> map = new TreeMap<Integer, Double>();
+		map.put(5000, 0.0);
+		map.put(10000, 0.1);
+		map.put(20000, 0.2);
+		map.put(10000, 0.3);
+		map.put(10000000, 0.4);
 	}
 }
