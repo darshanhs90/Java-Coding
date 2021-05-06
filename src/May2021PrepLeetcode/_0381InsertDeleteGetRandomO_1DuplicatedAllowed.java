@@ -1,5 +1,11 @@
 package May2021PrepLeetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+
 public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 
 	public static void main(String[] args) {
@@ -61,9 +67,15 @@ public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 	}
 
 	static class RandomizedCollection {
+		HashMap<Integer, HashSet<Integer>> map;
+		List<Integer> list;
+		Random rand;
 
 		/** Initialize your data structure here. */
 		public RandomizedCollection() {
+			map = new HashMap<Integer, HashSet<Integer>>();
+			list = new ArrayList<Integer>();
+			rand = new Random();
 		}
 
 		/**
@@ -71,7 +83,17 @@ public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 		 * already contain the specified element.
 		 */
 		public boolean insert(int val) {
+			boolean out = false;
 
+			if (!map.containsKey(val) || map.get(val).size() == 0)
+				out = true;
+
+			if (!map.containsKey(val)) {
+				map.put(val, new HashSet<Integer>());
+			}
+			map.get(val).add(list.size());
+			list.add(val);
+			return out;
 		}
 
 		/**
@@ -79,12 +101,29 @@ public class _0381InsertDeleteGetRandomO_1DuplicatedAllowed {
 		 * the specified element.
 		 */
 		public boolean remove(int val) {
+			if (!map.containsKey(val) || map.get(val).size() == 0)
+				return false;
+			// get last element
+			// get its map and update tat
+
+			// get curr element and its map and remove it from map
+			// set last elements index
+
+			int remove_idx = map.get(val).iterator().next();
+			map.get(val).remove(remove_idx);
+			int last = list.get(list.size() - 1);
+			list.set(remove_idx, last);
+			map.get(last).add(remove_idx);
+			map.get(last).remove(list.size() - 1);
+
+			list.remove(list.size() - 1);
+			return true;
 
 		}
 
 		/** Get a random element from the collection. */
 		public int getRandom() {
-
+			return list.get(rand.nextInt(list.size()));
 		}
 	}
 

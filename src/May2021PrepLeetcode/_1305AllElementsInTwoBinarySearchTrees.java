@@ -38,8 +38,75 @@ public class _1305AllElementsInTwoBinarySearchTrees {
 
 	}
 
+	static class BSTIter implements Iterator<Integer> {
+		Stack<TreeNode> stack;
+		Integer next;
+
+		public BSTIter(TreeNode tn) {
+			stack = new Stack<TreeNode>();
+			if (tn != null) {
+				addLeftNodes(tn);
+			}
+
+			populateNextVal();
+		}
+
+		public void addLeftNodes(TreeNode tn) {
+			while (tn != null) {
+				stack.push(tn);
+				tn = tn.left;
+			}
+		}
+
+		public void populateNextVal() {
+			if (!stack.isEmpty()) {
+				TreeNode tn = stack.pop();
+				if (tn.right != null) {
+					addLeftNodes(tn.right);
+				}
+				next = tn.val;
+			} else {
+				next = null;
+			}
+		}
+
+		public Integer peek() {
+			return next;
+		}
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return next != null;
+		}
+
+		@Override
+		public Integer next() {
+			Integer val = next;
+			populateNextVal();
+			return val;
+		}
+	}
+
 	public static List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
-		
+		List<Integer> list = new ArrayList<Integer>();
+		BSTIter iter1 = new BSTIter(root1);
+		BSTIter iter2 = new BSTIter(root1);
+
+		while (iter1.hasNext() || iter2.hasNext()) {
+			if (iter1.hasNext() && iter2.hasNext()) {
+				if (iter1.peek() < iter2.peek()) {
+					list.add(iter1.next());
+				} else {
+					list.add(iter2.next());
+				}
+			} else if (iter1.hasNext()) {
+				list.add(iter1.next());
+			} else {
+				list.add(iter2.next());
+			}
+		}
+		return list;
 	}
 
 }
