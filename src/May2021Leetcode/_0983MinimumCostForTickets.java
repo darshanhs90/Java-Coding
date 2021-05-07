@@ -9,22 +9,6 @@ public class _0983MinimumCostForTickets {
 	}
 
 	public static int mincostTickets(int[] days, int[] costs) {
-		int[] dp = new int[366];
-		HashSet<Integer> set = new HashSet<Integer>();
-		for (int day : days) {
-			set.add(day);
-		}
 
-		for (int i = 1; i < dp.length; i++) {
-			if (set.contains(i)) {
-				int val1 = i - 1 >= 0 ? dp[i - 1] + costs[0] : costs[0];
-				int val2 = i - 7 >= 0 ? dp[i - 7] + costs[1] : costs[1];
-				int val3 = i - 30 >= 0 ? dp[i - 30] + costs[2] : costs[2];
-				dp[i] = Math.min(val1, Math.min(val2, val3));
-			} else {
-				dp[i] = dp[i - 1];
-			}
-		}
-		return dp[dp.length - 1];
 	}
 }

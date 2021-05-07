@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.HashMap;
+
 public class _0091DecodeWays {
 
 	public static void main(String[] args) {
@@ -12,6 +14,41 @@ public class _0091DecodeWays {
 	}
 
 	public static int numDecodings(String s) {
+		if (s == null || s.length() == 0)
+			return 0;
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		dfs(0, s, map);
+		return map.get(s);
+	}
 
+	public static int dfs(int index, String s, HashMap<String, Integer> map) {
+		if (index == s.length())
+			return 1;
+
+		String subString = s.substring(index);
+
+		if (map.containsKey(subString)) {
+			return map.get(subString);
+		}
+
+		char c = s.charAt(index);
+		if (c == '0') {
+			map.put(subString, 0);
+			return 0;
+		}
+
+		int count = 0;
+		count += dfs(index + 1, s, map);
+
+		if (index + 1 < s.length()) {
+			String str = c + "" + s.charAt(index + 1);
+			int val = Integer.parseInt(str);
+			if (val >= 10 && val <= 26) {
+				count += dfs(index + 2, s, map);
+			}
+		}
+
+		map.put(subString, count);
+		return count;
 	}
 }
