@@ -39,8 +39,22 @@ public class _0124BinaryTreeMaximumPathSum {
 		System.out.println(maxPathSum(tn));
 	}
 
-	public static int maxPathSum(TreeNode root) {
+	static long maxSum;
 
+	public static int maxPathSum(TreeNode root) {
+		maxSum = Long.MIN_VALUE;
+		helper(root);
+		return (int) maxSum;
+	}
+
+	public static int helper(TreeNode root) {
+		if (root == null)
+			return 0;
+		int leftSum = Math.max(helper(root.left), 0);
+		int rightSum = Math.max(helper(root.right), 0);
+
+		maxSum = Math.max(maxSum, root.val + leftSum + rightSum);
+		return root.val + Math.max(leftSum, rightSum);
 	}
 
 }

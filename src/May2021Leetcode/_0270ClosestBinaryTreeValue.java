@@ -29,8 +29,30 @@ public class _0270ClosestBinaryTreeValue {
 		System.out.println(closestValue(tn, 3.714286));
 	}
 
+	static int closestVal;
+	static double minDiff;
+
 	public static int closestValue(TreeNode root, double target) {
-	
+		closestVal = 0;
+		minDiff = Double.MAX_VALUE;
+		helper(root, target);
+		return closestVal;
+	}
+
+	public static void helper(TreeNode root, double target) {
+		if (root == null)
+			return;
+
+		if (Math.abs(root.val - target) < minDiff) {
+			closestVal = root.val;
+			minDiff = Math.abs(root.val - target);
+		}
+
+		if (target < root.val) {
+			helper(root.left, target);
+		} else {
+			helper(root.right, target);
+		}
 	}
 
 }
