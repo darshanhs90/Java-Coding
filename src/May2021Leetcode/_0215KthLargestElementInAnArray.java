@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.PriorityQueue;
+
 public class _0215KthLargestElementInAnArray {
 
 	public static void main(String[] args) {
@@ -8,6 +10,12 @@ public class _0215KthLargestElementInAnArray {
 	}
 
 	public static int findKthLargest(int[] nums, int k) {
-
+		PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			pq.offer(nums[i]);
+			if (pq.size() > k)
+				pq.poll();
+		}
+		return pq.peek();
 	}
 }

@@ -42,10 +42,15 @@ public class _0348DesignTicTacToe {
 	}
 
 	static class TicTacToe {
+		int[] rows, cols;
+		int fwDiag, bwDiag;
 
 		/** Initialize your data structure here. */
 		public TicTacToe(int n) {
-
+			rows = new int[n];
+			cols = new int[n];
+			fwDiag = 0;
+			bwDiag = 0;
 		}
 
 		/**
@@ -58,11 +63,23 @@ public class _0348DesignTicTacToe {
 		 *         Player 1 wins. 2: Player 2 wins.
 		 */
 		public int move(int row, int col, int player) {
-		
-		}
+			int count = player == 1 ? 1 : -1;
+			rows[row] += count;
+			cols[col] += count;
 
-		public int checkWinner(int[][] board, int player) {
-		
+			if (row == col) {
+				fwDiag += count;
+			}
+
+			if (col == cols.length - 1 - row) {
+				bwDiag += count;
+			}
+
+			int size = rows.length;
+			if (Math.abs(rows[row]) == size || Math.abs(cols[col]) == size || Math.abs(fwDiag) == size
+					|| Math.abs(bwDiag) == size)
+				return player;
+			return 0;
 		}
 	}
 

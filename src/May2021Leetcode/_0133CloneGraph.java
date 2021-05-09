@@ -2,7 +2,9 @@ package May2021Leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class _0133CloneGraph {
 	// Definition for a Node.
@@ -41,7 +43,40 @@ public class _0133CloneGraph {
 	}
 
 	public static Node cloneGraph(Node node) {
+		if (node == null)
+			return node;
+		HashMap<Node, Node> map = new HashMap<Node, Node>();
+		populateNodes(node, map);
+		populateNeighbors(map);
+		return map.get(node);
+	}
 
+	public static void populateNodes(Node node, HashMap<Node, Node> map) {
+		if (node == null || map.containsKey(node))
+			return;
+		Node newNode = new Node(node.val, new ArrayList<Node>());
+		map.put(node, newNode);
+
+		if (node.neighbors != null) {
+			List<Node> childrens = node.neighbors;
+			for (Node child : childrens) {
+				populateNodes(child, map);
+			}
+		}
+	}
+
+	public static void populateNeighbors(HashMap<Node, Node> map) {
+		for (Map.Entry<Node, Node> entry : map.entrySet()) {
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+
+			if (oldNode.neighbors != null) {
+				List<Node> childrens = oldNode.neighbors;
+				for (Node child : childrens) {
+					newNode.neighbors.add(map.get(child));
+				}
+			}
+		}
 	}
 
 }

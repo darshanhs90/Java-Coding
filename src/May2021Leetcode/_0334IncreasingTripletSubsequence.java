@@ -9,18 +9,7 @@ public class _0334IncreasingTripletSubsequence {
 	}
 
 	public static boolean increasingTriplet(int[] nums) {
-		long num1 = Long.MAX_VALUE;
-		long num2 = Long.MAX_VALUE;
-		for (int num : nums) {
-			if (num <= num1) {
-				num1 = num;
-			} else if (num <= num2) {
-				num2 = num;
-			} else {
-				return true;
-			}
-		}
-		return false;
+		
 	}
 
 }
