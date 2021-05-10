@@ -12,7 +12,15 @@ public class _0053MaximumSubarray {
 	}
 
 	public static int maxSubArray(int[] nums) {
-
+		if (nums == null || nums.length == 0)
+			return 0;
+		long max = nums[0];
+		long currMax = nums[0];
+		for (int i = 1; i < nums.length; i++) {
+			currMax = Math.max(nums[i], currMax + nums[i]);
+			max = Math.max(max, currMax);
+		}
+		return (int) max;
 	}
 
 }

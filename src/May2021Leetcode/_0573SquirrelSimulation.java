@@ -10,16 +10,5 @@ public class _0573SquirrelSimulation {
 	}
 
 	public static int minDistance(int height, int width, int[] tree, int[] squirrel, int[][] nuts) {
-		int totalDistance = 0;
-		int maxSaving = Integer.MIN_VALUE;
-		for (int[] nut : nuts) {
-			totalDistance += (distance(nut, tree) * 2);
-			maxSaving = Math.max(maxSaving, distance(nut, tree) - distance(nut, squirrel));
-		}
-		return totalDistance - maxSaving;
-	}
-
-	public static int distance(int[] tree, int[] nut) {
-		return Math.abs(tree[0] - nut[0]) + Math.abs(tree[1] - nut[1]);
-	}
+			}
 }
