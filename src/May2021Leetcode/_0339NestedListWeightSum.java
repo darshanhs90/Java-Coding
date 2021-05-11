@@ -37,7 +37,24 @@ public class _0339NestedListWeightSum {
 	}
 
 	public static int depthSum(List<NestedInteger> nestedList) {
+		int sum = 0;
+		for (NestedInteger ni : nestedList) {
+			sum += helper(ni, 1);
+		}
+		return sum;
+	}
 
+	public static int helper(NestedInteger ni, int level) {
+		if (ni.isInteger()) {
+			return ni.getInteger() * level;
+		} else {
+			int sum = 0;
+			List<NestedInteger> list = ni.getList();
+			for (NestedInteger child : list) {
+				sum += helper(child, level + 1);
+			}
+			return sum;
+		}
 	}
 
 }
