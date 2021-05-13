@@ -8,6 +8,14 @@ public class _0477TotalHammingDistance {
 	}
 
 	public static int totalHammingDistance(int[] nums) {
-	
+		int count = 0;
+		for (int i = 0; i < 31; i++) {
+			int noOfOnes = 0;
+			for (int num : nums) {
+				noOfOnes += (num >> i & 1);
+			}
+			count += noOfOnes * (nums.length - noOfOnes);
+		}
+		return count;
 	}
 }
