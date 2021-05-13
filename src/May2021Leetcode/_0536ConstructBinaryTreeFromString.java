@@ -1,7 +1,5 @@
 package May2021Leetcode;
 
-import java.util.Stack;
-
 public class _0536ConstructBinaryTreeFromString {
 
 	public static void main(String[] args) {
@@ -30,32 +28,7 @@ public class _0536ConstructBinaryTreeFromString {
 	}
 
 	public static TreeNode str2tree(String s) {
-		if (s == null || s.length() == 0)
-			return null;
-		Stack<TreeNode> stack = new Stack<TreeNode>();
-		for (int i = 0; i < s.length(); i++) {
-			char c = s.charAt(i);
-			if (c == '-' || Character.isDigit(c)) {
-				String str = c + "";
-				while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
-					str += s.charAt(i + 1);
-					i += 1;
-				}
-				int val = Integer.parseInt(str);
-				TreeNode tn = new TreeNode(val);
-				stack.push(tn);
-			} else if (c == '(') {
-				// no op
-			} else if (c == ')') {
-				TreeNode pop = stack.pop();
-				if (stack.peek().left == null) {
-					stack.peek().left = pop;
-				} else {
-					stack.peek().right = pop;
-				}
-			}
-		}
-		return stack.peek();
+
 	}
 
 }
