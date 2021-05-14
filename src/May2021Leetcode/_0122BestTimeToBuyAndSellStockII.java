@@ -8,7 +8,13 @@ public class _0122BestTimeToBuyAndSellStockII {
 		System.out.println(maxProfit(new int[] { 1, 2 }));
 	}
 
-    public int maxProfit(int[] prices) {
-        
-    }
+	public static int maxProfit(int[] prices) {
+		int max = 0;
+		for (int i = 0; i < prices.length - 1; i++) {
+			if (prices[i + 1] > prices[i]) {
+				max += prices[i + 1] - prices[i];
+			}
+		}
+		return max;
+	}
 }

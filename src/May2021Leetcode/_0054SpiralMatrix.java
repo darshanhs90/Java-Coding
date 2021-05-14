@@ -1,5 +1,6 @@
 package May2021Leetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _0054SpiralMatrix {
@@ -16,7 +17,37 @@ public class _0054SpiralMatrix {
 	}
 
 	public static List<Integer> spiralOrder(int[][] matrix) {
+		int topRow = 0, bottomRow = matrix.length - 1;
+		int leftCol = 0, rightCol = matrix[0].length - 1;
+		List<Integer> out = new ArrayList<Integer>();
+		while (topRow <= bottomRow && leftCol <= rightCol) {
 
+			for (int i = leftCol; i <= rightCol; i++) {
+				out.add(matrix[topRow][i]);
+			}
+			topRow++;
+
+			for (int i = topRow; i <= bottomRow; i++) {
+				out.add(matrix[i][rightCol]);
+			}
+			rightCol--;
+
+			if (topRow <= bottomRow) {
+				for (int i = rightCol; i >= leftCol; i--) {
+					out.add(matrix[bottomRow][i]);
+				}
+				bottomRow--;
+			}
+
+			if (leftCol <= rightCol) {
+				for (int i = bottomRow; i >= topRow; i--) {
+					out.add(matrix[i][leftCol]);
+				}
+				leftCol++;
+			}
+
+		}
+		return out;
 	}
 
 }

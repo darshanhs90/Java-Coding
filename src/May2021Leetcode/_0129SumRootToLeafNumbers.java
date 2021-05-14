@@ -34,8 +34,25 @@ public class _0129SumRootToLeafNumbers {
 		System.out.println(sumNumbers(tn));
 	}
 
-	
+	static int sum;
+
 	public static int sumNumbers(TreeNode root) {
+		sum = 0;
+		sumHelper(root, "");
+		return sum;
+	}
+
+	public static void sumHelper(TreeNode root, String str) {
+		if (root == null)
+			return;
+		if (root.left == null && root.right == null) {
+			str += root.val;
+			sum += Integer.parseInt(str);
+			return;
+		}
+
+		sumHelper(root.left, str + root.val);
+		sumHelper(root.right, str + root.val);
 	}
 
 }

@@ -1,12 +1,10 @@
 package May2021Leetcode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class _0305NumberOfIslandsII {
 
@@ -23,7 +21,63 @@ public class _0305NumberOfIslandsII {
 	}
 
 	public static List<Integer> numIslands2(int m, int n, int[][] positions) {
-	
+		HashMap<Integer, List<int[]>> islandPointsMap = new HashMap<Integer, List<int[]>>();
+		HashMap<String, Integer> pointIslandMap = new HashMap<String, Integer>();
+		int islandNum = 1;
+		List<Integer> output = new ArrayList<Integer>();
+		int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 1, 0 }, new int[] { 0, -1 }, new int[] { 0, 1 } };
+		for (int i = 0; i < positions.length; i++) {
+			int[] arr = positions[i];
+			int x = arr[0];
+			int y = arr[1];
+
+			if (pointIslandMap.containsKey(x + "/" + y)) {
+				output.add(islandPointsMap.size());
+				continue;
+			}
+
+			HashSet<Integer> overLappingIslands = new HashSet<Integer>();
+
+			for (int j = 0; j < dirs.length; j++) {
+				int newX = x + dirs[j][0];
+				int newY = y + dirs[j][1];
+				if (newX < 0 || newY < 0 || newX >= m || newY >= n)
+					continue;
+				if (!pointIslandMap.containsKey(newX + "/" + newY))
+					continue;
+				overLappingIslands.add(pointIslandMap.get(newX + "/" + newY));
+			}
+
+			Iterator<Integer> iter = overLappingIslands.iterator();
+			if (overLappingIslands.size() == 0) {
+				islandPointsMap.put(islandNum, new ArrayList<int[]>());
+				islandPointsMap.get(islandNum).add(arr);
+				pointIslandMap.put(x + "/" + y, islandNum);
+				islandNum++;
+			} else if (overLappingIslands.size() == 1) {
+				int baseIslandNum = iter.next();
+				islandPointsMap.get(baseIslandNum).add(arr);
+				pointIslandMap.put(x + "/" + y, baseIslandNum);
+			} else {
+				int baseIslandNum = iter.next();
+
+				while (iter.hasNext()) {
+					int currNum = iter.next();
+					List<int[]> points = islandPointsMap.get(currNum);
+					for (int[] point : points) {
+						int currX = point[0];
+						int currY = point[1];
+						islandPointsMap.get(baseIslandNum).add(point);
+						pointIslandMap.put(currX + "/" + currY, baseIslandNum);
+					}
+					islandPointsMap.remove(currNum);
+				}
+				islandPointsMap.get(baseIslandNum).add(arr);
+				pointIslandMap.put(x + "/" + y, baseIslandNum);
+			}
+			output.add(islandPointsMap.size());
+		}
+		return output;
 	}
 
 }
