@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.Stack;
+
 public class _0150EvaluateReversePolishNotation {
 
 	public static void main(String[] args) {
@@ -10,6 +12,26 @@ public class _0150EvaluateReversePolishNotation {
 	}
 
 	public static int evalRPN(String[] tokens) {
-
+		Stack<Integer> stack = new Stack<Integer>();
+		for (String token : tokens) {
+			if (token.equals("+")) {
+				stack.push(stack.pop() + stack.pop());
+			} else if (token.equals("-")) {
+				int valNew = stack.pop();
+				int valOld = stack.pop();
+				stack.push(valOld - valNew);
+			} else if (token.equals("*")) {
+				int valNew = stack.pop();
+				int valOld = stack.pop();
+				stack.push(valOld * valNew);
+			} else if (token.equals("/")) {
+				int valNew = stack.pop();
+				int valOld = stack.pop();
+				stack.push(valOld / valNew);
+			} else {
+				stack.push(Integer.parseInt(token));
+			}
+		}
+		return stack.peek();
 	}
 }

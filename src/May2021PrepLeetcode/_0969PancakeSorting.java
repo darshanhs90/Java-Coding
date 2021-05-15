@@ -17,7 +17,7 @@ public class _0969PancakeSorting {
 		for (int val = A.length; val > 0; val--) {
 			int index = findIndex(val, A);
 			reverse(0, index, A);
-			output.add(index+1);
+			output.add(index + 1);
 			reverse(0, val - 1, A);
 			output.add(val);
 		}

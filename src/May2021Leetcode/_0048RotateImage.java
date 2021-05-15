@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.Stack;
+
 public class _0048RotateImage {
 
 	public static void main(String[] args) {
@@ -14,7 +16,46 @@ public class _0048RotateImage {
 	}
 
 	public static void rotate(int[][] matrix) {
-s
+		int topRow = 0, bottomRow = matrix.length - 1;
+		while (topRow < bottomRow) {
+			swapRows(topRow, bottomRow, matrix);
+			topRow++;
+			bottomRow--;
+		}
+
+		for (int i = 0; i < matrix.length; i++) {
+			swapDiagonals(i, 0, matrix);
+		}
+
+		for (int i = 1; i < matrix[0].length; i++) {
+			swapDiagonals(matrix.length - 1, i, matrix);
+		}
+	}
+
+	public static void swapDiagonals(int row, int col, int[][] matrix) {
+		Stack<Integer> stack = new Stack<Integer>();
+		int currRow = row, currCol = col;
+		while (currRow >= 0 && currCol < matrix[0].length) {
+			stack.push(matrix[currRow][currCol]);
+			currRow--;
+			currCol++;
+		}
+
+		currRow = row;
+		currCol = col;
+		while (currRow >= 0 && currCol < matrix[0].length) {
+			matrix[currRow][currCol] = stack.pop();
+			currRow--;
+			currCol++;
+		}
+	}
+
+	public static void swapRows(int row1, int row2, int[][] matrix) {
+		for (int i = 0; i < matrix[0].length; i++) {
+			int temp = matrix[row1][i];
+			matrix[row1][i] = matrix[row2][i];
+			matrix[row2][i] = temp;
+		}
 	}
 
 }
