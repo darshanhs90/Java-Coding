@@ -33,6 +33,21 @@ public class _0572SubtreeOfAnotherTree {
 	}
 
 	public static boolean isSubtree(TreeNode s, TreeNode t) {
+		if (s == null && t == null)
+			return true;
+		else if (s == null || t == null)
+			return false;
+		if (s.val == t.val && isIdentical(s, t))
+			return true;
+		return isSubtree(s.left, t) || isSubtree(s.right, t);
+	}
 
+	public static boolean isIdentical(TreeNode s, TreeNode t) {
+		if (s == null && t == null)
+			return true;
+		else if (s == null || t == null)
+			return false;
+
+		return s.val == t.val && isIdentical(s.left, t.left) && isSubtree(s.right, t.right);
 	}
 }

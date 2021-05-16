@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.Stack;
+
 public class _0716MaxStack {
 	public static void main(String[] args) {
 		MaxStack stk = new MaxStack();
@@ -18,25 +20,49 @@ public class _0716MaxStack {
 	}
 
 	static class MaxStack {
+		Stack<Integer> stack, max;
 
 		/** initialize your data structure here. */
 		public MaxStack() {
+			stack = new Stack<Integer>();
+			max = new Stack<Integer>();
 		}
 
 		public void push(int x) {
+			if (stack.isEmpty()) {
+				stack.push(x);
+				max.push(x);
+			} else {
+				stack.push(x);
+				max.push(Math.max(max.peek(), x));
+			}
 		}
 
 		public int pop() {
+			int val = stack.pop();
+			max.pop();
+			return val;
 		}
 
 		public int top() {
+			return stack.peek();
 		}
 
 		public int peekMax() {
+			return max.peek();
 		}
 
 		public int popMax() {
-
+			Stack<Integer> buffer = new Stack<Integer>();
+			int val = peekMax();
+			while (top() != val) {
+				buffer.push(pop());
+			}
+			pop();
+			while (!buffer.isEmpty()) {
+				push(buffer.pop());
+			}
+			return val;
 		}
 	}
 }

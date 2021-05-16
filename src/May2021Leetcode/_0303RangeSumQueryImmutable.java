@@ -10,10 +10,17 @@ public class _0303RangeSumQueryImmutable {
 	}
 
 	static class NumArray {
+		int[] sumArr;
+
 		public NumArray(int[] nums) {
+			sumArr = new int[nums.length + 1];
+			for (int i = 0; i < nums.length; i++) {
+				sumArr[i + 1] = sumArr[i] + nums[i];
+			}
 		}
 
 		public int sumRange(int i, int j) {
+			return sumArr[j + 1] - sumArr[i];
 		}
 	}
 

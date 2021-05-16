@@ -1,5 +1,7 @@
 package May2021Leetcode;
 
+import java.util.PriorityQueue;
+
 public class _0703KthLargestElementInAStream {
 
 	public static void main(String[] args) {
@@ -12,13 +14,24 @@ public class _0703KthLargestElementInAStream {
 	}
 
 	static class KthLargest {
+		PriorityQueue<Integer> pq;
+		int size;
 
 		public KthLargest(int k, int[] nums) {
-
+			this.size = k;
+			pq = new PriorityQueue<Integer>(k);
+			for (int i = 0; i < nums.length; i++) {
+				pq.offer(nums[i]);
+				if (pq.size() > size)
+					pq.poll();
+			}
 		}
 
 		public int add(int val) {
-
+			pq.offer(val);
+			if (pq.size() > size)
+				pq.poll();
+			return pq.peek();
 		}
 	}
 

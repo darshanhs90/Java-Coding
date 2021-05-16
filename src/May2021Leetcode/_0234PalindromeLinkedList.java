@@ -53,13 +53,12 @@ public class _0234PalindromeLinkedList {
 		ln.next.next = new ListNode(2);
 		ln.next.next.next = new ListNode(1);
 		System.out.println(isPalindrome(ln));
-		
 
 		ln = new ListNode(1);
 		ln.next = new ListNode(2);
 		ln.next.next = new ListNode(1);
 		System.out.println(isPalindrome(ln));
-		
+
 	}
 
 	public static void printNodes(ListNode head) {
@@ -71,7 +70,43 @@ public class _0234PalindromeLinkedList {
 	}
 
 	public static boolean isPalindrome(ListNode head) {
-	
+		if (head == null || head.next == null)
+			return true;
+
+		ListNode midNode = getMid(head);
+		midNode = reverseLL(midNode);
+		while (head != null && midNode != null) {
+			if (head.val != midNode.val)
+				return false;
+			head = head.next;
+			midNode = midNode.next;
+		}
+		return true;
+	}
+
+	public static ListNode getMid(ListNode head) {
+		ListNode slow = head;
+		ListNode fast = head;
+		ListNode prev = null;
+		while (fast != null && fast.next != null) {
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		if (prev != null)
+			prev.next = null;
+		return slow;
+	}
+
+	public static ListNode reverseLL(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode nextNode = head.next;
+		ListNode rev = reverseLL(head.next);
+		nextNode.next = head;
+		head.next = null;
+		return rev;
 	}
 
 }

@@ -1,5 +1,9 @@
 package May2021Leetcode;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0993CousinsInBinaryTree {
 	static public class TreeNode {
 		int val;
@@ -42,7 +46,44 @@ public class _0993CousinsInBinaryTree {
 	}
 
 	public static boolean isCousins(TreeNode root, int x, int y) {
+		if (root == null)
+			return false;
+		HashMap<TreeNode, TreeNode> parentMap = new HashMap<TreeNode, TreeNode>();
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		q.offer(root);
+		TreeNode xNode = null, yNode = null;
+		parentMap.put(root, null);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				if (tn.val == x) {
+					xNode = tn;
+				}
 
+				if (tn.val == y) {
+					yNode = tn;
+				}
+
+				if (tn.left != null) {
+					q.offer(tn.left);
+					parentMap.put(tn.left, tn);
+				}
+
+				if (tn.right != null) {
+					q.offer(tn.right);
+					parentMap.put(tn.right, tn);
+				}
+			}
+
+			if (xNode != null && yNode != null) {
+				if (parentMap.get(xNode) != parentMap.get(yNode))
+					return true;
+				return false;
+			} else if (xNode != null || yNode != null)
+				return false;
+		}
+		return false;
 	}
 
 }
