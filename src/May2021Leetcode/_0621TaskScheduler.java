@@ -1,7 +1,5 @@
 package May2021Leetcode;
 
-import java.util.Arrays;
-
 public class _0621TaskScheduler {
 
 	public static void main(String[] args) {
@@ -11,20 +9,6 @@ public class _0621TaskScheduler {
 	}
 
 	public static int leastInterval(char[] tasks, int n) {
-		int[] count = new int[26];
-		for (int i = 0; i < tasks.length; i++) {
-			count[tasks[i] - 'A']++;
-		}
 
-		Arrays.sort(count);
-		int freqMax = count[count.length - 1];
-		int idleTime = (freqMax - 1) * n;
-
-		for (int i = count.length - 2; i >= 0 && idleTime > 0; i--) {
-			idleTime -= Math.min(count[i], freqMax - 1);
-		}
-
-		idleTime = Math.max(idleTime, 0);
-		return idleTime + tasks.length;
 	}
 }

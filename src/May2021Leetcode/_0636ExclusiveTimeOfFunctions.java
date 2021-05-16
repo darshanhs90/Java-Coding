@@ -3,7 +3,6 @@ package May2021Leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Stack;
 
 public class _0636ExclusiveTimeOfFunctions {
 
@@ -25,29 +24,7 @@ public class _0636ExclusiveTimeOfFunctions {
 	}
 
 	public static int[] exclusiveTime(int n, List<String> logs) {
-		int[] out = new int[n];
-		Stack<Integer> stack = new Stack<Integer>();
-		String strArr[] = logs.get(0).split(":");
-		int prevTime = Integer.parseInt(strArr[2]);
-		int prevIndex = Integer.parseInt(strArr[0]);
-		stack.push(prevIndex);
-		for (int i = 1; i < logs.size(); i++) {
-			strArr = logs.get(i).split(":");
-			int currTime = Integer.parseInt(strArr[2]);
-			int currIndex = Integer.parseInt(strArr[0]);
 
-			if (strArr[1].equals("start")) {
-				if (!stack.isEmpty()) {
-					out[stack.peek()] += currTime - prevTime;
-				}
-				stack.push(currIndex);
-				prevTime = currTime;
-			} else {
-				out[stack.pop()] += currTime - prevTime + 1;
-				prevTime = currTime + 1;
-			}
-		}
-		return out;
 	}
 
 }

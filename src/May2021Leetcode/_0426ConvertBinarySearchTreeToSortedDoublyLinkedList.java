@@ -44,32 +44,8 @@ public class _0426ConvertBinarySearchTreeToSortedDoublyLinkedList {
 		}
 	};
 
-	static Node first, prev;
-
 	public static Node treeToDoublyList(Node root) {
-		if (root == null)
-			return root;
-		first = null;
-		prev = null;
-		helper(root);
-		prev.right = first;
-		first.left = prev;
-		return first;
-	}
 
-	public static void helper(Node root) {
-		if (root != null) {
-			helper(root.left);
-			if (first != null) {
-				prev.right = root;
-				root.left = prev;
-			} else {
-				first = root;
-			}
-
-			prev = root;
-			helper(root.right);
-		}
 	}
 
 }
