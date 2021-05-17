@@ -37,12 +37,12 @@ public class _0146LRUCache {
 		int capacity;
 
 		public LRUCache(int capacity) {
-			nodeMap = new HashMap<Integer, Node>();
-			this.capacity = capacity;
 			dummyHead = new Node(-1, -1);
 			dummyTail = new Node(-1, -1);
 			dummyHead.next = dummyTail;
 			dummyTail.prev = dummyHead;
+			nodeMap = new HashMap<Integer, Node>();
+			this.capacity = capacity;
 		}
 
 		public int get(int key) {
@@ -50,8 +50,8 @@ public class _0146LRUCache {
 				Node node = nodeMap.get(key);
 				moveNodeToHead(node);
 				return node.value;
-			} else
-				return -1;
+			}
+			return -1;
 		}
 
 		public void put(int key, int value) {
@@ -60,34 +60,17 @@ public class _0146LRUCache {
 				node.value = value;
 				moveNodeToHead(node);
 			} else {
-				if (nodeMap.size() < this.capacity) {
-					addNode(key, value);
-				} else {
+				if (nodeMap.size() >= capacity) {
 					deleteNode(dummyTail.prev);
-					addNode(key, value);
 				}
+				addNode(key, value);
 			}
-		}
-
-		public void moveNodeToHead(Node node) {
-			deleteNode(node);
-			addNode(node.key, node.value);
-		}
-
-		public void deleteNode(Node node) {
-			Node prev = node.prev;
-			Node next = node.next;
-
-			prev.next = next;
-			next.prev = prev;
-			nodeMap.remove(node.key);
 		}
 
 		public void addNode(int key, int value) {
 			Node newNode = new Node(key, value);
 			Node prev = dummyHead;
 			Node next = dummyHead.next;
-
 			prev.next = newNode;
 			newNode.next = next;
 
@@ -96,5 +79,20 @@ public class _0146LRUCache {
 
 			nodeMap.put(key, newNode);
 		}
+
+		public void deleteNode(Node node) {
+			Node prev = node.prev;
+			Node next = node.next;
+			prev.next = next;
+			next.prev = prev;
+
+			nodeMap.remove(node.key);
+		}
+
+		public void moveNodeToHead(Node node) {
+			deleteNode(node);
+			addNode(node.key, node.value);
+		}
+
 	}
 }

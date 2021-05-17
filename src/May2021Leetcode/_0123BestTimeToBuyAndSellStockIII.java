@@ -12,6 +12,40 @@ public class _0123BestTimeToBuyAndSellStockIII {
 	}
 
 	public static int maxProfit(int[] nums) {
+		if (nums == null || nums.length < 2)
+			return 0;
 
+		int[] leftMax = new int[nums.length];
+		int[] rightMax = new int[nums.length];
+
+		int minSoFar = nums[0];
+		int maxProfit = 0;
+		for (int i = 1; i < nums.length; i++) {
+			if (nums[i] < minSoFar) {
+				minSoFar = nums[i];
+			}
+
+			maxProfit = Math.max(maxProfit, nums[i] - minSoFar);
+			leftMax[i] = maxProfit;
+		}
+
+		int maxSoFar = nums[nums.length - 1];
+		maxProfit = 0;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (nums[i] > maxSoFar) {
+				maxSoFar = nums[i];
+			}
+
+			maxProfit = Math.max(maxProfit, maxSoFar - nums[i]);
+			rightMax[i] = maxProfit;
+		}
+
+		int maxVal = 0;
+		for (int i = 0; i < rightMax.length; i++) {
+			int leftVal = leftMax[i];
+			int rightVal = i + 1 < nums.length ? rightMax[i + 1] : 0;
+			maxVal = Math.max(maxVal, leftVal + rightVal);
+		}
+		return maxVal;
 	}
 }

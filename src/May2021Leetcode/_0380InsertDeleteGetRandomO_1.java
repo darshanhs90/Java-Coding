@@ -26,9 +26,9 @@ public class _0380InsertDeleteGetRandomO_1 {
 
 		/** Initialize your data structure here. */
 		public RandomizedSet() {
+			rand = new Random();
 			list = new ArrayList<Integer>();
 			map = new HashMap<Integer, Integer>();
-			rand = new Random();
 		}
 
 		/**
@@ -36,8 +36,9 @@ public class _0380InsertDeleteGetRandomO_1 {
 		 * the specified element.
 		 */
 		public boolean insert(int val) {
-			if (map.containsKey(val))
+			if (map.containsKey(val)) {
 				return false;
+			}
 			map.put(val, list.size());
 			list.add(val);
 			return true;
@@ -51,13 +52,14 @@ public class _0380InsertDeleteGetRandomO_1 {
 			if (!map.containsKey(val))
 				return false;
 
-			int lastElement = list.get(list.size() - 1);
 			int index = map.get(val);
+			int lastElement = list.get(list.size() - 1);
 
-			map.put(lastElement, index);
 			list.set(index, lastElement);
-			list.remove(list.size() - 1);
+			map.put(lastElement, index);
+
 			map.remove(val);
+			list.remove(list.size() - 1);
 			return true;
 		}
 

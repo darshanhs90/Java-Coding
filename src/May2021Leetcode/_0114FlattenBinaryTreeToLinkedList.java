@@ -43,17 +43,16 @@ public class _0114FlattenBinaryTreeToLinkedList {
 		flatten(root.left);
 		flatten(root.right);
 
-		if (root.left != null) {
-			TreeNode leftPtr = root.left;
-
-			TreeNode left = root.left;
+		TreeNode left = root.left;
+		if (left != null) {
+			TreeNode leftPtr = left;
 			while (left != null && left.right != null) {
 				left = left.right;
 			}
 
 			left.right = root.right;
-			root.left = null;
 			root.right = leftPtr;
+			root.left = null;
 		}
 	}
 

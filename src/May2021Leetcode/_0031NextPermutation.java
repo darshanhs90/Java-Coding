@@ -13,9 +13,9 @@ public class _0031NextPermutation {
 	public static void nextPermutation(int[] nums) {
 		if (nums == null || nums.length < 2)
 			return;
-
 		int changeIndex = -1;
 		for (int i = nums.length - 2; i >= 0; i--) {
+
 			if (nums[i] < nums[i + 1]) {
 				changeIndex = i;
 				break;
@@ -25,13 +25,13 @@ public class _0031NextPermutation {
 		if (changeIndex == -1) {
 			reverse(0, nums.length - 1, nums);
 		} else {
-
 			int i = changeIndex + 1;
 			for (i = changeIndex + 1; i < nums.length; i++) {
 				if (nums[i] <= nums[changeIndex]) {
 					break;
 				}
 			}
+
 			swap(changeIndex, i - 1, nums);
 			reverse(changeIndex + 1, nums.length - 1, nums);
 		}

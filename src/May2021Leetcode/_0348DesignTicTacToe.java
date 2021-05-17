@@ -42,7 +42,43 @@ public class _0348DesignTicTacToe {
 	}
 
 	static class TicTacToe {
+		int[] rowArr, colArr;
+		int fw, bw;
 
+		/** Initialize your data structure here. */
+		public TicTacToe(int n) {
+			rowArr = new int[n];
+			colArr = new int[n];
+			fw = 0;
+			bw = 0;
+		}
+
+		/**
+		 * Player {player} makes a move at ({row}, {col}).
+		 * 
+		 * @param row    The row of the board.
+		 * @param col    The column of the board.
+		 * @param player The player, can be either 1 or 2.
+		 * @return The current winning condition, can be either: 0: No one wins. 1:
+		 *         Player 1 wins. 2: Player 2 wins.
+		 */
+		public int move(int row, int col, int player) {
+
+			int count = player == 1 ? +1 : -1;
+			rowArr[row] += count;
+			colArr[col] += count;
+
+			if (row == col)
+				fw += count;
+
+			if (row == colArr.length - col - 1)
+				bw += count;
+			int size = rowArr.length;
+			if (Math.abs(rowArr[row]) == size || Math.abs(colArr[col]) == size || Math.abs(fw) == size
+					|| Math.abs(bw) == size)
+				return player;
+			return 0;
+		}
 	}
 
 }
