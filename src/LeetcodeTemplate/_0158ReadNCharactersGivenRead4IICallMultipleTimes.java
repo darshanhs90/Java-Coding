@@ -23,6 +23,7 @@ public class _0158ReadNCharactersGivenRead4IICallMultipleTimes {
 		 * @param n   Number of characters to read
 		 * @return The number of actual characters read
 		 */
+
 		public int read(char[] buf, int n) {
 
 		}

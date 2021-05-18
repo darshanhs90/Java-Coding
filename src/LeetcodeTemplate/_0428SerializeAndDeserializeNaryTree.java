@@ -81,13 +81,7 @@ public class _0428SerializeAndDeserializeNaryTree {
 	};
 
 	static class Codec {
-		// Encodes a tree to a single string.
-		public String serialize(Node root) {
-		}
 
-		// Decodes your encoded data to tree.
-		public Node deserialize(String data) {
-		}
 	}
 
 }

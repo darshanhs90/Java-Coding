@@ -46,7 +46,7 @@ public class _0543DiameterOfBinaryTree {
 	}
 
 	public static int diameterOfBinaryTree(TreeNode root) {
-		
+
 	}
 
 }

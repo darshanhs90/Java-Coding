@@ -11,7 +11,7 @@ public class _0277FindCelebrity {
 	}
 
 	public static int findCelebrity(int n) {
-		
+
 	}
 
 }

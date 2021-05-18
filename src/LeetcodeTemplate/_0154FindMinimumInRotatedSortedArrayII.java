@@ -10,4 +10,7 @@ public class _0154FindMinimumInRotatedSortedArrayII {
 		System.out.println(findMin(new int[] { 2, 2, 2, 0, 1 }));
 	}
 
+	public static int findMin(int[] nums) {
+
+	}
 }

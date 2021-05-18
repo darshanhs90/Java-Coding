@@ -7,6 +7,6 @@ public class _0088MergeSortedArray {
 	}
 
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {
-		s
+s
 	}
 }

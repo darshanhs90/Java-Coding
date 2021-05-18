@@ -29,7 +29,6 @@ public class _0199BinaryTreeRightSideView {
 		tn.right = new TreeNode(3);
 		tn.right.right = new TreeNode(4);
 		System.out.println(rightSideView(tn));
-
 	}
 
 	public static List<Integer> rightSideView(TreeNode root) {

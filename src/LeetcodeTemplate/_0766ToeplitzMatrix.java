@@ -8,6 +8,6 @@ public class _0766ToeplitzMatrix {
 	}
 
 	public static boolean isToeplitzMatrix(int[][] matrix) {
-		
+
 	}
 }

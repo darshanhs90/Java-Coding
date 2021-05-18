@@ -41,6 +41,6 @@ public class _0160IntersectionOfTwoLinkedLists {
 	}
 
 	public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-	
+
 	}
 }

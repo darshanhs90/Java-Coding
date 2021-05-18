@@ -9,8 +9,8 @@ public class _0011ContainerWithMostWater {
 		System.out.println(maxArea(new int[] { 1, 2, 1 }));
 	}
 
-	public static int maxArea(int[] height) {
-		
+	public static int maxArea(int[] nums) {
+
 	}
 
 }

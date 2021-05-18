@@ -33,6 +33,5 @@ public class _0572SubtreeOfAnotherTree {
 	}
 
 	public static boolean isSubtree(TreeNode s, TreeNode t) {
-
 	}
 }

@@ -8,4 +8,8 @@ public class _0050PowXToN {
 		System.out.println(myPow(2.0, -2));
 	}
 
+	public static double myPow(double x, int n) {
+
+	}
+
 }

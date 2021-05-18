@@ -10,7 +10,7 @@ public class _0329LongestIncreasingPathInAMatrix {
 	}
 
 	public static int longestIncreasingPath(int[][] matrix) {
-		
+
 	}
 
 }

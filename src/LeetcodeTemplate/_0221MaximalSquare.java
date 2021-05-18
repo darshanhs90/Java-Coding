@@ -8,6 +8,6 @@ public class _0221MaximalSquare {
 	}
 
 	public static int maximalSquare(char[][] matrix) {
-		
+
 	}
 }

@@ -73,7 +73,6 @@ public class _0025ReverseNodesInKGroup {
 		System.out.println();
 	}
 
-	// Iterative
 	public static ListNode reverseKGroup(ListNode head, int k) {
 
 	}

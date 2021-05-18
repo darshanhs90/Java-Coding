@@ -13,13 +13,6 @@ public class _0703KthLargestElementInAStream {
 
 	static class KthLargest {
 
-		public KthLargest(int k, int[] nums) {
-
-		}
-
-		public int add(int val) {
-
-		}
 	}
 
 }

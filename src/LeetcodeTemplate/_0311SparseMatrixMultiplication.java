@@ -8,6 +8,6 @@ public class _0311SparseMatrixMultiplication {
 	}
 
 	public static int[][] multiply(int[][] A, int[][] B) {
-	
+
 	}
 }

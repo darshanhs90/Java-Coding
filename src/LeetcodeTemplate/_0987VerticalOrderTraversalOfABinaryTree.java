@@ -41,6 +41,16 @@ public class _0987VerticalOrderTraversalOfABinaryTree {
 		}
 	}
 
+	static class Node {
+		TreeNode tn;
+		int level;
+
+		public Node(TreeNode tn, int level) {
+			this.tn = tn;
+			this.level = level;
+		}
+	}
+
 	public static List<List<Integer>> verticalTraversal(TreeNode root) {
 
 	}

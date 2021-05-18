@@ -41,6 +41,6 @@ public class _1026MaximumDifferenceBetweenNodeAndAncestor {
 	}
 
 	public static int maxAncestorDiff(TreeNode root) {
-		
+
 	}
 }

@@ -7,8 +7,8 @@ public class _0419BattleshipsInABoard {
 				new char[] { '.', '.', '.', 'X' }, new char[] { '.', '.', '.', 'X' } }));
 	}
 
-	public static int countBattleships1(char[][] board) {
-		
+	public static int countBattleships(char[][] board) {
+
 	}
 
 }

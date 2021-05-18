@@ -7,7 +7,7 @@ public class _1047RemoveAllAdjacentDuplicatesInString {
 		System.out.println(removeDuplicates("aaaaaaaaa"));
 	}
 
-	public static String removeDuplicates(String str) {
+	public static String removeDuplicates(String s) {
 
 	}
 

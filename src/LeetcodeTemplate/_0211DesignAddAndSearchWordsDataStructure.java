@@ -30,14 +30,6 @@ public class _0211DesignAddAndSearchWordsDataStructure {
 	}
 
 	static class WordDictionary {
-		/** Initialize your data structure here. */
-		public WordDictionary() {
-		}
 
-		public void addWord(String word) {
-		}
-
-		public boolean search(String word) {
-		}
 	}
 }

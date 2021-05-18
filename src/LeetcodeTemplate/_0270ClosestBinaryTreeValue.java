@@ -30,7 +30,7 @@ public class _0270ClosestBinaryTreeValue {
 	}
 
 	public static int closestValue(TreeNode root, double target) {
-	
+
 	}
 
 }

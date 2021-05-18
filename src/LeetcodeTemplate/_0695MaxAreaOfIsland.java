@@ -15,6 +15,6 @@ public class _0695MaxAreaOfIsland {
 	}
 
 	public static int maxAreaOfIsland(int[][] grid) {
-		
+
 	}
 }

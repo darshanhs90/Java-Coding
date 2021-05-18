@@ -12,16 +12,8 @@ public class _0295FindMedianFromDataStream {
 	}
 
 	static class MedianFinder {
-
-		/** initialize your data structure here. */
-		public MedianFinder() {
+		return maxHeap.peek();
 		}
-
-		public void addNum(int num) {
-		}
-
-		public double findMedian() {
-		}
-	}
+}
 
 }

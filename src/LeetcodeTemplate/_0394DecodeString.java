@@ -10,6 +10,7 @@ public class _0394DecodeString {
 	}
 
 	public static String decodeString(String s) {
+
 	}
 
 }

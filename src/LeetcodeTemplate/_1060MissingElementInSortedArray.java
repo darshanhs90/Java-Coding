@@ -9,6 +9,6 @@ public class _1060MissingElementInSortedArray {
 	}
 
 	public static int missingElement(int[] nums, int k) {
-		
+
 	}
 }

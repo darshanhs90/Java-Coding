@@ -15,7 +15,7 @@ public class _0056MergeIntervals {
 	}
 
 	public static int[][] merge(int[][] intervals) {
-		
+
 	}
 
 }

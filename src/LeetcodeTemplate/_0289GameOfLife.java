@@ -19,7 +19,7 @@ public class _0289GameOfLife {
 	// reproduction.
 
 	public static void gameOfLife(int[][] board) {
-		s
+s
 	}
 
 }

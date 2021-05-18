@@ -38,7 +38,7 @@ public class _0101SymmetricTree {
 	}
 
 	public static boolean isSymmetric(TreeNode root) {
-		
+
 	}
 
 }

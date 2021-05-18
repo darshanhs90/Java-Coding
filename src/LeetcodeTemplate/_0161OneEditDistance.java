@@ -9,7 +9,7 @@ public class _0161OneEditDistance {
 	}
 
 	public static boolean isOneEditDistance(String s, String t) {
-		
+
 	}
 
 }

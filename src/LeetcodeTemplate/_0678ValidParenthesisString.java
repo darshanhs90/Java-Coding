@@ -9,7 +9,6 @@ public class _0678ValidParenthesisString {
 	}
 
 	public static boolean checkValidString(String s) {
-		
-	}
 
+	}
 }

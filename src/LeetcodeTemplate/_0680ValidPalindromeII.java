@@ -8,7 +8,7 @@ public class _0680ValidPalindromeII {
 	}
 
 	public static boolean validPalindrome(String s) {
-		
+
 	}
 
 }

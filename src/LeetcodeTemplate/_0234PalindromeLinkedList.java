@@ -53,13 +53,12 @@ public class _0234PalindromeLinkedList {
 		ln.next.next = new ListNode(2);
 		ln.next.next.next = new ListNode(1);
 		System.out.println(isPalindrome(ln));
-		
 
 		ln = new ListNode(1);
 		ln.next = new ListNode(2);
 		ln.next.next = new ListNode(1);
 		System.out.println(isPalindrome(ln));
-		
+
 	}
 
 	public static void printNodes(ListNode head) {
@@ -71,7 +70,7 @@ public class _0234PalindromeLinkedList {
 	}
 
 	public static boolean isPalindrome(ListNode head) {
-	
+
 	}
 
 }

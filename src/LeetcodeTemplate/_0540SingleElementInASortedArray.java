@@ -8,6 +8,6 @@ public class _0540SingleElementInASortedArray {
 	}
 
 	public static int singleNonDuplicate(int[] nums) {
-		
+
 	}
 }

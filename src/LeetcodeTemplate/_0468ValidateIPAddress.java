@@ -11,7 +11,7 @@ public class _0468ValidateIPAddress {
 	}
 
 	public static String validIPAddress(String IP) {
-		
+
 	}
 
 }

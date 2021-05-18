@@ -10,11 +10,7 @@ public class _0303RangeSumQueryImmutable {
 	}
 
 	static class NumArray {
-		public NumArray(int[] nums) {
-		}
 
-		public int sumRange(int i, int j) {
-		}
 	}
 
 }

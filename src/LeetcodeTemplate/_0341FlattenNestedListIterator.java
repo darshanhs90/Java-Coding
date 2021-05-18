@@ -29,21 +29,6 @@ public class _0341FlattenNestedListIterator {
 	}
 
 	public class NestedIterator implements Iterator<Integer> {
-		public NestedIterator(List<NestedInteger> nestedList) {
 
-		}
-
-		@Override
-		public Integer next() {
-
-		}
-
-		public List<Integer> getList(NestedInteger nestedInteger) {
-
-		}
-
-		@Override
-		public boolean hasNext() {
-		}
 	}
 }

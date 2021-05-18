@@ -7,6 +7,6 @@ public class _0824GoatLatin {
 	}
 
 	public static String toGoatLatin(String S) {
-		
+
 	}
 }

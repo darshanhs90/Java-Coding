@@ -7,7 +7,7 @@ public class _0727MinimumWindowSubsequence {
 	}
 
 	public static String minWindow(String S, String T) {
-		
+
 	}
 
 }

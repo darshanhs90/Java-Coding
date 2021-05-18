@@ -44,7 +44,7 @@ public class _0226InvertBinaryTree {
 	}
 
 	public static TreeNode invertTree(TreeNode root) {
-	
+
 	}
 
 }

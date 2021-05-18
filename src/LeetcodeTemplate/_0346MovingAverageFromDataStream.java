@@ -12,14 +12,6 @@ public class _0346MovingAverageFromDataStream {
 
 	static class MovingAverage {
 
-		/** Initialize your data structure here. */
-		public MovingAverage(int size) {
-
-		}
-
-		public double next(int val) {
-
-		}
 	}
 
 }

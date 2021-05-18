@@ -6,8 +6,7 @@ public class _0567PermutationInString {
 		System.out.println(checkInclusion("ab", "eidboaoo"));
 	}
 
-	public static boolean checkInclusion(String s1, String s2) {
+	public static boolean checkInclusion(String s, String t) {
 
 	}
-
 }

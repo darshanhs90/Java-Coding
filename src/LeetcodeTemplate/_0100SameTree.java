@@ -45,7 +45,7 @@ public class _0100SameTree {
 	}
 
 	public static boolean isSameTree(TreeNode p, TreeNode q) {
-		
+
 	}
 
 }

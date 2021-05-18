@@ -11,7 +11,7 @@ public class _0286WallsAndGates {
 	}
 
 	public static void wallsAndGates(int[][] rooms) {
-		s
+s
 	}
 
 }

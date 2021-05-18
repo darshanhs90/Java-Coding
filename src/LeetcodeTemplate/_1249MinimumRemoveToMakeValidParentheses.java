@@ -9,7 +9,7 @@ public class _1249MinimumRemoveToMakeValidParentheses {
 	}
 
 	public static String minRemoveToMakeValid(String s) {
-		
+
 	}
 
 }

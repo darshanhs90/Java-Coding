@@ -1,7 +1,5 @@
 package LeetcodeTemplate;
 
-import java.util.List;
-
 public class _0642DesignSearchAutocompleteSystem {
 
 	public static void main(String[] args) {
@@ -25,12 +23,5 @@ public class _0642DesignSearchAutocompleteSystem {
 
 	static class AutocompleteSystem {
 
-		public AutocompleteSystem(String[] sentences, int[] times) {
-
-		}
-
-		public List<String> input(char c) {
-
-		}
 	}
 }

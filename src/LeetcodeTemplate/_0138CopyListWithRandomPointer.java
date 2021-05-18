@@ -43,7 +43,7 @@ public class _0138CopyListWithRandomPointer {
 		}
 	}
 
-	public static Node copyRandomList(Node head) {
+	public static Node copyRandomList(Node node) {
 
 	}
 

@@ -36,4 +36,5 @@ public class _0106ConstructBinaryTreeFromInorderAndPostorderTraversal {
 	public static TreeNode buildTree(int[] inorder, int[] postorder) {
 
 	}
+
 }

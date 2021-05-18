@@ -40,7 +40,7 @@ public class _0206ReverseLinkedList {
 	}
 
 	public static ListNode reverseList(ListNode head) {
-	
+
 	}
 
 }

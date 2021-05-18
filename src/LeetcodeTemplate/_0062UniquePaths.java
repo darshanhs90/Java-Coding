@@ -9,7 +9,7 @@ public class _0062UniquePaths {
 		System.out.println(uniquePaths(3, 3));
 	}
 
-	public static int uniquePathsRecursive(int m, int n) {
+	public static int uniquePaths(int m, int n) {
 
 	}
 }

@@ -7,13 +7,6 @@ public class _0398RandomPickIndex {
 	}
 
 	static class Solution {
-
-		public Solution(int[] nums) {
-
-		}
-
-		public int pick(int target) {
-
-		}
+s
 	}
 }

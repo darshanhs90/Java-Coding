@@ -7,6 +7,6 @@ public class _0461HammingDistance {
 	}
 
 	public static int hammingDistance(int x, int y) {
-		
+
 	}
 }

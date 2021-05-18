@@ -7,7 +7,7 @@ public class _0278FirstBadVersion {
 	}
 
 	public static boolean isBadVersion(int n) {
-		return n > 2126753390/2;
+		return n > 2126753390 / 2;
 	}
 
 	public static int firstBadVersion(int n) {

@@ -28,6 +28,7 @@ public class _0285InorderSuccessorInBST {
 	}
 
 	public static TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+
 	}
 
 }

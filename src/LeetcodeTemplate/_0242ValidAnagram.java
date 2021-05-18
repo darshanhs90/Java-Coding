@@ -8,6 +8,6 @@ public class _0242ValidAnagram {
 	}
 
 	public static boolean isAnagram(String s, String t) {
-		
+
 	}
 }

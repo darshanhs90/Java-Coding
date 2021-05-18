@@ -10,7 +10,7 @@ public class _0896MonotonicArray {
 	}
 
 	public static boolean isMonotonic(int[] A) {
-		
+
 	}
 
 }
