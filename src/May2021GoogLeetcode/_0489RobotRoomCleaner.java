@@ -1,5 +1,7 @@
 package May2021GoogLeetcode;
 
+import java.util.HashSet;
+
 public class _0489RobotRoomCleaner {
 
 	public static void main(String[] args) {
@@ -22,7 +24,35 @@ public class _0489RobotRoomCleaner {
 	}
 
 	public static void cleanRoom(Robot robot) {
-		s
+		cleanRoom(0, 0, 0, new HashSet<String>(), robot);
+	}
+
+	public static void cleanRoom(int x, int y, int dir, HashSet<String> visited, Robot robot) {
+		if (visited.contains(x + "/" + y))
+			return;
+		robot.clean();
+		visited.add(x + "/" + y);
+		int[][] dirs = new int[][] { new int[] { -1, 0 }, new int[] { 0, 1 }, new int[] { 1, 0 }, new int[] { 0, -1 } };
+
+		for (int i = 0; i < dirs.length; i++) {
+			int newDir = (dir + i) % 4;
+			int newX = x + dirs[newDir][0];
+			int newY = y + dirs[newDir][1];
+
+			if (!visited.contains(newX + "/" + newY) && robot.move()) {
+				cleanRoom(newX, newY, newDir, visited, robot);
+				moveBack(robot);
+			}
+			robot.turnRight();
+		}
+	}
+
+	public static void moveBack(Robot robot) {
+		robot.turnRight();
+		robot.turnRight();
+		robot.move();
+		robot.turnRight();
+		robot.turnRight();
 	}
 
 }

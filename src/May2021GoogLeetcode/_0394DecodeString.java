@@ -1,5 +1,7 @@
 package May2021GoogLeetcode;
 
+import java.util.Stack;
+
 public class _0394DecodeString {
 
 	public static void main(String[] args) {
@@ -9,8 +11,59 @@ public class _0394DecodeString {
 		System.out.println(decodeString("abc3[cd]xyz"));
 	}
 
-	public static String decodeString(String s) {
+	static class Helper {
+		String str;
+		int val;
+		boolean isString;
 
+		public Helper(String str) {
+			this.str = str;
+			this.isString = true;
+		}
+
+		public Helper(int val) {
+			this.val = val;
+		}
+	}
+
+	public static String decodeString(String s) {
+		Stack<Helper> stack = new Stack<Helper>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (Character.isDigit(c)) {
+				String str = c + "";
+				while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+					str += s.charAt(i + 1);
+					i++;
+				}
+				stack.push(new Helper(Integer.parseInt(str)));
+			} else if (Character.isAlphabetic(c)) {
+				stack.push(new Helper(c + ""));
+			} else if (c == '[') {
+				// no op
+			} else {
+				int multiplier = 1;
+				String str = "";
+				while (!stack.isEmpty() && stack.peek().isString) {
+					str += stack.pop().str;
+				}
+
+				if (!stack.isEmpty() && !stack.peek().isString) {
+					multiplier = stack.pop().val;
+				}
+
+				StringBuilder sb = new StringBuilder();
+				for (int j = 0; j < multiplier; j++) {
+					sb.append(str);
+				}
+				stack.push(new Helper(sb.toString()));
+			}
+		}
+		StringBuilder sb = new StringBuilder();
+		while (!stack.isEmpty()) {
+			sb.append(stack.pop().str);
+		}
+		return sb.reverse().toString();
 	}
 
 }

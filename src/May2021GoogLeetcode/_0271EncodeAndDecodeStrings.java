@@ -15,13 +15,16 @@ public class _0271EncodeAndDecodeStrings {
 	}
 
 	public static class Codec {
+		char delimiter = (char) 257;
 
 		// Encodes a list of strings to a single string.
 		public String encode(List<String> strs) {
+			return String.join(delimiter + "", strs);
 		}
 
 		// Decodes a single string to a list of strings.
 		public List<String> decode(String s) {
+			return new ArrayList<String>(Arrays.asList(s.split(delimiter + "")));
 		}
 	}
 }
