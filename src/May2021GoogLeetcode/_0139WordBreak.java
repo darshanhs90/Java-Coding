@@ -2,6 +2,7 @@ package May2021GoogLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class _0139WordBreak {
@@ -14,7 +15,18 @@ public class _0139WordBreak {
 	}
 
 	public static boolean wordBreak(String s, List<String> wordDict) {
-
+		boolean dp[] = new boolean[s.length() + 1];
+		dp[0] = true;
+		HashSet<String> set = new HashSet<String>(wordDict);
+		for (int i = 1; i < dp.length; i++) {
+			for (int j = 0; j <= i; j++) {
+				if (dp[j] && set.contains(s.subSequence(j, i))) {
+					dp[i] = true;
+					break;
+				}
+			}
+		}
+		return dp[s.length()];
 	}
 
 }

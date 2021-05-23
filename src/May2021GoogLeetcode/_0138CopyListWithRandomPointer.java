@@ -1,5 +1,8 @@
 package May2021GoogLeetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class _0138CopyListWithRandomPointer {
 	static public class Node {
 		int val;
@@ -44,7 +47,32 @@ public class _0138CopyListWithRandomPointer {
 	}
 
 	public static Node copyRandomList(Node node) {
+		if (node == null)
+			return node;
+		HashMap<Node, Node> map = new HashMap<Node, Node>();
+		populateNode(node, map);
+		map.put(null, null);
+		populatePointers(map);
+		return map.get(node);
+	}
 
+	public static void populatePointers(HashMap<Node, Node> map) {
+		for (Map.Entry<Node, Node> entry : map.entrySet()) {
+			if (entry.getKey() == null)
+				continue;
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+			newNode.next = map.get(oldNode.next);
+			newNode.random = map.get(oldNode.random);
+		}
+	}
+
+	public static void populateNode(Node node, HashMap<Node, Node> map) {
+		if (node == null)
+			return;
+		Node newNode = new Node(node.val);
+		map.put(node, newNode);
+		populateNode(node.next, map);
 	}
 
 }

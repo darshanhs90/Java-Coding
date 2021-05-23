@@ -1,5 +1,7 @@
 package May2021GoogLeetcode;
 
+import java.util.HashSet;
+
 public class _0128LongestConsecutiveSequence {
 
 	public static void main(String[] args) {
@@ -8,6 +10,24 @@ public class _0128LongestConsecutiveSequence {
 	}
 
 	public static int longestConsecutive(int[] nums) {
-
+		if (nums == null || nums.length == 0)
+			return 0;
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			set.add(nums[i]);
+		}
+		int maxLength = 1;
+		for (int i = 0; i < nums.length; i++) {
+			if (!set.contains(nums[i] - 1)) {
+				int val = nums[i];
+				int count = 0;
+				while (set.contains(val)) {
+					val += 1;
+					count += 1;
+				}
+				maxLength = Math.max(maxLength, count);
+			}
+		}
+		return maxLength;
 	}
 }

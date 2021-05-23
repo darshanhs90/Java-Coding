@@ -8,6 +8,31 @@ public class _0766ToeplitzMatrix {
 	}
 
 	public static boolean isToeplitzMatrix(int[][] matrix) {
+		if (matrix == null || matrix.length == 0)
+			return true;
+		int rows = matrix.length;
+		int cols = matrix[0].length;
 
+		for (int i = rows - 1; i >= 0; i--) {
+			if (!equal(i, 0, matrix))
+				return false;
+		}
+
+		for (int i = 1; i < cols; i++) {
+			if (!equal(0, i, matrix))
+				return false;
+		}
+		return true;
+	}
+
+	public static boolean equal(int currRow, int currCol, int[][] matrix) {
+		int baseVal = matrix[currRow][currCol];
+		while (currRow < matrix.length && currCol < matrix[0].length) {
+			if (matrix[currRow][currCol] != baseVal)
+				return false;
+			currRow++;
+			currCol++;
+		}
+		return true;
 	}
 }

@@ -9,7 +9,23 @@ public class _0050PowXToN {
 	}
 
 	public static double myPow(double x, int n) {
+		long N = n;
+		if (n < 0) {
+			N = -N;
+			x = 1 / x;
+		}
+		return calc(x, N);
+	}
 
+	public static double calc(double x, long n) {
+		if (n == 0)
+			return 1;
+		double val = calc(x, n / 2);
+		if (n % 2 == 0) {
+			return val * val;
+		} else {
+			return val * val * x;
+		}
 	}
 
 }

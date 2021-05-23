@@ -2,7 +2,9 @@ package May2021GoogLeetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class _0428SerializeAndDeserializeNaryTree {
 
@@ -81,7 +83,50 @@ public class _0428SerializeAndDeserializeNaryTree {
 	};
 
 	static class Codec {
+		// Encodes a tree to a single string.
+		public String serialize(Node root) {
+			if (root == null)
+				return "";
+			List<String> out = new ArrayList<String>();
+			serHelper(root, out);
+			return String.join(",", out);
+		}
 
+		public void serHelper(Node root, List<String> list) {
+			if (root == null) {
+				list.add("#");
+				return;
+			}
+			list.add(root.val + "");
+			int noOFchildrens = root.children != null ? root.children.size() : 0;
+			list.add(noOFchildrens + "");
+			for (int i = 0; i < noOFchildrens; i++) {
+				serHelper(root.children.get(i), list);
+			}
+		}
+
+		// Decodes your encoded data to tree.
+		public Node deserialize(String data) {
+			if (data.isEmpty())
+				return null;
+			return deserHelper(new LinkedList<String>(Arrays.asList(data.split(","))));
+		}
+
+		public Node deserHelper(Queue<String> q) {
+			if (q.isEmpty())
+				return null;
+			if (q.peek().equals("#")) {
+				q.poll();
+				return null;
+			}
+
+			Node node = new Node(Integer.parseInt(q.poll()), new ArrayList<Node>());
+			int noOfChildrens = Integer.parseInt(q.poll());
+			for (int i = 0; i < noOfChildrens; i++) {
+				node.children.add(deserHelper(q));
+			}
+			return node;
+		}
 	}
 
 }

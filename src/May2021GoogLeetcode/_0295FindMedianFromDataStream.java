@@ -1,5 +1,8 @@
 package May2021GoogLeetcode;
 
+import java.util.Collections;
+import java.util.PriorityQueue;
+
 public class _0295FindMedianFromDataStream {
 
 	public static void main(String[] args) {
@@ -12,8 +15,26 @@ public class _0295FindMedianFromDataStream {
 	}
 
 	static class MedianFinder {
-		return maxHeap.peek();
-		}
-}
+		PriorityQueue<Integer> maxHeap, minHeap;
 
+		/** initialize your data structure here. */
+		public MedianFinder() {
+			maxHeap = new PriorityQueue<Integer>();
+			minHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
+		}
+
+		public void addNum(int num) {
+			maxHeap.offer(num);
+			minHeap.offer(maxHeap.poll());
+
+			if (maxHeap.size() < minHeap.size())
+				maxHeap.offer(minHeap.poll());
+		}
+
+		public double findMedian() {
+			if (maxHeap.size() == minHeap.size())
+				return (maxHeap.peek() + minHeap.peek()) / (double) 2;
+			return maxHeap.peek();
+		}
+	}
 }

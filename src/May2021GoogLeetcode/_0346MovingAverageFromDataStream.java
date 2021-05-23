@@ -1,5 +1,8 @@
 package May2021GoogLeetcode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class _0346MovingAverageFromDataStream {
 
 	public static void main(String[] args) {
@@ -11,7 +14,25 @@ public class _0346MovingAverageFromDataStream {
 	}
 
 	static class MovingAverage {
+		int sum;
+		Queue<Integer> q;
+		int size;
 
+		/** Initialize your data structure here. */
+		public MovingAverage(int size) {
+			q = new LinkedList<Integer>();
+			this.size = size;
+			sum = 0;
+		}
+
+		public double next(int val) {
+			sum += val;
+			q.offer(val);
+			if (q.size() > size) {
+				sum -= q.poll();
+			}
+			return sum / (double) (q.size());
+		}
 	}
 
 }

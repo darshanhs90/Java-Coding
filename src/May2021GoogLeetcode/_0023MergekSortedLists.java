@@ -1,5 +1,8 @@
 package May2021GoogLeetcode;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class _0023MergekSortedLists {
 	static public class ListNode {
 		int val;
@@ -41,7 +44,31 @@ public class _0023MergekSortedLists {
 	}
 
 	public static ListNode mergeKLists(ListNode[] lists) {
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		PriorityQueue<ListNode> pq = new PriorityQueue<ListNode>(new Comparator<ListNode>() {
+			@Override
+			public int compare(ListNode o1, ListNode o2) {
+				// TODO Auto-generated method stub
+				return o1.val - o2.val;
+			}
+		});
 
+		for (ListNode ln : lists) {
+			if (ln != null)
+				pq.offer(ln);
+		}
+
+		while (!pq.isEmpty()) {
+			ListNode ln = pq.poll();
+			op.next = ln;
+			op = op.next;
+
+			if (ln.next != null)
+				pq.offer(ln.next);
+		}
+
+		return opPtr.next;
 	}
 
 }
