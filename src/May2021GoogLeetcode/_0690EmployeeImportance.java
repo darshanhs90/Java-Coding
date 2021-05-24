@@ -1,6 +1,7 @@
 package May2021GoogLeetcode;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class _0690EmployeeImportance {
@@ -37,7 +38,21 @@ public class _0690EmployeeImportance {
 	}
 
 	public static int getImportance(List<Employee> employees, int id) {
+		HashMap<Integer, Employee> map = new HashMap<Integer, Employee>();
+		for (Employee emp : employees) {
+			map.put(emp.id, emp);
+		}
+		return importance(id, map);
+	}
 
+	public static int importance(int id, HashMap<Integer, Employee> map) {
+		int count = 0;
+		count += map.get(id).importance;
+		List<Integer> sub = map.get(id).subordinates;
+		for (int subId : sub) {
+			count += importance(subId, map);
+		}
+		return count;
 	}
 
 }
