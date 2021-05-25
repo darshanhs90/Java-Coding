@@ -1,5 +1,8 @@
 package May2021GoogLeetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class _0251Flatten2DVector {
 
 	public static void main(String[] args) {
@@ -15,15 +18,41 @@ public class _0251Flatten2DVector {
 	}
 
 	static class Vector2D {
+		List<Integer> list;
+		int outerIndex;
+		int[][] v;
+
 		public Vector2D(int[][] v) {
-	
+			this.v = v;
+			this.outerIndex = 0;
+			this.list = new ArrayList<Integer>();
+			populateList();
+		}
+
+		public void populateList() {
+			if (outerIndex == v.length)
+				return;
+			populate(outerIndex++);
+			if (!hasNext())
+				populateList();
+		}
+
+		public void populate(int index) {
+			for (int i = 0; i < v[index].length; i++) {
+				list.add(v[index][i]);
+			}
 		}
 
 		public int next() {
-	
+			int val = list.remove(0);
+			if (list.size() == 0) {
+				populateList();
+			}
+			return val;
 		}
 
 		public boolean hasNext() {
+			return list.size() != 0;
 		}
 	}
 
