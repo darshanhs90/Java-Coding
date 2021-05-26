@@ -1,5 +1,7 @@
 package May2021GoogLeetcode;
 
+import java.util.HashMap;
+
 public class _0316RemoveDuplicateLetters {
 
 	public static void main(String[] args) {
@@ -8,6 +10,10 @@ public class _0316RemoveDuplicateLetters {
 	}
 
 	public static String removeDuplicateLetters(String s) {
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			map.put(s.charAt(i), i);
+		}
 
 	}
 }

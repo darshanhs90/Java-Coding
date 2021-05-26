@@ -1,5 +1,6 @@
 package May2021GoogLeetcode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class _0094BinaryTreeInorderTraversal {
@@ -30,7 +31,17 @@ public class _0094BinaryTreeInorderTraversal {
 	}
 
 	public static List<Integer> inorderTraversal(TreeNode root) {
+		List<Integer> output = new ArrayList<Integer>();
+		inorder(root, output);
+		return output;
+	}
 
+	public static void inorder(TreeNode root, List<Integer> output) {
+		if (root == null)
+			return;
+		inorder(root.left, output);
+		output.add(root.val);
+		inorder(root.right, output);
 	}
 
 }
