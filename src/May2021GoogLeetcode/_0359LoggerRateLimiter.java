@@ -1,5 +1,7 @@
 package May2021GoogLeetcode;
 
+import java.util.HashMap;
+
 public class _0359LoggerRateLimiter {
 
 	public static void main(String[] args) {
@@ -14,9 +16,11 @@ public class _0359LoggerRateLimiter {
 	}
 
 	static class Logger {
+		HashMap<String, Integer> map;
 
 		/** Initialize your data structure here. */
 		public Logger() {
+			map = new HashMap<String, Integer>();
 		}
 
 		/**
@@ -25,6 +29,16 @@ public class _0359LoggerRateLimiter {
 		 * be printed. The timestamp is in seconds granularity.
 		 */
 		public boolean shouldPrintMessage(int timestamp, String message) {
+			if (!map.containsKey(message)) {
+				map.put(message, timestamp);
+				return true;
+			}
+
+			if (timestamp - map.get(message) >= 10) {
+				map.put(message, timestamp);
+				return true;
+			}
+			return false;
 		}
 	}
 
