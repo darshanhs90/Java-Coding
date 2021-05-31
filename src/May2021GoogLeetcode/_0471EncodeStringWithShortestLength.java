@@ -1,16 +1,16 @@
 package May2021GoogLeetcode;
 
-import java.util.List;
-
 public class _0471EncodeStringWithShortestLength {
 
 	public static void main(String[] args) {
-		System.out.println(findAllConcatenatedWordsInADict(new String[] { "cat", "cats", "catsdogcats", "dog",
-				"dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat" }));
-		System.out.println(findAllConcatenatedWordsInADict(new String[] { "cat", "dog", "catdog" }));
+		System.out.println(encode("aaa"));
+		System.out.println(encode("aaaaa"));
+		System.out.println(encode("aaaaaaaaaa"));
+		System.out.println(encode("aabcaabcd"));
+		System.out.println(encode("abbbabbbcabbbabbbc"));
 	}
 
-	public static List<String> findAllConcatenatedWordsInADict(String[] words) {
+	public static String encode(String s) {
 
 	}
 

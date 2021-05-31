@@ -2,17 +2,12 @@ package May2021GoogLeetcode;
 
 public class _1231DivideChocolate {
 	public static void main(String[] args) {
-		System.out.println(checkStraightLine(new int[][] { new int[] { 1, 2 }, new int[] { 2, 3 }, new int[] { 3, 4 },
-				new int[] { 4, 5 }, new int[] { 5, 6 }, new int[] { 6, 7 } }));
-		System.out.println(checkStraightLine(new int[][] { new int[] { 1, 1 }, new int[] { 2, 2 }, new int[] { 3, 4 },
-				new int[] { 4, 5 }, new int[] { 5, 6 }, new int[] { 7, 7 } }));
-		System.out.println(
-				checkStraightLine(new int[][] { new int[] { 0, 0 }, new int[] { 0, 1 }, new int[] { 0, -1 } }));
-		System.out
-				.println(checkStraightLine(new int[][] { new int[] { 2, 4 }, new int[] { 2, 5 }, new int[] { 2, 8 } }));
+		System.out.println(maximizeSweetness(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, 5));
+		System.out.println(maximizeSweetness(new int[] { 5, 6, 7, 8, 9, 1, 2, 3, 4 }, 8));
+		System.out.println(maximizeSweetness(new int[] { 1, 2, 2, 1, 2, 2, 1, 2, 2 }, 2));
 	}
 
-	public static boolean checkStraightLine(int[][] coordinates) {
-		
+	public static int maximizeSweetness(int[] sweetness, int K) {
+
 	}
 }
