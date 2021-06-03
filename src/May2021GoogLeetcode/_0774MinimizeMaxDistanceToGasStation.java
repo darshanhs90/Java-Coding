@@ -10,25 +10,6 @@ public class _0774MinimizeMaxDistanceToGasStation {
 	}
 
 	public static double minmaxGasDist(int[] stations, int k) {
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
-
-			@Override
-			public int compare(int[] a, int[] b) {
-				return (double) b[0] / b[1] < (double) a[0] / a[1] ? -1 : 1;
-			}
-		});
-
-		for (int i = 0; i < stations.length - 1; i++) {
-			pq.offer(new int[] { stations[i + 1] - stations[i], 1 });
-		}
-
-		for (int i = 0; i < k; i++) {
-			int[] arr = pq.poll();
-			arr[1] += 1;
-			pq.offer(arr);
-		}
-		int[] arr = pq.poll();
-		return (double) arr[0] / (double) arr[1];
-
+		
 	}
 }

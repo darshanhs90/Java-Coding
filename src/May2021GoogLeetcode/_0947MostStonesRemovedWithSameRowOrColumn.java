@@ -15,29 +15,6 @@ public class _0947MostStonesRemovedWithSameRowOrColumn {
 	}
 
 	public static int removeStones(int[][] stones) {
-		HashSet<String> visited = new HashSet<String>();
-		int noOfIslands = 0;
-		for (int[] arr : stones) {
-			int x = arr[0];
-			int y = arr[1];
-			if (!visited.contains(x + "/" + y)) {
-				dfs(x, y, visited, stones);
-				noOfIslands++;
-			}
-		}
-		return stones.length - noOfIslands;
-	}
-
-	public static void dfs(int x, int y, HashSet<String> visited, int[][] stones) {
-		visited.add(x + "/" + y);
-		for (int[] arr : stones) {
-			int x1 = arr[0];
-			int y1 = arr[1];
-			if (!visited.contains(x1 + "/" + y1)) {
-				if (x == x1 || y == y1) {
-					dfs(x1, y1, visited, stones);
-				}
-			}
-		}
+	
 	}
 }

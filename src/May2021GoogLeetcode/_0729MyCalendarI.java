@@ -12,38 +12,7 @@ public class _0729MyCalendarI {
 	}
 
 	static class MyCalendar {
-		List<int[]> merged;
-
-		public MyCalendar() {
-			merged = new ArrayList<int[]>();
-		}
-
-		public boolean book(int start, int end) {
-			if (!contains(start, end)) {
-				merge(start, end);
-				return true;
-			}
-			return false;
-		}
-
-		public boolean contains(int start, int end) {
-			for (int i = 0; i < merged.size(); i++) {
-				int[] arr = merged.get(i);
-				int currStart = arr[0];
-				int currEnd = arr[1];
-
-				if (start >= currStart && start < currEnd)
-					return true;
-
-				if (end > currStart && end <= currEnd)
-					return true;
-			}
-			return false;
-		}
-
-		public void merge(int start, int end) {
-			merged.add(new int[] { start, end });
-		}
+		
 	}
 
 }

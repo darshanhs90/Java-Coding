@@ -20,39 +20,7 @@ public class _0056MergeIntervals {
 	}
 
 	public static int[][] merge(int[][] intervals) {
-		if (intervals == null || intervals.length < 1)
-			return intervals;
-		List<int[]> out = new ArrayList<int[]>();
-		Arrays.sort(intervals, new Comparator<int[]>() {
-			@Override
-			public int compare(int[] o1, int[] o2) {
-				// TODO Auto-generated method stub
-				return o1[0] - o2[0];
-			}
-		});
-
-		int prevStart = intervals[0][0];
-		int prevEnd = intervals[0][1];
-
-		for (int i = 1; i < intervals.length; i++) {
-			int currStart = intervals[i][0];
-			int currEnd = intervals[i][1];
-
-			if (currStart >= prevStart && currStart <= prevEnd) {
-				prevEnd = Math.max(prevEnd, currEnd);
-			} else {
-				out.add(new int[] { prevStart, prevEnd });
-				prevStart = currStart;
-				prevEnd = currEnd;
-			}
-		}
-		out.add(new int[] { prevStart, prevEnd });
-
-		int[][] output = new int[out.size()][2];
-		for (int i = 0; i < output.length; i++) {
-			output[i] = out.get(i);
-		}
-		return output;
+		
 	}
 
 }

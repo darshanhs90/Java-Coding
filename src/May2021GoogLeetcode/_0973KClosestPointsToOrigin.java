@@ -10,30 +10,7 @@ public class _0973KClosestPointsToOrigin {
 	}
 
 	public static int[][] kClosest(int[][] points, int K) {
-		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
-
-			@Override
-			public int compare(int[] o1, int[] o2) {
-				double dist1 = Math.sqrt(o1[0] * o1[0] + o1[1] * o1[1]);
-				double dist2 = Math.sqrt(o2[0] * o2[0] + o2[1] * o2[1]);
-				if (dist1 == dist2)
-					return 0;
-				return dist1 > dist2 ? -1 : 1;
-			}
-
-		});
-
-		for (int i = 0; i < points.length; i++) {
-			pq.offer(points[i]);
-			if (pq.size() > K)
-				pq.poll();
-		}
-
-		int[][] out = new int[K][2];
-		for (int i = 0; i < out.length; i++) {
-			out[i] = pq.poll();
-		}
-		return out;
+	
 	}
 
 }

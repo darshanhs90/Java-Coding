@@ -9,18 +9,6 @@ public class _0459RepeatedSubstringPattern {
 	}
 
 	public static boolean repeatedSubstringPattern(String s) {
-		for (int i = 1; i <= s.length() / 2; i++) {
-			String str = s.substring(0, i);
-			int j = i;
-			for (j = i; j+i <= s.length(); j += i) {
-				String newStr = s.substring(j, j + i);
-				if (!str.equals(newStr)) {
-					break;
-				}
-			}
-			if (j == s.length())
-				return true;
-		}
-		return false;
+
 	}
 }

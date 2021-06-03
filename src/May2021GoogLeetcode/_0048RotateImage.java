@@ -24,50 +24,7 @@ public class _0048RotateImage {
 	// 4 5 6
 	// 1 2 3
 	public static void rotate(int[][] matrix) {
-		if (matrix == null || matrix.length == 0)
-			return;
-
-		int topRow = 0, bottomRow = matrix.length - 1;
-		while (topRow < bottomRow) {
-			swapRow(topRow, bottomRow, matrix);
-			topRow++;
-			bottomRow--;
-		}
-
-		for (int i = 0; i < matrix[0].length; i++) {
-			swapDiagonals(0, i, matrix);
-		}
-
-		for (int i = 1; i < matrix.length; i++) {
-			swapDiagonals(i, matrix[0].length - 1, matrix);
-		}
-		System.out.println(Arrays.deepToString(matrix));
-	}
-
-	public static void swapDiagonals(int row, int col, int[][] matrix) {
-		Stack<Integer> stack = new Stack<Integer>();
-		int currRow = row, currCol = col;
-		while (currRow < matrix.length && currCol >= 0) {
-			stack.push(matrix[currRow][currCol]);
-			currRow++;
-			currCol--;
-		}
-
-		currRow = row;
-		currCol = col;
-		while (currRow < matrix.length && currCol >= 0) {
-			matrix[currRow][currCol] = stack.pop();
-			currRow++;
-			currCol--;
-		}
-	}
-
-	public static void swapRow(int top, int bottom, int[][] matrix) {
-		for (int i = 0; i < matrix[0].length; i++) {
-			int val = matrix[top][i];
-			matrix[top][i] = matrix[bottom][i];
-			matrix[bottom][i] = val;
-		}
+		s
 	}
 
 }

@@ -10,32 +10,7 @@ public class _0403FrogJump {
 	}
 
 	public static boolean canCross(int[] stones) {
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < stones.length; i++) {
-			map.put(stones[i], i);
-		}
-		return canCross(0, 0, map, stones[stones.length - 1]);
-	}
-
-	public static boolean canCross(int jump, int val, HashMap<Integer, Integer> map, int lastVal) {
-		if (val == lastVal)
-			return true;
-
-		if (jump - 1 > 0 && map.containsKey(val + jump - 1)) {
-			if (canCross(jump - 1, val + jump - 1, map, lastVal))
-				return true;
-		}
-
-		if (jump > 0 && map.containsKey(val + jump)) {
-			if (canCross(jump, val + jump, map, lastVal))
-				return true;
-		}
-
-		if (jump + 1 > 0 && map.containsKey(val + jump + 1)) {
-			if (canCross(jump + 1, val + jump + 1, map, lastVal))
-				return true;
-		}
-		return false;
+	
 	}
 
 }

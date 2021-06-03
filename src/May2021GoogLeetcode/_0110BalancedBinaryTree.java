@@ -40,22 +40,8 @@ public class _0110BalancedBinaryTree {
 		System.out.println(isBalanced(null));
 	}
 
-	static boolean isValid;
-
 	public static boolean isBalanced(TreeNode root) {
-		isValid = true;
-		helper(root);
-		return isValid;
-	}
-
-	public static int helper(TreeNode root) {
-		if (root == null)
-			return 0;
-		int leftHeight = helper(root.left);
-		int rightHeight = helper(root.right);
-
-		isValid = isValid && (Math.abs(leftHeight - rightHeight) <= 1);
-		return 1 + Math.max(leftHeight, rightHeight);
+		
 	}
 
 }

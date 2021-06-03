@@ -15,24 +15,7 @@ public class _0388LongestAbsoluteFilePath {
 	}
 
 	public static int lengthLongestPath(String input) {
-		if (input == null || input.length() == 0)
-			return 0;
-		HashMap<Integer, Integer> levelLengthMap = new HashMap<Integer, Integer>();
-		levelLengthMap.put(0, 0);
-		int maxLength = 0;
-
-		String[] dirs = input.split("\n");
-		for (String dir : dirs) {
-			int noOfTabs = dir.lastIndexOf("\t") + 1;
-			int length = dir.length() - noOfTabs;
-			if (dir.contains(".")) {
-				// is a file
-				maxLength = Math.max(maxLength, levelLengthMap.get(noOfTabs) + length);
-			} else {
-				levelLengthMap.put(noOfTabs + 1, levelLengthMap.get(noOfTabs) + length + 1);
-			}
-		}
-		return maxLength;
+	
 	}
 
 	public static int lengthLongestPath2(String input) {

@@ -17,20 +17,7 @@ public class _0733FloodFill {
 	}
 
 	public static int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-		if (image[sr][sc] == newColor)
-			return image;
-		dfs(image, sr, sc, image[sr][sc], newColor);
-		return image;
-	}
-
-	public static void dfs(int[][] image, int sr, int sc, int origColor, int newColor) {
-		if (sr < 0 || sc < 0 || sr >= image.length || sc >= image[0].length || image[sr][sc] != origColor)
-			return;
-		image[sr][sc] = newColor;
-		dfs(image, sr - 1, sc, origColor, newColor);
-		dfs(image, sr + 1, sc, origColor, newColor);
-		dfs(image, sr, sc - 1, origColor, newColor);
-		dfs(image, sr, sc + 1, origColor, newColor);
+		
 	}
 
 }

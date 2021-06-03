@@ -17,32 +17,7 @@ public class _0384ShuffleAnArray {
 	}
 
 	static class Solution {
-		int[] original;
-
-		public Solution(int[] nums) {
-			this.original = nums;
-		}
-
-		/** Resets the array to its original configuration and return it. */
-		public int[] reset() {
-			return this.original;
-		}
-
-		/** Returns a random shuffling of the array. */
-		public int[] shuffle() {
-			int[] arr = Arrays.copyOf(original, original.length);
-			Random rand = new Random();
-			for (int i = 0; i < arr.length; i++) {
-				swap(i, rand.nextInt(arr.length), arr);
-			}
-			return arr;
-		}
-
-		public void swap(int left, int right, int[] nums) {
-			int temp = nums[left];
-			nums[left] = nums[right];
-			nums[right] = temp;
-		}
+		
 	}
 
 }

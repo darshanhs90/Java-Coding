@@ -11,19 +11,7 @@ public class _0009PalindromeNumber {
 	}
 
 	public static boolean isPalindrome(int x) {
-		if (x < 0)
-			return false;
-		int reverseNumber = reverse(x);
-		return x == reverseNumber;
-	}
-
-	public static int reverse(int x) {
-		int val = 0;
-		while (x > 0) {
-			val = val * 10 + (x % 10);
-			x = x / 10;
-		}
-		return val;
+		
 	}
 
 }

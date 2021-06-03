@@ -13,40 +13,8 @@ public class _0347TopKFrequentElements {
 		System.out.println(Arrays.toString(topKFrequent(new int[] { 1 }, 1)));
 	}
 
-	static class Pair {
-		int key, val;
-
-		public Pair(int key, int val) {
-			this.key = key;
-			this.val = val;
-		}
-	}
-
 	public static int[] topKFrequent(int[] nums, int k) {
-		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-		for (int i = 0; i < nums.length; i++) {
-			map.compute(nums[i], (key, val) -> val == null ? 1 : val + 1);
-		}
-
-		PriorityQueue<Pair> pq = new PriorityQueue<Pair>(new Comparator<Pair>() {
-			@Override
-			public int compare(Pair o1, Pair o2) {
-				// TODO Auto-generated method stub
-				return o1.val - o2.val;
-			}
-		});
-
-		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-			pq.offer(new Pair(entry.getKey(), entry.getValue()));
-			if (pq.size() > k)
-				pq.poll();
-		}
-
-		int[] out = new int[k];
-		for (int i = 0; i < out.length; i++) {
-			out[i] = pq.poll().key;
-		}
-		return out;
+		
 	}
 
 }
