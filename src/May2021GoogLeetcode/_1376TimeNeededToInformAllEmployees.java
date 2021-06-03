@@ -18,6 +18,32 @@ public class _1376TimeNeededToInformAllEmployees {
 
 	public static int numOfMinutes(int n, int headID, int[] manager, int[] informTime) {
 
+		HashMap<Integer, HashSet<Integer>> map = new HashMap<Integer, HashSet<Integer>>();
+		for (int i = 0; i <= n; i++) {
+			map.put(i, new HashSet<Integer>());
+		}
+
+		for (int i = 0; i < manager.length; i++) {
+			int currEmp = i;
+			int empManager = manager[i];
+			if (empManager != -1)
+				map.get(empManager).add(currEmp);
+		}
+
+		Queue<int[]> q = new LinkedList<int[]>();
+		q.offer(new int[] { headID, 0 });
+		int ans = 0;
+		while (!q.isEmpty()) {
+			int[] arr = q.poll();
+			int emp = arr[0];
+			int time = arr[1];
+			ans = Math.max(time, ans);
+			for (int v : map.get(emp)) {
+				q.offer(new int[] { v, time + informTime[emp] });
+			}
+
+		}
+		return ans;
 	}
 
 }

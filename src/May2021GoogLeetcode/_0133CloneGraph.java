@@ -43,7 +43,35 @@ public class _0133CloneGraph {
 	}
 
 	public static Node cloneGraph(Node node) {
-		
+		if (node == null)
+			return node;
+		HashMap<Node, Node> nodeMap = new HashMap<Node, Node>();
+		populateMap(node, nodeMap);
+		populateChildren(nodeMap);
+		return nodeMap.get(node);
+	}
+
+	public static void populateMap(Node node, HashMap<Node, Node> nodeMap) {
+		if (node == null || nodeMap.containsKey(node))
+			return;
+		Node newNode = new Node(node.val, new ArrayList<Node>());
+		nodeMap.put(node, newNode);
+		List<Node> neighbors = node.neighbors;
+		for (Node neighbor : neighbors) {
+			populateMap(neighbor, nodeMap);
+		}
+	}
+
+	public static void populateChildren(HashMap<Node, Node> nodeMap) {
+		for (Map.Entry<Node, Node> entry : nodeMap.entrySet()) {
+			Node oldNode = entry.getKey();
+			Node newNode = entry.getValue();
+
+			List<Node> neighbors = oldNode.neighbors;
+			for (Node neighbor : neighbors) {
+				newNode.neighbors.add(nodeMap.get(neighbor));
+			}
+		}
 	}
 
 }

@@ -12,7 +12,35 @@ public class _0249GroupShiftedStrings {
 	}
 
 	public static List<List<String>> groupStrings(String[] strings) {
-		
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		for (String str : strings) {
+			map.compute(str, (k, v) -> v == null ? 1 : v + 1);
+		}
+		List<List<String>> output = new ArrayList<List<String>>();
+
+		for (String str : strings) {
+			if (!map.containsKey(str))
+				continue;
+			List<String> list = new ArrayList<String>();
+			char[] cArr = str.toCharArray();
+			for (int i = 0; i < 26; i++) {
+				for (int j = 0; j < cArr.length; j++) {
+					cArr[j] = (char) (cArr[j] + 1);
+					if (cArr[j] > 'z')
+						cArr[j] = 'a';
+				}
+				String newString = new String(cArr);
+				if (map.containsKey(newString)) {
+					int count = map.get(newString);
+					for (int j = 0; j < count; j++) {
+						list.add(newString);
+					}
+					map.remove(newString);
+				}
+			}
+			output.add(list);
+		}
+		return output;
 	}
 
 }

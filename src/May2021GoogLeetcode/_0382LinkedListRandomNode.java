@@ -39,7 +39,30 @@ public class _0382LinkedListRandomNode {
 	}
 
 	static class Solution {
-		
+		List<Integer> list;
+		Random rand;
+
+		/**
+		 * @param head The linked list's head. Note that the head is guaranteed to be
+		 *             not null, so it contains at least one node.
+		 */
+		public Solution(ListNode head) {
+			list = new ArrayList<Integer>();
+			populateList(head);
+			rand = new Random();
+		}
+
+		public void populateList(ListNode head) {
+			if (head == null)
+				return;
+			list.add(head.val);
+			populateList(head.next);
+		}
+
+		/** Returns a random node's value. */
+		public int getRandom() {
+			return list.get(rand.nextInt(list.size()));
+		}
 	}
 
 }

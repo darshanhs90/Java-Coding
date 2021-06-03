@@ -35,7 +35,24 @@ public class _0102BinaryTreeLevelOrderTraversal {
 	}
 
 	public static List<List<Integer>> levelOrder(TreeNode root) {
-
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		Queue<TreeNode> q = new LinkedList<TreeNode>();
+		if (root != null)
+			q.offer(root);
+		while (!q.isEmpty()) {
+			int size = q.size();
+			List<Integer> list = new ArrayList<Integer>();
+			for (int i = 0; i < size; i++) {
+				TreeNode tn = q.poll();
+				list.add(tn.val);
+				if (tn.left != null)
+					q.offer(tn.left);
+				if (tn.right != null)
+					q.offer(tn.right);
+			}
+			output.add(list);
+		}
+		return output;
 	}
 
 }

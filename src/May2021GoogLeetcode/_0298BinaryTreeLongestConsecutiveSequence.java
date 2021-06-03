@@ -37,8 +37,29 @@ public class _0298BinaryTreeLongestConsecutiveSequence {
 		}
 	}
 
+	static int max;
+
 	public static int longestConsecutive(TreeNode root) {
-		
+		max = 0;
+		if (root == null)
+			return 0;
+		helper(root, root.val, 1);
+		return max;
+	}
+
+	public static void helper(TreeNode root, int parentVal, int count) {
+		if (root == null)
+			return;
+
+		if (root.val == parentVal + 1) {
+			count += 1;
+		} else {
+			count = 1;
+		}
+
+		max = Math.max(max, count);
+		helper(root.left, root.val, count);
+		helper(root.right, root.val, count);
 	}
 
 }

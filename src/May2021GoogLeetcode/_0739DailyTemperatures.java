@@ -10,6 +10,22 @@ public class _0739DailyTemperatures {
 	}
 
 	public static int[] dailyTemperatures(int[] T) {
-		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int i = T.length - 1; i >= 0; i--) {
+			int out = T[i];
+			if (map.isEmpty()) {
+				T[i] = 0;
+			} else {
+				int minDays = Integer.MAX_VALUE;
+				for (int j = out + 1; j <= 100; j++) {
+					if (map.containsKey(j)) {
+						minDays = Math.min(minDays, map.get(j) - i);
+					}
+				}
+				T[i] = minDays == Integer.MAX_VALUE ? 0 : minDays;
+			}
+			map.put(out, i);
+		}
+		return T;
 	}
 }

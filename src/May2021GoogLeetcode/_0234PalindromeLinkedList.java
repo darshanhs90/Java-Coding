@@ -70,7 +70,44 @@ public class _0234PalindromeLinkedList {
 	}
 
 	public static boolean isPalindrome(ListNode head) {
-		
+		if (head == null || head.next == null)
+			return true;
+
+		ListNode mid = reverseList(getMid(head));
+		while (head != null && mid != null) {
+			if (head.val != mid.val)
+				return false;
+			head = head.next;
+			mid = mid.next;
+		}
+		return true;
+	}
+
+	public static ListNode reverseList(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+		ListNode nextNode = head.next;
+		ListNode rev = reverseList(head.next);
+		nextNode.next = head;
+		head.next = null;
+		return rev;
+	}
+
+	public static ListNode getMid(ListNode head) {
+		ListNode slow = head;
+		ListNode fast = head;
+		ListNode prev = null;
+
+		while (fast != null && fast.next != null) {
+			prev = slow;
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		if (prev != null) {
+			prev.next = null;
+		}
+		return slow;
 	}
 
 }
