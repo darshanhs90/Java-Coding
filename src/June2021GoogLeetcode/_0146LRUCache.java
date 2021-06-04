@@ -21,7 +21,77 @@ public class _0146LRUCache {
 		System.out.println(lRUCache.get(2)); // return 1 (found)
 	}
 
-	static class LRUCache {
-		
+	static class Node {
+		int key, value;
+		Node prev, next;
+
+		public Node(int key, int value) {
+			this.key = key;
+			this.value = value;
+		}
 	}
+
+	static class LRUCache {
+		int c;
+		Node h, t;
+		HashMap<Integer, Node> map;
+
+		public LRUCache(int capacity) {
+			this.c = capacity;
+			h = new Node(-1, -1);
+			t = new Node(-1, -1);
+			h.next = t;
+			t.prev = h;
+			map = new HashMap<Integer, Node>();
+		}
+
+		public int get(int key) {
+			if (map.containsKey(key)) {
+				Node node = map.get(key);
+				moveNodeToHead(node);
+				return node.value;
+			}
+			return -1;
+		}
+
+		public void addNode(int key, int value) {
+			Node newNode = new Node(key, value);
+			Node prev = h;
+			Node next = h.next;
+			prev.next = newNode;
+			newNode.next = next;
+			next.prev = newNode;
+			newNode.prev = prev;
+			map.put(key, newNode);
+		}
+
+		public void deleteNode(Node node) {
+			Node prev = node.prev;
+			Node next = node.next;
+			prev.next = next;
+			next.prev = prev;
+			map.remove(node.key);
+		}
+
+		public void moveNodeToHead(Node node) {
+			deleteNode(node);
+			addNode(node.key, node.value);
+		}
+
+		public void put(int key, int value) {
+			if (map.containsKey(key)) {
+				Node node = map.get(key);
+				node.value = value;
+				moveNodeToHead(node);
+			} else {
+				if (map.size() < c) {
+					addNode(key, value);
+				} else {
+					deleteNode(t.prev);
+					addNode(key, value);
+				}
+			}
+		}
+	}
+
 }

@@ -10,7 +10,22 @@ public class _0159LongestSubstringWithAtMostTwoDistinctCharacters {
 	}
 
 	public static int lengthOfLongestSubstringTwoDistinct(String s) {
-
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+		int left = 0, right = 0, max = 0;
+		while (right < s.length()) {
+			char c = s.charAt(right);
+			map.compute(c, (k, v) -> v == null ? 1 : v + 1);
+			while (map.size() > 2) {
+				c = s.charAt(left);
+				map.put(c, map.get(c) - 1);
+				if (map.get(c) == 0)
+					map.remove(c);
+				left++;
+			}
+			max = Math.max(max, right - left + 1);
+			right++;
+		}
+		return max;
 	}
 
 }

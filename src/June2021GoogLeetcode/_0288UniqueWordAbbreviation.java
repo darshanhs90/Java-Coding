@@ -24,6 +24,35 @@ public class _0288UniqueWordAbbreviation {
 	}
 
 	static class ValidWordAbbr {
-		
+		HashMap<String, String> map;
+
+		public ValidWordAbbr(String[] dictionary) {
+			map = new HashMap<String, String>();
+
+			for (String word : dictionary) {
+				String abbr = getAbbreviation(word);
+
+				if (!map.containsKey(abbr)) {
+					map.put(abbr, word);
+				} else if (!map.get(abbr).equals(word)) {
+					map.put(abbr, "");
+				}
+			}
+
+		}
+
+		public boolean isUnique(String word) {
+			String abbr = getAbbreviation(word);
+			if (!map.containsKey(abbr))
+				return true;
+			if (map.get(abbr).equals("") || !map.get(abbr).equals(word))
+				return false;
+			return true;
+		}
+
+		public String getAbbreviation(String word) {
+			return word.charAt(0) + "" + (word.length() - 2) + word.charAt(word.length() - 1);
+
+		}
 	}
 }
