@@ -12,7 +12,31 @@ public class _0729MyCalendarI {
 	}
 
 	static class MyCalendar {
-		
+		List<int[]> list;
+
+		public MyCalendar() {
+			list = new ArrayList<int[]>();
+		}
+
+		public boolean book(int start, int end) {
+			if (list.isEmpty()) {
+				list.add(new int[] { start, end });
+				return true;
+			} else {
+				for (int i = 0; i < list.size(); i++) {
+					int currStart = list.get(i)[0];
+					int currEnd = list.get(i)[1];
+
+					if (start >= currStart && start <= currEnd)
+						return false;
+					if (end >= currStart && end <= currEnd)
+						return false;
+				}
+
+				list.add(new int[] { start, end });
+				return true;
+			}
+		}
 	}
 
 }

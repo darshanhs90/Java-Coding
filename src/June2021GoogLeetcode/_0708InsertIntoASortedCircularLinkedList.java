@@ -22,6 +22,52 @@ public class _0708InsertIntoASortedCircularLinkedList {
 	};
 
 	public static Node insert(Node head, int insertVal) {
-		
+		Node newNode = new Node(insertVal);
+		if(head == null)
+		{
+			newNode.next = newNode;
+			return newNode;
+		}
+		else if(head.next == head)
+		{
+			head.next = newNode;
+			newNode.next =head;
+			return head;
+		}
+		else {
+			Node maxNode = head;
+			Node prev = head;
+			Node curr = head.next;
+			int count = 0;
+			
+			
+			while(count<2)
+			{
+				if(curr == head)
+					count++;
+				if(prev.val<=insertVal && curr.val>=insertVal)
+				{
+					prev.next = newNode;
+					newNode.next = curr;
+					return head;
+				}
+				
+				if(curr.val>=maxNode.val)
+				{
+					maxNode =curr;
+				}
+				
+				prev = curr;
+				curr = curr.next;
+			}
+			
+			prev = maxNode;
+			Node next= maxNode.next;
+			
+			
+			prev.next = newNode;
+			newNode.next = next;
+			return head;
+		}
 	}
 }

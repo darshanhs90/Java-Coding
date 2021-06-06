@@ -49,18 +49,16 @@ public class _0173BinarySearchTreeIterator {
 			addLeftNodes(root);
 		}
 
-		public void addLeftNodes(TreeNode root) {
-			while (root != null) {
-				stack.push(root);
-				root = root.left;
+		public void addLeftNodes(TreeNode tn) {
+			while (tn != null) {
+				stack.add(tn);
+				tn = tn.left;
 			}
 		}
 
 		public int next() {
 			TreeNode tn = stack.pop();
-			if (tn.right != null) {
-				addLeftNodes(tn.right);
-			}
+			addLeftNodes(tn.right);
 			return tn.val;
 		}
 

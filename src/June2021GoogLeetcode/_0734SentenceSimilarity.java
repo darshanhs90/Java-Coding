@@ -16,6 +16,32 @@ public class _0734SentenceSimilarity {
 	}
 
 	public static boolean areSentencesSimilar(String[] sentence1, String[] sentence2, List<List<String>> similarPairs) {
+		if (sentence1.length != sentence2.length)
+			return false;
+		HashMap<String, HashSet<String>> map = new HashMap<String, HashSet<String>>();
+		for (List<String> pairs : similarPairs) {
+			String src = pairs.get(0);
+			String dst = pairs.get(1);
+			if (!map.containsKey(src))
+				map.put(src, new HashSet<String>());
 
+			if (!map.containsKey(dst))
+				map.put(dst, new HashSet<String>());
+			map.get(src).add(dst);
+			map.get(dst).add(src);
+		}
+
+		for (int i = 0; i < sentence2.length; i++) {
+			String src = sentence1[i];
+			String dst = sentence2[i];
+
+			if (src.equals(dst))
+				continue;
+
+			if (map.containsKey(src) && map.get(src).contains(dst))
+				continue;
+			return false;
+		}
+		return true;
 	}
 }

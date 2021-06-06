@@ -13,6 +13,53 @@ public class _0224BasicCalculator {
 	}
 
 	public static int calculate(String s) {
-		
+		Queue<Character> q = new LinkedList<Character>();
+		for (int i = 0; i < s.length(); i++) {
+			char c = s.charAt(i);
+			if (c != ' ')
+				q.offer(c);
+		}
+		q.offer('+');
+		return calc(q);
+	}
+
+	public static int calc(Queue<Character> q) {
+		char prev = '+';
+		int prevNum = 0;
+		Stack<Integer> stack = new Stack<Integer>();
+		while (!q.isEmpty()) {
+			char c = q.poll();
+			if (Character.isDigit(c)) {
+				String str = c + "";
+				while (!q.isEmpty() && Character.isDigit(q.peek())) {
+					str += q.poll();
+				}
+				prevNum = Integer.parseInt(str);
+			} else if (c == '(') {
+				prevNum = calc(q);
+			} else {
+				if (prev == '+') {
+					stack.push(prevNum);
+				} else if (prev == '-') {
+					stack.push(-prevNum);
+				} else if (prev == '*') {
+					stack.push(stack.pop() * prevNum);
+				} else if (prev == '/') {
+					stack.push(stack.pop() / prevNum);
+				}
+
+				if (c == ')') {
+					break;
+				}
+
+				prev = c;
+				prevNum = 0;
+			}
+		}
+		int res = 0;
+		while (!stack.isEmpty()) {
+			res += stack.pop();
+		}
+		return res;
 	}
 }

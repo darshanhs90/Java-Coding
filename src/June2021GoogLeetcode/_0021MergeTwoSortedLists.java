@@ -52,7 +52,28 @@ public class _0021MergeTwoSortedLists {
 	}
 
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-		
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		while (l1 != null || l2 != null) {
+			if (l1 != null && l2 != null) {
+				if (l1.val < l2.val) {
+					op.next = new ListNode(l1.val);
+					l1 = l1.next;
+				} else {
+					op.next = new ListNode(l2.val);
+					l2 = l2.next;
+				}
+			} else if (l1 != null) {
+				op.next = new ListNode(l1.val);
+				l1 = l1.next;
+			} else {
+				op.next = new ListNode(l2.val);
+				l2 = l2.next;
+			}
+			op = op.next;
+		}
+		return opPtr.next;
+
 	}
 
 }

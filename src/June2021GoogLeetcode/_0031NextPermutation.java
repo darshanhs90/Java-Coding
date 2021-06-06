@@ -11,7 +11,40 @@ public class _0031NextPermutation {
 	}
 
 	public static void nextPermutation(int[] nums) {
-		s
+		int changeIndex = -1;
+		for (int i = nums.length - 2; i >= 0; i--) {
+			if (nums[i] < nums[i + 1]) {
+				changeIndex = i;
+				break;
+			}
+		}
+
+		if (changeIndex == -1) {
+			reverse(0, nums.length - 1, nums);
+		} else {
+			int i = changeIndex + 1;
+			for (i = changeIndex + 1; i < nums.length; i++) {
+				if (nums[i] <= nums[changeIndex]) {
+					break;
+				}
+			}
+			swap(changeIndex, i - 1, nums);
+			reverse(changeIndex + 1, nums.length - 1, nums);
+		}
+	}
+
+	public static void reverse(int left, int right, int[] nums) {
+		while (left < right) {
+			swap(left, right, nums);
+			left++;
+			right--;
+		}
+	}
+
+	public static void swap(int left, int right, int[] nums) {
+		int temp = nums[left];
+		nums[left] = nums[right];
+		nums[right] = temp;
 	}
 
 }

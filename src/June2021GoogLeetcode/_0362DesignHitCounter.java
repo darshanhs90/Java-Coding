@@ -31,7 +31,37 @@ public class _0362DesignHitCounter {
 	}
 
 	static class HitCounter {
-		
+		TreeMap<Integer, Integer> map;
+
+		/** Initialize your data structure here. */
+		public HitCounter() {
+			map = new TreeMap<Integer, Integer>();
+		}
+
+		/**
+		 * Record a hit.
+		 * 
+		 * @param timestamp - The current timestamp (in seconds granularity).
+		 */
+		public void hit(int timestamp) {
+			map.compute(timestamp, (k, v) -> v == null ? 1 : v + 1);
+		}
+
+		/**
+		 * Return the number of hits in the past 5 minutes.
+		 * 
+		 * @param timestamp - The current timestamp (in seconds granularity).
+		 */
+		public int getHits(int timestamp) {
+			int count = 0;
+			Integer key = map.floorKey(timestamp);
+			while (key != null && timestamp - key < 300) {
+				count += map.get(key);
+				key -= 1;
+				key = map.floorKey(key);
+			}
+			return count;
+		}
 	}
 
 }

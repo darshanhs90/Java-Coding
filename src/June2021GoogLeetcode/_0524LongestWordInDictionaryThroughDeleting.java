@@ -13,6 +13,29 @@ public class _0524LongestWordInDictionaryThroughDeleting {
 	}
 
 	public static String findLongestWord(String s, List<String> dictionary) {
-		
+		String longestWord = "";
+		for (String str : dictionary) {
+			if (isMatch(s, str)) {
+				if (str.length() > longestWord.length()) {
+					longestWord = str;
+				} else if (str.length() == longestWord.length() && str.compareTo(longestWord) < 0) {
+					longestWord = str;
+				}
+			}
+		}
+		return longestWord;
+	}
+
+	public static boolean isMatch(String s, String str) {
+		int sIndex = 0, strIndex = 0;
+		while (strIndex < str.length() && sIndex < s.length()) {
+			if (s.charAt(sIndex) == str.charAt(strIndex)) {
+				sIndex++;
+				strIndex++;
+			} else {
+				sIndex++;
+			}
+		}
+		return strIndex == str.length();
 	}
 }

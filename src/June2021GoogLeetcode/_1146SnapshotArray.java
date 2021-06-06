@@ -1,5 +1,6 @@
 package June2021GoogLeetcode;
 
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class _1146SnapshotArray {
@@ -20,7 +21,30 @@ public class _1146SnapshotArray {
 	}
 
 	static class SnapshotArray {
-		
+		TreeMap[] map;
+		int snapId;
+
+		public SnapshotArray(int length) {
+			map = new TreeMap[length];
+			snapId = 0;
+			for (int i = 0; i < length; i++) {
+				map[i] = new TreeMap<Integer, Integer>();
+				map[i].put(0, 0);
+			}
+		}
+
+		public void set(int index, int val) {
+			map[index].put(snapId, val);
+		}
+
+		public int snap() {
+			snapId++;
+			return snapId - 1;
+		}
+
+		public int get(int index, int snap_id) {
+			return (int) map[index].floorEntry(snap_id).getValue();
+		}
 	}
 
 }

@@ -15,7 +15,28 @@ public class _0528RandomPickWithWeight {
 	}
 
 	static class Solution {
-		
+		int[] w;
+		int total;
+
+		public Solution(int[] w) {
+			total = 0;
+			for (int i = 0; i < w.length; i++) {
+				total += w[i];
+				w[i] = total;
+			}
+			this.w = w;
+		}
+
+		public int pickIndex() {
+			double val = Math.random() * total;
+			int i = 0;
+			for (i = 0; i < w.length; i++) {
+
+				if (w[i] > val)
+					return i;
+			}
+			return i - 1;
+		}
 	}
 
 }
