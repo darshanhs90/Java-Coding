@@ -15,7 +15,25 @@ public class _0039CombinationSum {
 	}
 
 	public static List<List<Integer>> combinationSum(int[] candidates, int target) {
-		
+		Arrays.sort(candidates);
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+		dfs(0, 0, candidates, target, new ArrayList<Integer>(), output);
+		return output;
+	}
+
+	public static void dfs(int index, int sum, int[] candidates, int target, List<Integer> list,
+			List<List<Integer>> output) {
+		if (sum == target) {
+			output.add(new ArrayList<Integer>(list));
+			return;
+		}
+		if (index == candidates.length || sum > target)
+			return;
+		for (int i = index; i < candidates.length; i++) {
+			list.add(candidates[i]);
+			dfs(i, sum + candidates[i], candidates, target, list, output);
+			list.remove(list.size() - 1);
+		}
 	}
 
 }

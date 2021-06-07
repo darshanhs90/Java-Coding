@@ -1,5 +1,7 @@
 package June2021GoogLeetcode;
 
+import May2021GoogLeetcode._0024SwapNodesInPairs.ListNode;
+
 public class _0024SwapNodesInPairs {
 	static public class ListNode {
 		int val;
@@ -55,7 +57,31 @@ public class _0024SwapNodesInPairs {
 	}
 
 	public static ListNode swapPairs(ListNode head) {
-		
+		if (head == null || head.next == null)
+			return head;
+		ListNode op = new ListNode();
+		ListNode opPtr = op;
+		while (head != null && head.next != null) {
+			ListNode curr = head;
+			ListNode next = head.next;
+			ListNode nextNext = head.next.next;
+
+			op.next = next;
+			op = op.next;
+			op.next = curr;
+			op = op.next;
+
+			head = nextNext;
+		}
+
+		if (head != null) {
+			op.next = head;
+			op = op.next;
+		} else {
+			op.next = null;
+		}
+
+		return opPtr.next;
 	}
 
 }

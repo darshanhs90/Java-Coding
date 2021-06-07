@@ -12,7 +12,41 @@ public class _0018FourSum {
 	}
 
 	public static List<List<Integer>> fourSum(int[] nums, int target) {
-		
+		Arrays.sort(nums);
+		List<List<Integer>> output = new ArrayList<List<Integer>>();
+
+		for (int i = 0; i < nums.length; i++) {
+			if (i == 0 || nums[i] != nums[i - 1]) {
+				for (int j = i + 1; j < nums.length; j++) {
+					if (j == i + 1 || nums[j] != nums[j - 1]) {
+						int left = j + 1, right = nums.length - 1;
+
+						while (left < right) {
+							int sum = nums[i] + nums[j] + nums[left] + nums[right];
+
+							if (sum == target) {
+								List<Integer> list = new ArrayList<Integer>();
+								list.add(nums[i]);
+								list.add(nums[j]);
+								list.add(nums[left]);
+								list.add(nums[right]);
+								output.add(list);
+
+								left++;
+								right--;
+								while (left < right && nums[left] == nums[left - 1])
+									left++;
+							} else if (sum > target) {
+								right--;
+							} else {
+								left++;
+							}
+						}
+					}
+				}
+			}
+		}
+		return output;
 	}
 
 }

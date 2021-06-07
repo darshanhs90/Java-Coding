@@ -39,8 +39,38 @@ public class _0687LongestUnivaluePath {
 		}
 	}
 
+	static int max;
+
 	public static int longestUnivaluePath(TreeNode root) {
-	
+		max = 0;
+		if (root == null)
+			return 0;
+		helper(root);
+		return max - 1;
+	}
+
+	public static int helper(TreeNode root) {
+		if (root == null)
+			return 0;
+
+		int leftHelperVal = helper(root.left);
+		int rightHelperVal = helper(root.right);
+
+		int leftVal = 0, rightVal = 0;
+		if (root.left != null) {
+			if (root.left.val == root.val) {
+				leftVal = leftHelperVal;
+			}
+		}
+
+		if (root.right != null) {
+			if (root.right.val == root.val) {
+				rightVal = rightHelperVal;
+			}
+		}
+
+		max = Math.max(max, 1 + leftVal + rightVal);
+		return 1 + Math.max(leftVal, rightVal);
 	}
 
 }

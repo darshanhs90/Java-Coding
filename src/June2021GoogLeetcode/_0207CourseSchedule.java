@@ -14,6 +14,40 @@ public class _0207CourseSchedule {
 	}
 
 	public static boolean canFinish(int numCourses, int[][] prerequisites) {
-		
+		HashMap<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+		for (int i = 0; i < numCourses; i++) {
+			map.put(i, new ArrayList<Integer>());
+		}
+
+		for (int[] prereq : prerequisites) {
+			int src = prereq[0];
+			int dst = prereq[1];
+			map.get(src).add(dst);
+		}
+
+		int count = 0;
+		Queue<Integer> q = new LinkedList<Integer>();
+		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+			if (entry.getValue().size() == 0)
+				q.offer(entry.getKey());
+		}
+
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				int course = q.poll();
+				count++;
+
+				for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+					if (entry.getValue().contains(course)) {
+						entry.getValue().remove(Integer.valueOf(course));
+						if (entry.getValue().size() == 0)
+							q.offer(entry.getKey());
+					}
+				}
+			}
+		}
+
+		return count == numCourses;
 	}
 }

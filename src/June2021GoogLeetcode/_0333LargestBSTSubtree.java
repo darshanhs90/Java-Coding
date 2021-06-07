@@ -31,8 +31,48 @@ public class _0333LargestBSTSubtree {
 		}
 	}
 
-	public static int largestBSTSubtree(TreeNode root) {
+	static class Helper {
+		int min, max;
+		boolean valid;
+		int count;
 
+		public Helper(int min, int max, boolean valid, int count) {
+			this.min = min;
+			this.max = max;
+			this.count = count;
+			this.valid = valid;
+		}
+	}
+
+	static int maxVal;
+
+	public static int largestBSTSubtree(TreeNode root) {
+		maxVal = 0;
+		if (root == null)
+			return 0;
+		helperfn(root);
+		return maxVal;
+	}
+
+	public static Helper helperfn(TreeNode root) {
+		if (root == null) {
+			return new Helper(Integer.MIN_VALUE, Integer.MAX_VALUE, true, 0);
+		}
+
+		if (root.left == null && root.right == null) {
+			maxVal = Math.max(maxVal, 1);
+			return new Helper(root.val, root.val, true, 1);
+		}
+
+		Helper h1 = helperfn(root.left);
+		Helper h2 = helperfn(root.right);
+
+		if (h1.valid && h2.valid && root.val > h1.max && root.val < h2.min) {
+			maxVal = Math.max(maxVal, h1.count + h2.count + 1);
+			return new Helper(h1.min, h2.max, true, h1.count + h2.count + 1);
+		}
+
+		return new Helper(Integer.MIN_VALUE, Integer.MAX_VALUE, false, 0);
 	}
 
 }

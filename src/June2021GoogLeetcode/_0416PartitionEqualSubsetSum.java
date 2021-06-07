@@ -1,7 +1,5 @@
 package June2021GoogLeetcode;
 
-import java.util.Arrays;
-
 public class _0416PartitionEqualSubsetSum {
 
 	public static void main(String[] args) {
@@ -11,7 +9,26 @@ public class _0416PartitionEqualSubsetSum {
 	}
 
 	public static boolean canPartition(int[] nums) {
-	
+		int sum = 0;
+		for (int i = 0; i < nums.length; i++) {
+			sum += nums[i];
+		}
+
+		if (sum % 2 != 0)
+			return false;
+		return canSplit(0, nums, sum / 2);
+	}
+
+	public static boolean canSplit(int index, int[] nums, int sum) {
+		if (sum == 0)
+			return true;
+		if (sum < 0)
+			return false;
+		for (int i = index; i < nums.length; i++) {
+			if (canSplit(i + 1, nums, sum - nums[i]))
+				return true;
+		}
+		return false;
 	}
 
 }

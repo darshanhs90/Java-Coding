@@ -13,7 +13,26 @@ public class _0252MeetingRooms {
 	}
 
 	public static boolean canAttendMeetings(int[][] intervals) {
-		
+		Arrays.sort(intervals, new Comparator<int[]>() {
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				// TODO Auto-generated method stub
+				return o1[0] - o2[0];
+			}
+		});
+
+		Integer prevEnd = -1;
+		for (int[] interval : intervals) {
+			int currStart = interval[0];
+			int currEnd = interval[1];
+
+			if (currStart >= prevEnd) {
+				prevEnd = currEnd;
+			} else {
+				return false;
+			}
+		}
+		return true;
 	}
 
 }

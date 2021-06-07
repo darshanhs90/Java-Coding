@@ -1,7 +1,5 @@
 package June2021GoogLeetcode;
 
-import java.util.HashMap;
-
 public class _0169MajorityElement {
 
 	public static void main(String[] args) {
@@ -10,7 +8,19 @@ public class _0169MajorityElement {
 	}
 
 	public static int majorityElement(int[] nums) {
-		
+		int count = 0;
+		int major = 0;
+		for (int num : nums) {
+			if (count == 0) {
+				major = num;
+			}
+			if (major == num) {
+				count++;
+			} else {
+				count--;
+			}
+		}
+		return major;
 	}
 
 }

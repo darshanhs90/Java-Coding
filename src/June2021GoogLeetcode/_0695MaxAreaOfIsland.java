@@ -14,7 +14,33 @@ public class _0695MaxAreaOfIsland {
 		System.out.println(maxAreaOfIsland(new int[][] { new int[] { 0, 0, 0, 0, 0, 0, 0, 0 } }));
 	}
 
+	static int count;
+
 	public static int maxAreaOfIsland(int[][] grid) {
-		
+		if (grid == null || grid.length == 0)
+			return 0;
+		count = 0;
+		int max = 0;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[0].length; j++) {
+				if (grid[i][j] == 1) {
+					count = 0;
+					dfs(i, j, grid);
+					max = Math.max(max, count);
+				}
+			}
+		}
+		return max;
+	}
+
+	public static void dfs(int x, int y, int[][] grid) {
+		if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] != 1)
+			return;
+		count++;
+		grid[x][y] = 0;
+		dfs(x - 1, y, grid);
+		dfs(x + 1, y, grid);
+		dfs(x, y - 1, grid);
+		dfs(x, y + 1, grid);
 	}
 }

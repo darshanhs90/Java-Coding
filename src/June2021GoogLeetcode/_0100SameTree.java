@@ -1,5 +1,7 @@
 package June2021GoogLeetcode;
 
+import May2021GoogLeetcode._0100SameTree.TreeNode;
+
 public class _0100SameTree {
 	public static class TreeNode {
 		int val;
@@ -45,7 +47,11 @@ public class _0100SameTree {
 	}
 
 	public static boolean isSameTree(TreeNode p, TreeNode q) {
-		
+		if (p == null && q == null)
+			return true;
+		if (p == null || q == null)
+			return false;
+		return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 	}
 
 }

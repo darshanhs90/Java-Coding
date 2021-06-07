@@ -13,21 +13,23 @@ public class _0150EvaluateReversePolishNotation {
 
 	public static int evalRPN(String[] tokens) {
 		Stack<Integer> stack = new Stack<Integer>();
-		for (String str : tokens) {
-			if (str.equals("+")) {
+		for (String token : tokens) {
+			if (token.equals("+")) {
 				stack.push(stack.pop() + stack.pop());
-			} else if (str.equals("-")) {
-				int val1 = stack.pop();
-				int val2 = stack.pop();
-				stack.push(val2 - val1);
-			} else if (str.equals("*")) {
-				stack.push(stack.pop() * stack.pop());
-			} else if (str.equals("/")) {
-				int val1 = stack.pop();
-				int val2 = stack.pop();
-				stack.push(val2 / val1);
+			} else if (token.equals("-")) {
+				int valNew = stack.pop();
+				int valOld= stack.pop();
+				stack.push(valOld-valNew);
+			} else if (token.equals("*")) {
+				int valNew = stack.pop();
+				int valOld= stack.pop();
+				stack.push(valOld*valNew);
+			} else if (token.equals("/")) {
+				int valNew = stack.pop();
+				int valOld= stack.pop();
+				stack.push(valOld/valNew);
 			} else {
-				stack.push(Integer.parseInt(str));
+				stack.push(Integer.parseInt(token));
 			}
 		}
 		return stack.peek();

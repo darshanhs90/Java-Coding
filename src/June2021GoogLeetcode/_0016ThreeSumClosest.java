@@ -12,7 +12,26 @@ public class _0016ThreeSumClosest {
 	}
 
 	public static int threeSumClosest(int[] nums, int target) {
-	
+		int closest = Integer.MAX_VALUE;
+		Arrays.sort(nums);
+		for (int i = 0; i < nums.length; i++) {
+			int left = i + 1, right = nums.length - 1;
+
+			while (left < right) {
+				int sum = nums[i] + nums[left] + nums[right];
+
+				if (Math.abs(sum - target) < Math.abs(closest)) {
+					closest = sum - target;
+				}
+
+				if (sum > target) {
+					right--;
+				} else {
+					left++;
+				}
+			}
+		}
+		return closest+target;
 	}
 
 }

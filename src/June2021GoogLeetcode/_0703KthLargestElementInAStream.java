@@ -14,7 +14,25 @@ public class _0703KthLargestElementInAStream {
 	}
 
 	static class KthLargest {
-		
+		int k;
+		PriorityQueue<Integer> pq;
+
+		public KthLargest(int k, int[] nums) {
+			pq = new PriorityQueue<Integer>();
+			for (int i = 0; i < nums.length; i++) {
+				pq.offer(nums[i]);
+				if (pq.size() > k)
+					pq.poll();
+			}
+			this.k = k;
+		}
+
+		public int add(int val) {
+			pq.offer(val);
+			if (pq.size() > k)
+				pq.poll();
+			return pq.peek();
+		}
 	}
 
 }
