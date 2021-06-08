@@ -11,6 +11,22 @@ public class _0904FruitIntoBaskets {
 	}
 
 	public static int totalFruit(int[] tree) {
-		
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		int left = 0, right = 0, max = 0;
+		while (right < tree.length) {
+			int val = tree[right];
+			map.compute(val, (k, v) -> v == null ? 1 : v + 1);
+			while (map.size() > 2) {
+				val = tree[left];
+				map.put(val, map.get(val) - 1);
+
+				if (map.get(val) == 0)
+					map.remove(val);
+				left++;
+			}
+			max = Math.max(max, right - left + 1);
+			right++;
+		}
+		return max;
 	}
 }
