@@ -14,6 +14,33 @@ public class _0939MinimumAreaRectangle {
 	}
 
 	public static int minAreaRect(int[][] points) {
-		
+		HashMap<Integer, HashSet<Integer>> map = new HashMap<Integer, HashSet<Integer>>();
+		for (int[] point : points) {
+			int x = point[0];
+			int y = point[1];
+
+			if (!map.containsKey(x)) {
+				map.put(x, new HashSet<Integer>());
+			}
+			map.get(x).add(y);
+		}
+
+		int minArea = Integer.MAX_VALUE;
+		for (int i = 0; i < points.length; i++) {
+			int baseX = points[i][0];
+			int baseY = points[i][1];
+			for (int j = i + 1; j < points.length; j++) {
+				int currX = points[j][0];
+				int currY = points[j][1];
+
+				if (baseX == currX || baseY == currY)
+					continue;
+
+				if (map.get(baseX).contains(currY) && map.get(currX).contains(baseY)) {
+					minArea = Math.min(minArea, Math.abs(baseX - currX) * Math.abs(baseY - currY));
+				}
+			}
+		}
+		return minArea == Integer.MAX_VALUE ? 0 : minArea;
 	}
 }

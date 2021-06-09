@@ -13,7 +13,38 @@ public class _0465OptimalAccountBalancing {
 	}
 
 	public static int minTransfers(int[][] transactions) {
-	
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		for (int[] tr : transactions) {
+			int src = tr[0];
+			int dst = tr[1];
+			int val = tr[2];
+			if (!map.containsKey(src))
+				map.put(src, 0);
+			if (!map.containsKey(dst))
+				map.put(dst, 0);
+
+			map.put(src, map.get(src) - val);
+			map.put(dst, map.get(dst) + val);
+		}
+
+		return dfs(0, new ArrayList<Integer>(map.values()));
+	}
+
+	public static int dfs(int index, List<Integer> debt) {
+		while (index < debt.size() && debt.get(index) == 0)
+			index++;
+		if (index == debt.size())
+			return 0;
+		
+		int res = Integer.MAX_VALUE;
+		for (int i = index + 1; i < debt.size(); i++) {
+			if (debt.get(index) * debt.get(i) < 0) {
+				debt.set(i, debt.get(i) + debt.get(index));
+				res = Math.min(res, 1 + dfs(index + 1, debt));
+				debt.set(i, debt.get(i) - debt.get(index));
+			}
+		}
+		return res;
 	}
 
 }
