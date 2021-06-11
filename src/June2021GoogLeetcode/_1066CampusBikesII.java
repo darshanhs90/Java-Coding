@@ -16,6 +16,57 @@ public class _1066CampusBikesII {
 	}
 
 	public static int assignBikes(int[][] workers, int[][] bikes) {
-	
+		PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+
+			@Override
+			public int compare(int[] o1, int[] o2) {
+				int dist1 = o1[0];
+				int workerIndex1 = o1[1];
+				int bikeIndex1 = o1[2];
+
+				int dist2 = o2[0];
+				int workerIndex2 = o2[1];
+				int bikeIndex2 = o2[2];
+
+				if (dist1 == dist2) {
+					if (workerIndex1 == workerIndex2)
+						return bikeIndex1 - bikeIndex2;
+					return workerIndex1 - workerIndex2;
+				}
+
+				return dist1 - dist2;
+			}
+		});
+
+		int[] res = new int[workers.length];
+		HashSet<Integer> visitedBikes = new HashSet<Integer>();
+
+		for (int i = 0; i < workers.length; i++) {
+			int workerX = workers[i][0];
+			int workerY = workers[i][1];
+
+			for (int j = 0; j < bikes.length; j++) {
+				int bikeX = bikes[j][0];
+				int bikeY = bikes[j][1];
+
+				int dist = Math.abs(workerX - bikeX) + Math.abs(workerY - bikeY);
+				pq.offer(new int[] { dist, i, j });
+			}
+		}
+		Arrays.fill(res, -1);
+		int count = 0;
+		while (!pq.isEmpty()) {
+			int[] arr = pq.poll();
+			int dist = arr[0];
+			int workerIndex = arr[1];
+			int bikeIndex = arr[2];
+
+			if (res[workerIndex] == -1 && !visitedBikes.contains(bikeIndex)) {
+				res[workerIndex] = bikeIndex;
+				visitedBikes.add(bikeIndex);
+				count += dist;
+			}
+		}
+		return count;
 	}
 }

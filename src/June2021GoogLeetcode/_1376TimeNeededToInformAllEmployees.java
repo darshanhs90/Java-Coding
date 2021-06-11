@@ -1,8 +1,9 @@
 package June2021GoogLeetcode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class _1376TimeNeededToInformAllEmployees {
@@ -17,7 +18,36 @@ public class _1376TimeNeededToInformAllEmployees {
 	}
 
 	public static int numOfMinutes(int n, int headID, int[] manager, int[] informTime) {
+		HashMap<Integer, List<Integer>> childMap = new HashMap<Integer, List<Integer>>();
 
+		for (int i = 0; i < n; i++) {
+			childMap.put(i, new ArrayList<Integer>());
+		}
+
+		for (int j = 0; j < manager.length; j++) {
+			if (manager[j] != -1)
+				childMap.get(manager[j]).add(j);
+		}
+
+		int max = 0;
+		Queue<int[]> q = new LinkedList<int[]>();
+		q.offer(new int[] { headID, 0 });
+		while (!q.isEmpty()) {
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				int[] arr = q.poll();
+				int currNode = arr[0];
+				int time = arr[1];
+
+				max = Math.max(max, time);
+
+				List<Integer> childNodes = childMap.get(currNode);
+				for (Integer child : childNodes) {
+					q.offer(new int[] { child, time + informTime[currNode] });
+				}
+			}
+		}
+		return max;
 	}
 
 }

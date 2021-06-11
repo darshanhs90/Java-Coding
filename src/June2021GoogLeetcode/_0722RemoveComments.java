@@ -14,7 +14,38 @@ public class _0722RemoveComments {
 	}
 
 	public static List<String> removeComments(String[] source) {
-		
+		List<String> list = new ArrayList<String>();
+		boolean blockComment = false;
+		StringBuilder sb = new StringBuilder();
+		for (String str : source) {
+			for (int i = 0; i < str.length(); i++) {
+				char c = str.charAt(i);
+				if (blockComment) {
+					if (c == '*' && i + 1 < str.length() && str.charAt(i + 1) == '/') {
+						blockComment = false;
+						i++;
+					}
+				} else {
+					if (c == '/' && i + 1 < str.length() && str.charAt(i + 1) == '/') {
+						break;
+					}
+
+					if (c == '/' && i + 1 < str.length() && str.charAt(i + 1) == '*') {
+						blockComment = true;
+						i++;
+					} else {
+						sb.append(c);
+					}
+				}
+			}
+
+			if (!blockComment && sb.length() > 0) {
+				list.add(sb.toString());
+				sb = new StringBuilder();
+			}
+
+		}
+		return list;
 	}
 
 }

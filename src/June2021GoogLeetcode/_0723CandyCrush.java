@@ -12,6 +12,48 @@ public class _0723CandyCrush {
 	}
 
 	public static int[][] candyCrush(int[][] board) {
+		boolean found = false;
 
+		int rows = board.length;
+		int cols = board[0].length;
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				int baseVal = Math.abs(board[i][j]);
+				if (baseVal == 0)
+					continue;
+				if (i + 2 < rows && Math.abs(board[i + 1][j]) == baseVal && Math.abs(board[i + 2][j]) == baseVal) {
+					found = true;
+					board[i][j] = -1 * baseVal;
+					board[i + 1][j] = -1 * baseVal;
+					board[i + 2][j] = -1 * baseVal;
+				}
+
+				if (j + 2 < cols && Math.abs(board[i][j + 1]) == baseVal && Math.abs(board[i][j + 2]) == baseVal) {
+					found = true;
+					board[i][j] = -1 * baseVal;
+					board[i][j + 1] = -1 * baseVal;
+					board[i][j + 2] = -1 * baseVal;
+				}
+			}
+		}
+
+		if (found) {
+			for (int col = 0; col < cols; col++) {
+				int index = board.length - 1;
+				for (int row = board.length - 1; row >= 0; row--) {
+					if (board[row][col] > 0) {
+						board[index--][col] = board[row][col];
+					}
+				}
+
+				for (int j = 0; j <= index; j++) {
+					board[j][col] = 0;
+				}
+			}
+
+			return candyCrush(board);
+		}
+		return board;
 	}
 }

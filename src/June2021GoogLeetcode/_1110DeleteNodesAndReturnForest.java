@@ -44,6 +44,36 @@ public class _1110DeleteNodesAndReturnForest {
 	}
 
 	public static List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
-		
+		HashSet<Integer> set = new HashSet<Integer>();
+		for (int num : to_delete) {
+			set.add(num);
+		}
+
+		List<TreeNode> list = new ArrayList<TreeNode>();
+		helper(root, list, set);
+
+		if (!set.contains(root.val)) {
+			list.add(root);
+		}
+		return list;
+	}
+
+	public static TreeNode helper(TreeNode root, List<TreeNode> list, HashSet<Integer> set) {
+		if (root == null)
+			return null;
+		root.left = helper(root.left, list, set);
+		root.right = helper(root.right, list, set);
+
+		if (set.contains(root.val)) {
+			if (root.left != null) {
+				list.add(root.left);
+			}
+
+			if (root.right != null) {
+				list.add(root.right);
+			}
+			return null;
+		}
+		return root;
 	}
 }
