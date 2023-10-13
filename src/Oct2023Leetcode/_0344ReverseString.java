@@ -1,5 +1,7 @@
 package Oct2023Leetcode;
 
+import java.util.Arrays;
+
 public class _0344ReverseString {
 
 	public static void main(String[] args) {
@@ -8,6 +10,14 @@ public class _0344ReverseString {
 	}
 
 	public static void reverseString(char[] s) {
-s
+		int left = 0, right = s.length - 1;
+		while (left < right) {
+			char temp = s[right];
+			s[right] = s[left];
+			s[left] = temp;
+			left++;
+			right--;
+		}
+		System.out.println(Arrays.toString(s));
 	}
 }

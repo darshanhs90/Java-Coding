@@ -3,6 +3,8 @@ package LeetcodeTemplate;
 import java.util.Arrays;
 
 public class _0001TwoSum {
+	// Indent - cmd + shift + f
+	// run - cmd + r
 
 	public static void main(String[] args) {
 		System.out.println(Arrays.toString(twoSum(new int[] { 2, 7, 11, 15 }, 9)));
