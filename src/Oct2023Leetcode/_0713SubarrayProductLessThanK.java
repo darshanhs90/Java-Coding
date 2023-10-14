@@ -2,22 +2,24 @@ package Oct2023Leetcode;
 
 public class _0713SubarrayProductLessThanK {
 	public static void main(String[] args) {
-		MaxStack stk = new MaxStack();
-		stk.push(5); // [5] the top of the stack and the maximum number is 5.
-		stk.push(1); // [5, 1] the top of the stack is 1, but the maximum is 5.
-		stk.push(5); // [5, 1, 5] the top of the stack is 5, which is also the maximum, because it is
-						// the top most one.
-		System.out.println(stk.top()); // return 5, [5, 1, 5] the stack did not change.
-		System.out.println(stk.popMax()); // return 5, [5, 1] the stack is changed now, and the top is different from
-											// the
-		// max.
-		System.out.println(stk.top()); // return 1, [5, 1] the stack did not change.
-		System.out.println(stk.peekMax()); // return 5, [5, 1] the stack did not change.
-		System.out.println(stk.pop()); // return 1, [5] the top of the stack and the max element is now 5.
-		System.out.println(stk.top()); // return 5, [5] the stack did not change.
+		System.out.println(numSubarrayProductLessThanK(new int[] { 10, 5, 2, 6 }, 100));
+		System.out.println(numSubarrayProductLessThanK(new int[] { 1, 2, 3 }, 0));
+		System.out.println(numSubarrayProductLessThanK(new int[] { 1, 1, 1 }, 2));
 	}
 
-	static class MaxStack {
-
+	public static int numSubarrayProductLessThanK(int[] nums, int k) {
+		if (nums == null || nums.length == 0 || k <= 1)
+			return 0;
+		int count = 0;
+		int currProduct = 1, left = 0, right = 0;
+		for (right = 0; right < nums.length; right++) {
+			currProduct = currProduct * nums[right];
+			while (currProduct >= k) {
+				currProduct = currProduct / nums[left];
+				left++;
+			}
+			count += right - left + 1;
+		}
+		return count;
 	}
 }
