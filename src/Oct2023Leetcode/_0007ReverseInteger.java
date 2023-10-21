@@ -11,6 +11,22 @@ public class _0007ReverseInteger {
 	}
 
 	public static int reverse(int x) {
-		
+		boolean isNegative = false;
+		if (x < 0) {
+			isNegative = true;
+		}
+		StringBuilder sb = new StringBuilder(String.valueOf(x));
+		if (isNegative) {
+			sb.deleteCharAt(0);
+		}
+		String str = sb.reverse().toString();
+		if (isNegative) {
+			str = "-" + str;
+		}
+		try {
+			return Integer.parseInt(str);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 }

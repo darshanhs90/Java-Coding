@@ -13,5 +13,4 @@ public class _0005LongestPalindromicSubstring {
 	public static String longestPalindrome(String s) {
 
 	}
-
 }

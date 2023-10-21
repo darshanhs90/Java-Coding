@@ -11,7 +11,8 @@ public class _0009PalindromeNumber {
 	}
 
 	public static boolean isPalindrome(int x) {
-
+		String num = String.valueOf(x);
+		return num.equals(new StringBuilder(num).reverse().toString());
 	}
 
 }

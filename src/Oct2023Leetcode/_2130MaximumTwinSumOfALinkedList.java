@@ -1,6 +1,6 @@
 package Oct2023Leetcode;
 
-public class _0876MiddleOfTheLinkedList {
+public class _2130MaximumTwinSumOfALinkedList {
 	static public class ListNode {
 		int val;
 		ListNode next;
@@ -21,27 +21,16 @@ public class _0876MiddleOfTheLinkedList {
 	public static void main(String[] args) {
 		ListNode ln = new ListNode(1);
 		ln.next = new ListNode(2);
+		System.out.println(pairSum(ln));
 		ln.next.next = new ListNode(3);
 		ln.next.next.next = new ListNode(4);
+		System.out.println(pairSum(ln));
 		ln.next.next.next.next = new ListNode(5);
-		System.out.println(middleNode(ln).val);
-
 		ln.next.next.next.next.next = new ListNode(6);
-		System.out.println(middleNode(ln).val);
+		System.out.println(pairSum(ln));
 	}
 
-	public static ListNode middleNode(ListNode head) {
-		ListNode slowPtr = new ListNode(-1);
-		ListNode fastPtr = new ListNode(-1);
-		slowPtr.next = head;
-		fastPtr.next = head;
-		while (fastPtr != null) {
-			slowPtr = slowPtr.next;
-			fastPtr = fastPtr.next;
-			if (fastPtr != null)
-				fastPtr = fastPtr.next;
-		}
-		return slowPtr;
-	}
+	public static int pairSum(ListNode head) {
 
+	}
 }

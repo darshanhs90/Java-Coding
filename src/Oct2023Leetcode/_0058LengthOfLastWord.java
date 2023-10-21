@@ -8,7 +8,9 @@ public class _0058LengthOfLastWord {
 	}
 
 	public static int lengthOfLastWord(String s) {
-
+		s = s.trim();
+		String[] arr = s.split(" ");
+		return arr.length > 0 ? arr[arr.length - 1].length() : 0;
 	}
 
 }

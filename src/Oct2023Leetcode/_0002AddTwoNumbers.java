@@ -57,7 +57,43 @@ public class _0002AddTwoNumbers {
 	}
 
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+		if (l1 == null || l2 == null) {
+			return l1 == null ? l2 : l1;
+		}
+		ListNode ln = new ListNode(-1);
+		ListNode ptr = ln;
+		int carry = 0, val1 = 0, val2 = 0;
+		while (l1 != null || l2 != null) {
+			if (l1 != null) {
+				val1 = l1.val;
+				l1 = l1.next;
+			} else {
+				val1 = 0;
+			}
+			if (l2 != null) {
+				val2 = l2.val;
+				l2 = l2.next;
+			} else {
+				val2 = 0;
+			}
 
+			int sum = val1 + val2 + carry;
+			if (sum > 9) {
+				carry = 1;
+				sum = sum - 10;
+			} else {
+				carry = 0;
+			}
+			ListNode node = new ListNode(sum);
+			ln.next = node;
+			ln = ln.next;
+		}
+		if (carry != 0) {
+			ListNode node = new ListNode(carry);
+			ln.next = node;
+			ln = ln.next;
+		}
+		return ptr.next;
 	}
 
 }

@@ -40,7 +40,14 @@ public class _0206ReverseLinkedList {
 	}
 
 	public static ListNode reverseList(ListNode head) {
-
+		if (head == null || head.next == null)
+			return head;
+		ListNode curr = head;
+		ListNode next = curr.next;
+		ListNode rev = reverseList(next);
+		next.next = curr;
+		curr.next = null;
+		return rev;
 	}
 
 }

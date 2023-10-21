@@ -39,7 +39,18 @@ public class _0141LinkedListCycle {
 	}
 
 	public static boolean hasCycle(ListNode head) {
-	
+		ListNode slowPtr = new ListNode(-1);
+		ListNode fastPtr = new ListNode(-1);
+		slowPtr.next = head;
+		fastPtr.next = head;
+		while (slowPtr.next != null && fastPtr.next != null && slowPtr != fastPtr) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next;
+			if (fastPtr.next != null) {
+				fastPtr = fastPtr.next;
+			}
+		}
+		return slowPtr.next == null || fastPtr.next == null ? false : true;
 	}
 
 }
